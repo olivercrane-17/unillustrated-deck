@@ -17,7 +17,11 @@ export function lonelyCandidates(ctx, exclude = new Set()) {
   const out = []
   for (const p of ctx.pencils) {
     if (p.special === 'blender' || exclude.has(p.code)) continue
-    const last = stats[p.code]?.lastDealt ? Date.parse(stats[p.code].lastDealt) : installed
+    // The later of "last dealt" and "last drawn with": she may have picked it up
+    // through New colours or a swap.
+    const st = stats[p.code] || {}
+    const times = [st.lastDealt, st.lastUsed].filter(Boolean).map((t) => Date.parse(t))
+    const last = times.length ? Math.max(...times) : installed
     if (last && now - last >= LONELY_DAYS * DAY) out.push({ p, since: last })
   }
   return out

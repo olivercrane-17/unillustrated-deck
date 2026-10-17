@@ -324,3 +324,46 @@ describe('final review fixes', () => {
     expect(colourName('#C98A3E')).toBe('golden brown')
   })
 })
+
+describe('correctness review fixes', () => {
+  const seals = ['fur-robin', 'hearth-teapot', 'fur-wren'].map((cardId, i) => ({ cardId, createdAt: `2026-0${i + 3}-01T10:00:00Z` }))
+
+  it('swapping the twist to the Mirror keeps the whole reading compatible', () => {
+    const ctx = ctxFor({ history: { seals } })
+    let mirrors = 0
+    for (let seed = 0; seed < 300; seed++) {
+      let r = dealReading(ctx, { spread: 'big', seed })
+      for (let k = 0; k < 4; k++) {
+        r = swapCard(r, ctx, 'twist')
+        if (r.cards.twist !== 'twist-mirror') continue
+        mirrors++
+        const twist = by(r.cards.twist)
+        expect(r.oldFriend).toBeTruthy()
+        expect(subjectFitsPlace(by(r.cards.who), by(r.cards.where), r.season, { ignoreScale: twist?.effects?.scale === 'any' })).toBe(true)
+        expect(whenFitsPlace(by(r.cards.when), by(r.cards.where), r.season)).toBe(true)
+      }
+    }
+    expect(mirrors).toBeGreaterThan(0)
+  })
+
+  it('never deals the Mirror when no sealed card fits the season', () => {
+    const autumnOnly = [{ cardId: 'leaf-conker', createdAt: '2026-10-01T10:00:00Z' }]
+    const ctx = ctxFor({ history: { seals: autumnOnly }, date: new Date('2026-04-10T10:00:00') })
+    for (let seed = 0; seed < 200; seed++) expect(dealReading(ctx, { spread: 'big', seed }).cards.twist).not.toBe('twist-mirror')
+  })
+
+  it('a kept pencil survives New picture and the edits after it', () => {
+    const ctx = ctxFor({ set: '150' })
+    for (let seed = 0; seed < 60; seed++) {
+      let r = dealReading(ctx, { spread: 'evening', seed })
+      r = toggleLock(r, 0)
+      const kept = r.palette.pencils[0].code
+      r = newPicture(r, ctx)
+      expect(r.palette.pencils.some((p) => p.code === kept && p.locked)).toBe(true)
+      r = swapPencil(r, ctx, r.palette.pencils.findIndex((p) => !p.locked))
+      expect(r.palette.pencils.some((p) => p.code === kept)).toBe(true)
+      r = repaint(r, ctx)
+      expect(r.palette.pencils.some((p) => p.code === kept)).toBe(true)
+    }
+  })
+})

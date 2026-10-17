@@ -295,6 +295,6 @@ export function refitRoles({ pencils, codes, slots, mood }) {
     out.push({ code: p.code, slot: slot.key, role: slot.role })
     if (slot.kind === 'main') ctx.main = p
   }
-  for (const p of remaining) out.push({ code: p.code, slot: 'extra', role: 'for anything else in the picture' })
+  remaining.forEach((p, i) => out.push({ code: p.code, slot: `extra${i}`, role: 'for anything else in the picture' }))
   return out
 }

@@ -25,7 +25,13 @@ route('settings', () => import('./ui/settings.js'), { nav: 'settings', title: 'S
 async function boot() {
   await init()
   applyDocumentSettings()
-  subscribe((what) => { if (what === 'settings') applyDocumentSettings() })
+  subscribe((what) => {
+    if (what === 'settings') applyDocumentSettings()
+    // Said once per session: changes can't be kept, so she can save a copy.
+    if (what === 'storage-error') {
+      import('./ui/feedback.js').then(({ toast }) => toast('This device is out of room, so changes aren’t being kept. Save a copy in Settings.', { action: 'Settings', duration: 15000, onAction: () => { location.hash = '#/settings' } }))
+    }
+  })
   startApp(document.getElementById('app'))
   registerServiceWorker()
 }

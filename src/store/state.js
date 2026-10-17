@@ -97,9 +97,18 @@ export async function init() {
   emit('ready')
 }
 
+let warnedStorage = false
+function storageFailed(e) {
+  console.error('Save failed', e)
+  if (!warnedStorage) {
+    warnedStorage = true
+    emit('storage-error')
+  }
+}
+
 async function persist(store, value) {
   if (!state.storageOk) return
-  try { await db.put(store, value) } catch (e) { console.error('Save failed', e) }
+  try { await db.put(store, value) } catch (e) { storageFailed(e) }
 }
 
 // ---------------------------------------------------------------------------
@@ -208,7 +217,15 @@ export function engineContext(date = new Date()) {
 const readingId = (r) => `r${Date.parse(r.createdAt).toString(36)}${r.seed.toString(36)}`
 
 export async function saveReading(reading, { makeCurrent = true } = {}) {
+  const before = reading.id && state.readings.get(reading.id)
   if (!reading.id) reading.id = readingId(reading)
+  // Pencils that arrive through New colours, a swap or New picture count as
+  // dealt, so a lonely-pencil note never contradicts what she has just seen.
+  if (before?.palette) {
+    const had = new Set(before.palette.pencils.map((p) => p.code))
+    const arrived = (reading.palette?.pencils || []).map((p) => p.code).filter((c) => !had.has(c))
+    if (arrived.length) touchStats(arrived, 'lastDealt')
+  }
   reading.updatedAt = new Date().toISOString()
   state.readings.set(reading.id, reading)
   await persist('readings', reading)
@@ -231,7 +248,7 @@ async function touchStats(codes, field) {
     changed.push(s)
   }
   if (state.storageOk && changed.length) {
-    try { await db.putMany('pencilStats', changed) } catch (e) { console.error(e) }
+    try { await db.putMany('pencilStats', changed) } catch (e) { storageFailed(e) }
   }
 }
 
@@ -340,6 +357,7 @@ export async function recordDrawn(reading, { image, thumb } = {}) {
   }
   if (hasPhoto && !faceSealFor(cardId)) seal.isFace = true
   const updated = { ...reading, status: hasPhoto ? 'sealed' : 'drawn', finishedAt: now }
+  if (!state.storageOk && hasPhoto) memoryImages.set(id, { image, thumb })
   if (state.storageOk) {
     await db.batch(['seals', 'images', 'readings'], (store) => {
       const ops = [store('seals').put(seal), store('readings').put(updated)]
@@ -391,13 +409,19 @@ export async function deleteSeal(sealId) {
 
 // Object URLs for stored images, cached so the gallery doesn't flicker.
 const urlCache = new Map()
+// Photos sealed while the browser refuses storage last for this session.
+const memoryImages = new Map()
+
+export function storageAvailable() {
+  return state.storageOk
+}
 
 export async function imageUrl(imageId, which = 'thumb') {
   if (!imageId) return ''
   const key = `${imageId}:${which}`
   if (urlCache.has(key)) return urlCache.get(key)
   try {
-    const rec = await db.get('images', imageId)
+    const rec = memoryImages.get(imageId) || (state.storageOk ? await db.get('images', imageId) : null)
     const blob = rec?.[which] || rec?.image
     if (!blob) return ''
     const url = URL.createObjectURL(blob)

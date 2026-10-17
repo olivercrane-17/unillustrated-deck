@@ -151,9 +151,19 @@ function pickAlso(ctx, rng, { who, where, twist, season, exclude = [] }) {
   return pickFresh(rng, ctx.content.subjects, weightOf, ctx, 'also', exclude)
 }
 
-function pickTwist(ctx, rng, { exclude = [] }) {
-  const hasSeals = sealedSubjectIds(ctx).length > 0
-  const weightOf = (t) => (t.effects?.requires === 'seal' && !hasSeals ? 0 : 1)
+// The Mirror ("draw this again") is only dealt when one of her sealed cards
+// can really be dealt in this spread and season.
+function friendFits(ctx, spread, season) {
+  return sealedSubjectIds(ctx).some((id) => {
+    const s = ctx.content.byId.get(id)
+    if (!s) return false
+    return spread === 'quick' ? usableDoings(s, undefined, season).length > 0 : placesFor(ctx, s, null, season).length > 0
+  })
+}
+
+function pickTwist(ctx, rng, { exclude = [], spread = 'big', season = null }) {
+  const canMirror = friendFits(ctx, spread, season)
+  const weightOf = (t) => (t.effects?.requires === 'seal' && !canMirror ? 0 : 1)
   return pickFresh(rng, ctx.content.twists, weightOf, ctx, 'twist', exclude)
 }
 
@@ -260,6 +270,14 @@ function rebuildPalette(reading, ctx, { keepSlots = [], avoid = [] } = {}) {
     }
   }
   const dealt = dealPalette({ pencils: ctx.pencils, slots, mood, rule, keep, avoid, allowMetallic, rng: paletteRng(reading) })
+  // A kept pencil whose slot no longer exists (after "New picture") still stays.
+  const dealtCodes = new Set(dealt.pencils.map((p) => p.code))
+  for (const p of reading.palette?.pencils || []) {
+    if (p.locked && !dealtCodes.has(p.code) && ctx.pencilsByCode.has(p.code)) {
+      dealt.pencils.push({ code: p.code, slot: p.slot, role: p.role })
+      locked.add(p.code)
+    }
+  }
   const twist = reading.cards.twist && ctx.content.byId.get(reading.cards.twist)
   reading.palette = {
     name: '',
@@ -384,8 +402,14 @@ function dealCards(ctx, reading, { fixedWho, fixedTwist } = {}) {
     twist = fixedTwist || undefined
     if (twist) cards.twist = twist.id
   } else if (spread === 'big' || (spread === 'evening' && rngFor('twist-chance')() < EVENING_TWIST_CHANCE)) {
-    twist = pickTwist(ctx, rngFor('twist'), {})
+    twist = pickTwist(ctx, rngFor('twist'), { spread, season })
     if (twist) cards.twist = twist.id
+  }
+  if (fixedWho && twist?.effects?.requires === 'seal') {
+    twist = pickTwist(ctx, rngFor('twist', 'no-mirror'), { spread, season, exclude: [twist.id] })
+    if (twist?.effects?.requires === 'seal') twist = undefined
+    if (twist) cards.twist = twist.id
+    else delete cards.twist
   }
   const forceOldFriend = twist?.effects?.requires === 'seal'
   const whoPick = fixedWho
@@ -460,7 +484,8 @@ export function buildContext({ content, pencils, date = new Date(), hemisphere =
 
 export function dealReading(ctx, { spread = 'evening', seed, fixedWho, fixedTwist, lonely = true } = {}) {
   if (!SPREADS[spread]) throw new Error(`Unknown spread ${spread}`)
-  if (!ctx.pencils.length) throw new Error('The tin is empty')
+  // The blender is never dealt as a colour, so a blender-only tin is empty too.
+  if (!ctx.pencils.some((p) => p.special !== 'blender')) throw new Error('The tin is empty')
   const reading = {
     v: 1,
     seed: seed >>> 0,
@@ -517,7 +542,7 @@ export function swapCard(reading, ctx, position) {
   let where = r.cards.where && byId.get(r.cards.where)
   let when = r.cards.when && byId.get(r.cards.when)
   const keepSlots = ['main', 'setting', 'accent', 'complement', 'dark', 'light']
-  const drop = (...keys) => keys.forEach((k) => keepSlots.splice(keepSlots.indexOf(k), 1))
+  const drop = (...keys) => keys.forEach((k) => { const i = keepSlots.indexOf(k); if (i >= 0) keepSlots.splice(i, 1) })
 
   if (position === 'theme') {
     const theme = pickTheme(ctx, rng, { season, exclude: [r.cards.theme] })
@@ -556,13 +581,18 @@ export function swapCard(reading, ctx, position) {
     if (next) r.cards.also = next.id
     drop('accent')
   } else if (position === 'twist') {
-    const next = pickTwist(ctx, rng, { exclude: [r.cards.twist] })
+    const next = pickTwist(ctx, rng, { exclude: [r.cards.twist], spread: r.spread, season })
     if (next) r.cards.twist = next.id
     keepSlots.length = 0
   }
 
-  // Repair anything the swap made incompatible.
+  // Repair anything the swap made incompatible. The Mirror comes first: it
+  // changes the Who, and the place, hour and companion must then fit it.
   const twistNow = r.cards.twist && byId.get(r.cards.twist)
+  if (twistNow?.effects?.requires === 'seal' && !r.oldFriend) {
+    const friend = pickWho(ctx, subRng(r.seed, 'repair-who', r.swaps[position]), { spread: r.spread, twist: twistNow, season, forceOldFriend: true })
+    if (friend.oldFriend) { r.cards.who = friend.card.id; r.oldFriend = friend.oldFriend; who = friend.card; drop('main', 'accent') }
+  }
   if (where && !subjectFitsPlace(who, where, season, { ignoreScale: ignoreScaleFor(twistNow) })) {
     where = pickWhere(ctx, subRng(r.seed, 'repair-where', r.swaps[position]), { who, twist: twistNow, season }) || where
     r.cards.where = where.id
@@ -581,11 +611,6 @@ export function swapCard(reading, ctx, position) {
       else delete r.cards.also
       drop('accent')
     }
-  }
-  if (twistNow?.effects?.requires === 'seal' && !r.oldFriend) {
-    // A Mirror twist needs one of her own cards in the Who position.
-    const friend = pickWho(ctx, subRng(r.seed, 'repair-who', r.swaps[position]), { spread: r.spread, twist: twistNow, season, forceOldFriend: true })
-    if (friend.oldFriend) { r.cards.who = friend.card.id; r.oldFriend = friend.oldFriend; who = friend.card }
   }
 
   // Phrases that depend on the changed cards.
@@ -653,12 +678,22 @@ export function newPicture(reading, ctx) {
     if (oldTwist?.effects?.palette || !twist?.effects?.palette) break
   }
   fresh.swaps.picture = n
-  if (fresh.palette.rule) return renderText(fresh, ctx)
+  const who = fresh.cards.who && byId.get(fresh.cards.who)
+  if (fresh.palette.rule) {
+    // Same rule, same pencils: keep every pencil whose slot still exists.
+    fresh.palette.pencils = reading.palette.pencils.map((p) => ({ ...p }))
+    rebuildPalette(fresh, ctx, { keepSlots: reading.palette.pencils.map((p) => p.slot) })
+    if (!fresh.palette.fixed) {
+      const slotMap = new Map(paletteSlots(fresh, ctx).slots.map((sl) => [sl.key, sl]))
+      fresh.palette.pencils = fresh.palette.pencils.map((p) => ({ ...p, role: plainRoleIfOff(p, slotMap.get(p.slot), ctx, who) }))
+    }
+    fresh.palette.name = reading.palette.name
+    return renderText(fresh, ctx)
+  }
   const codes = reading.palette.pencils.map((p) => p.code)
   const { slots, mood } = paletteSlots(fresh, ctx)
   const locked = new Set(reading.palette.pencils.filter((p) => p.locked).map((p) => p.code))
   const refit = refitRoles({ pencils: ctx.pencils, codes, slots, mood })
-  const who = fresh.cards.who && byId.get(fresh.cards.who)
   const slotByKey = new Map(slots.map((sl) => [sl.key, sl]))
   fresh.palette.pencils = refit.map((p) => ({ ...p, role: plainRoleIfOff(p, slotByKey.get(p.slot), ctx, who), locked: locked.has(p.code) }))
   fresh.palette.bareLights = !fresh.palette.pencils.some((p) => (ctx.pencilsByCode.get(p.code)?.lch.L ?? 0) > 0.84)

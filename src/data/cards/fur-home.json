@@ -10,16 +10,17 @@
       { "t": "is asleep with one paw over its eyes", "scope": "any" },
       { "t": "is dozing with its tail wrapped round its feet", "scope": "any" },
       { "t": "is sitting with all four paws tucked under it", "scope": "any" },
-      { "t": "is sitting up tall with its ears pricked forward", "scope": "any" },
-      { "t": "is kneading a crocheted blanket with its front paws", "scope": "indoor" }
+      { "t": "is sitting up tall with its ears pricked forward", "scope": "any", "close": ["Only the cat's face, with the M on its forehead in the middle of the page.", "Just the tabby, sitting tall, from its ears to its front paws."], "firstMark": ["Start with the M on the forehead in short, sharp strokes of {dark}."] },
+      { "t": "is kneading with its front paws, eyes half closed", "scope": "indoor" }
     ],
-    "close": ["Just the tabby, side on, filling the page.", "Only the cat's face, with the M on its forehead in the middle of the page."],
+    "close": ["Just the tabby, side on, filling the page.", "Only the tabby, close up, so every stripe on its coat shows."],
     "scale": "small",
     "habitats": ["home", "tabletop", "garden", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#8C6A47", "#3B2E24", "#D8C2A0"],
     "accent": "#D99A8E",
+    "colourWords": ["brown", "dark brown", "sand", "pink"],
     "texture": "fur",
     "roles": {
       "main": "for the warm brown coat",
@@ -40,10 +41,10 @@
       { "t": "is batting at a ball of wool with one paw", "scope": "any" },
       { "t": "is chasing the tip of its own tail", "scope": "any" },
       { "t": "is asleep on its back with its paws in the air", "scope": "any" },
-      { "t": "is peeping out of a paper bag", "scope": "indoor" },
+      { "t": "is peeping out of a paper bag", "scope": "indoor", "firstMark": ["Start with the ears: two pointed triangles of {main} poking over the top of the bag."] },
       { "t": "is pouncing on a fallen leaf", "scope": "outdoor", "seasons": ["autumn"] }
     ],
-    "close": ["Just the kitten, drawn big, with nothing behind it.", "Only the kitten's face, drawn so big that the whiskers run off the page."],
+    "close": ["Just the kitten, drawn big, with nothing behind it.", "Only the kitten, close up, so its stripes fill the page."],
     "scale": "small",
     "habitats": ["home", "tabletop", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -68,12 +69,12 @@
     "phrases": ["glossy black fur", "bright green eyes", "a blue shine along the back"],
     "doing": [
       { "t": "is sitting very upright with its tail over its toes", "scope": "any" },
-      { "t": "is staring up with wide green eyes", "scope": "any" },
+      { "t": "is staring up with wide green eyes", "scope": "any", "close": ["Only the cat's face, with its two green eyes in the middle of the page.", "Just the black cat, with a thin rim of light along its back."], "firstMark": ["Start with the eyes: two almond shapes of {accent}, then build {main} up around them.", "Start with the eyes: leave two almond shapes of bare paper, then build {main} up around them."] },
       { "t": "is washing one back leg stuck up in the air", "scope": "any" },
       { "t": "is walking along with its tail held straight up", "scope": "any" },
-      { "t": "is winding round a pair of muddy wellies", "scope": "indoor" }
+      { "t": "is having a big stretch with its front paws out", "scope": "any" }
     ],
-    "close": ["Just the black cat, with a thin rim of light along its back.", "Only the cat's face, with its two green eyes in the middle of the page."],
+    "close": ["Just the black cat, with a thin rim of light along its back.", "Only the black cat, with plenty of white paper round it."],
     "scale": "small",
     "habitats": ["home", "garden", "village", "tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -87,7 +88,7 @@
       "light": "for the blue shine on the back and the whiskers",
       "accent": "for the green eyes"
     },
-    "firstMark": ["Start with the shine: leave a strip of bare paper along the back, then lay {main} all around it.", "Start with the green eyes, then build {main} up around them so the green stands out."]
+    "firstMark": ["Start with the shine: leave a strip of bare paper along the back, then lay {main} all around it.", "Start with the eyes: two almond shapes of {accent}, then build {main} up around them."]
   },
   {
     "id": "fur-springer-spaniel",
@@ -99,17 +100,18 @@
     "doing": [
       { "t": "is shaking itself dry with its ears flying", "scope": "any" },
       { "t": "is carrying a stick far too big for it", "scope": "any" },
-      { "t": "is sitting and looking up with big brown eyes", "scope": "any" },
-      { "t": "is lying flat out on its side, fast asleep", "scope": "any" },
+      { "t": "is sitting and looking up with big brown eyes", "scope": "any", "close": ["Just the spaniel's head, curly ears and all."] },
+      { "t": "is lying flat out on its side, fast asleep", "scope": "any", "roles": { "accent": "for the pink skin showing on its tummy" } },
       { "t": "is sniffing the ground with its tail wagging", "scope": "outdoor" }
     ],
-    "close": ["Just the spaniel's head, curly ears and all.", "Only the spaniel, side on, from its nose to its tail."],
+    "close": ["Just the spaniel, drawn big, with its long curly ears.", "Only the spaniel, side on, from its nose to its tail."],
     "scale": "medium",
     "habitats": ["home", "garden", "village", "meadow", "water"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#6B3523", "#F1ECE3"],
     "accent": "#D9777C",
+    "colourWords": ["chestnut", "cream", "pink"],
     "texture": "fur",
     "roles": {
       "main": "for the dark brown ears and patches",
@@ -128,12 +130,12 @@
     "phrases": ["a long body on short legs", "smooth chestnut coat", "long floppy ears"],
     "doing": [
       { "t": "is trotting along with its ears bouncing", "scope": "any" },
-      { "t": "is sitting up to beg with its front paws dangling", "scope": "any" },
+      { "t": "is sitting up to beg with its front paws dangling", "scope": "any", "close": ["Only the dachshund, tall and thin down the middle of the page."] },
       { "t": "is lying stretched out flat on its tummy", "scope": "any" },
-      { "t": "is under a blanket with only its tail showing", "scope": "indoor" },
-      { "t": "is wearing a stripy knitted jumper", "scope": "any", "seasons": ["autumn", "winter"] }
+      { "t": "is under a blanket with only its tail showing", "scope": "indoor", "firstMark": ["Start with the tail: one thin, curving line of {main} poking out from under the blanket."], "roles": { "accent": "for the blanket" } },
+      { "t": "is wearing a stripy knitted jumper", "scope": "any", "seasons": ["autumn", "winter"], "roles": { "accent": "for the stripes on the jumper" } }
     ],
-    "close": ["Just the dachshund, side on, stretching all the way across the page.", "Only the dachshund's head, with its long ears hanging down."],
+    "close": ["Just the dachshund, side on, stretching all the way across the page.", "Only the dachshund, with plain paper all round it."],
     "scale": "medium",
     "habitats": ["home", "garden", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -157,27 +159,27 @@
     "the": "the old sheepdog",
     "phrases": ["black and white coat", "one ear up, one ear down", "a greying muzzle"],
     "doing": [
-      { "t": "is lying chin on paws with one eye open", "scope": "any" },
+      { "t": "is lying chin on paws with one eye open", "scope": "any", "close": ["Just the old dog's head on its paws, with its one open eye."], "firstMark": ["Start with the nose: a damp, rounded shape of {dark} at the end of the muzzle."] },
       { "t": "is fast asleep on its side, legs stretched out", "scope": "any" },
       { "t": "is lying down and wagging its tail", "scope": "any" },
-      { "t": "is sitting up straight with its head held high", "scope": "any" },
+      { "t": "is sitting up straight with its head held high", "scope": "any", "close": ["Just the old dog's head, with its greying muzzle and brown eyes."], "firstMark": ["Start with the eyes: two small dots of {dark}, each with a speck of paper left for the shine."] },
       { "t": "is crouched low, staring at a hen", "scope": "outdoor" }
     ],
-    "close": ["Just the old dog's head, with its grey muzzle and brown eyes.", "Only the sheepdog, from the tips of its ears down to its paws."],
+    "close": ["Just the old sheepdog, side on, with plain paper all round it.", "Only the sheepdog, from the tips of its ears down to its paws."],
     "scale": "medium",
     "habitats": ["farm", "meadow", "home", "hedgerow"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#26221F", "#EFEBE3", "#A39D95"],
-    "accent": "#8E5B2C",
+    "accent": "#A39D95",
     "texture": "fur",
     "roles": {
       "main": "for the black coat",
       "dark": "for the deepest fur and the nose",
       "light": "for the white chest and paws",
-      "accent": "for the brown eyes"
+      "accent": "for the greying muzzle, pressed lightly"
     },
-    "firstMark": ["Start with the eyes: two warm brown circles, each ringed with {dark}.", "Start with the white chest: colour {main} round it and leave the white as bare paper."]
+    "firstMark": ["Start with the nose: a damp, rounded shape of {dark} at the end of the muzzle.", "Start with the white chest: colour {main} round it and leave the white as bare paper."]
   },
   {
     "id": "fur-speckled-hen",
@@ -189,11 +191,11 @@
     "doing": [
       { "t": "is scratching about with one foot raised", "scope": "any" },
       { "t": "is standing beside a freshly laid egg", "scope": "any" },
-      { "t": "is tilting her head to look at a beetle", "scope": "any" },
+      { "t": "is tilting her head to look at a beetle", "scope": "any", "close": ["Only the hen's head, with her red comb and her orange eye.", "Just the hen, side on, with every speckle drawn."] },
       { "t": "is taking a dust bath with her wings spread out", "scope": "outdoor" },
       { "t": "is sitting on a nest of eggs", "scope": "any", "seasons": ["spring", "summer"] }
     ],
-    "close": ["Just the hen, side on, with every speckle drawn.", "Only the hen's head, with her red comb and her orange eye."],
+    "close": ["Just the hen, side on, with every speckle drawn.", "Only the hen, plump and round, with plain paper all round her."],
     "scale": "small",
     "habitats": ["farm", "garden", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -202,12 +204,12 @@
     "accent": "#C8322B",
     "texture": "feather",
     "roles": {
-      "main": "for the red-brown feathers",
-      "dark": "for the black bar near the tip of each feather",
+      "main": "for the chestnut feathers",
+      "dark": "for the dark bar near the tip of each feather",
       "light": "for the white speckles",
       "accent": "for the red comb"
     },
-    "firstMark": ["Start with the eye: a small orange circle with a dot of {dark} in the middle.", "Start with the speckles: leave small dots of bare paper and work {main} in around each one."]
+    "firstMark": ["Start with the comb: a row of rounded bumps of {accent} along the top of the head.", "Start with the speckles: leave small dots of bare paper and work {main} in around each one."]
   },
   {
     "id": "fur-box-of-chicks",
@@ -222,7 +224,7 @@
       { "t": "has one chick trying to climb over the side", "scope": "any" },
       { "t": "has one chick standing on another's back", "scope": "any" }
     ],
-    "close": ["Just one chick from the box, round and fluffy, drawn big.", "Only the box, seen from above, with the chicks inside."],
+    "close": ["Just the box and its chicks, with plain paper round it.", "Only the box, seen from above, with the chicks inside."],
     "scale": "small",
     "habitats": ["home", "farm"],
     "seasons": ["spring"],
@@ -236,7 +238,7 @@
       "light": "for the fluffiest tops of the heads",
       "accent": "for the orange beaks and feet"
     },
-    "firstMark": ["Start with the eyes: one sharp dot of {dark} for each chick, before any fluff.", "Start with the inside corners of the box in {dark}, so the yellow chicks stand out against it."]
+    "firstMark": ["Start with the beaks: one small triangle of {accent} for each chick.", "Start with the inside corners of the box in {dark}, so the yellow chicks stand out against it."]
   },
   {
     "id": "fur-lamb",
@@ -249,10 +251,10 @@
       { "t": "is jumping straight up with all four legs stiff", "scope": "any" },
       { "t": "is drinking milk from a bottle, tail wagging", "scope": "any" },
       { "t": "is lying down with its legs tucked beneath it", "scope": "any" },
-      { "t": "is head-butting its twin", "scope": "any" },
-      { "t": "is bleating with its mouth wide open", "scope": "any" }
+      { "t": "is head-butting its twin", "scope": "any", "close": ["Just the two lambs, head to head, with plain paper round them."] },
+      { "t": "is bleating with its mouth wide open", "scope": "any", "close": ["Only the lamb's face, with its ears sticking straight out sideways."], "firstMark": ["Start with the eyes: two dark sideways ovals of {dark}, set wide apart on the face."] }
     ],
-    "close": ["Just the lamb, side on, from its nose to its tail.", "Only the lamb's face, with its ears sticking straight out sideways."],
+    "close": ["Just the lamb, side on, from its nose to its tail.", "Only the lamb, with plenty of plain paper round it."],
     "scale": "medium",
     "habitats": ["farm", "meadow", "hedgerow"],
     "seasons": ["spring"],
@@ -278,11 +280,11 @@
     "doing": [
       { "t": "is nosing about with its snout down", "scope": "any" },
       { "t": "is trotting along on its small pointed feet", "scope": "any" },
-      { "t": "is munching an apple with its eyes half closed", "scope": "any" },
+      { "t": "is munching an apple with its eyes half closed", "scope": "any", "close": ["Just the pig's face, snout first, with its ears tipped forward."] },
       { "t": "is snoozing with its ears flopped over its eyes", "scope": "any" },
       { "t": "is wallowing in mud up to its chin", "scope": "outdoor" }
     ],
-    "close": ["Just the pig's face, snout first, with its ears tipped forward.", "Only the pig, side on, from the end of its snout to the curl of its tail."],
+    "close": ["Just the pig, drawn big, with every black spot.", "Only the pig, side on, from the end of its snout to the curl of its tail."],
     "scale": "medium",
     "habitats": ["farm", "meadow"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -292,7 +294,7 @@
     "texture": "skin",
     "roles": {
       "main": "for the pale pink skin",
-      "dark": "for the black spots and the shadow under the belly",
+      "dark": "for the spots and the shadow under the belly",
       "light": "for the light along the back and ears",
       "accent": "for the darker pink snout"
     },
@@ -308,9 +310,9 @@
     "doing": [
       { "t": "is peering out through its fringe", "scope": "any" },
       { "t": "is chewing, with grass sticking out of its mouth", "scope": "any" },
-      { "t": "is lying down with its legs folded under", "scope": "any" },
+      { "t": "is lying down with its legs folded under", "scope": "any", "close": ["Only the cow, lying down, from its horns to its tail."] },
       { "t": "is licking its nose with its long tongue", "scope": "any" },
-      { "t": "is standing beside its fluffy calf", "scope": "any", "seasons": ["spring", "summer"] }
+      { "t": "is standing beside its fluffy calf", "scope": "any", "seasons": ["spring", "summer"], "close": ["Just the cow and her calf, side by side, with plain paper round them."] }
     ],
     "close": ["Just the cow's head, from the tips of its horns to its wet black nose.", "Only the cow, side on, from its horns to its tail."],
     "scale": "large",
@@ -339,16 +341,17 @@
       { "t": "is balancing on top of an upturned bucket", "scope": "any" },
       { "t": "is bouncing sideways on stiff legs", "scope": "any" },
       { "t": "is nibbling the frayed end of a rope", "scope": "any" },
-      { "t": "is bleating with its tongue sticking out", "scope": "any" },
+      { "t": "is bleating with its tongue sticking out", "scope": "any", "close": ["Only the baby goat's face, looking straight at you."], "firstMark": ["Start with the eye: a small oval with a flat bar of {dark} across the middle."] },
       { "t": "is standing on its back legs to reach a leaf", "scope": "outdoor" }
     ],
-    "close": ["Just the baby goat, side on, on its long thin legs.", "Only the baby goat's face, looking straight at you."],
+    "close": ["Just the baby goat, side on, on its long thin legs.", "Only the baby goat, with plenty of plain paper round it."],
     "scale": "medium",
     "habitats": ["farm", "meadow", "hedgerow"],
     "seasons": ["spring", "summer"],
     "active": "day",
     "colours": ["#B5804F", "#F1EBDD", "#3A2C22"],
     "accent": "#E0A99F",
+    "colourWords": ["fawn", "cream", "dark brown", "pink"],
     "texture": "fur",
     "roles": {
       "main": "for the fawn coat",
@@ -356,7 +359,7 @@
       "light": "for the white face markings and legs",
       "accent": "for the pink inside the long ears"
     },
-    "firstMark": ["Start with the eye: a pale yellow oval with a flat bar of {dark} across the middle.", "Start with the legs: four thin, knobbly lines of {main}, then draw the body on top of them."]
+    "firstMark": ["Start with the eye: a small oval with a flat bar of {dark} across the middle.", "Start with the legs: four thin, knobbly lines of {main}, then draw the body on top of them."]
   },
   {
     "id": "fur-donkey",
@@ -367,24 +370,24 @@
     "phrases": ["long upright ears", "grey-brown coat, pale nose", "a dark cross on its back"],
     "doing": [
       { "t": "is dozing with one back hoof tipped up", "scope": "any" },
-      { "t": "is braying with its lips curled back", "scope": "any" },
-      { "t": "is resting its head on another donkey's neck", "scope": "any" },
+      { "t": "is braying with its lips curled back", "scope": "any", "close": ["Just the donkey's head, ears and all, with its lips curled back."], "firstMark": ["Start with the long ears in two upright strokes of {main}, tipped with {dark}."] },
+      { "t": "is resting its head on another donkey's neck", "scope": "any", "close": ["Just the two donkeys, side by side, with plain paper round them."] },
       { "t": "is rolling on its back with its legs in the air", "scope": "outdoor" },
       { "t": "is nibbling a purple thistle", "scope": "outdoor", "seasons": ["summer", "autumn"] }
     ],
-    "close": ["Just the donkey's head, ears and all, looking straight out of the page.", "Only the donkey's pale nose and whiskers, close up."],
+    "close": ["Just the donkey, side on, from its long ears to its tail.", "Only the donkey, with plenty of plain paper round it."],
     "scale": "large",
     "habitats": ["farm", "meadow", "coast"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#8A7F72", "#E6DFD3", "#3B342E"],
-    "accent": "#6A4529",
+    "accent": "#E6DFD3",
     "texture": "fur",
     "roles": {
       "main": "for the grey-brown coat",
       "dark": "for the cross on the back, the tips of the ears and the hooves",
-      "light": "for the pale nose and the rings round the eyes",
-      "accent": "for the brown eyes"
+      "light": "for the pale belly and the insides of the ears",
+      "accent": "for the pale nose and the rings round the eyes"
     },
     "firstMark": ["Start with the long ears in two upright strokes of {main}, tipped with {dark}.", "Start with the dark cross: one line down the spine and one across the shoulders in {dark}."]
   },
@@ -398,11 +401,11 @@
     "doing": [
       { "t": "is leaping in the air with its back legs kicking", "scope": "any" },
       { "t": "is flopped on its side with its eyes half shut", "scope": "any" },
-      { "t": "is nibbling a sprig of parsley", "scope": "any" },
+      { "t": "is nibbling a sprig of parsley", "scope": "any", "close": ["Only the rabbit's face, between its two long, drooping ears."] },
       { "t": "is nudging a cardboard tube along with its nose", "scope": "any" },
       { "t": "is sitting up on its back legs, sniffing", "scope": "any" }
     ],
-    "close": ["Just the rabbit, side on, with its ears hanging down past its chin.", "Only the rabbit's face, between its two long, drooping ears."],
+    "close": ["Just the rabbit, side on, with its ears hanging down past its chin.", "Only the rabbit, with plenty of plain paper round it."],
     "scale": "small",
     "habitats": ["home", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -428,10 +431,10 @@
     "doing": [
       { "t": "is munching a long stalk of hay", "scope": "any" },
       { "t": "is chomping on a slice of cucumber", "scope": "any" },
-      { "t": "is touching noses with another guinea pig", "scope": "any" },
+      { "t": "is touching noses with another guinea pig", "scope": "any", "close": ["Just the two guinea pigs, nose to nose, with plain paper round them."] },
       { "t": "is jumping straight up in the air", "scope": "any" }
     ],
-    "close": ["Just the guinea pig, side on, from its nose to its round back end.", "Only the guinea pig's face, with its round eyes and whiskers."],
+    "close": ["Just the guinea pig, side on, from its nose to its round back end.", "Only the guinea pig, with plenty of plain paper round it."],
     "scale": "small",
     "habitats": ["home", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -441,11 +444,11 @@
     "texture": "fur",
     "roles": {
       "main": "for the ginger patches",
-      "dark": "for the black patches and the eyes",
+      "dark": "for the dark patches and the eyes",
       "light": "for the white patches and the fluffiest fur",
       "accent": "for the pink feet and ears"
     },
-    "firstMark": ["Start with the outline as one lumpy, potato-shaped line of {main}.", "Start with the eye: a shiny black dot of {dark}, set high on the side of the head."]
+    "firstMark": ["Start with the outline as one lumpy, potato-shaped line of {main}.", "Start with the eye: a shiny dot of {dark}, set high on the side of the head."]
   },
   {
     "id": "fur-goldfish",
@@ -471,10 +474,10 @@
     "texture": "glass",
     "roles": {
       "main": "for the orange fish",
-      "dark": "for the eye and the deepest orange on the back",
+      "dark": "for the eye and the shadow under the fish",
       "light": "for the shine on the glass and the bubbles",
       "accent": "for the green water weed"
     },
-    "firstMark": ["Start with the fish in {main}, then draw the bowl round it, so the fish stays big.", "Start with the eye: a dot of {dark} inside a small yellow ring."]
+    "firstMark": ["Start with the fish in {main}, then draw the bowl round it, so the fish stays big.", "Start with the eye: a dot of {dark} with a thin ring of bare paper round it."]
   }
 ]

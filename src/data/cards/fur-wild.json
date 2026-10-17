@@ -8,7 +8,7 @@
     "phrases": ["brown spines with pale tips", "a pointed snout and black nose", "short legs hidden underneath"],
     "doing": [
       { "t": "is walking along with its nose down", "scope": "any" },
-      { "t": "is rolled up into a tight, prickly ball", "scope": "any" },
+      { "t": "is rolled up into a tight, prickly ball", "scope": "any", "firstMark": ["Start with the round outline of the ball in a light line of {main}.", "Start with the spines: short flicks of {main}, all pointing out from the middle."], "roles": { "dark": "for the shadow underneath and the gaps between the spines" } },
       { "t": "is scratching behind one ear with a back foot", "scope": "any" },
       { "t": "is sniffing at a fallen apple", "scope": "outdoor", "seasons": ["autumn"] },
       { "t": "is asleep in a heap of dry leaves", "scope": "outdoor", "seasons": ["autumn", "winter"] }
@@ -19,13 +19,14 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "night",
     "colours": ["#7A5A3D", "#D9C6A3", "#3B2C22"],
-    "accent": "#B48474",
+    "accent": "#E2D3B4",
+    "colourWords": ["brown", "sand", "dark brown", "cream"],
     "texture": "fur",
     "roles": {
       "main": "for the spines",
       "dark": "for the nose, the eyes and the shadow underneath",
-      "light": "for the pale tips of the spines",
-      "accent": "for the pinkish-brown feet"
+      "light": "for the shine on the nose and the eye",
+      "accent": "for the pale tips of the spines"
     },
     "firstMark": ["Start with the spines: short flicks of {main}, all pointing back the same way.", "Start with the outline of the body: one rounded shape in a light line of {main}."]
   },
@@ -82,7 +83,7 @@
     "texture": "fur",
     "roles": {
       "main": "for the warm brown back",
-      "dark": "for the big black eyes",
+      "dark": "for the big dark eyes and the shadow underneath",
       "light": "for the white belly and feet",
       "accent": "for the pink insides of the ears"
     },
@@ -111,7 +112,7 @@
     "accent": "#DDA295",
     "texture": "fur",
     "roles": {
-      "main": "for the orange-brown back",
+      "main": "for the ginger back",
       "dark": "for the eye and the shadow under the chin",
       "light": "for the white underside",
       "accent": "for the pink feet"
@@ -138,13 +139,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#B4552C", "#EAD9BE", "#6E3420"],
-    "accent": "#5C2F1E",
+    "accent": "#EAD9BE",
     "texture": "fur",
     "roles": {
       "main": "for the rusty red fur",
       "dark": "for the eye and the deepest parts of the tail",
-      "light": "for the cream chest",
-      "accent": "for the dark tips of the ear tufts"
+      "light": "for the shine in the eye",
+      "accent": "for the cream chest and belly"
     },
     "firstMark": ["Start with the ear tufts: two quick flicks of {main} pointing up and out.", "Start with the eye: an almond shape of {dark}, leaving a dot of paper for the shine."]
   },
@@ -172,11 +173,11 @@
     "texture": "fur",
     "roles": {
       "main": "for the tawny brown back",
-      "dark": "for the black ear tips",
+      "dark": "for the dark tips of the ears and the eye",
       "light": "for the white chin and belly",
       "accent": "for the amber eye"
     },
-    "firstMark": ["Start with the black ear tips in {dark}, then draw the ears down to the head.", "Start with the eye: a dark dot of {dark} in the middle of a big round eye."]
+    "firstMark": ["Start with the dark tips of the ears in {dark}, then draw the ears down to the head.", "Start with the eye: a dark dot of {dark} in the middle of a big round eye."]
   },
   {
     "id": "fur-wild-rabbit",
@@ -218,7 +219,7 @@
     "doing": [
       { "t": "is pulling at a woolly glove with its teeth", "scope": "any" },
       { "t": "is sitting with its head tilted to one side", "scope": "any" },
-      { "t": "is curled up asleep, nose to tail", "scope": "any" },
+      { "t": "is curled up asleep, nose to tail", "scope": "any", "roles": { "accent": "for the lighter ginger along the top of the back" } },
       { "t": "is yawning wide, showing its pink tongue", "scope": "any" },
       { "t": "is pouncing on a dandelion clock", "scope": "outdoor" },
       { "t": "is play-fighting with another cub", "scope": "outdoor" }
@@ -230,12 +231,13 @@
     "active": "any",
     "colours": ["#C2652F", "#F0E6D4", "#3A2B24"],
     "accent": "#CFA046",
+    "colourWords": ["ginger", "cream", "dark brown", "amber"],
     "texture": "fur",
     "roles": {
       "main": "for the ginger coat",
       "dark": "for the legs, the nose and the backs of the ears",
       "light": "for the white chin and the tip of the tail",
-      "accent": "for the honey-brown eyes"
+      "accent": "for the amber eyes"
     },
     "firstMark": ["Start with the nose: a small triangle of {dark} at the end of the muzzle.", "Start with the ears: two tall triangles outlined lightly in {main}."]
   },
@@ -262,12 +264,12 @@
     "accent": "#EEEBE4",
     "texture": "fur",
     "roles": {
-      "main": "for the grey coat",
-      "dark": "for the black stripes and legs",
+      "main": "for the coat, pressed lightly so it looks grey",
+      "dark": "for the dark stripes on the face and the legs",
       "light": "for the white stripes on the face",
-      "accent": "for the white tips of the ears"
+      "accent": "for the pale tips of the ears"
     },
-    "firstMark": ["Start with the two black face stripes in {dark}, leaving bare paper for the white between them.", "Start with the body: one big rounded shape in a light layer of {main}."]
+    "firstMark": ["Start with the two dark stripes on the face in {dark}, leaving bare paper for the white between them.", "Start with the body: one big rounded shape in a light layer of {main}."]
   },
   {
     "id": "fur-otter",
@@ -289,13 +291,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#5A4230", "#CDB89B", "#2A211B"],
-    "accent": "#D3BE9D",
+    "accent": "#E3D3B5",
     "texture": "fur",
     "roles": {
       "main": "for the dark brown coat",
       "dark": "for the nose and the deepest shadows",
       "light": "for the shine where the fur is wet",
-      "accent": "for the creamy throat"
+      "accent": "for the pale cream throat"
     },
     "firstMark": ["Start with the nose: a small, wide heart shape of {dark}.", "Start with the head: a flat oval of {main} with two very small ears."]
   },
@@ -313,7 +315,7 @@
       { "t": "is looking back over its shoulder", "scope": "any" },
       { "t": "is bounding along with its back arched", "scope": "outdoor" }
     ],
-    "close": ["Just the stoat, with its cream front and black tail tip.", "Only the stoat, filling the middle of the page."],
+    "close": ["Just the stoat, from its nose to the black tip of its tail.", "Only the stoat, filling the middle of the page."],
     "scale": "small",
     "habitats": ["hedgerow", "meadow", "woodland", "farm"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -323,9 +325,9 @@
     "texture": "fur",
     "roles": {
       "main": "for the ginger back",
-      "dark": "for the black tail tip and the eye",
+      "dark": "for the dark tail tip and the eye",
       "light": "for the cream chin and belly",
-      "accent": "for the pinkish-brown nose"
+      "accent": "for the pink nose"
     },
     "firstMark": ["Start with the tail tip: a small, solid point of {dark}.", "Start with the wavy line where the ginger back meets the cream belly, in {main}."]
   },
@@ -340,7 +342,7 @@
       { "t": "is sitting still with its pink paws out in front", "scope": "any" },
       { "t": "is sniffing the air with its long snout", "scope": "any" },
       { "t": "is pulling itself along with its big front paws", "scope": "any" },
-      { "t": "is poking its head out of a molehill", "scope": "outdoor" },
+      { "t": "is poking its head out of a molehill", "scope": "outdoor", "firstMark": ["Start with the head: a small pointed shape of {main} poking up out of the soil."] },
       { "t": "is digging, with soil flying out behind it", "scope": "outdoor" }
     ],
     "close": ["Just the mole, front on, with both big pink paws showing.", "Only the mole, big in the middle of the page."],
@@ -352,12 +354,12 @@
     "accent": "#D8A39C",
     "texture": "fur",
     "roles": {
-      "main": "for the dark grey fur",
+      "main": "for the dark velvety fur",
       "dark": "for the deepest shadow under the body",
       "light": "for the sheen along the back",
       "accent": "for the pink paws and snout"
     },
-    "firstMark": ["Start with the body: one rounded bean shape in a light, even layer of {main}.", "Start with the pointed head in {dark}, leaving bare paper for the pink snout."]
+    "firstMark": ["Start with the body: one rounded bean shape in a light, even layer of {main}.", "Start with the pointed head in {main}, leaving bare paper for the pink snout."]
   },
   {
     "id": "fur-pipistrelle-bat",
@@ -385,7 +387,7 @@
       "main": "for the warm brown fur",
       "dark": "for the wings, the ears and the face",
       "light": "for the paler fur underneath",
-      "accent": "for the red-brown glow where light comes through the wings"
+      "accent": "for the warm glow on the fur and through the wings"
     },
     "firstMark": ["Start with the body: a furry oval of {main}, about the size of your thumbnail.", "Start with the ears: two small pointed shapes of {dark}."]
   },
@@ -415,7 +417,7 @@
       "main": "for the chestnut coat",
       "dark": "for the nose and the big eyes",
       "light": "for the cream spots along the back",
-      "accent": "for the white patch on the chin"
+      "accent": "for the pale chin and the insides of the ears"
     },
     "firstMark": ["Start with the eye: a big oval of {dark}, with a dot of bare paper for the shine.", "Start with the spots: mark them lightly, then colour {main} round them so they stay bare paper."]
   },
@@ -441,12 +443,12 @@
     "accent": "#E6DCC4",
     "texture": "fur",
     "roles": {
-      "main": "for the red-brown coat",
+      "main": "for the chestnut coat",
       "dark": "for the shaggy neck and the shadow under the belly",
       "light": "for the pale patch on its rump",
-      "accent": "for the creamy antler tips"
+      "accent": "for the pale antler tips"
     },
-    "firstMark": ["Start with the antlers: two main lines of {dark}, then add the branches.", "Start with the eye and the long line of the face in {dark}."]
+    "firstMark": ["Start with the antlers: two main lines in a light pass of {main}, then add the branches.", "Start with the eye and the long line of the face in {dark}."]
   },
   {
     "id": "fur-frog",
@@ -459,7 +461,7 @@
       { "t": "is sitting up on its front feet", "scope": "any" },
       { "t": "is jumping with its back legs stretched out", "scope": "any" },
       { "t": "is looking up with its big gold eyes", "scope": "any" },
-      { "t": "is peeping out with only its eyes and nose showing", "scope": "outdoor" },
+      { "t": "is peeping out with only its eyes and nose showing", "scope": "outdoor", "firstMark": ["Start with the two eyes: round bumps outlined lightly in {main}."] },
       { "t": "is croaking with its throat puffed out", "scope": "outdoor", "seasons": ["spring"] }
     ],
     "close": ["Just the frog, big enough to show every blotch on its back.", "Only the frog, about life size, on plain paper."],
@@ -469,6 +471,7 @@
     "active": "any",
     "colours": ["#8E8748", "#4C412C", "#E2D7AE"],
     "accent": "#CFA43A",
+    "colourWords": ["olive brown", "dark brown", "cream", "gold"],
     "texture": "skin",
     "roles": {
       "main": "for the olive-brown skin",
@@ -488,7 +491,7 @@
     "doing": [
       { "t": "is walking slowly, one foot at a time", "scope": "any" },
       { "t": "is sitting low with its chin tucked in", "scope": "any" },
-      { "t": "is sitting with both eyes shut tight", "scope": "any" },
+      { "t": "is sitting with both eyes shut tight", "scope": "any", "roles": { "accent": "for the warm copper patches on the back" } },
       { "t": "is climbing over a pebble", "scope": "any" },
       { "t": "is tucking itself under a pile of dry leaves", "scope": "outdoor", "seasons": ["autumn"] }
     ],
@@ -529,10 +532,11 @@
     "active": "night",
     "colours": ["#3B3631", "#E0791F", "#1A1817"],
     "accent": "#E0791F",
+    "colourWords": ["dark brown", "orange", "black"],
     "texture": "skin",
     "roles": {
       "main": "for the dark warty back",
-      "dark": "for the black spots on the belly",
+      "dark": "for the spots on the belly and the shadow underneath",
       "light": "for the white speckles along the sides",
       "accent": "for the orange belly"
     },
@@ -592,7 +596,7 @@
       "main": "for the rich brown fur",
       "dark": "for the eye and the shadow under the chin",
       "light": "for the paler fur on the belly",
-      "accent": "for the pink-brown paws"
+      "accent": "for the warm brown paws"
     },
     "firstMark": ["Start with the eye: a small, shiny dot of {dark}, close to the nose.", "Start with the rounded back: one low curve of {main}."]
   },
@@ -615,7 +619,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#5A4535", "#B59C7E", "#D6C6AE"],
-    "accent": "#CF9C90",
+    "accent": "#DDA59A",
     "texture": "fur",
     "roles": {
       "main": "for the dark brown back",
@@ -644,13 +648,13 @@
     "seasons": ["autumn", "winter"],
     "active": "day",
     "colours": ["#EEE9DE", "#B8B3A9", "#1C1B1D"],
-    "accent": "#6F6662",
+    "accent": "#8E8170",
     "texture": "fur",
     "roles": {
       "main": "for the cream fur",
       "dark": "for the eyes and the nose",
       "light": "for the whitest fur along the top of the head",
-      "accent": "for the dark grey flippers"
+      "accent": "for the flippers and the soft shading in the fur"
     },
     "firstMark": ["Start with the eyes: two large circles of {dark}, set wide apart.", "Start with the nose: a small Y of {dark} just below and between the eyes."]
   }

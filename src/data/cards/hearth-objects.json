@@ -597,7 +597,7 @@
       { "t": "has its wire handle standing up", "scope": "any" },
       { "t": "has black soot up one side of the glass", "scope": "any", "close": ["Only the glass and the flame, close enough to see the soot up one side."], "firstMark": ["Start with the soot, a soft smudge of {dark} up one side of the glass."] },
       { "t": "is hanging by its handle from a hook", "scope": "any" },
-      { "t": "has a moth flying round the glass", "scope": "outdoor", "seasons": ["spring", "summer", "autumn"] }
+      { "t": "has a moth flying round the glass", "scope": "outdoor", "seasons": ["spring", "summer"] }
     ],
     "close": ["Just the lantern, with the glow round the flame left as bare paper.", "Only the lantern, drawn as tall as the page, handle and all."],
     "scale": "small",

@@ -13,19 +13,20 @@
       { "t": "is looking at a crumb of cheese", "scope": "any" },
       { "t": "is shaking out its wet feathers after a bath", "scope": "outdoor" }
     ],
-    "close": ["Just the robin, close enough to see where the orange breast meets the grey.", "Only the robin, round and plump, in the middle of the page."],
+    "close": ["Just the robin, close enough to see every feather on its orange breast.", "Only the robin, round and plump, in the middle of the page."],
     "scale": "small",
     "habitats": ["garden", "hedgerow", "woodland", "village", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#B8562D", "#7A6248", "#EDE3D2"],
-    "accent": "#97A1A8",
+    "accent": "#8FA6B8",
+    "colourWords": ["orange-red", "brown", "cream", "blue-grey"],
     "texture": "feather",
     "roles": {
-      "main": "for the orange-red breast and face",
+      "main": "for the orange breast and face",
       "dark": "for the eye, the beak and the shadow under the wing",
       "light": "for the white belly and the shine in the eye",
-      "accent": "for the blue-grey edging around the breast"
+      "accent": "for the faint blue edge round the breast, pressed lightly"
     },
     "firstMark": ["Start with the eye: one round dot of {dark}, leaving a pinprick of paper for the shine.", "Start with the curve of the breast in one smooth line of {main}."]
   },
@@ -48,13 +49,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#8B5E3C", "#5A3E2B", "#D8C2A0"],
-    "accent": "#C69C86",
+    "accent": "#D9A397",
     "texture": "feather",
     "roles": {
       "main": "for the warm brown back and wings",
       "dark": "for the fine stripes and the eye",
       "light": "for the pale stripe over the eye",
-      "accent": "for the pinkish legs"
+      "accent": "for the thin pinkish legs"
     },
     "firstMark": ["Start with the tail: three short strokes of {main}, pointing up.", "Start with the eye: a single dot of {dark}, with the pale stripe above it left as bare paper."]
   },
@@ -86,7 +87,7 @@
       "light": "for the white cheeks",
       "accent": "for the blue cap"
     },
-    "firstMark": ["Start with the dark stripe through the eye in one sharp line of {dark}.", "Start with the head: a small circle drawn lightly in {main}."]
+    "firstMark": ["Start with the dark stripe through the eye in one sharp line of {dark}.", "Start with the blue cap: a small curved patch of {accent} on top of the head."]
   },
   {
     "id": "fur-long-tailed-tit",
@@ -112,11 +113,11 @@
     "texture": "feather",
     "roles": {
       "main": "for the rosy pink on the shoulders and sides",
-      "dark": "for the black stripe over the eye and the tail",
+      "dark": "for the dark stripe over the eye and the tail",
       "light": "for the white crown and breast",
       "accent": "for the red ring around the eye"
     },
-    "firstMark": ["Start with the tail: one long, tapering stroke of {dark}, longer than the body.", "Start with the black stripe that runs from the eye back over the head, in {dark}."]
+    "firstMark": ["Start with the tail: one long, tapering stroke of {dark}, longer than the body.", "Start with the dark stripe that runs from the eye back over the head, in {dark}."]
   },
   {
     "id": "fur-goldfinch",
@@ -141,12 +142,12 @@
     "accent": "#C3302C",
     "texture": "feather",
     "roles": {
-      "main": "for the light brown back and breast",
-      "dark": "for the black wings and the cap",
+      "main": "for the warm golden back and breast",
+      "dark": "for the dark wings and the cap",
       "light": "for the white cheeks and wing spots",
       "accent": "for the red face"
     },
-    "firstMark": ["Start with the black wing in {dark}, leaving a stripe of bare paper for the yellow.", "Start with the cap: a neat band of {dark} across the top of the head."]
+    "firstMark": ["Start with the red face: a small patch of {accent} round the base of the beak.", "Start with the cap: a neat band of {dark} across the top of the head."]
   },
   {
     "id": "fur-blackbird",
@@ -176,7 +177,7 @@
       "light": "for the blue shine along the back and wings",
       "accent": "for the orange beak and eye ring"
     },
-    "firstMark": ["Start with the beak: a small wedge outlined in {dark}, left blank for the orange.", "Start with the head in {main}, working around a ring of bare paper for the eye."]
+    "firstMark": ["Start with the beak: a small wedge of {accent}, then the ring round the eye.", "Start with the head in {main}, working around a ring of bare paper for the eye."]
   },
   {
     "id": "fur-song-thrush",
@@ -250,7 +251,7 @@
       { "t": "is looking down with its neck stretched out", "scope": "any" },
       { "t": "is flying away with its legs trailing behind", "scope": "outdoor" }
     ],
-    "close": ["Just the heron, tall and thin down the middle of the page.", "Only the heron, from beak to toes, with plain paper all round it."],
+    "close": ["Just the heron, drawn big, with its long legs and long beak.", "Only the heron, from beak to toes, with plain paper all round it."],
     "scale": "medium",
     "habitats": ["water", "meadow", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -259,12 +260,12 @@
     "accent": "#D6A63C",
     "texture": "feather",
     "roles": {
-      "main": "for the grey back and wings",
-      "dark": "for the black crest and the stripe down the neck",
+      "main": "for the back and wings, pressed lightly to a soft grey",
+      "dark": "for the dark crest and the stripe down the neck",
       "light": "for the white neck and face",
       "accent": "for the yellow beak and eye"
     },
-    "firstMark": ["Start with the black stripe behind the eye: one long, thin line of {dark}.", "Start with the beak: a long, narrow point outlined in {dark}."]
+    "firstMark": ["Start with the dark stripe behind the eye: one long, thin line of {dark}.", "Start with the beak: a long, narrow point of {accent}."]
   },
   {
     "id": "fur-barn-owl",
@@ -289,10 +290,10 @@
     "accent": "#9A958F",
     "texture": "feather",
     "roles": {
-      "main": "for the orange-brown back and wings",
+      "main": "for the golden back and wings",
       "dark": "for the eyes and the fine speckles",
       "light": "for the white face and underparts",
-      "accent": "for the grey patches on the wings"
+      "accent": "for the soft grey-brown patches on the wings"
     },
     "firstMark": ["Start with the two eyes: round dots of {dark}, set wide apart, with a thin ring of paper around each.", "Start with the outline of the heart-shaped face in a faint line of {main}."]
   },
@@ -354,7 +355,7 @@
       "light": "for the white face and front",
       "accent": "for the orange beak and feet"
     },
-    "firstMark": ["Start with the beak: a triangle outlined in {dark}, with the stripes to fill in later.", "Start with the black collar across the chest in {main}."]
+    "firstMark": ["Start with the beak: a big triangle of {accent}, with the stripes to add later.", "Start with the dark collar across the chest in {main}."]
   },
   {
     "id": "fur-cygnet",
@@ -365,24 +366,25 @@
     "phrases": ["fluffy grey down", "a dark grey beak", "big grey webbed feet"],
     "doing": [
       { "t": "is flapping its short grey wings", "scope": "any" },
-      { "t": "is asleep with its head tucked under a wing", "scope": "any" },
+      { "t": "is asleep with its head tucked under a wing", "scope": "any", "roles": { "accent": "for the shadow where the head tucks under the wing" } },
       { "t": "is calling with its beak open", "scope": "any" },
       { "t": "is nibbling a strand of green weed", "scope": "any" },
       { "t": "is following close behind its mother", "scope": "outdoor" }
     ],
-    "close": ["Just the baby swan, with its grey fluff and dark beak.", "Only the baby swan, plump and fluffy, with plenty of white paper round it."],
+    "close": ["Just the baby swan, close up, so every wisp of down shows.", "Only the baby swan, plump and fluffy, with plenty of white paper round it."],
     "scale": "small",
     "habitats": ["water", "meadow"],
     "seasons": ["spring", "summer"],
     "active": "day",
     "colours": ["#A9A39A", "#5E5852", "#E8E3DA"],
-    "accent": "#4C4744",
+    "accent": "#2F3A4F",
+    "colourWords": ["pale grey", "grey", "cream", "dark grey"],
     "texture": "feather",
     "roles": {
-      "main": "for the grey down",
-      "dark": "for the beak and the eye",
+      "main": "for the soft down, pressed lightly to a warm grey",
+      "dark": "for the eye and the shadow under the body",
       "light": "for the pale fluff on the breast",
-      "accent": "for the dark grey webbed feet"
+      "accent": "for the beak and the webbed feet"
     },
     "firstMark": ["Start with the round body in a light, scribbly layer of {main}.", "Start with the darkest shadow, under the body, in a soft layer of {dark}."]
   },
@@ -406,13 +408,13 @@
     "seasons": ["spring", "summer"],
     "active": "day",
     "colours": ["#DCC25E", "#6B5236"],
-    "accent": "#5A5550",
+    "accent": "#7A6248",
     "texture": "feather",
     "roles": {
       "main": "for the yellow fluff on the faces and bellies",
-      "dark": "for the brown backs and the stripe through each eye",
+      "dark": "for the stripe through each eye and the beaks",
       "light": "for the fluffy edges and the shine in the eyes",
-      "accent": "for the dark grey beaks"
+      "accent": "for the brown backs and the tops of the heads"
     },
     "firstMark": ["Start with the eye stripes: one short dash of {dark} through each eye.", "Start with three round bodies in faint ovals of {main}."]
   },
@@ -441,11 +443,11 @@
     "texture": "feather",
     "roles": {
       "main": "for the shiny dark blue back and wings",
-      "dark": "for the eye and the deepest blue of the wingtips",
+      "dark": "for the eye and the darkest tips of the wings",
       "light": "for the creamy belly",
       "accent": "for the brick-red chin and forehead"
     },
-    "firstMark": ["Start with the forked tail: two long, thin strokes of {main} in a V.", "Start with a narrow band of {dark} round the edge of the red chin."]
+    "firstMark": ["Start with the forked tail: two long, thin strokes of {main} in a V.", "Start with the red chin: a small patch of {accent}, then a narrow band of {main} below it."]
   },
   {
     "id": "fur-great-spotted-woodpecker",
@@ -471,11 +473,11 @@
     "texture": "feather",
     "roles": {
       "main": "for the black back and wings",
-      "dark": "for the eye, the black cheek stripe and the beak",
+      "dark": "for the eye, the beak and the deepest shadows",
       "light": "for the white shoulder patches and face",
       "accent": "for the red patch under the tail"
     },
-    "firstMark": ["Start with the white shoulder patch: outline it in {dark} and leave the inside as bare paper.", "Start with the black stripe across the cheek in a firm line of {main}."]
+    "firstMark": ["Start with the white shoulder patch: outline it in {dark} and leave the inside as bare paper.", "Start with the stripe across the cheek in a firm line of {main}."]
   },
   {
     "id": "fur-bumblebee",
@@ -489,7 +491,7 @@
       { "t": "is crawling along with pollen on its legs", "scope": "any" },
       { "t": "is resting with its wings folded flat", "scope": "any" },
       { "t": "is landing on a flower", "scope": "outdoor" },
-      { "t": "is climbing head first into a foxglove flower", "scope": "outdoor", "seasons": ["summer"] }
+      { "t": "is climbing head first into a foxglove flower", "scope": "outdoor", "seasons": ["summer"], "firstMark": ["Start with the fuzz: short strokes of {dark} flicked outwards from the middle of the body."] }
     ],
     "close": ["Just the bumblebee, close enough to see every stripe of fuzz.", "Only the bumblebee, drawn as big as your hand."],
     "scale": "tiny",
@@ -501,7 +503,7 @@
     "texture": "fur",
     "roles": {
       "main": "for the yellow bands",
-      "dark": "for the black body and legs",
+      "dark": "for the dark body and the legs",
       "light": "for the white tail and the shine on the wings",
       "accent": "for the orange pollen on the legs"
     },
@@ -519,7 +521,7 @@
       { "t": "is sitting still with its legs tucked in", "scope": "any" },
       { "t": "is folding its wings back under its shell", "scope": "any" },
       { "t": "is climbing to the top of a stem", "scope": "outdoor" },
-      { "t": "is tucked inside a curled-up dry leaf", "scope": "any", "seasons": ["autumn", "winter"] }
+      { "t": "is tucked inside a curled-up dry leaf", "scope": "any", "seasons": ["autumn", "winter"], "close": ["Just the curled leaf and the ladybird peeping out of it, drawn big."], "firstMark": ["Start with the red shell: a small dome of {main} peeping out of the curl."] }
     ],
     "close": ["Just the ladybird, drawn as big as a plum, with all its spots.", "Only the ladybird, seen from above, on plain paper."],
     "scale": "tiny",
@@ -533,7 +535,7 @@
       "main": "for the shiny red shell",
       "dark": "for the spots, the head and the legs",
       "light": "for the shine on the shell",
-      "accent": "for the white marks on the head"
+      "accent": "for the pale marks on the head"
     },
     "firstMark": ["Start with the seven spots in solid {dark}, before any red goes down.", "Start with the shine: leave a small oval of bare paper on the shell, then fill around it with {main}."]
   },
@@ -547,9 +549,9 @@
     "doing": [
       { "t": "is sitting with its wings spread out flat", "scope": "any" },
       { "t": "is perched with its wings raised in a V", "scope": "any" },
-      { "t": "is resting with its wings closed, showing the dark underside", "scope": "any" },
-      { "t": "is sipping from a purple buddleia flower", "scope": "outdoor", "seasons": ["summer"] },
-      { "t": "is feeding on a soft, overripe plum", "scope": "any", "seasons": ["autumn"] }
+      { "t": "is walking slowly with its wings half open", "scope": "any" },
+      { "t": "is sipping from a flower with its long tongue", "scope": "outdoor" },
+      { "t": "is feeding on a soft, overripe plum", "scope": "indoor", "seasons": ["autumn"] }
     ],
     "close": ["Just the peacock butterfly, drawn as big as your hand.", "Only the butterfly, with plenty of plain paper round it."],
     "scale": "tiny",
@@ -579,7 +581,7 @@
       { "t": "is lifting its wings, ready to fly", "scope": "any" },
       { "t": "is cleaning an antenna with one front leg", "scope": "any" },
       { "t": "is hovering at a honeysuckle flower", "scope": "outdoor" },
-      { "t": "is fluttering round a lit lamp", "scope": "indoor" }
+      { "t": "is flying with its long wings spread wide", "scope": "any" }
     ],
     "close": ["Just the moth, seen from above, with its pink and olive stripes.", "Only the moth, drawn as big as your hand, with all its pink stripes showing."],
     "scale": "tiny",
@@ -587,15 +589,16 @@
     "seasons": ["spring", "summer"],
     "active": "night",
     "colours": ["#D9667F", "#8B8A45", "#E8C9C9"],
-    "accent": "#EEE4D6",
+    "accent": "#7F8A3E",
+    "colourWords": ["pink", "olive green", "pale pink"],
     "texture": "wing",
     "roles": {
       "main": "for the pink wing edges and stripes",
-      "dark": "for the olive bands and the shadow under the wings",
+      "dark": "for the shadow under the wings and along the body",
       "light": "for the whitish fringes along the wings",
-      "accent": "for the cream antennae"
+      "accent": "for the olive bands across the wings"
     },
-    "firstMark": ["Start with the body: a plump, pointed shape in a light layer of {main}.", "Start with the olive band through each wing in {dark}, leaving paper either side for the pink."]
+    "firstMark": ["Start with the body: a plump, pointed shape in a light layer of {main}.", "Start with the olive band through each wing in {accent}, leaving paper either side for the pink."]
   },
   {
     "id": "fur-garden-snail",
@@ -607,7 +610,7 @@
     "doing": [
       { "t": "is stretching out its eye stalks", "scope": "any" },
       { "t": "is sliding slowly along, leaving a shiny trail", "scope": "any" },
-      { "t": "is hiding inside its shell", "scope": "any" },
+      { "t": "is hiding inside its shell", "scope": "any", "roles": { "main": "for the brown shell" } },
       { "t": "is nibbling a hole in a lettuce leaf", "scope": "any" },
       { "t": "is climbing up a stem with its eye stalks out", "scope": "outdoor" }
     ],
@@ -617,13 +620,14 @@
     "seasons": ["spring", "summer", "autumn"],
     "active": "any",
     "colours": ["#9A7444", "#4D3826", "#8F867A"],
-    "accent": "#625C55",
+    "accent": "#C9A458",
+    "colourWords": ["brown", "dark brown", "grey-brown", "gold"],
     "texture": "shell",
     "roles": {
-      "main": "for the brown shell",
+      "main": "for the brown shell, and a lighter layer for the body",
       "dark": "for the bands that wind round the shell",
       "light": "for the shine on the shell and the wet gleam on the body",
-      "accent": "for the dark grey eye stalks"
+      "accent": "for the golden streaks on the shell"
     },
     "firstMark": ["Start with the spiral: one curling line of {dark}, from the centre of the shell outwards.", "Start with the lip of the shell in a careful curve of {main}."]
   },
@@ -651,7 +655,7 @@
     "texture": "wing",
     "roles": {
       "main": "for the blue body",
-      "dark": "for the black markings and the veins",
+      "dark": "for the dark markings and the veins",
       "light": "for the clear wings and their shine",
       "accent": "for the green eyes"
     },

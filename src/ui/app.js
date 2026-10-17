@@ -2,16 +2,25 @@
 import { h, raw, mount } from './h.js'
 import { ICONS } from './ornaments.js'
 import { state, setSetting, subscribe } from '../store/state.js'
+import { ensureToastHost } from './feedback.js'
 
 const routes = []
 let current = null
+let navigated = false // the first render is page load, not a navigation
 let viewHost = null
 let navEls = {}
 
-export function route(pattern, loader, { nav } = {}) {
+export function route(pattern, loader, { nav, title = '' } = {}) {
   const keys = []
   const re = new RegExp('^' + pattern.replace(/:(\w+)/g, (_, k) => { keys.push(k); return '([^/]+)' }) + '$')
-  routes.push({ re, keys, loader, nav })
+  routes.push({ re, keys, loader, nav, title })
+}
+
+const APP_TITLE = 'The Unillustrated Deck'
+
+// Views may refine the title (a card's own page, say) after they render.
+export function setTitle(title) {
+  document.title = title ? `${title} · ${APP_TITLE}` : APP_TITLE
 }
 
 export function go(path, { replace = false } = {}) {
@@ -45,12 +54,17 @@ async function render() {
   mount(viewHost, container)
   const token = {}
   current = token
+  setTitle(r.title)
   try {
     const view = await r.loader()
     if (current !== token) return
     const cleanup = await view.render(container, params)
     if (current === token) token.cleanup = cleanup
     else cleanup?.()
+    // A new page: move focus to it (unless the view placed focus itself), so
+    // keyboard and screen-reader users land at the start of the new content.
+    if (current === token && navigated && !container.contains(document.activeElement)) container.focus({ preventScroll: true })
+    navigated = true
   } catch (e) {
     console.error(e)
     mount(container, h('p.empty-note', 'Something went wrong drawing this page. Try going back to the table.'), h('p', { style: { textAlign: 'center' } }, h('a.btn.btn-ghost', { href: '#/' }, 'Back to the table')))
@@ -85,7 +99,13 @@ export function startApp(root) {
     h('nav.topnav', { 'aria-label': 'Main' }, navEls.deck, navEls.tin, navEls.settings),
   )
   viewHost = h('div.view-host')
-  mount(root, h('a.sr-only', { href: '#main' }, 'Skip to content'), bar, viewHost)
+  // The skip link must not change the hash: the router would treat it as a route.
+  const skip = h('a.skip-link', { href: '#main', onclick: (e) => {
+    e.preventDefault()
+    document.getElementById('main')?.focus()
+  } }, 'Skip to content')
+  mount(root, skip, bar, viewHost)
+  ensureToastHost()
   window.addEventListener('hashchange', render)
   render()
 }

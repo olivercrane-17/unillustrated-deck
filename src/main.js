@@ -15,12 +15,12 @@ import { route, startApp, applyDocumentSettings } from './ui/app.js'
 import { registerServiceWorker } from './sw-register.js'
 
 route('', () => import('./ui/table.js'))
-route('draw/:id', () => import('./ui/draw.js'))
-route('deck', () => import('./ui/deck.js'), { nav: 'deck' })
-route('card/:id', () => import('./ui/card-detail.js'), { nav: 'deck' })
-route('readings', () => import('./ui/readings.js'), { nav: 'deck' })
-route('tin', () => import('./ui/tin.js'), { nav: 'tin' })
-route('settings', () => import('./ui/settings.js'), { nav: 'settings' })
+route('draw/:id', () => import('./ui/draw.js'), { title: 'Drawing' })
+route('deck', () => import('./ui/deck.js'), { nav: 'deck', title: 'Your deck' })
+route('card/:id', () => import('./ui/card-detail.js'), { nav: 'deck', title: 'A card' })
+route('readings', () => import('./ui/readings.js'), { nav: 'deck', title: 'Recent readings' })
+route('tin', () => import('./ui/tin.js'), { nav: 'tin', title: 'Your tin' })
+route('settings', () => import('./ui/settings.js'), { nav: 'settings', title: 'Settings' })
 
 async function boot() {
   await init()

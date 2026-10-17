@@ -79,6 +79,22 @@ a {
   border: 0;
 }
 
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -80px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: calc(8px + env(safe-area-inset-top));
+}
+
 #app {
   min-height: 100vh;
   min-height: 100dvh;

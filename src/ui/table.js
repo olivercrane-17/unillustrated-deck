@@ -40,8 +40,17 @@ export async function render(root) {
   const cleanups = []
   const view = h('div.table')
   const sound = soundButton()
+  // A permanent live region: a region created with its content is not announced.
+  const announcer = h('p.sr-only', { 'aria-live': 'polite' })
+  root.appendChild(h('h1.sr-only', 'The table'))
   root.appendChild(h('div.table-tools', sound))
+  root.appendChild(announcer)
   root.appendChild(view)
+  const announce = (reading) => {
+    const lines = (reading.text?.brief || []).map((l) => `${l.label}: ${l.text}`).join(' ')
+    announcer.textContent = ''
+    requestAnimationFrame(() => { announcer.textContent = `New reading. ${lines}` })
+  }
   cleanups.push(() => sound.unsubscribe?.())
 
   const onKey = (e) => {
@@ -146,7 +155,8 @@ export async function render(root) {
       if (disposed) return
       const ideaSeed = reading.seed
       const idea = askAgain ? pick(content.lines.askAgain, ideaSeed) : pick(content.lines.deckIdea, ideaSeed)
-      showReading(reading, { animate: !reduce, idea })
+      showReading(reading, { animate: !reduce, idea, focusKey: 'card-who' })
+      announce(reading)
     } finally {
       busy = false
     }
@@ -162,7 +172,8 @@ export async function render(root) {
         const card = content.byId.get(r.cards[pos])
         return h('button.card-slot', { type: 'button', 'aria-label': `Choose ${card.title}`, onclick: async () => {
           const saved = await deal(spread, { fixedReading: r })
-          showReading(saved, { animate: !prefersReducedMotion(), idea: pick(content.lines.deckIdea, saved.seed), skip: [pos] })
+          showReading(saved, { animate: !prefersReducedMotion(), idea: pick(content.lines.deckIdea, saved.seed), skip: [pos], focusKey: 'card-who' })
+          announce(saved)
         } }, renderCard({ card, label: POSITION_LABELS[pos], size: 'md' }))
       })),
       h('div.reading-actions',
@@ -172,7 +183,15 @@ export async function render(root) {
 
   // ---------------------------------------------------------------------------
 
-  function showReading(reading, { animate = false, idea = '', skip = [], flipOnly = [] } = {}) {
+  // Put focus back on the control she just used (it was rebuilt), or on the
+  // lead card after a fresh deal.
+  function restoreFocus(key) {
+    if (!key) return
+    const el = view.querySelector(`[data-focus="${key}"]`) || view.querySelector('[data-focus="card-who"], [data-focus="card-theme"]')
+    el?.focus({ preventScroll: true })
+  }
+
+  function showReading(reading, { animate = false, idea = '', skip = [], flipOnly = [], focusKey = '' } = {}) {
     let sequencing = false
     const positions = positionsOf(reading)
     const slots = positions.map((pos, i) => {
@@ -189,6 +208,7 @@ export async function render(root) {
       if (isFriend) fillSealImage(el, card.id)
       const slot = h(`button.card-slot${i === 0 ? '.card-lead' : ''}${animate ? '.dealing' : ''}`, {
         type: 'button',
+        dataset: { focus: `card-${pos}` },
         'aria-label': `${POSITION_LABELS[pos]}: ${card.title}. Tap to look closer or swap.`,
         style: { '--delay': `${i * 90}ms` },
         onclick: (e) => { e.stopPropagation(); if (!sequencing) zoom(reading, pos) },
@@ -204,7 +224,7 @@ export async function render(root) {
         h('span.fm-icon', raw(ICONS.pencil)), h('h2', 'First mark'), h('p', reading.text.firstMark)) : null,
       h(`div.reading-actions.reveal${hidden}`, actions(reading)),
     ].filter(Boolean)
-    mount(view, h('section.reading', { 'aria-live': 'polite' },
+    mount(view, h('section.reading', { 'aria-label': 'Your reading' },
       idea ? h('p.deck-idea.hand', idea) : null,
       fan,
       sections,
@@ -220,6 +240,7 @@ export async function render(root) {
         slots.forEach((s) => flip(s.el, true))
         sections.forEach((s) => s.classList.remove('is-hidden'))
         view.removeEventListener('click', finish, true)
+        restoreFocus(focusKey)
       }
       view.addEventListener('click', finish, true)
       ;(async () => {
@@ -240,6 +261,7 @@ export async function render(root) {
         flipSound()
       }))
     }
+    if (!animate) restoreFocus(focusKey)
   }
 
   async function fillSealImage(cardEl, cardId) {
@@ -294,6 +316,7 @@ export async function render(root) {
         h('span.pencil-name', h('code', info.code), h('strong', info.name), h('em', pen.role)),
         p.fixed ? h('span') : h('button.mini-btn', {
           type: 'button',
+          dataset: { focus: `lock-${i}` },
           'aria-pressed': String(Boolean(pen.locked)),
           'aria-label': pen.locked ? `Unlock ${info.name}` : `Keep ${info.name}`,
           title: pen.locked ? 'Kept. Tap to let it go.' : 'Keep this pencil',
@@ -301,6 +324,7 @@ export async function render(root) {
         }, raw(pen.locked ? ICONS.lock : ICONS.unlock)),
         p.fixed ? h('span') : h('button.mini-btn', {
           type: 'button',
+          dataset: { focus: `swap-${i}` },
           'aria-label': `Swap ${info.name} for another pencil`,
           title: 'Swap this pencil',
           disabled: pen.locked,
@@ -331,8 +355,8 @@ export async function render(root) {
       } }, raw(ICONS.pencil), drawing ? 'Back to drawing' : 'Start drawing'),
       drawing ? h('button.btn-text', { type: 'button', onclick: () => openSealFlow(currentReading() || reading, { onDone: () => showIdle() }) }, raw(ICONS.tick), 'I’ve drawn it') : null,
       h('div.alt-actions',
-        h('button.btn-text', { type: 'button', onclick: () => change(repaint(currentReading() || reading, engineContext()), { allPencils: true }) }, 'New colours, same picture'),
-        reading.spread !== 'small' ? h('button.btn-text', { type: 'button', onclick: () => change(newPicture(currentReading() || reading, engineContext()), { allCards: true, fresh: true }) }, 'New picture, same colours') : null,
+        h('button.btn-text', { type: 'button', dataset: { focus: 'repaint' }, onclick: () => change(repaint(currentReading() || reading, engineContext()), { allPencils: true }) }, 'New colours, same picture'),
+        reading.spread !== 'small' ? h('button.btn-text', { type: 'button', dataset: { focus: 'picture' }, onclick: () => change(newPicture(currentReading() || reading, engineContext()), { allCards: true, fresh: true }) }, 'New picture, same colours') : null,
       ),
       h('button.btn-text', { type: 'button', onclick: () => dealNew(reading.spread, { askAgain: true }) }, raw(ICONS.shuffle), 'Ask the deck again'),
       h('div.ask-again-for',
@@ -342,14 +366,16 @@ export async function render(root) {
     ]
   }
 
-  async function change(next, { newPencil, allCards, fresh, flipPos } = {}) {
+  async function change(next, { newPencil, allCards, fresh, flipPos, focusKey } = {}) {
+    const key = focusKey || document.activeElement?.closest?.('[data-focus]')?.dataset.focus
     const prev = currentReading()
     if (fresh) delete next.id
     else if (prev && !next.id) next.id = prev.id
     next.status = prev?.status && !fresh ? prev.status : next.status
     const saved = await saveReading(next)
     const flipOnly = flipPos ? [flipPos] : allCards ? positionsOf(saved) : []
-    showReading(saved, { flipOnly })
+    showReading(saved, { flipOnly, focusKey: key })
+    if (allCards || flipPos) announce(saved)
     if (newPencil !== undefined) view.querySelectorAll('.pencil-row')[newPencil]?.classList.add('is-new')
   }
 
@@ -375,7 +401,7 @@ export async function render(root) {
           h('button.btn.btn-paper', { type: 'button', autofocus: true, onclick: () => {
             close()
             const r = currentReading() || reading
-            change(swapCard(r, engineContext(), pos), { flipPos: pos })
+            change(swapCard(r, engineContext(), pos), { flipPos: pos, focusKey: `card-${pos}` })
           } }, raw(ICONS.swap), 'Swap this card'),
           h('button.btn-text', { type: 'button', onclick: close }, 'Keep it'),
         ),

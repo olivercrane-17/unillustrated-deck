@@ -10,7 +10,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  min-height: 40px;
+  min-height: 44px;
   padding: 6px 14px;
   border-radius: 99px;
   border: 0;
@@ -419,6 +419,9 @@
   color: var(--ink-faint);
 }
 .tin-foot a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--ink-soft);
 }
 
@@ -443,7 +446,7 @@ details.layer-tips summary::-webkit-details-marker {
   display: none;
 }
 details.layer-tips summary::before {
-  content: '+';
+  content: '+' / '';
   display: inline-grid;
   place-items: center;
   width: 22px;
@@ -455,7 +458,7 @@ details.layer-tips summary::before {
   line-height: 1;
 }
 details.layer-tips[open] summary::before {
-  content: '−';
+  content: '−' / '';
 }
 details.layer-tips ol {
   margin: 0 0 8px;

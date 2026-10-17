@@ -438,3 +438,31 @@ body:has(.sheet-backdrop) .toasts {
 .zoom-photos .photos-link {
   color: var(--cream);
 }
+
+/* Dark sheets and the toast need focus rings that show on them. */
+.sheet.zoom,
+.sheet.photo,
+.seal-ceremony {
+  --focus: #f6d68a;
+}
+.toast {
+  --focus: var(--suit-hearth);
+}
+/* The zoom sheet sits on near-black whatever the table, so its text stays cream. */
+.sheet-backdrop:has(.sheet.zoom) {
+  --cream: #f1e7d0;
+  --cream-soft: #c9cfbf;
+}
+.chip small {
+  color: var(--cream-soft);
+}
+.chip[aria-pressed='true'] small {
+  color: var(--ink-soft);
+}
+/* Off switches need a visible edge on paper. */
+.switch {
+  box-shadow: inset 0 0 0 1.5px #7d6d5c;
+}
+.switch:checked {
+  box-shadow: none;
+}

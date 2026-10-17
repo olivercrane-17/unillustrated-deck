@@ -4,7 +4,9 @@ import { ICONS } from './ornaments.js'
 
 let toastHost = null
 
-function host() {
+// The live region must exist before the first message, or that message is
+// not announced; the app creates it at start-up.
+export function ensureToastHost() {
   if (!toastHost) {
     toastHost = h('div.toasts', { role: 'status', 'aria-live': 'polite' })
     document.body.appendChild(toastHost)
@@ -15,11 +17,18 @@ function host() {
 export function toast(message, { action, onAction, duration = 4200 } = {}) {
   const el = h('div.toast', h('span', message),
     action ? h('button.btn-text', { type: 'button', onclick: () => { close(); onAction?.() } }, action) : null)
-  host().appendChild(el)
-  let timer = duration ? setTimeout(close, duration) : null
+  ensureToastHost().appendChild(el)
+  let timer = null
+  const start = () => { if (duration && !timer) timer = setTimeout(close, duration) }
+  const pause = () => { clearTimeout(timer); timer = null }
+  // A toast never disappears while she is reading it or about to tap it.
+  el.addEventListener('pointerenter', pause)
+  el.addEventListener('pointerleave', start)
+  el.addEventListener('focusin', pause)
+  el.addEventListener('focusout', (e) => { if (!el.contains(e.relatedTarget)) start() })
+  start()
   function close() {
-    clearTimeout(timer)
-    timer = null
+    pause()
     el.remove()
   }
   return close
@@ -77,8 +86,12 @@ function trapFocus(e, root) {
   if (!items.length) return
   const first = items[0]
   const last = items[items.length - 1]
-  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus() }
-  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus() }
+  const active = document.activeElement
+  // Focus on the sheet itself (where it starts) or anywhere outside it wraps
+  // back inside, so Shift+Tab can never reach the page behind.
+  if (active === root || !root.contains(active)) { e.preventDefault(); (e.shiftKey ? last : first).focus() }
+  else if (e.shiftKey && active === first) { e.preventDefault(); last.focus() }
+  else if (!e.shiftKey && active === last) { e.preventDefault(); first.focus() }
 }
 
 export function confirmSheet({ title, body, confirm = 'Yes', cancel = 'Not now', danger = false }) {

@@ -129,7 +129,7 @@ function deckPanel(cleanups) {
 
   const seasons = switchRow({
     title: 'Follow the real seasons',
-    hint: 'Conkers in autumn, frost in winter, never snow in July. Turn it off and every season is fair game.',
+    hint: 'Conkers in autumn, blossom in spring, so snow turns up in winter, not summer. Turn it off and every season is fair game.',
     checked: () => state.settings.followSeasons,
     onToggle: (input) => setSetting('followSeasons', input.checked),
   })

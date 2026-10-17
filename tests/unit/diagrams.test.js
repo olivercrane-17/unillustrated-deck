@@ -95,11 +95,31 @@ describe('chooseFrame', () => {
   })
 
   it('falls back to a spread default', () => {
-    expect(chooseFrame({ spread: 'quick', seed: 1, cards: { who: 'fur-x' } }, byId)).toBe('close-crop')
+    expect(chooseFrame({ spread: 'quick', seed: 1, cards: { who: 'fur-x' } }, byId)).toBe('vignette')
     expect(chooseFrame({ spread: 'small', seed: 1, cards: { theme: 'theme-x' } }, byId)).toBe('sampler')
     expect(chooseFrame({ spread: 'evening', seed: 1, cards: { where: 'where-none' } }, byId)).toBe('thirds')
     expect(chooseFrame({ spread: 'evening', seed: 1, cards: { where: 'where-typo' } }, byId)).toBe('thirds')
     expect(chooseFrame({ spread: 'evening', seed: 1, cards: { where: 'where-gone' } }, byId)).toBe('thirds')
+  })
+})
+
+describe('a quick doodle follows its Frame line', () => {
+  const quick = (framing) => chooseFrame({ spread: 'quick', seed: 1, cards: { who: 'fur-x' }, text: { framing } }, byIdOf([]))
+  it('plain paper, the middle or space round it is a vignette', () => {
+    expect(quick('Only the blue tit, about life size, with plain paper round it.')).toBe('vignette')
+    expect(quick('Only the wren, very small, in the middle of a big white page.')).toBe('vignette')
+    expect(quick('Only the snail, close up, with no background.')).toBe('vignette')
+    expect(quick('Just the three ducklings, close together, with plain paper round them.')).toBe('vignette')
+  })
+  it('close up, filling the page or off the edges is a close crop', () => {
+    expect(quick('Just the goldfinch, close up, so every colour shows.')).toBe('close-crop')
+    expect(quick('Only the dormouse, drawn big enough to fill the page.')).toBe('close-crop')
+    expect(quick('Only the kitten’s face, drawn so big that the whiskers run off the page.')).toBe('close-crop')
+    expect(quick('Only the spiral, close enough to follow it all the way to the middle.')).toBe('close-crop')
+  })
+  it('anything else is a vignette', () => {
+    expect(quick('Just the kettle, with one curved shine across its round belly.')).toBe('vignette')
+    expect(quick(undefined)).toBe('vignette')
   })
 })
 

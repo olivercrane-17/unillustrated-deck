@@ -4,6 +4,7 @@ import { renderCard, suitOf } from './card.js'
 import { EMBLEMS, ICONS, SUIT_LABELS, pencilSvg } from './ornaments.js'
 import {
   state, content, sealsFor, faceSealFor, setFace, deleteSeal, imageUrl, subscribe, engineContext, deal, pencilHex, pencilCatalogue,
+  ownedPencils,
 } from '../store/state.js'
 import { dealReading, SPREADS } from '../engine/reading.js'
 import { newSeed } from '../engine/rng.js'
@@ -13,6 +14,7 @@ import { shortDate, longDate, sentenceDate, backLink, pageSheets } from './deck.
 import { openShareSheet } from './share.js'
 
 const SUBJECT_SUITS = ['fur', 'leaf', 'hearth']
+const EMPTY_TIN = 'Your tin is empty. Tick a few pencils and the deck can deal again.'
 const SEALABLE = [...SUBJECT_SUITS, 'theme']
 const pencilByCode = new Map(pencilCatalogue.map((p) => [p.code, p]))
 
@@ -188,6 +190,11 @@ export async function render(root, { id } = {}) {
 
   async function drawThis(btn) {
     if (busy) return
+    // Nothing to deal from (or only the blender): say so, kindly.
+    if (!ownedPencils().some((p) => p.special !== 'blender')) {
+      toast(EMPTY_TIN, { action: 'Open your tin', onAction: () => go('tin') })
+      return
+    }
     busy = true
     btn.disabled = true
     const attempt = async (spread) => {
@@ -208,7 +215,7 @@ export async function render(root, { id } = {}) {
       busy = false
       btn.disabled = false
       const emptyTin = !state.tin.owned.length || /tin is empty/i.test(e.message)
-      if (emptyTin) toast('Your tin is empty. Tick a few pencils and the deck can deal.', { action: 'Open your tin', onAction: () => go('tin') })
+      if (emptyTin) toast(EMPTY_TIN, { action: 'Open your tin', onAction: () => go('tin') })
       else toast('The deck got in a muddle with that one. Try again in a moment?')
     }
   }

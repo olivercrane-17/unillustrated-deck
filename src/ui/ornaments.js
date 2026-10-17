@@ -106,8 +106,10 @@ export function cardBackSvg(id = 'lattice') {
 const icon = (body) => svg('0 0 24 24', body, 'icon')
 export const ICONS = {
   deck: icon('<rect x="5" y="3.5" width="11" height="16" rx="1.8" stroke-width="1.6"/><path d="M8.5 20.5 H 17.2 A 1.8 1.8 0 0 0 19 18.7 V 7" stroke-width="1.6"/>'),
-  tin: icon('<rect x="3.5" y="7" width="17" height="11" rx="2" stroke-width="1.6"/><path d="M3.5 10.5 H 20.5" stroke-width="1.6"/><path d="M7 14 H 17" stroke-width="1.4" stroke-dasharray="2 1.6"/>'),
-  settings: icon('<circle cx="12" cy="12" r="3" stroke-width="1.6"/><path d="M12 2.8 V 5.2 M12 18.8 V 21.2 M2.8 12 H 5.2 M18.8 12 H 21.2 M5.5 5.5 L 7.2 7.2 M16.8 16.8 L 18.5 18.5 M5.5 18.5 L 7.2 16.8 M16.8 7.2 L 18.5 5.5" stroke-width="1.6"/>'),
+  // A flat pencil tin, its hinged lid tipped back and two pencils lying inside.
+  tin: icon('<path d="M4.5 10 L 6 4 H 18 L 19.5 10" stroke-width="1.5"/><rect x="3" y="10" width="18" height="10" rx="1.6" stroke-width="1.6"/><path d="M6 13.4 H 14.6 M6 16.8 H 14.6" stroke-width="1.4"/><path d="M14.6 12.4 L 18 13.4 L 14.6 14.4 Z M14.6 15.8 L 18 16.8 L 14.6 17.8 Z" stroke-width=".9" fill="currentColor"/>'),
+  // A plain eight-toothed gear.
+  settings: icon('<path d="M10.4 4.9 L10.7 2.5 A 9.6 9.6 0 0 1 13.3 2.5 L13.6 4.9 A 7.3 7.3 0 0 1 15.9 5.8 L17.8 4.3 A 9.6 9.6 0 0 1 19.7 6.2 L18.2 8.1 A 7.3 7.3 0 0 1 19.1 10.4 L21.5 10.7 A 9.6 9.6 0 0 1 21.5 13.3 L19.1 13.6 A 7.3 7.3 0 0 1 18.2 15.9 L19.7 17.8 A 9.6 9.6 0 0 1 17.8 19.7 L15.9 18.2 A 7.3 7.3 0 0 1 13.6 19.1 L13.3 21.5 A 9.6 9.6 0 0 1 10.7 21.5 L10.4 19.1 A 7.3 7.3 0 0 1 8.1 18.2 L6.2 19.7 A 9.6 9.6 0 0 1 4.3 17.8 L5.8 15.9 A 7.3 7.3 0 0 1 4.9 13.6 L2.5 13.3 A 9.6 9.6 0 0 1 2.5 10.7 L4.9 10.4 A 7.3 7.3 0 0 1 5.8 8.1 L4.3 6.2 A 9.6 9.6 0 0 1 6.2 4.3 L8.1 5.8 A 7.3 7.3 0 0 1 10.4 4.9 Z" stroke-width="1.5"/><circle cx="12" cy="12" r="3" stroke-width="1.5"/>'),
   soundOn: icon('<path d="M4 9.5 H 7.5 L 12 5.5 V 18.5 L 7.5 14.5 H 4 Z" stroke-width="1.6"/><path d="M15.5 9 C 17 10.5, 17 13.5, 15.5 15 M18 6.5 C 21 9.5, 21 14.5, 18 17.5" stroke-width="1.6"/>'),
   soundOff: icon('<path d="M4 9.5 H 7.5 L 12 5.5 V 18.5 L 7.5 14.5 H 4 Z" stroke-width="1.6"/><path d="M16 9.5 L 21 14.5 M21 9.5 L 16 14.5" stroke-width="1.6"/>'),
   lock: icon('<rect x="5.5" y="10.5" width="13" height="9.5" rx="2" stroke-width="1.6"/><path d="M8.5 10.5 V 7.5 A 3.5 3.5 0 0 1 15.5 7.5 V 10.5" stroke-width="1.6"/>'),

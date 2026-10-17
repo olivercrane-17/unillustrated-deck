@@ -8,9 +8,10 @@
     "seasons": ["autumn", "winter"],
     "timeOfDay": ["dawn", "morning"],
     "scope": "any",
+    "sky": true,
     "mood": "cool",
     "light": "Keep the shadows pale blue and leave the paper bare for the frost.",
-    "shadow": "for the blue shadows, pressed lightly",
+    "shadow": "for the cold shadows, pressed lightly",
     "highlight": "for the frost along the edges of things"
   },
   {
@@ -23,9 +24,9 @@
     "timeOfDay": ["afternoon", "dusk"],
     "scope": "any",
     "mood": "warm",
-    "light": "Colour the sunny side of each thing a warm orange and pull its shadow out long behind it.",
+    "light": "Give the sunny side of each thing a light layer of your warmest pencil, and pull its shadow out long behind it.",
     "shadow": "for the long shadows",
-    "highlight": "for the sunny side of each thing"
+    "highlight": "for the brightest edges facing the sun"
   },
   {
     "id": "when-rainy-sunday",
@@ -36,8 +37,9 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "muted",
-    "light": "Keep all the colours soft and greyish, and leave small spots of white paper for the wet shine.",
+    "light": "Keep the colours soft and muted, and leave small spots of white paper for the wet shine.",
     "shadow": "for the dark, wet patches",
     "highlight": "for the shine on wet things"
   },
@@ -50,9 +52,10 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dusk"],
     "scope": "any",
+    "sky": true,
     "mood": "cool",
-    "light": "Colour everything in cool blues first, then add any lamp or lit window as a warm yellow spot.",
-    "shadow": "for the deep blue shadows",
+    "light": "Colour everything in cool blues first, then add any lamp or lit window as one small warm spot.",
+    "shadow": "for the deep evening shadows",
     "highlight": "for the last light in the sky"
   },
   {
@@ -78,8 +81,9 @@
     "seasons": ["winter"],
     "timeOfDay": ["dawn", "morning"],
     "scope": "any",
+    "sky": true,
     "mood": "bright",
-    "light": "Leave the snow as bare white paper and shade only the dips, very lightly, in a cool blue or grey.",
+    "light": "Leave the snow as bare white paper and shade only the dips, pressing very lightly.",
     "shadow": "for the shadows in the snow",
     "highlight": "for the snow in the sun"
   },
@@ -92,8 +96,9 @@
     "seasons": ["spring", "summer"],
     "timeOfDay": ["afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "dark",
-    "light": "Make the background a dark purple-grey and keep the light on the main subject bright and yellowish.",
+    "light": "Make the background dark and heavy, so the main subject shines out bright against it.",
     "shadow": "for the dark storm clouds",
     "highlight": "for the brightest light under the clouds"
   },
@@ -106,9 +111,10 @@
     "seasons": ["summer"],
     "timeOfDay": ["night"],
     "scope": "any",
+    "sky": true,
     "mood": "cool",
     "light": "Use a deep blue instead of black for the darkest parts.",
-    "shadow": "for the deep blue that takes the place of black",
+    "shadow": "for the deepest night shadows",
     "highlight": "for the pale glow low in the sky"
   },
   {
@@ -120,6 +126,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dawn", "morning"],
     "scope": "any",
+    "sky": true,
     "mood": "cool",
     "light": "Keep every edge soft and every colour pale, with no hard darks anywhere.",
     "shadow": "for the faint, soft shadows",
@@ -134,6 +141,7 @@
     "seasons": ["autumn"],
     "timeOfDay": ["morning", "afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "cool",
     "light": "Make your pencil strokes quick and slanted one way, so the whole picture leans with the wind.",
     "shadow": "for the shade under passing clouds",
@@ -149,7 +157,7 @@
     "timeOfDay": ["morning", "afternoon"],
     "scope": "any",
     "mood": "bright",
-    "light": "Keep the colours light and clear, with yellowy greens and plenty of white paper showing.",
+    "light": "Keep the colours light and fresh, with plenty of white paper showing.",
     "shadow": "for the short spring shadows",
     "highlight": "for the sunlit tops of things"
   },
@@ -162,6 +170,7 @@
     "seasons": ["summer"],
     "timeOfDay": ["afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "bright",
     "light": "Use rich, strong colours and leave a tiny dot of white paper on every drop and wet edge.",
     "shadow": "for the dark, damp patches",
@@ -176,6 +185,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["night"],
     "scope": "outdoor",
+    "sky": true,
     "mood": "dark",
     "light": "Colour the darkest parts first and leave the moonlit tops of things almost bare.",
     "shadow": "for the dark night shadows",
@@ -190,6 +200,7 @@
     "seasons": ["summer"],
     "timeOfDay": ["afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "bright",
     "light": "Keep the sunny parts very pale, almost white, and make the shadows small and very dark.",
     "shadow": "for the small dark shadows right under things",
@@ -204,9 +215,10 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["morning", "afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "muted",
-    "light": "Tone every colour down with a light layer of grey and avoid strong darks.",
-    "shadow": "for the flat, damp greys",
+    "light": "Press lightly so the paper shows through and the colours stay soft, and avoid strong darks.",
+    "shadow": "for the flat, damp shadows",
     "highlight": "for the dull shine on damp surfaces"
   },
   {
@@ -218,9 +230,10 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dawn"],
     "scope": "any",
+    "sky": true,
     "mood": "cool",
-    "light": "Colour the side of each thing facing the sun a soft peach, and keep the rest a cool grey-blue.",
-    "shadow": "for the cool grey-blue shadows",
+    "light": "Colour the side of each thing facing the sun a soft peach, and shade the rest lightly in a cool blue.",
+    "shadow": "for the long, cool shadows",
     "highlight": "for the first sunlight on the edges of things"
   },
   {
@@ -235,7 +248,7 @@
     "mood": "muted",
     "light": "Blend the edges of every shadow so that none of them has a hard line.",
     "shadow": "for the soft, blurry shadows",
-    "highlight": "for the gentle light from the cloudy sky"
+    "highlight": "for the soft, even daylight"
   },
   {
     "id": "when-harvest-moon",
@@ -246,6 +259,7 @@
     "seasons": ["autumn"],
     "timeOfDay": ["dusk", "night"],
     "scope": "any",
+    "sky": true,
     "mood": "warm",
     "light": "Make the moon the warmest, brightest thing in the picture and keep everything else darker.",
     "shadow": "for the evening shadows",
@@ -260,6 +274,7 @@
     "seasons": ["autumn"],
     "timeOfDay": ["dusk", "night"],
     "scope": "any",
+    "sky": true,
     "mood": "dark",
     "light": "Leave the fireworks as bare paper first, then colour the dark sky around them.",
     "shadow": "for the smoky night sky",
@@ -277,7 +292,7 @@
     "mood": "cool",
     "light": "Keep most of the picture dark and cool, with just one strip of pale, cold light.",
     "shadow": "for the early dark",
-    "highlight": "for the pale, cold light low in the sky"
+    "highlight": "for the last pale, cold daylight"
   },
   {
     "id": "when-night-before-snow",
@@ -288,8 +303,9 @@
     "seasons": ["autumn", "winter"],
     "timeOfDay": ["dusk", "night"],
     "scope": "any",
+    "sky": true,
     "mood": "muted",
-    "light": "Use soft pinkish greys for everything, with no bright colour anywhere.",
+    "light": "Tone every colour down with a light layer of your darkest pencil, so nothing looks bright.",
     "shadow": "for the dull, dark shadows",
     "highlight": "for the pale sky"
   },
@@ -319,7 +335,7 @@
     "mood": "muted",
     "light": "Soften a few edges with your lightest pencil, as if steam has drifted across.",
     "shadow": "for the indoor shadows",
-    "highlight": "for the steam and the misted window"
+    "highlight": "for the curls of steam"
   },
   {
     "id": "when-firelight",
@@ -344,10 +360,11 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dawn", "morning"],
     "scope": "any",
+    "sky": true,
     "mood": "bright",
     "light": "Leave a tiny dot of bare paper on every drop of dew, with a small dark edge beside it.",
     "shadow": "for the shadows and the dark side of each drop",
-    "highlight": "for the early sun on the wet grass"
+    "highlight": "for the early sun catching the dew"
   },
   {
     "id": "when-fog",
@@ -358,8 +375,9 @@
     "seasons": ["autumn", "winter"],
     "timeOfDay": ["morning", "afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "muted",
-    "light": "Draw the nearest thing clearly, then make everything behind it greyer and fainter until it disappears into the paper.",
+    "light": "Draw the nearest thing clearly, then press more and more lightly on everything behind it until it fades into the paper.",
     "shadow": "for the few darks close to you",
     "highlight": "for the fog in the distance"
   },
@@ -373,7 +391,7 @@
     "timeOfDay": ["morning", "afternoon"],
     "scope": "outdoor",
     "mood": "bright",
-    "light": "Keep the pinks clean and pale, and use a cool green for the shadows so the blossom stays fresh.",
+    "light": "Keep every colour clean and pale, with only faint shading, so the picture stays fresh.",
     "shadow": "for the shady parts under the blossom",
     "highlight": "for the palest petals"
   },
@@ -386,8 +404,9 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dusk"],
     "scope": "any",
+    "sky": true,
     "mood": "warm",
-    "light": "Colour the lit side of each thing a warm pink-orange, and add a little purple to the shadows.",
+    "light": "Put your warmest colours only on the lit edges, and let the rest of each thing sink into soft shadow.",
     "shadow": "for the evening shadows",
     "highlight": "for the sunset light on the edges of things"
   },
@@ -415,8 +434,8 @@
     "timeOfDay": ["afternoon"],
     "scope": "any",
     "mood": "warm",
-    "light": "Lay a pale yellow layer over everything first, then build the reds and browns on top.",
-    "shadow": "for the warm brown shadows",
+    "light": "Lay a light layer of your palest warm pencil over everything first, then build the stronger colours on top.",
+    "shadow": "for the soft, warm shadows",
     "highlight": "for the sun on rounded surfaces"
   },
   {
@@ -428,9 +447,10 @@
     "seasons": ["spring"],
     "timeOfDay": ["morning", "afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "cool",
     "light": "Draw the rain as a few light, slanting strokes of pale blue and keep the sunlit parts bright.",
-    "shadow": "for the dark grey rain clouds",
+    "shadow": "for the dark rain clouds",
     "highlight": "for the sunlight between the showers"
   },
   {
@@ -442,8 +462,9 @@
     "seasons": ["spring"],
     "timeOfDay": ["morning", "afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "bright",
-    "light": "Use clean, bright yellows for anything in the sun and keep the shadows a cool, pale green.",
+    "light": "Keep anything in the sun clean and bright, and save your darkest pencil for the small shadows right underneath things.",
     "shadow": "for the shadows under the leaves",
     "highlight": "for the brightest sunlit petals"
   },
@@ -456,8 +477,9 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dawn"],
     "scope": "any",
+    "sky": true,
     "mood": "dark",
-    "light": "Work in dark blues and greys, and lighten only a thin strip of sky along one edge.",
+    "light": "Work in dark blues, and lighten only a thin strip of sky along one edge.",
     "shadow": "for the dark ground and shapes",
     "highlight": "for the first faint light in the sky"
   },
@@ -470,6 +492,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["night"],
     "scope": "outdoor",
+    "sky": true,
     "mood": "dark",
     "light": "Press the stars into the paper first with an empty ballpoint pen, then colour the dark sky over them so they stay white.",
     "shadow": "for the night sky and the dark shapes",
@@ -512,9 +535,10 @@
     "seasons": ["autumn"],
     "timeOfDay": ["morning", "afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "warm",
-    "light": "Layer yellow first, then orange, then a touch of red, so the autumn colours glow.",
-    "shadow": "for the deep brown shadows",
+    "light": "Layer from your palest colour to your deepest, so the autumn colours glow.",
+    "shadow": "for the deep autumn shadows",
     "highlight": "for the sunlit edges of the leaves"
   },
   {
@@ -526,6 +550,7 @@
     "seasons": ["winter"],
     "timeOfDay": ["morning", "afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "muted",
     "light": "Keep everything pale, and leave small dots of bare paper for the falling flakes.",
     "shadow": "for the few dark things the snow hasn't covered",
@@ -554,6 +579,7 @@
     "seasons": ["autumn"],
     "timeOfDay": ["morning", "afternoon"],
     "scope": "any",
+    "sky": true,
     "mood": "muted",
     "light": "Use muddy browns and dull oranges, then add a few sharp white highlights so the wet leaves shine.",
     "shadow": "for the dark, soggy patches",

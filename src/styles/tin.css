@@ -80,6 +80,21 @@
 .tin-q-option[aria-pressed='true'] {
   box-shadow: inset 0 0 0 2px var(--suit-leaf);
 }
+/* "I'm not sure": quieter than the three pencils, but just as easy to tap. */
+.tin-q-option.tin-q-unsure {
+  display: flex;
+  justify-content: center;
+  min-height: 52px;
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--paper-edge);
+  color: var(--ink-soft);
+  font-size: 16px;
+  text-align: center;
+}
+.tin-q-option.tin-q-unsure:hover {
+  box-shadow: inset 0 0 0 1.5px var(--gilt-mid);
+  color: var(--ink);
+}
 .tin-q-swatch .pencil-swatch.big {
   width: 88px;
   height: 27px;

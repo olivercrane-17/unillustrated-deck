@@ -148,6 +148,9 @@ export async function render(root) {
   let restSuit = DECK_SUITS.includes(params.get('rest')) ? params.get('rest') : null
   let query = ''
   let disposed = false
+  // Resolves once the rest of the deck is fully laid out (it goes down in
+  // small batches, so opening it never freezes the page).
+  let restLaid = Promise.resolve()
 
   async function paint() {
     const groups = groupDrawn(state.seals, content.byId)
@@ -230,24 +233,27 @@ export async function render(root) {
 
   function restBrowser(groups) {
     if (!groups.some((g) => g.suit === restSuit)) restSuit = groups[0].suit
+    // Every card gets a slot now; its face is drawn later, in batches.
     const items = []
     const sections = groups.map((g) => {
-      const list = h('ul.rest-grid', g.cards.map((card) => {
-        const li = h('li', h('a.rest-card', {
-          href: `#/card/${encodeURIComponent(card.id)}`,
-          'aria-label': card.title,
-          onclick: () => {
-            // Come back to this card's suit, even if she found it by searching.
-            restSuit = g.suit
-            saveRestState({ returnTo: card.id })
-          },
-        }, renderCard({ card, size: 'xs' })))
-        items.push({ li, card, suit: g.suit })
-        return li
-      }))
+      const list = h('ul.rest-grid')
+      for (const card of g.cards) items.push({ li: null, card, suit: g.suit, list })
       const sec = h('section.rest-suit', { dataset: { suit: g.suit } }, suitHeading(g.suit, g.label, 'h3'), list)
       return { sec, suit: g.suit }
     })
+    const isVisible = (it) => (query.trim() ? matchesQuery(it.card, query) : it.suit === restSuit)
+    const buildItem = (it) => {
+      it.li = h('li', { hidden: !isVisible(it) }, h('a.rest-card', {
+        href: `#/card/${encodeURIComponent(it.card.id)}`,
+        'aria-label': it.card.title,
+        onclick: () => {
+          // Come back to this card's suit, even if she found it by searching.
+          restSuit = it.suit
+          saveRestState({ returnTo: it.card.id })
+        },
+      }, renderCard({ card: it.card, size: 'xs' })))
+      it.list.appendChild(it.li)
+    }
     const none = h('p.rest-none', { hidden: true, role: 'status' }, 'Nothing by that name in the box. Try another word?')
     const chips = h('div.chips.rest-chips', { role: 'group', 'aria-label': 'Show a suit' },
       groups.map((g) => h('button.chip', {
@@ -277,15 +283,33 @@ export async function render(root) {
       const searching = Boolean(query.trim())
       chips.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(!searching && c.dataset.suit === restSuit)))
       let shown = 0
+      const suitsShown = new Set()
       for (const it of items) {
-        const visible = searching ? matchesQuery(it.card, query) : it.suit === restSuit
-        it.li.hidden = !visible
-        if (visible) shown += 1
+        const visible = isVisible(it)
+        if (it.li) it.li.hidden = !visible
+        if (visible) { shown += 1; suitsShown.add(it.suit) }
       }
-      for (const s of sections) s.sec.hidden = !s.sec.querySelector('li:not([hidden])')
+      for (const s of sections) s.sec.hidden = !suitsShown.has(s.suit)
       none.hidden = shown > 0
     }
     apply()
+
+    // Lay the cards down a few at a time, a frame at a time, so the stack's
+    // opening animation starts at once instead of waiting for 150-odd cards.
+    // The suit on show goes first; each suit fills in its own order.
+    const queue = [...items.filter((it) => it.suit === restSuit), ...items.filter((it) => it.suit !== restSuit)]
+    restLaid = new Promise((resolve) => {
+      const step = () => {
+        // Stop if the page was redrawn or left meanwhile.
+        if (disposed || !chips.isConnected) return resolve()
+        const start = performance.now()
+        do buildItem(queue.shift())
+        while (queue.length && performance.now() - start < 10)
+        if (queue.length) requestAnimationFrame(step)
+        else resolve()
+      }
+      requestAnimationFrame(step)
+    })
     return [
       h('div.rest-tools',
         h('label.rest-search-wrap', { for: 'rest-search' },
@@ -303,13 +327,20 @@ export async function render(root) {
     history.replaceState({ ...(history.state || {}), ...extra }, '', hash)
   }
 
-  function returnToLastCard() {
+  async function returnToLastCard() {
     // She may have moved on while the deck was being laid out.
     if (!root.isConnected) return
     const id = history.state?.returnTo
     if (!id) return
     history.replaceState({ ...history.state, returnTo: null }, '', location.hash)
-    const link = [...root.querySelectorAll('a.gallery-card, a.rest-card')].find((a) => a.getAttribute('href') === `#/card/${encodeURIComponent(id)}`)
+    const find = () => [...root.querySelectorAll('a.gallery-card, a.rest-card')].find((a) => a.getAttribute('href') === `#/card/${encodeURIComponent(id)}`)
+    let link = find()
+    // A card in the rest of the deck may still be on its way to the table.
+    if (!link && restOpen) {
+      await restLaid
+      if (disposed || !root.isConnected) return
+      link = find()
+    }
     if (!link) return
     requestAnimationFrame(() => {
       link.scrollIntoView({ block: 'center' })

@@ -72,12 +72,12 @@ async function render() {
   window.scrollTo(0, 0)
 }
 
+// A small text button that says what the sound is doing now: "Sound: off".
 export function soundButton() {
-  const btn = h('button.icon-btn', { type: 'button' })
+  const btn = h('button.btn-text.sound-btn', { type: 'button' })
   const paint = () => {
-    btn.innerHTML = state.settings.sound ? ICONS.soundOn : ICONS.soundOff
-    btn.setAttribute('aria-label', state.settings.sound ? 'Sound on' : 'Sound off')
-    btn.setAttribute('aria-pressed', String(state.settings.sound))
+    const on = Boolean(state.settings.sound)
+    mount(btn, raw(on ? ICONS.soundOn : ICONS.soundOff), h('span', on ? 'Sound: on' : 'Sound: off'))
   }
   btn.addEventListener('click', () => setSetting('sound', !state.settings.sound))
   const off = subscribe((what) => { if (what === 'settings') paint() })
@@ -87,10 +87,12 @@ export function soundButton() {
 }
 
 export function startApp(root) {
+  // Each place has its name under its icon: icons alone were guesswork.
+  const navItem = (href, icon, label) => h('a.nav-item', { href }, raw(icon), h('span.nav-label', label))
   navEls = {
-    deck: h('a.icon-btn', { href: '#/deck', 'aria-label': 'Your deck', title: 'Your deck' }, raw(ICONS.deck)),
-    tin: h('a.icon-btn', { href: '#/tin', 'aria-label': 'Your tin', title: 'Your tin' }, raw(ICONS.tin)),
-    settings: h('a.icon-btn', { href: '#/settings', 'aria-label': 'Settings', title: 'Settings' }, raw(ICONS.settings)),
+    deck: navItem('#/deck', ICONS.deck, 'Deck'),
+    tin: navItem('#/tin', ICONS.tin, 'Tin'),
+    settings: navItem('#/settings', ICONS.settings, 'Settings'),
   }
   const bar = h('header.topbar',
     h('a.wordmark', { href: '#/', 'aria-label': 'The Unillustrated Deck, back to the table' },

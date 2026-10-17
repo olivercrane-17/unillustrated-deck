@@ -302,24 +302,41 @@
 }
 .tin-head {
   display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
   justify-content: space-between;
-  gap: 12px;
+  gap: 2px 12px;
   margin-bottom: 4px;
 }
 .tin-head h2 {
+  flex: none;
+  white-space: nowrap;
   font-size: 15px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
 .tin-head .palette-name {
+  min-width: 0;
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 21px;
+  line-height: 1.2;
   letter-spacing: 0.05em;
   color: var(--ink);
   text-align: right;
+  text-wrap: balance;
+}
+/* Phones: the palette's name sits on its own line under "Your pencils", so a
+   long one ("Crumble and Custard") wraps neatly instead of squeezing it. */
+@media (max-width: 560px) {
+  .tin-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tin-head .palette-name {
+    text-align: left;
+  }
 }
 .pencil-rows {
   list-style: none;
@@ -330,7 +347,7 @@
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
-  gap: 4px 10px;
+  gap: 4px 6px;
   padding: 8px 0;
   border-bottom: 1px solid rgba(42, 33, 28, 0.09);
 }
@@ -396,6 +413,38 @@
 .mini-btn svg {
   width: 21px;
   height: 21px;
+}
+/* Keep and Swap on each pencil: an icon with its word under it. */
+.pencil-btn {
+  grid-auto-flow: row;
+  align-content: center;
+  gap: 1px;
+  width: 48px;
+  height: auto;
+  min-height: 48px;
+  padding: 4px 0 3px;
+}
+.pencil-btn svg {
+  width: 20px;
+  height: 20px;
+}
+.mini-label {
+  font-size: 12.5px;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+}
+.mini-btn[aria-pressed='true'] .mini-label {
+  color: var(--gilt-dark);
+  font-weight: 600;
+}
+.mini-btn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+.mini-btn:disabled:hover {
+  background: transparent;
+  color: var(--ink-faint);
 }
 .tin-notes {
   display: grid;
@@ -626,14 +675,29 @@ details.layer-tips ol {
 .view {
   position: relative;
 }
-.table-tools {
-  position: absolute;
-  top: 0;
-  right: calc(var(--gutter) - 8px);
-  z-index: 2;
+
+/* The sound switch: a small text button in the page flow, under the length
+   chips on the idle table and at the end of the reading's actions. */
+.table-sound {
+  display: flex;
+  justify-content: center;
 }
-.table-tools .icon-btn {
+.sound-btn {
+  min-height: 44px;
+  padding: 6px 12px;
+  font-size: 14.5px;
   color: var(--cream-soft);
+  text-decoration: none;
+}
+.sound-btn:hover {
+  color: var(--cream);
+}
+.sound-btn svg {
+  width: 20px;
+  height: 20px;
+}
+.reading-actions .table-sound {
+  margin-top: 4px;
 }
 
 /* Gilt handwriting is unreadable on the light linen table. */

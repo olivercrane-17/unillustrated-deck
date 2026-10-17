@@ -10,7 +10,7 @@ import {
 import { SPREADS, POSITION_LABELS, swapCard, repaint, swapPencil, toggleLock, newPicture } from '../engine/reading.js'
 import { hashString } from '../engine/rng.js'
 import { go, soundButton } from './app.js'
-import { openSheet } from './feedback.js'
+import { openSheet, toast } from './feedback.js'
 import { riffle, flipSound, clink } from './sound.js'
 import { glossify } from './gloss.js'
 import { openSealFlow } from './seal.js'
@@ -18,6 +18,9 @@ import { photosLink } from './photos.js'
 
 const SPREAD_ORDER = ['quick', 'evening', 'big', 'small']
 const FLIP_GAP = 340
+// The table's own wording for a spread's length, where the engine's is vague.
+const SPREAD_HINTS = { small: '4 or 6 tiny pictures' }
+const hintOf = (key) => SPREAD_HINTS[key] || SPREADS[key].hint
 
 const pick = (list, seed) => (list?.length ? list[seed % list.length] : '')
 const pencilByCode = new Map(pencilCatalogue.map((p) => [p.code, p]))
@@ -34,16 +37,22 @@ function inProgress(r) {
   return r && (r.status === 'dealt' || r.status === 'drawing')
 }
 
+// The deck can only deal from a real colour: the blender doesn't count.
+const tinCanDeal = () => ownedPencils().some((p) => p.special !== 'blender')
+const EMPTY_TIN = 'Your tin is empty. Tick a few pencils and the deck can deal again.'
+const MUDDLE = 'The deck got in a muddle with that one. Try again in a moment?'
+
 export async function render(root) {
   let disposed = false
   let busy = false
   const cleanups = []
   const view = h('div.table')
+  // One sound button, moved into whichever layout is showing (under the
+  // length chips, or at the end of the reading's actions).
   const sound = soundButton()
   // A permanent live region: a region created with its content is not announced.
   const announcer = h('p.sr-only', { 'aria-live': 'polite' })
   root.appendChild(h('h1.sr-only', 'The table'))
-  root.appendChild(h('div.table-tools', sound))
   root.appendChild(announcer)
   root.appendChild(view)
   const announce = (reading) => {
@@ -108,7 +117,7 @@ export async function render(root) {
         const chip = h('button.chip', { type: 'button', 'aria-pressed': String(key === spread), onclick: () => {
           spread = key
           chips.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c === chip)))
-        } }, s.label, h('small', s.hint))
+        } }, s.label, h('small', hintOf(key)))
         return chip
       }),
     )
@@ -119,12 +128,36 @@ export async function render(root) {
       h('button.btn.btn-gilt.draw-btn', { type: 'button', onclick: () => dealNew(currentSpread()) }, 'Draw a card'),
       h('p.spread-label', 'How long have you got?'),
       chips,
+      h('div.table-sound', sound),
     ))
   }
 
   async function resume(r) {
     await saveReading(r)
     showReading(r, { animate: false })
+  }
+
+  // A reshuffle replaces the reading from the top, so bring the top of the
+  // reading (the cards) into view before the new one arrives: smoothly, or at
+  // once under reduced motion. Nothing moves if the cards are already in view.
+  function toTopOfReading() {
+    const reading = view.querySelector('.reading')
+    if (!reading || reading.getBoundingClientRect().top >= -1) return Promise.resolve()
+    if (prefersReducedMotion()) {
+      window.scrollTo({ top: 0, behavior: 'instant' })
+      return Promise.resolve()
+    }
+    return new Promise((resolve) => {
+      let timer = 0
+      const done = () => {
+        clearTimeout(timer)
+        window.removeEventListener('scrollend', done)
+        resolve()
+      }
+      timer = setTimeout(done, 800)
+      window.addEventListener('scrollend', done)
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    })
   }
 
   // `askAgain` changes the kind line; `count` decides whether this counts as an
@@ -134,6 +167,8 @@ export async function render(root) {
     if (!ownedPencils().some((p) => p.special !== 'blender')) return showEmptyTin()
     busy = true
     try {
+      await toTopOfReading()
+      if (disposed) return
       if (count) {
         const reshuffles = await logReshuffle()
         if (reshuffles >= 3) {
@@ -171,6 +206,7 @@ export async function render(root) {
         const pos = r.cards.who ? 'who' : 'theme'
         const card = content.byId.get(r.cards[pos])
         return h('button.card-slot', { type: 'button', 'aria-label': `Choose ${card.title}`, onclick: async () => {
+          await toTopOfReading()
           const saved = await deal(spread, { fixedReading: r })
           showReading(saved, { animate: !prefersReducedMotion(), idea: pick(content.lines.deckIdea, saved.seed), skip: [pos], focusKey: 'card-who' })
           announce(saved)
@@ -239,10 +275,18 @@ export async function render(root) {
         sequencing = false
         slots.forEach((s) => flip(s.el, true))
         sections.forEach((s) => s.classList.remove('is-hidden'))
-        view.removeEventListener('click', finish, true)
+        view.removeEventListener('click', skipTap, true)
         restoreFocus(focusKey)
       }
-      view.addEventListener('click', finish, true)
+      // A tap while the cards are still landing only skips ahead: it must not
+      // also open the card it landed on, or press a button not yet shown.
+      const skipTap = (e) => {
+        if (finished) return
+        e.stopPropagation()
+        e.preventDefault()
+        finish()
+      }
+      view.addEventListener('click', skipTap, true)
       ;(async () => {
         await wait(460)
         for (const s of slots) {
@@ -277,7 +321,12 @@ export async function render(root) {
     const t = reading.text
     const out = []
     if (t.opener) out.push(h('p.opener', t.opener))
-    const brief = t.brief?.length ? t.brief : [{ key: 'draw', label: 'Draw', text: t.sentence }]
+    // Readings saved before the labelled brief existed: their sentence, frame and twist.
+    const brief = t.brief?.length ? t.brief : [
+      { key: 'draw', label: 'Draw', text: t.sentence || 'Draw whatever you like.' },
+      t.framing && { key: 'frame', label: 'Frame', text: t.framing },
+      t.twist && { key: 'twist', label: 'Twist', text: t.twist.replace(/^Twist:\s*/, '') },
+    ].filter(Boolean)
     out.push(h('dl.brief', brief.map((line) => h(`div.brief-row.brief-${line.key}`,
       h('dt', line.label),
       h(`dd${line.key === 'draw' ? '.sentence' : ''}`, line.key === 'twist' || line.key === 'light' ? glossify(line.text) : line.text),
@@ -314,22 +363,22 @@ export async function render(root) {
       return h(`li.pencil-row${pen.locked ? '.is-locked' : ''}`,
         raw(pencilSvg(hex, { label: `${info.name} swatch` })),
         h('span.pencil-name', h('code', info.code), h('strong', info.name), h('em', pen.role)),
-        p.fixed ? h('span') : h('button.mini-btn', {
+        p.fixed ? h('span') : h('button.mini-btn.pencil-btn', {
           type: 'button',
           dataset: { focus: `lock-${i}` },
           'aria-pressed': String(Boolean(pen.locked)),
-          'aria-label': pen.locked ? `Unlock ${info.name}` : `Keep ${info.name}`,
-          title: pen.locked ? 'Kept. Tap to let it go.' : 'Keep this pencil',
+          'aria-label': pen.locked ? `Kept: ${info.name}` : `Keep ${info.name}`,
+          title: pen.locked ? 'Kept. Tap to let it go.' : 'Keep this pencil when the colours change',
           onclick: () => change(toggleLock(currentReading() || reading, i), {}),
-        }, raw(pen.locked ? ICONS.lock : ICONS.unlock)),
-        p.fixed ? h('span') : h('button.mini-btn', {
+        }, raw(pen.locked ? ICONS.lock : ICONS.unlock), h('span.mini-label', { 'aria-hidden': 'true' }, pen.locked ? 'Kept' : 'Keep')),
+        p.fixed ? h('span') : h('button.mini-btn.pencil-btn', {
           type: 'button',
           dataset: { focus: `swap-${i}` },
           'aria-label': `Swap ${info.name} for another pencil`,
-          title: 'Swap this pencil',
+          title: 'Swap this pencil for another',
           disabled: pen.locked,
-          onclick: () => { clink(); change(swapPencil(currentReading() || reading, engineContext(), i), { newPencil: i }) },
-        }, raw(ICONS.swap)),
+          onclick: () => { if (tinCanDeal()) clink(); safeChange(() => swapPencil(currentReading() || reading, engineContext(), i), { newPencil: i }) },
+        }, raw(ICONS.swap), h('span.mini-label', { 'aria-hidden': 'true' }, 'Swap')),
       )
     })
     const notes = [reading.text.lonelyLine && h('p.lonely', reading.text.lonelyLine),
@@ -337,7 +386,7 @@ export async function render(root) {
       reading.text.paperLine && h('p', reading.text.paperLine),
       reading.text.smallTin && h('p', reading.text.smallTin)].filter(Boolean)
     return [
-      h('div.tin-head', h('h2', 'Your tin'), h('span.palette-name', p.name)),
+      h('div.tin-head', h('h2', 'Your pencils'), h('span.palette-name', p.name)),
       h('ul.pencil-rows', rows),
       notes.length ? h('div.tin-notes', notes) : null,
       tips ? h('details.layer-tips', h('summary', 'How to layer'), h('ol', tips.map((t) => h('li', glossify(t))))) : null,
@@ -355,24 +404,50 @@ export async function render(root) {
       } }, raw(ICONS.pencil), drawing ? 'Back to drawing' : 'Start drawing'),
       drawing ? h('button.btn-text', { type: 'button', onclick: () => openSealFlow(currentReading() || reading, { onDone: () => showIdle() }) }, raw(ICONS.tick), 'I’ve drawn it') : null,
       h('div.alt-actions',
-        h('button.btn-text', { type: 'button', dataset: { focus: 'repaint' }, onclick: () => change(repaint(currentReading() || reading, engineContext()), { allPencils: true }) }, 'New colours, same picture'),
-        reading.spread !== 'small' ? h('button.btn-text', { type: 'button', dataset: { focus: 'picture' }, onclick: () => change(newPicture(currentReading() || reading, engineContext()), { allCards: true, fresh: true }) }, 'New picture, same colours') : null,
+        h('button.btn-text', { type: 'button', dataset: { focus: 'repaint' }, onclick: () => safeChange(() => repaint(currentReading() || reading, engineContext()), { allPencils: true }) }, 'New colours, same picture'),
+        reading.spread !== 'small' ? h('button.btn-text', { type: 'button', dataset: { focus: 'picture' }, onclick: () => safeChange(() => newPicture(currentReading() || reading, engineContext()), { allCards: true, fresh: true }) }, 'New picture, same colours') : null,
       ),
       h('button.btn-text', { type: 'button', onclick: () => dealNew(reading.spread, { askAgain: true }) }, raw(ICONS.shuffle), 'Ask the deck again'),
       h('div.ask-again-for',
         h('p', 'Or ask again for'),
-        h('div.chips', otherSpreads.map((k) => h('button.chip', { type: 'button', onclick: () => dealNew(k, { askAgain: true, count: false }) }, SPREADS[k].label, h('small', SPREADS[k].hint)))),
+        h('div.chips', otherSpreads.map((k) => h('button.chip', { type: 'button', onclick: () => dealNew(k, { askAgain: true, count: false }) }, SPREADS[k].label, h('small', hintOf(k))))),
       ),
+      h('div.table-sound', sound),
     ]
   }
 
-  async function change(next, { newPencil, allCards, fresh, flipPos, focusKey } = {}) {
+  // Ask the engine for a change and show it. An empty tin (she may have
+  // emptied it with this reading on the table) or anything else going wrong
+  // gets a kind word instead of a silent failure.
+  let closeNote = null
+  const note = (message, opts) => {
+    closeNote?.() // one at a time, however often she taps
+    closeNote = toast(message, opts)
+  }
+  async function safeChange(make, opts) {
+    if (!tinCanDeal()) {
+      note(EMPTY_TIN, { action: 'Open your tin', onAction: () => go('tin') })
+      return
+    }
+    try {
+      await change(make(), opts)
+    } catch (e) {
+      console.error(e)
+      note(MUDDLE)
+    }
+  }
+
+  async function change(next, { newPencil, allCards, allPencils, fresh, flipPos, focusKey } = {}) {
     const key = focusKey || document.activeElement?.closest?.('[data-focus]')?.dataset.focus
     const prev = currentReading()
     if (fresh) delete next.id
     else if (prev && !next.id) next.id = prev.id
     next.status = prev?.status && !fresh ? prev.status : next.status
-    const saved = await saveReading(next)
+    const saving = saveReading(next)
+    // A new picture, new colours or a swapped card: show it from the top.
+    if (allCards || allPencils || flipPos) await toTopOfReading()
+    const saved = await saving
+    if (disposed) return
     const flipOnly = flipPos ? [flipPos] : allCards ? positionsOf(saved) : []
     showReading(saved, { flipOnly, focusKey: key })
     if (allCards || flipPos) announce(saved)
@@ -401,7 +476,7 @@ export async function render(root) {
           h('button.btn.btn-paper', { type: 'button', autofocus: true, onclick: () => {
             close()
             const r = currentReading() || reading
-            change(swapCard(r, engineContext(), pos), { flipPos: pos, focusKey: `card-${pos}` })
+            safeChange(() => swapCard(r, engineContext(), pos), { flipPos: pos, focusKey: `card-${pos}` })
           } }, raw(ICONS.swap), 'Swap this card'),
           h('button.btn-text', { type: 'button', onclick: close }, 'Keep it'),
         ),

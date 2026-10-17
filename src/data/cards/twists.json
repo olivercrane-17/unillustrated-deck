@@ -58,7 +58,7 @@
   {
     "id": "twist-opposites",
     "title": "Two Pencils: Opposite Colours",
-    "rule": "Use only these two opposite colours, and layer one over the other for the shadows.",
+    "rule": "Use only these two opposite colours: colour with the first, then layer the second over it for the shadows.",
     "phrases": ["like orange and blue", "shadows from layering both"],
     "effects": { "palette": "complement" }
   },
@@ -86,8 +86,8 @@
   {
     "id": "twist-keyhole",
     "title": "Through a Keyhole",
-    "rule": "Draw the scene inside a keyhole shape, as if you were peeping through a door.",
-    "phrases": ["a keyhole-shaped frame", "dark all round the edge"],
+    "rule": "Draw the scene in a keyhole shape, as if peeping through a door, and let its edges fade to bare paper.",
+    "phrases": ["a keyhole-shaped picture", "soft edges fading to paper"],
     "effects": { "frame": "vignette" }
   },
   {

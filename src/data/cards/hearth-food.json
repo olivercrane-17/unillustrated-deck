@@ -7,12 +7,12 @@
     "the": "the teapot in its cosy",
     "phrases": ["red, mustard and green stripes", "a bobble on top", "only the spout and handle showing"],
     "doing": [
-      { "t": "has steam drifting from its spout", "scope": "any" },
-      { "t": "has a cup of tea poured beside it", "scope": "any" },
+      { "t": "has steam drifting from its spout", "scope": "any", "roles": { "light": "for the steam and the shine on the spout" } },
+      { "t": "has a cup of tea poured beside it", "scope": "any", "close": ["Just the teapot in its cosy and the cup of tea beside it."] },
       { "t": "has a drip of tea on the end of its spout", "scope": "any" },
       { "t": "has its bobble flopped over to one side", "scope": "any" }
     ],
-    "close": ["Just the teapot in its cosy, stripes and spout and nothing else.", "Only the knitted stripes, close enough to see every stitch."],
+    "close": ["Just the teapot in its cosy, filling the page, spout and all.", "Only the cosy and the spout, close enough to see every stitch."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -23,7 +23,7 @@
     "roles": {
       "main": "for the broad red stripes",
       "dark": "for the shadows between the stitches and under the spout",
-      "light": "for the steam and the shine on the china",
+      "light": "for the shine on the spout and the lightest stitches",
       "accent": "for the mustard-yellow bobble"
     },
     "firstMark": ["Start with the shadow where the spout pokes out of the wool, a small curved mark of {dark}.", "Start with one stripe of {main}, drawn as a row of Vs like real knitting."]
@@ -55,7 +55,7 @@
       "light": "for the sugar and the pale dough between the turns",
       "accent": "for the dark cinnamon swirl"
     },
-    "firstMark": ["Start with the spiral itself: one slow line of {dark} winding out from the middle.", "Start with the outside edge of the bun in a loose, lumpy ring of {main}."]
+    "firstMark": ["Start with the groove of the spiral: one slow line of {dark} winding out from the middle.", "Start with the outside edge of the bun in a loose, lumpy ring of {main}."]
   },
   {
     "id": "hearth-toast-and-jam",
@@ -77,14 +77,15 @@
     "active": "any",
     "colours": ["#C98B4A", "#A3242F", "#EACB91"],
     "accent": "#A3242F",
+    "colourWords": ["golden brown", "red", "pale gold"],
     "texture": "crust",
     "roles": {
       "main": "for the toasted surface",
-      "dark": "for the browned crusts",
+      "dark": "for the shadow under the slice and the darkest edges of the crust",
       "light": "for the shine on the jam and the paler bread",
       "accent": "for the red jam"
     },
-    "firstMark": ["Start with the crust: a firm line of {dark} all round the edge of the slice.", "Start with the toasted surface in small, scrubby circles of {main}, so it looks rough and crunchy."]
+    "firstMark": ["Start with the crust: a firm line of {main} along the edge, pressed harder than the rest.", "Start with the toasted surface in small, scrubby circles of {main}, so it looks rough and crunchy."]
   },
   {
     "id": "hearth-marmalade",
@@ -94,7 +95,7 @@
     "the": "the jar of marmalade",
     "phrases": ["glowing orange jelly", "thin strips of peel inside", "a blue gingham cloth on top"],
     "doing": [
-      { "t": "has its lid off and a knife across the top", "scope": "any" },
+      { "t": "has its lid off and a knife across the top", "scope": "any", "roles": { "accent": "for the blue gingham cloth lying beside it" } },
       { "t": "is glowing orange where the light comes through", "scope": "any" },
       { "t": "has a dribble running down its label", "scope": "any" },
       { "t": "has a gingham cloth tied over its lid with string", "scope": "any" }
@@ -106,10 +107,11 @@
     "active": "any",
     "colours": ["#D9731C", "#4D6FA0", "#F2A93B"],
     "accent": "#4D6FA0",
+    "colourWords": ["orange", "blue", "golden yellow"],
     "texture": "glass",
     "roles": {
       "main": "for the marmalade glowing through the glass",
-      "dark": "for the thick strips of peel and the deepest orange",
+      "dark": "for the shadow the jar throws and the rim of the lid",
       "light": "for the glints on the glass",
       "accent": "for the blue gingham cloth on the lid"
     },
@@ -123,18 +125,19 @@
     "the": "the bowl of clementines",
     "phrases": ["bright orange dimpled peel", "a few dark green leaves", "white pith inside the peel"],
     "doing": [
-      { "t": "has one clementine peeled open like a star", "scope": "any" },
+      { "t": "has one clementine peeled open like a star", "scope": "any", "close": ["Just the peeled clementine, opened out like a star, as big as the page."], "firstMark": ["Start with the white pith between the segments, left as bare paper, then colour each segment in {main}."] },
       { "t": "has two clementines with their leaves still on", "scope": "any" },
       { "t": "has one long curl of peel trailing over the rim", "scope": "any" },
-      { "t": "has one clementine rolled away from the rest", "scope": "any" }
+      { "t": "has one clementine rolled away from the rest", "scope": "any", "close": ["Just the bowl and the one clementine that has rolled away from it."] }
     ],
-    "close": ["Just one clementine, drawn as big as the page.", "Only two clementines side by side, filling the page."],
+    "close": ["Just the bowl of clementines, with every one a slightly different round.", "Only the top of the bowl, with the clementines heaped up and filling the page."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["autumn", "winter"],
     "active": "any",
     "colours": ["#E8781E", "#4F7A35", "#F3B04A"],
     "accent": "#4F7A35",
+    "colourWords": ["orange", "green", "golden yellow"],
     "texture": "fruit",
     "roles": {
       "main": "for the dimpled orange peel",
@@ -152,12 +155,12 @@
     "the": "the crusty loaf",
     "phrases": ["deep brown crust", "three cuts across the top", "a dusting of white flour"],
     "doing": [
-      { "t": "has three cuts split open across its top", "scope": "any" },
+      { "t": "has three cuts split open across its top", "scope": "any", "close": ["Only the top of the loaf and its three cuts, filling the page."] },
       { "t": "has the end cut off and crumbs all round it", "scope": "any" },
       { "t": "has a bread knife lying beside it", "scope": "any" },
       { "t": "has a sparrow pecking at its crumbs", "scope": "outdoor" }
     ],
-    "close": ["Just the loaf, with the light catching every ridge of crust.", "Only the top of the loaf and its cuts, filling the page."],
+    "close": ["Just the loaf, with the light catching every ridge of crust.", "Just the loaf, side on, so the curve of the crust fills the page."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -171,7 +174,7 @@
       "light": "for the shine on the crust",
       "accent": "for the pale flour in the cuts"
     },
-    "firstMark": ["Start with the cuts across the top: three curved lines of {dark}, pressed firmly.", "Start with the crust in loose strokes of {main}, using the side of the pencil and following the curve of the loaf."]
+    "firstMark": ["Start with the cuts across the top: three curved shadows of {dark}, pressed firmly.", "Start with the crust in loose strokes of {main}, using the side of the pencil and following the curve of the loaf."]
   },
   {
     "id": "hearth-victoria-sponge",
@@ -186,17 +189,18 @@
       { "t": "is leaning slightly to one side", "scope": "any" },
       { "t": "is dusted with white sugar", "scope": "any" }
     ],
-    "close": ["Just the slice, side on, so you can see each layer.", "Only the jam and cream in the middle, close enough to see the seeds."],
+    "close": ["Just the slice, side on, so you can see each layer.", "Only the slice, drawn as big as the page, with the jam and cream in the middle."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#E3B96A", "#B32A3A", "#F6EBD3"],
     "accent": "#B32A3A",
+    "colourWords": ["pale yellow", "red", "cream"],
     "texture": "crust",
     "roles": {
       "main": "for the baked sponge",
-      "dark": "for the browned edges and the shadow underneath",
+      "dark": "for the baked edges and the shadow underneath",
       "light": "for the cream and the sugar on top",
       "accent": "for the red jam in the middle"
     },
@@ -215,7 +219,7 @@
       { "t": "is dripping with syrup down every layer", "scope": "any" },
       { "t": "has a lemon wedge and a sprinkle of sugar", "scope": "any" }
     ],
-    "close": ["Just the stack, side on, with every layer a slightly different shape.", "Only the top pancake and its pat of butter, seen from above."],
+    "close": ["Just the stack, side on, with every layer a slightly different shape.", "Only the top two pancakes, close enough to see the brown speckles on top."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -241,7 +245,7 @@
     "doing": [
       { "t": "has its top cut off and yolk running down", "scope": "any" },
       { "t": "is wearing a knitted hat with a bobble", "scope": "any" },
-      { "t": "has strips of toast lined up beside it", "scope": "any" },
+      { "t": "has strips of toast lined up beside it", "scope": "any", "close": ["Just the egg in its cup and the strips of toast lined up beside it."] },
       { "t": "has a face drawn on its shell in felt-tip", "scope": "any" }
     ],
     "close": ["Just the egg and the egg cup, filling the page.", "Only the top of the egg and the rim of the egg cup, close up."],
@@ -273,7 +277,7 @@
       { "t": "has a brown drip down the outside", "scope": "any" },
       { "t": "has a curl of steam rising from it", "scope": "any" }
     ],
-    "close": ["Just the mug, with the steam rising off it in one thin curl.", "Only the top of the cocoa, marshmallows and all, seen from above."],
+    "close": ["Just the mug, with the steam rising off it in one thin curl.", "Only the top half of the mug, close enough to see the shine on the glaze."],
     "scale": "small",
     "habitats": ["tabletop", "home"],
     "seasons": ["spring", "autumn", "winter"],
@@ -283,7 +287,7 @@
     "texture": "ceramic",
     "roles": {
       "main": "for the glazed mug",
-      "dark": "for the cocoa and the shadow of the handle",
+      "dark": "for the dark cocoa and the shadow under the handle",
       "light": "for the white marshmallows and the steam",
       "accent": "for the pink marshmallows"
     },
@@ -300,7 +304,7 @@
       { "t": "is full right up to the lip", "scope": "any" },
       { "t": "has a drip of milk running down its side", "scope": "any" },
       { "t": "has a crocheted cover with beads round the edge", "scope": "any" },
-      { "t": "is being watched closely by a cat", "scope": "any" }
+      { "t": "is being watched closely by a cat", "scope": "any", "close": ["Just the jug, with the cat's nose and whiskers peeping in at one edge."] }
     ],
     "close": ["Just the jug, with its stripes bending round the curve.", "Only the spout and the lip, close enough to see the shine."],
     "scale": "small",
@@ -326,7 +330,7 @@
     "the": "the bowl of tomato soup",
     "phrases": ["orange-red tomato soup", "a swirl of white cream", "a blue bowl"],
     "doing": [
-      { "t": "has a swirl of cream drawn across the top", "scope": "any" },
+      { "t": "has a swirl of cream drawn across the top", "scope": "any", "firstMark": ["Start with the cream: leave one spiral of bare paper, then fill around it with {main}."], "roles": { "light": "for the cream swirl and the shine on the soup" } },
       { "t": "has a hunk of buttered bread dunked into it", "scope": "any" },
       { "t": "has steam curling up from it", "scope": "any" },
       { "t": "has a spoon resting against the rim", "scope": "any" }
@@ -342,10 +346,10 @@
     "roles": {
       "main": "for the tomato soup",
       "dark": "for the shadow inside the bowl's rim",
-      "light": "for the cream swirl and the steam",
+      "light": "for the shine on the soup and the steam",
       "accent": "for the blue rim of the bowl"
     },
-    "firstMark": ["Start with the cream: leave one spiral of bare paper, then fill around it with {main}.", "Start with the inside edge of the bowl, a narrow shadow of {dark} along the far rim."]
+    "firstMark": ["Start with the surface of the soup in smooth, level strokes of {main}, leaving a sliver of paper for the shine.", "Start with the inside edge of the bowl, a narrow shadow of {dark} along the far rim."]
   },
   {
     "id": "hearth-cream-tea",
@@ -413,23 +417,24 @@
     "the": "the cheese board",
     "phrases": ["a round wooden board", "blue cheese and yellow cheddar", "a bunch of purple grapes"],
     "doing": [
-      { "t": "has a wedge of blue cheese with a nibble out", "scope": "any" },
+      { "t": "has a wedge of blue cheese with a nibble out", "scope": "any", "close": ["Just the wedge of blue cheese, close enough to see the veins and the nibble out of it."], "firstMark": ["Start with the shadow under the wedge, one firm triangle of {dark}."] },
       { "t": "is set with crackers and a spoonful of chutney", "scope": "any" },
       { "t": "has a knife standing upright in a soft cheese", "scope": "any" },
       { "t": "has a bunch of grapes hanging off one edge", "scope": "any" }
     ],
-    "close": ["Just the wedge of blue cheese, close enough to see the veins.", "Only the board seen from above, every cheese a different shape."],
+    "close": ["Just the board, a little from the side, with every cheese standing on it.", "Only the board seen from above, every cheese a different shape."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#A87B4F", "#EBC870", "#6E3B5C"],
     "accent": "#EBC870",
+    "colourWords": ["brown", "yellow", "plum"],
     "texture": "wood",
     "roles": {
       "main": "for the wooden board",
-      "dark": "for the shadows under each cheese and the darkest grapes",
-      "light": "for the white rinds and the shine on the knife",
+      "dark": "for the shadows under each cheese and between the grapes",
+      "light": "for the white rinds and the pale cut faces of the cheese",
       "accent": "for the wedge of yellow cheddar"
     },
     "firstMark": ["Start with the grain of the board, long light strokes of {main}.", "Start with the shadow under the biggest cheese, one firm triangle of {dark}."]
@@ -454,10 +459,11 @@
     "active": "any",
     "colours": ["#C98A45", "#E2C77F", "#8E3A1E"],
     "accent": "#E2C77F",
+    "colourWords": ["golden brown", "pale yellow", "chestnut"],
     "texture": "crust",
     "roles": {
       "main": "for the baked pastry",
-      "dark": "for the gaps between the pastry strips and the browned edges",
+      "dark": "for the gaps between the pastry strips and the darkest edges",
       "light": "for the sugar and the shine on the glaze",
       "accent": "for the pale apple filling"
     },
@@ -477,13 +483,14 @@
       { "t": "is lined with a checked tea towel", "scope": "any" },
       { "t": "has a hen standing beside it", "scope": "outdoor" }
     ],
-    "close": ["Just three eggs from the basket, each a different brown.", "Only the eggs, piled up, with the shadows tucked between them."],
+    "close": ["Just the basket, with the eggs heaped up inside it.", "Only the eggs at the top of the basket, with the shadows tucked between them."],
     "scale": "small",
     "habitats": ["tabletop", "farm", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#C99868", "#A7C4C2", "#8A6A3E"],
     "accent": "#A7C4C2",
+    "colourWords": ["brown", "pale blue"],
     "texture": "shell",
     "roles": {
       "main": "for the brown shells",
@@ -501,12 +508,12 @@
     "the": "the bowl of cherries",
     "phrases": ["glossy dark red cherries", "green stalks joined in pairs", "a white spot of shine on each"],
     "doing": [
-      { "t": "has a pair of cherries hooked over the rim", "scope": "any" },
-      { "t": "has a heap of stones and stalks to one side", "scope": "any" },
+      { "t": "has a pair of cherries hooked over the rim", "scope": "any", "close": ["Just the pair of cherries hooked over the rim, drawn as big as the page."] },
+      { "t": "has a heap of stones and stalks to one side", "scope": "any", "close": ["Just the bowl and the little heap of stones and stalks beside it."] },
       { "t": "is heaped up with stalks sticking out everywhere", "scope": "any" },
       { "t": "has a blackbird perched on the rim", "scope": "outdoor" }
     ],
-    "close": ["Just one pair of cherries joined at the stalk, drawn as big as the page.", "Only the cherries at the top of the bowl, each with a white spot of shine."],
+    "close": ["Just the bowl, side on, with the cherries heaped above the rim.", "Only the cherries at the top of the bowl, each with a white spot of shine."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["summer"],
@@ -535,7 +542,7 @@
       { "t": "are covered in coloured sprinkles", "scope": "any" },
       { "t": "are each iced a different pastel colour", "scope": "any" }
     ],
-    "close": ["Just one biscuit, iced in a star, close enough to see the wobbles.", "Only a row of three, each iced in a different colour."],
+    "close": ["Just a few of the biscuits, close enough to see the wobbles in the icing.", "Only a row of three, each iced in a different colour."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -559,12 +566,12 @@
     "the": "the steak pie",
     "phrases": ["a browned pastry lid", "crimped edges all round", "rich brown gravy"],
     "doing": [
-      { "t": "has steam puffing out of a hole in the middle", "scope": "any" },
+      { "t": "has steam puffing out of a hole in the middle", "scope": "any", "roles": { "light": "for the shine on the pastry and the steam" } },
       { "t": "has gravy bubbling out at the edges", "scope": "any" },
       { "t": "has pastry leaves stuck on top", "scope": "any" },
       { "t": "has one slice cut out, showing the filling", "scope": "any" }
     ],
-    "close": ["Just the pie, with steam rising from the hole in the middle of the crust.", "Only the pie seen from above, with the crimped edge going all the way round."],
+    "close": ["Just the pie, a little from the side, so you see the crust and the dish.", "Only the pie seen from above, with the crimped edge round the outside."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -574,8 +581,8 @@
     "texture": "crust",
     "roles": {
       "main": "for the glazed pastry",
-      "dark": "for the browned crimping and the shadow under the dish",
-      "light": "for the shine on the pastry and the steam",
+      "dark": "for the deep dips in the crimping and the shadow under the dish",
+      "light": "for the shine on the glazed pastry",
       "accent": "for the dark brown gravy"
     },
     "firstMark": ["Start with the steam hole in the middle of the lid: a small dark slit of {dark}.", "Start with the crimped edge, a row of thumb-shaped dips in {main}."]
@@ -593,7 +600,7 @@
       { "t": "has a fork balanced across its open top", "scope": "any" },
       { "t": "has a bay leaf pressed flat against the glass", "scope": "any" }
     ],
-    "close": ["Just the jar, with round onions pressed against the glass.", "Only one onion on a fork, shiny, with its layers showing."],
+    "close": ["Just the jar, with round onions pressed against the glass.", "Only the top half of the jar, close enough to see the onions squashed against the glass."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -632,11 +639,11 @@
     "texture": "crust",
     "roles": {
       "main": "for the glossy brown top",
-      "dark": "for the currants and the shadow underneath",
+      "dark": "for the shadow underneath and round the currants",
       "light": "for the shine on the glaze",
       "accent": "for the pale cross"
     },
-    "firstMark": ["Start with the currants: a few dark, lumpy dots of {dark} pressed into the dough.", "Start with the round top of the bun in {main}, leaving the cross as bare paper."]
+    "firstMark": ["Start with the currants: a few lumpy dots of {main}, pressed hard so they come out darker.", "Start with the round top of the bun in {main}, leaving the cross as bare paper."]
   },
   {
     "id": "hearth-mince-pies",
@@ -651,7 +658,7 @@
       { "t": "are leaking dark filling at the edges", "scope": "any" },
       { "t": "are in a row with one half eaten", "scope": "any" }
     ],
-    "close": ["Just one mince pie, with a peep of dark filling round its star.", "Only three pies in a row, each star lid at a different angle."],
+    "close": ["Just the pies, close enough to see the crimped edges.", "Only three pies in a row, each star lid at a different angle."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["winter"],
@@ -665,7 +672,7 @@
       "light": "for the icing sugar",
       "accent": "for the dark fruit filling"
     },
-    "firstMark": ["Start with the star on the lid, its outline drawn lightly in {main}.", "Start with the filling showing round the star, small dabs of {dark}."]
+    "firstMark": ["Start with the star on the lid, its outline drawn lightly in {main}.", "Start with the crimped edge of the nearest pie, a row of small curves of {main}."]
   },
   {
     "id": "hearth-strawberry-tart",
@@ -680,13 +687,14 @@
       { "t": "has one strawberry missing from the outer ring", "scope": "any" },
       { "t": "has crumbs of pastry around it", "scope": "any" }
     ],
-    "close": ["Just the tart from above, rings of strawberries going round and round.", "Only one strawberry half, glazed, close enough to see every seed."],
+    "close": ["Just the tart from above, rings of strawberries going round and round.", "Only the tart, a little from the side, so you see the pastry case and the berries on top."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["summer"],
     "active": "any",
     "colours": ["#C72F3A", "#E2B26C", "#F2D88A"],
     "accent": "#E2B26C",
+    "colourWords": ["red", "golden brown", "pale yellow"],
     "texture": "fruit",
     "roles": {
       "main": "for the glazed strawberries",
@@ -694,7 +702,7 @@
       "light": "for the shine of the glaze",
       "accent": "for the pastry rim"
     },
-    "firstMark": ["Start with the seeds on one strawberry: a few small marks of {dark}, then colour round them.", "Start with the outer ring of berries as a circle of rounded shapes in {main}."]
+    "firstMark": ["Start with the seeds on one strawberry: tiny dots of bare paper, with {main} coloured round them.", "Start with the outer ring of berries as a circle of rounded shapes in {main}."]
   },
   {
     "id": "hearth-toffee-apple",
@@ -709,7 +717,7 @@
       { "t": "has one bite out, showing the white apple", "scope": "any" },
       { "t": "has its stick poking up at an angle", "scope": "any" }
     ],
-    "close": ["Just the toffee apple, with one bright white glint on the toffee.", "Only the stick and the top of the apple, filling the page."],
+    "close": ["Just the toffee apple, with one bright white glint on the toffee.", "Only the toffee apple, drawn as big as the page, stick and all."],
     "scale": "tiny",
     "habitats": ["tabletop", "village"],
     "seasons": ["autumn"],
@@ -719,11 +727,11 @@
     "texture": "fruit",
     "roles": {
       "main": "for the shiny red toffee",
-      "dark": "for the deepest red where the toffee pools",
+      "dark": "for the shadow underneath and the darkest side of the apple",
       "light": "for the hard white glints",
       "accent": "for the wooden stick"
     },
-    "firstMark": ["Start with the glints: two sharp shapes left as bare paper, then ring them with {main}.", "Start with the pool of toffee at the base in a firm, dark band of {dark}."]
+    "firstMark": ["Start with the glints: two sharp shapes left as bare paper, then ring them with {main}.", "Start with the shadow under the apple, one firm curved band of {dark}."]
   },
   {
     "id": "hearth-lemon-drizzle",
@@ -748,11 +756,11 @@
     "texture": "crust",
     "roles": {
       "main": "for the baked sponge",
-      "dark": "for the browned edges of the loaf",
+      "dark": "for the baked edges and the shadow under the loaf",
       "light": "for the sugar crust and the icing",
       "accent": "for the lemon zest"
     },
-    "firstMark": ["Start with the shadow along the base of the loaf, one steady line of {dark}.", "Start with the cut face of the cake in light, even strokes of {main}, with dots of bare paper for the holes in the sponge."]
+    "firstMark": ["Start with the shadow along the base of the loaf, one steady line of {dark}.", "Start with the top of the cake in light, even strokes of {main}, leaving bare paper for the sugar."]
   },
   {
     "id": "hearth-wrapped-sandwich",
@@ -767,7 +775,7 @@
       { "t": "has a name written on the paper in pencil", "scope": "any" },
       { "t": "has an ant carrying off a crumb", "scope": "outdoor", "seasons": ["spring", "summer"] }
     ],
-    "close": ["Just the parcel, with the string and the folds of paper.", "Only the knot of string and the folds around it, close up."],
+    "close": ["Just the parcel, with the string and the folds of paper.", "Only the top of the parcel, close enough to see every fold in the paper."],
     "scale": "small",
     "habitats": ["tabletop", "garden", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -796,7 +804,7 @@
       { "t": "has a spoon standing straight up in it", "scope": "any" },
       { "t": "has blueberries on top, turning it purple", "scope": "any" }
     ],
-    "close": ["Just the bowl from above, with the oats filling it.", "Only a corner of the bowl, close enough to see each oat."],
+    "close": ["Just the bowl from above, with the oats filling it.", "Only one side of the bowl, close enough to see each oat."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "autumn", "winter"],
@@ -825,9 +833,9 @@
       { "t": "has a lipstick mark on the rim", "scope": "any" },
       { "t": "is half drunk, with the spoon left in", "scope": "any" }
     ],
-    "close": ["Just the cup and saucer, with roses on the cup and birds on the saucer.", "Only the cup, seen from above, with a swirl of milk in the tea."],
+    "close": ["Just the cup and saucer, with roses on the cup and birds on the saucer.", "Only the cup and saucer seen from above, with a swirl of milk in the tea."],
     "scale": "small",
-    "habitats": ["tabletop", "home", "garden", "village"],
+    "habitats": ["tabletop", "home", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#E3A2AE", "#5E86B0", "#9C5A2E"],
@@ -861,6 +869,7 @@
     "active": "any",
     "colours": ["#F2E08A", "#6E9E4A", "#F7F0C8"],
     "accent": "#6E9E4A",
+    "colourWords": ["pale yellow", "green", "cream"],
     "texture": "glass",
     "roles": {
       "main": "for the cloudy lemonade",

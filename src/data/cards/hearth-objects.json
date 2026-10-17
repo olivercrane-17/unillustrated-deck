@@ -10,9 +10,9 @@
       { "t": "is overflowing with odd socks", "scope": "any" },
       { "t": "has a ball of grey wool on top", "scope": "any" },
       { "t": "has a threaded needle poking out of a sock", "scope": "any" },
-      { "t": "has a sock on top with a hole in the toe", "scope": "any" }
+      { "t": "has a sock on top with a hole in the toe", "scope": "any", "close": ["Only the sock on top, with the hole in its toe and the rim of the basket under it."], "firstMark": ["Start with the hole in the sock: one ragged oval of {dark}, no bigger than a fingernail."] }
     ],
-    "close": ["Just one sock with a hole in the toe and a threaded needle beside it.", "Only the hole in the sock, close up, with grey wool stitched across it."],
+    "close": ["Just the basket, with the socks spilling over the rim.", "Only the top of the basket, close enough to see the weave and the socks."],
     "scale": "small",
     "habitats": ["home"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -26,7 +26,7 @@
       "light": "for the grey wool and the shine on the needle",
       "accent": "for the red sock on top"
     },
-    "firstMark": ["Start with the hole in the sock: one ragged oval of {dark}, no bigger than a fingernail.", "Start with the top edge of the basket, a row of short slanting strokes of {main} like a plait."]
+    "firstMark": ["Start with the gaps in the weave, short dashes of {dark} between the strands.", "Start with the top edge of the basket, a row of short slanting strokes of {main} like a plait."]
   },
   {
     "id": "hearth-library-books",
@@ -37,13 +37,13 @@
     "phrases": ["a stack of four or five hardbacks", "shiny clear plastic covers", "a different colour on each spine"],
     "doing": [
       { "t": "is leaning to one side", "scope": "any" },
-      { "t": "has a bus ticket poking out as a bookmark", "scope": "any" },
+      { "t": "has a bus ticket poking out as a bookmark", "scope": "any", "close": ["Only the top book, with the bus ticket poking out of its pages."], "firstMark": ["Start with the bus ticket, a small rectangle left as bare paper, then the cover round it in {main}."] },
       { "t": "has the biggest book at the bottom", "scope": "any" },
       { "t": "has its top book lying open, face down", "scope": "any" }
     ],
-    "close": ["Just the stack, side on, with every spine a different colour.", "Only the top book, with the bus ticket poking out of its pages."],
+    "close": ["Just the stack, side on, with every spine a different colour.", "Only the spines, close enough to see the little library label on each one."],
     "scale": "small",
-    "habitats": ["home", "tabletop", "garden", "village"],
+    "habitats": ["home", "tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#2E5A78", "#A9483A", "#E6D8B8"],
@@ -68,16 +68,16 @@
       { "t": "has a tea towel hung over its handle", "scope": "any" },
       { "t": "has a black chip on its side", "scope": "any" },
       { "t": "has its lid on crooked", "scope": "any" },
-      { "t": "has a curl of steam rising from its spout", "scope": "any" }
+      { "t": "has a curl of steam rising from its spout", "scope": "any", "close": ["Only the spout and the first curl of steam."], "firstMark": ["Start with the shadow under the spout, one curved stroke of {dark}."] }
     ],
-    "close": ["Just the kettle, with one curved shine across its round belly.", "Only the spout and the first curl of steam."],
+    "close": ["Just the kettle, with one curved shine across its round belly.", "Only the top half of the kettle, close enough to see the chips in the enamel."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#E4DBC0", "#3D6A52", "#2C2A28"],
     "accent": "#3D6A52",
-    "texture": "metal",
+    "texture": "ceramic",
     "roles": {
       "main": "for the cream enamel",
       "dark": "for the chips and the shadow under the handle",
@@ -95,22 +95,22 @@
     "phrases": ["dark green rubber boots", "dried mud round the toes", "a shiny streak down each one"],
     "doing": [
       { "t": "has dried mud round the toes", "scope": "any" },
-      { "t": "is standing upside down to dry", "scope": "any" },
+      { "t": "is standing upside down to dry", "scope": "any", "close": ["Just the wellies upside down, with the tread on the soles showing."], "firstMark": ["Start with the tread on one sole, a row of short ridges of {dark}."] },
       { "t": "has one boot leaning against the other", "scope": "any" },
       { "t": "has thick socks poking out of the tops", "scope": "any" },
       { "t": "has a snail climbing up one boot", "scope": "outdoor" }
     ],
-    "close": ["Just the wellies, one standing up and one leaning on it.", "Only the muddy toes, close enough to see the tread on the soles."],
+    "close": ["Just the pair of wellies, drawn tall, from the tops down to the toes.", "Only the wellies, side on, with the long shine down each boot."],
     "scale": "small",
     "habitats": ["garden", "farm", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#3F5E3A", "#6B4E32", "#22301F"],
     "accent": "#8C6B47",
-    "texture": "fruit",
+    "texture": "ceramic",
     "roles": {
       "main": "for the green rubber",
-      "dark": "for the inside of the tops and the shadow between the boots",
+      "dark": "for the shadow between the boots and inside the tops",
       "light": "for the long shine down the front of each boot",
       "accent": "for the dried mud round the toes"
     },
@@ -129,7 +129,7 @@
       { "t": "has its knitted collar folded down", "scope": "any" },
       { "t": "is slumped over, half empty", "scope": "any" }
     ],
-    "close": ["Just the bottle in its knitted cover, plump and round.", "Only the knitted cover, close enough to follow each twist in the pattern."],
+    "close": ["Just the bottle in its knitted cover, from the stopper to the bottom.", "Only the top half, from the stopper down, close enough to see the stitches."],
     "scale": "small",
     "habitats": ["home"],
     "seasons": ["autumn", "winter"],
@@ -143,7 +143,7 @@
       "light": "for the raised ridges of the knit",
       "accent": "for the red rubber neck"
     },
-    "firstMark": ["Start with the knitted pattern: two wavy lines of {dark} running down the middle of the cover.", "Start with the plump outline of the bottle in a light, rounded line of {main}."]
+    "firstMark": ["Start with the knitted pattern: two wavy lines of {main}, pressed a little harder, running down the middle of the cover.", "Start with the outline of the bottle in a light, rounded line of {main}."]
   },
   {
     "id": "hearth-knitting",
@@ -155,13 +155,13 @@
     "doing": [
       { "t": "is wound tight and neat", "scope": "any" },
       { "t": "has come unwound in a long loose loop", "scope": "any" },
-      { "t": "is joined to a half-knitted sleeve", "scope": "any" },
+      { "t": "is joined to a half-knitted sleeve", "scope": "any", "close": ["Only the stitches on one needle and the strand running back to the ball."], "firstMark": ["Start with the stitches on the needle, a row of small Vs of {main}."] },
       { "t": "has its needles crossed through the middle", "scope": "any" },
       { "t": "has a kitten patting at it", "scope": "indoor" }
     ],
-    "close": ["Just the ball of wool, with the needles crossed through it.", "Only the stitches on one needle, close enough to count."],
+    "close": ["Just the ball of wool and the needles, drawn big.", "Only the ball of wool, close enough to see each strand wind over the last."],
     "scale": "small",
-    "habitats": ["home", "tabletop", "garden"],
+    "habitats": ["home", "tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#7D5A8C", "#C9A36B", "#4E3A5C"],
@@ -173,7 +173,7 @@
       "light": "for the top of the ball and the shine on the needles",
       "accent": "for the wooden needles"
     },
-    "firstMark": ["Start with the strands wound round the ball: curved lines of {dark}, each crossing the last.", "Start with the ball as one round, light shape of {main}, then wrap lines across it."]
+    "firstMark": ["Start with the shadow under the ball, a soft curved band of {dark}.", "Start with the ball as one round, light shape of {main}, then wrap lines across it."]
   },
   {
     "id": "hearth-watering-can",
@@ -183,13 +183,13 @@
     "the": "the watering can",
     "phrases": ["dull silver metal", "a long spout with a sprinkler head", "one big curved handle"],
     "doing": [
-      { "t": "is dribbling water from its spout", "scope": "any" },
+      { "t": "is dribbling water from its spout", "scope": "any", "close": ["Only the sprinkler head on the spout, close enough to count the holes."] },
       { "t": "is full to the brim and spilling over", "scope": "any" },
       { "t": "has a dent and a patch of rust on its side", "scope": "any" },
       { "t": "is lying on its side, empty", "scope": "any" },
       { "t": "has a frog peeping out of the top", "scope": "outdoor" }
     ],
-    "close": ["Just the can, side on, with its long spout running off the edge of the page.", "Only the sprinkler head on the spout, close enough to count the holes."],
+    "close": ["Just the can, side on, with its long spout running off the edge of the page.", "Only the can, drawn big, from the handle to the end of the spout."],
     "scale": "small",
     "habitats": ["garden", "tabletop", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -216,11 +216,11 @@
       { "t": "is heaped with pulled weeds", "scope": "any" },
       { "t": "is standing empty, tipped up on its front", "scope": "any" },
       { "t": "has a spade and a trowel laid across it", "scope": "any" },
-      { "t": "has a flat tyre", "scope": "any" },
+      { "t": "has a flat tyre", "scope": "any", "close": ["Only the wheel and the front of the tray, with the tyre squashed flat."] },
       { "t": "is piled high with marrows", "scope": "any", "seasons": ["summer", "autumn"] },
       { "t": "has a robin perched on one handle", "scope": "outdoor" }
     ],
-    "close": ["Just the wheelbarrow, side on, with the wheel at the front and the legs at the back.", "Only the wheel and the dented front of the tray."],
+    "close": ["Just the wheelbarrow, side on, with the wheel at the front and the legs at the back.", "Only the tray and the wheel, seen a little from above."],
     "scale": "medium",
     "habitats": ["garden", "farm"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -245,11 +245,11 @@
     "phrases": ["a pale blue frame", "a wicker basket on the front", "a silver bell on the handlebars"],
     "doing": [
       { "t": "is standing on its kickstand", "scope": "any" },
-      { "t": "has a loaf and some flowers in its basket", "scope": "any" },
+      { "t": "has a loaf and some flowers in its basket", "scope": "any", "close": ["Only the handlebars and the basket, with the loaf and flowers peeping over the top."], "firstMark": ["Start with the shadow inside the basket, a curved band of {dark} under the loaf."] },
       { "t": "has its front wheel turned to one side", "scope": "any" },
       { "t": "has a flat back tyre", "scope": "any" }
     ],
-    "close": ["Just the bicycle, side on, with both wheels and the basket.", "Only the handlebars and the basket, with the shopping peeping over the top."],
+    "close": ["Just the bicycle, side on, with both wheels and the basket."],
     "scale": "medium",
     "habitats": ["village", "hedgerow", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -274,11 +274,11 @@
     "phrases": ["faded red velvet", "big rounded arms", "brass studs along the front"],
     "doing": [
       { "t": "has a deep dip in its seat cushion", "scope": "any" },
-      { "t": "has a crocheted blanket over one arm", "scope": "any" },
+      { "t": "has a crocheted blanket over one arm", "scope": "any", "close": ["Only the arm with the blanket draped over it, close enough to see the crochet."], "firstMark": ["Start with the folds of the blanket, a few soft curved shadows of {dark}."] },
       { "t": "has stuffing poking out of one corner", "scope": "any" },
       { "t": "has a newspaper folded on its seat", "scope": "any" }
     ],
-    "close": ["Just the armchair, turned slightly, so you see one arm and the seat.", "Only the worn arm, close enough to see where the velvet has rubbed thin."],
+    "close": ["Just the armchair, turned slightly, so you see one arm and the seat.", "Just the armchair from the front, with both arms and the seat between them."],
     "scale": "medium",
     "habitats": ["home", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -307,9 +307,9 @@
       { "t": "is spread out flat with every square showing", "scope": "any" },
       { "t": "has a needle and thread left in one square", "scope": "indoor" }
     ],
-    "close": ["Just a corner of the quilt, six squares and the stitching between them.", "Only one square, close enough to draw the small flowers on the cotton."],
+    "close": ["Just the quilt, with every square a slightly different pattern.", "Only a few squares, close enough to see the stitching between them."],
     "scale": "medium",
-    "habitats": ["home", "garden"],
+    "habitats": ["home"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#B8584A", "#6E8C9E", "#E3C77A"],
@@ -331,12 +331,12 @@
     "the": "the candle",
     "phrases": ["a cream wax candle", "a brass dish with a ring handle", "a small orange flame"],
     "doing": [
-      { "t": "is burning with a steady flame", "scope": "any" },
+      { "t": "is burning with a steady flame", "scope": "any", "close": ["Only the flame and the top of the candle, close enough to see the blue at the base of the flame."], "firstMark": ["Start with the wick, one short stroke of {dark}, with the flame left bare above it."] },
       { "t": "has wax dripping down one side", "scope": "any" },
       { "t": "has a used match lying in its dish", "scope": "any" },
       { "t": "has burned down to a short stub", "scope": "any" }
     ],
-    "close": ["Just the candle and its flame, with the glow left as bare paper.", "Only the flame, close enough to see the blue at its base."],
+    "close": ["Just the candle in its holder, with the glow of the flame left as bare paper.", "Only the candle in its brass holder, drawn as tall as the page."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -361,11 +361,11 @@
     "phrases": ["a blue painted tin with a lid", "cotton reels and buttons", "a red pincushion full of pins"],
     "doing": [
       { "t": "has its lid off and cotton reels spilling out", "scope": "any" },
-      { "t": "has a pincushion full of pins on top", "scope": "any" },
+      { "t": "has a pincushion full of pins on top", "scope": "any", "close": ["Only the pincushion and its pins, drawn big, with the edge of the box below."], "firstMark": ["Start with the shadow under the pincushion, a small curved band of {dark}."] },
       { "t": "has a tape measure hanging over the edge", "scope": "any" },
       { "t": "has a pair of small scissors lying across the top", "scope": "any" }
     ],
-    "close": ["Just the open box seen from above, with every reel and button inside.", "Only the pincushion and its pins."],
+    "close": ["Just the sewing box, a little from above, with the reels and buttons inside."],
     "scale": "small",
     "habitats": ["home", "tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -389,14 +389,14 @@
     "the": "the reading glasses",
     "phrases": ["brown tortoiseshell frames", "two round lenses", "thin folding arms"],
     "doing": [
-      { "t": "is folded on an open book", "scope": "any" },
+      { "t": "is folded on an open book", "scope": "any", "close": ["Just the glasses on the open page, with the words bigger through one lens."] },
       { "t": "is resting on a book left face down", "scope": "any" },
       { "t": "has a smudgy fingerprint on one lens", "scope": "any" },
-      { "t": "is lying on a half-done crossword", "scope": "any" }
+      { "t": "is lying on a half-done crossword", "scope": "any", "close": ["Just the glasses on the crossword, with the squares bigger through one lens."] }
     ],
-    "close": ["Just the glasses on the open page, with the words bigger through one lens.", "Only one lens, close enough to see the print look bigger through it."],
+    "close": ["Just the glasses, folded, with their arms crossed behind the lenses.", "Only one lens and the rim round it, close enough to see the glint."],
     "scale": "small",
-    "habitats": ["home", "tabletop", "garden"],
+    "habitats": ["home", "tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#6A4030", "#E8DEC6", "#C48D4E"],
@@ -405,10 +405,10 @@
     "roles": {
       "main": "for the brown frames",
       "dark": "for the dark spots in the frames and the shadow they cast",
-      "light": "for the bare page and the glint on the lenses",
+      "light": "for the glint on the lenses",
       "accent": "for the amber spots in the frames"
     },
-    "firstMark": ["Start with the shadow the glasses cast on the page, two faint curves of {dark}.", "Start with the frames as two rounded shapes in {main}, linked by the bridge."]
+    "firstMark": ["Start with the shadow the glasses cast, two faint curves of {dark} under the frames.", "Start with the frames as two rounded shapes in {main}, linked by the bridge."]
   },
   {
     "id": "hearth-postcard",
@@ -416,14 +416,14 @@
     "title": "The Postcard",
     "a": "a postcard with a fountain pen",
     "the": "the postcard",
-    "phrases": ["a cream card with a stamp", "loopy blue handwriting", "a green fountain pen"],
+    "phrases": ["a cream card with a stamp", "loopy handwriting in dark ink", "a green fountain pen"],
     "doing": [
       { "t": "is half written, with the pen lying across it", "scope": "any" },
       { "t": "has its stamp stuck on upside down", "scope": "any" },
       { "t": "has a blot of ink in one corner", "scope": "any" },
       { "t": "has a row of kisses along the bottom", "scope": "any" }
     ],
-    "close": ["Just the postcard and the pen, with the handwriting as loose looping lines.", "Only the corner with the stamp, close enough to draw its zigzag edge."],
+    "close": ["Just the postcard and the pen, with the handwriting as loose looping lines.", "Just the postcard and the pen, drawn big and a little tilted, with the stamp in one corner."],
     "scale": "small",
     "habitats": ["tabletop", "home", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -447,14 +447,14 @@
     "the": "the radio",
     "phrases": ["a polished brown wooden case", "a rounded top", "a glowing dial and two knobs"],
     "doing": [
-      { "t": "has its dial glowing amber", "scope": "any" },
+      { "t": "has its dial glowing amber", "scope": "any", "close": ["Only the glowing dial, close enough to draw the numbers round its edge."], "firstMark": ["Start with the numbers round the dial, tiny marks of {dark}, with the glow left pale in the middle."] },
       { "t": "has a small vase of flowers on top", "scope": "any" },
       { "t": "has its wire trailing off the back", "scope": "any" },
       { "t": "is sitting on a lace mat", "scope": "any" }
     ],
-    "close": ["Just the radio, face on, with its rounded top and speaker cloth.", "Only the dial, close enough to draw the numbers round its edge."],
+    "close": ["Just the radio, face on, with its rounded top and speaker cloth.", "Just the radio, a little from the side, so you see its rounded top and one side."],
     "scale": "small",
-    "habitats": ["home", "tabletop", "garden"],
+    "habitats": ["home", "tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#8A5A35", "#D9C49A", "#E4A947"],
@@ -476,12 +476,12 @@
     "the": "the button jar",
     "phrases": ["a clear glass jar", "buttons of every colour and size", "two or four holes in each"],
     "doing": [
-      { "t": "has been tipped over, with buttons spilling out", "scope": "any" },
+      { "t": "has been tipped over, with buttons spilling out", "scope": "any", "close": ["Only a handful of the buttons that have tipped out, each with its own holes."], "firstMark": ["Start with the holes in each button: pairs and fours of small dots in {dark}."] },
       { "t": "is packed right up to the lid", "scope": "any" },
       { "t": "has one shiny pearl button near the top", "scope": "any" },
       { "t": "has a big wooden button pressed against the glass", "scope": "any" }
     ],
-    "close": ["Just the jar, with buttons pressed against the glass at every angle.", "Only a handful of buttons tipped out, each with its own holes."],
+    "close": ["Just the jar, with buttons pressed against the glass at every angle.", "Only the jar, drawn big, with the buttons crowded against the glass."],
     "scale": "small",
     "habitats": ["home", "tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -505,12 +505,12 @@
     "the": "the spider plant",
     "phrases": ["long thin arching leaves", "a cream stripe down each leaf", "baby plants on long stems"],
     "doing": [
-      { "t": "has three baby plants hanging on long stems", "scope": "any" },
+      { "t": "has three baby plants hanging on long stems", "scope": "any", "close": ["Only one long stem and its baby plant, hanging down the page."], "firstMark": ["Start with the long stem, one thin curving line of {main} hanging down the page."] },
       { "t": "is leaning to one side", "scope": "any" },
       { "t": "has one leaf with a dry brown tip", "scope": "any" },
       { "t": "is sitting in a saucer of water", "scope": "any" }
     ],
-    "close": ["Just the plant, with its striped leaves arching out of the pot.", "Only one long stem and its baby plant, hanging down the page."],
+    "close": ["Just the plant, with its striped leaves arching out of the pot."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -524,7 +524,7 @@
       "light": "for the cream stripe down each leaf",
       "accent": "for the terracotta pot"
     },
-    "firstMark": ["Start with the leaves crossing near the pot, a few short wedges of {dark}.", "Start with one arching leaf: two curved lines of {main} with a bare stripe between them."]
+    "firstMark": ["Start with the shadow under the rim of the pot, a short curved band of {dark}.", "Start with one arching leaf: two curved lines of {main} with a bare stripe between them."]
   },
   {
     "id": "hearth-tulips",
@@ -535,11 +535,11 @@
     "phrases": ["pinky red cup-shaped flowers", "long bendy green stems", "a clear glass vase"],
     "doing": [
       { "t": "has its flowers drooping over the rim", "scope": "any" },
-      { "t": "has one tulip open wide, showing its dark middle", "scope": "any" },
-      { "t": "has dropped one petal", "scope": "any" },
+      { "t": "has one tulip open wide, showing its dark middle", "scope": "any", "close": ["Only the open flower, with the dark star shape in its middle."], "firstMark": ["Start with the dark star in the middle of the open flower, a small shape of {dark}."] },
+      { "t": "has dropped one petal", "scope": "any", "close": ["Just the tulips, with the fallen petal lying beside the vase."] },
       { "t": "has only tight, closed buds", "scope": "any" }
     ],
-    "close": ["Just the tulips, every stem bending its own way.", "Only one flower, wide open, with the dark star shape in its middle."],
+    "close": ["Just the tulips, every stem bending its own way.", "Only the flowers and the tops of the stems, filling the page."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["winter", "spring"],
@@ -553,7 +553,7 @@
       "light": "for the pale petal edges and the light on the vase",
       "accent": "for the green stems"
     },
-    "firstMark": ["Start with the cup of one tulip, a deep curve of {main}, with the far petal pressed slightly darker.", "Start with the shadow inside the open flower, a small star of {dark}."]
+    "firstMark": ["Start with the cup of one tulip, a deep curve of {main}, with the far petal pressed slightly darker."]
   },
   {
     "id": "hearth-bird-feeder",
@@ -569,7 +569,7 @@
       { "t": "has a blue tit hanging upside down from it", "scope": "outdoor" },
       { "t": "has a red squirrel clinging on and eating", "scope": "outdoor" }
     ],
-    "close": ["Just the feeder, with the seed showing through and a perch on each side.", "Only the perch and the feeding hole above it."],
+    "close": ["Just the feeder, with the seed showing through and a perch on each side.", "Only the top half of the feeder, from the hook down to the first perch."],
     "scale": "small",
     "habitats": ["garden", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -583,7 +583,7 @@
       "light": "for the shine on the tube",
       "accent": "for the seeds in the tube"
     },
-    "firstMark": ["Start with the seed showing through the tube, a cluster of small marks of {dark}.", "Start with the domed lid, one rounded line of {main} with the hanging loop above."]
+    "firstMark": ["Start with the perches, short straight lines of {dark} under each feeding hole.", "Start with the domed lid, one rounded line of {main} with the hanging loop above."]
   },
   {
     "id": "hearth-storm-lantern",
@@ -595,11 +595,11 @@
     "doing": [
       { "t": "is lit with a small low flame", "scope": "any" },
       { "t": "has its wire handle standing up", "scope": "any" },
-      { "t": "has black soot up one side of the glass", "scope": "any" },
+      { "t": "has black soot up one side of the glass", "scope": "any", "close": ["Only the glass and the flame, close enough to see the soot up one side."], "firstMark": ["Start with the soot, a soft smudge of {dark} up one side of the glass."] },
       { "t": "is hanging by its handle from a hook", "scope": "any" },
-      { "t": "has a moth flying round the glass", "scope": "outdoor" }
+      { "t": "has a moth flying round the glass", "scope": "outdoor", "seasons": ["spring", "summer", "autumn"] }
     ],
-    "close": ["Just the lantern, with the flame left as bare paper inside the glass.", "Only the glass and the flame, close enough to see the soot up one side."],
+    "close": ["Just the lantern, with the glow round the flame left as bare paper.", "Only the lantern, drawn as tall as the page, handle and all."],
     "scale": "small",
     "habitats": ["garden", "farm", "coast"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -623,12 +623,12 @@
     "the": "the picnic basket",
     "phrases": ["woven wicker with a lid", "a red checked lining", "leather straps and buckles"],
     "doing": [
-      { "t": "has its lid open, with plates strapped inside", "scope": "any" },
+      { "t": "has its lid open, with plates strapped inside", "scope": "any", "close": ["Just the basket, lid open, with the plates strapped inside."], "roles": { "light": "for the white plates in the lid" } },
       { "t": "is so full its lid won't close", "scope": "any" },
       { "t": "has a bottle of ginger beer poking out of the side", "scope": "any" },
       { "t": "has a ladybird walking along its handle", "scope": "outdoor" }
     ],
-    "close": ["Just the basket, lid open, with the plates strapped inside.", "Only the woven wicker and one leather buckle, close up."],
+    "close": ["Just the basket, a little from the side, with its lid and handle."],
     "scale": "small",
     "habitats": ["garden", "meadow", "coast", "water"],
     "seasons": ["spring", "summer", "autumn"],
@@ -639,10 +639,10 @@
     "roles": {
       "main": "for the wicker",
       "dark": "for the gaps in the weave and the shadow inside",
-      "light": "for the white plates in the lid",
+      "light": "for the highlights on the wicker and the buckles",
       "accent": "for the red checked lining"
     },
-    "firstMark": ["Start with the leather straps, two short bands of {dark} across the lid.", "Start with the weave in short, slanting rows of {main}, each row leaning the opposite way."]
+    "firstMark": ["Start with the leather straps, two short bands of {main} pressed hard across the lid.", "Start with the weave in short, slanting rows of {main}, each row leaning the opposite way."]
   },
   {
     "id": "hearth-long-scarf",
@@ -652,12 +652,12 @@
     "the": "the stripy scarf",
     "phrases": ["red, mustard and navy stripes", "a fringe at both ends", "thick knitted wool"],
     "doing": [
-      { "t": "is coiled in a loose heap", "scope": "any" },
+      { "t": "is coiled in a loose heap", "scope": "any", "close": ["Just the scarf, coiled up, with the stripes going round and round."] },
       { "t": "is stretched out in a wavy line", "scope": "any" },
       { "t": "is tied in a single knot", "scope": "any" },
       { "t": "has a dry leaf caught in its fringe", "scope": "any" }
     ],
-    "close": ["Just the scarf, coiled up, with the stripes going round and round.", "Only the fringed end, close enough to see each tassel."],
+    "close": ["Just the scarf, with the stripes bending round every fold.", "Only the fringed end, close enough to see each tassel."],
     "scale": "small",
     "habitats": ["home", "village", "hedgerow"],
     "seasons": ["spring", "autumn", "winter"],
@@ -667,11 +667,11 @@
     "texture": "wool",
     "roles": {
       "main": "for the red stripes",
-      "dark": "for the navy stripes and the shadows in the folds",
+      "dark": "for the dark stripes and the shadows in the folds",
       "light": "for the ridges of the knit",
       "accent": "for the mustard stripes"
     },
-    "firstMark": ["Start with the inside of the coil, a dark curl of {dark} where the scarf folds under.", "Start with one stripe of {main} following the curve of the coil."]
+    "firstMark": ["Start with the fringe, short straight lines of {main} hanging from the end.", "Start with one stripe of {main}, following the way the scarf bends."]
   },
   {
     "id": "hearth-deckchair",
@@ -682,11 +682,11 @@
     "phrases": ["blue and white striped canvas", "a folding wooden frame", "a sagging curved seat"],
     "doing": [
       { "t": "has a sunhat left on its seat", "scope": "any" },
-      { "t": "is folded up flat", "scope": "any" },
+      { "t": "is folded up flat", "scope": "any", "firstMark": ["Start with the stripes, long straight bands of {main} down the folded canvas."] },
       { "t": "is tilted right back", "scope": "any" },
       { "t": "has a towel slung over the top", "scope": "any" }
     ],
-    "close": ["Just the deckchair, side on, with the wooden frame and the curve of the canvas.", "Only the striped canvas and the sag in the middle."],
+    "close": ["Just the deckchair, side on, with the wooden frame and the striped canvas.", "Only the deckchair, seen from the front, with the stripes running top to bottom."],
     "scale": "medium",
     "habitats": ["garden", "coast"],
     "seasons": ["spring", "summer", "autumn"],
@@ -710,19 +710,19 @@
     "the": "the bucket and spade",
     "phrases": ["a red tin bucket", "a small blue spade", "sand stuck round the rim"],
     "doing": [
-      { "t": "has a crumbly sandcastle beside it", "scope": "any" },
+      { "t": "has a crumbly sandcastle beside it", "scope": "any", "close": ["Just the bucket and spade, with the crumbly sandcastle beside them."] },
       { "t": "is half full of shells", "scope": "any" },
       { "t": "has a paper flag tucked into it", "scope": "any" },
-      { "t": "has sand stuck all over it", "scope": "any" },
-      { "t": "has a crab peeping over the rim", "scope": "outdoor" }
+      { "t": "has sand stuck all over it", "scope": "any" }
     ],
-    "close": ["Just the bucket, with the spade leaning in it at an angle.", "Only the sandcastle, with the ridges from the bucket still sharp."],
+    "close": ["Just the bucket, with the spade leaning in it at an angle.", "Only the top of the bucket and the handle of the spade, close enough to see the sand on the rim."],
     "scale": "small",
     "habitats": ["coast", "garden"],
     "seasons": ["summer"],
     "active": "any",
     "colours": ["#C9443A", "#E6CB8F", "#3B78A6"],
     "accent": "#3B78A6",
+    "colourWords": ["red", "sand", "blue"],
     "texture": "metal",
     "roles": {
       "main": "for the red tin bucket",
@@ -743,10 +743,10 @@
       { "t": "has its rope coiled on the seat", "scope": "any" },
       { "t": "has a woolly mitten left on it", "scope": "any" },
       { "t": "is propped up on its end", "scope": "any" },
-      { "t": "is lying upside down with its runners in the air", "scope": "any" },
+      { "t": "is lying upside down with its runners in the air", "scope": "any", "close": ["Only the front curl of one runner, close enough to see the worn metal."], "firstMark": ["Start with the curl of the front runner, one firm hook of {dark}."] },
       { "t": "has a robin perched on its rope", "scope": "outdoor" }
     ],
-    "close": ["Just the sledge, side on, with the curl of its runners at the front.", "Only the front curl of one runner, close enough to see the worn metal."],
+    "close": ["Just the sledge, side on, with the curl of its runners at the front."],
     "scale": "medium",
     "habitats": ["garden", "meadow", "village", "hedgerow"],
     "seasons": ["winter"],
@@ -775,21 +775,22 @@
       { "t": "has a fir tree standing beside its cottage", "scope": "any" },
       { "t": "has a fox standing by the cottage door", "scope": "any" }
     ],
-    "close": ["Just the globe and its wooden base, with the flakes as specks of bare paper.", "Only the cottage under the glass, with white flakes all round it."],
+    "close": ["Just the globe and its wooden base, with the flakes as specks of bare paper.", "Only the globe, drawn as big as the page, with the base cut off at the bottom."],
     "scale": "tiny",
     "habitats": ["tabletop"],
     "seasons": ["winter"],
     "active": "any",
     "colours": ["#B9CCD8", "#7A5235", "#B23A35"],
     "accent": "#B23A35",
+    "colourWords": ["pale blue", "brown", "red"],
     "texture": "glass",
     "roles": {
       "main": "for the pale blue water inside",
-      "dark": "for the wooden base and the darkest edge of the glass",
+      "dark": "for the darkest edge of the glass and the shadow under the base",
       "light": "for the falling flakes and the shine on the glass",
       "accent": "for the red roof of the cottage"
     },
-    "firstMark": ["Start with the wooden base, a flat band of {dark} under the globe.", "Start with the curve of the glass in a light circle of {main}, leaving dots of paper for the flakes."]
+    "firstMark": ["Start with the cottage door and windows, tiny dark squares of {dark}.", "Start with the curve of the glass in a light circle of {main}, leaving dots of paper for the flakes."]
   },
   {
     "id": "hearth-fairy-lights",
@@ -800,11 +801,11 @@
     "phrases": ["warm yellow bulbs", "a thin green wire", "a glow round each bulb"],
     "doing": [
       { "t": "is tangled up in a knot", "scope": "any" },
-      { "t": "is switched on and glowing", "scope": "any" },
+      { "t": "is switched on and glowing", "scope": "any", "close": ["Just the lights, one loose curve of wire with a glowing bulb every few inches."] },
       { "t": "has one bulb that isn't lit", "scope": "any" },
       { "t": "is glowing inside a jam jar", "scope": "any" }
     ],
-    "close": ["Just the lights, one loose curve of wire with a glowing bulb every few inches.", "Only three bulbs and the glow around each one."],
+    "close": ["Just the lights, with a soft glow round the bulbs.", "Only a few of the bulbs, close enough to see the wire twisting between them."],
     "scale": "small",
     "habitats": ["home", "tabletop", "garden", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -814,11 +815,11 @@
     "texture": "glass",
     "roles": {
       "main": "for the warm glow of each bulb",
-      "dark": "for the wire and the shadows around the glow",
+      "dark": "for the shadows where the wire twists",
       "light": "for the bright middle of every bulb",
       "accent": "for the green wire"
     },
-    "firstMark": ["Start with the wire, one loose swooping line of {dark} across the page.", "Start with a halo of {main} round each bulb, leaving the middle as bare paper."]
+    "firstMark": ["Start with one bulb: a small pointed oval of bare paper, ringed with {main}.", "Start with a halo of {main} round one bulb, leaving the middle as bare paper."]
   },
   {
     "id": "hearth-alarm-clock",
@@ -828,13 +829,13 @@
     "the": "the alarm clock",
     "phrases": ["a red round case", "two brass bells on top", "a white face with black numbers"],
     "doing": [
-      { "t": "is ringing, with its bells shaking", "scope": "any" },
+      { "t": "is ringing, with its bells shaking", "scope": "any", "close": ["Just the clock face on, with its two bells shaking like ears."] },
       { "t": "is lying on its side", "scope": "any" },
-      { "t": "has been turned face down", "scope": "any" },
+      { "t": "has been turned face down", "scope": "any", "close": ["Just the clock lying face down, with its winding key and the back of its case."], "firstMark": ["Start with the round back of the case, one steady circle of {main}."], "roles": { "light": "for the shine on the back of the case" } },
       { "t": "has its winding key sticking out of the back", "scope": "any" },
-      { "t": "has a glass of water beside it", "scope": "any" }
+      { "t": "has a glass of water beside it", "scope": "any", "close": ["Just the clock and the glass of water beside it."] }
     ],
-    "close": ["Just the clock, face on, with its two bells like ears.", "Only the face, close enough to draw every number."],
+    "close": ["Just the clock, with its round red case and two brass bells.", "Only the clock, close enough to see the shine on each bell."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -858,13 +859,13 @@
     "the": "the tartan slippers",
     "phrases": ["red and green tartan", "a fleecy cream lining", "backs trodden flat"],
     "doing": [
-      { "t": "has one slipper with a chewed toe", "scope": "any" },
+      { "t": "has one slipper with a chewed toe", "scope": "any", "close": ["Only the chewed toe of one slipper, close enough to see the frayed tartan."], "firstMark": ["Start with the frayed edge of the chewed toe, short ragged strokes of {main}."] },
       { "t": "is lined up neatly side by side", "scope": "any" },
       { "t": "has one slipper lying upside down", "scope": "any" },
       { "t": "has one slipper resting on top of the other", "scope": "indoor" },
       { "t": "has a kitten curled up inside one", "scope": "indoor" }
     ],
-    "close": ["Just the slippers, toes together, with the tartan bending over the curves.", "Only the trodden-down back of one slipper, with the checks squashed flat."],
+    "close": ["Just the pair of slippers, with the tartan bending over the curves."],
     "scale": "small",
     "habitats": ["home"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -874,10 +875,10 @@
     "texture": "fabric",
     "roles": {
       "main": "for the red tartan",
-      "dark": "for the dark green checks and the hollow inside",
+      "dark": "for the hollow inside and the shadow between the slippers",
       "light": "for the fleecy lining",
       "accent": "for the thin yellow lines in the tartan"
     },
-    "firstMark": ["Start with the tartan: a few crossing stripes of {dark} laid lightly, like a noughts and crosses grid.", "Start with the rounded toes of both slippers, two fat curves of {main}."]
+    "firstMark": ["Start with the tartan: a few crossing stripes of {main} laid lightly, like a noughts and crosses grid.", "Start with the rounded toes of both slippers, two fat curves of {main}."]
   }
 ]

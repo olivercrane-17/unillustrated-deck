@@ -9,7 +9,7 @@ export const DIAGRAMS = {
   'low-horizon': { title: 'A low horizon', caption: 'Put the ground low down and give most of the page to the sky.' },
   'close-crop': { title: 'Close crop', caption: 'Get in close and let the edges cut it off. Closer than feels polite.' },
   'from-above': { title: 'From above', caption: 'Look straight down on it, as if it were on the table in front of you.' },
-  thirds: { title: 'Off-centre thirds', caption: 'Off-centre: put it on a third line and let the rest breathe.' },
+  thirds: { title: 'Off-centre thirds', caption: 'Put it a little to one side, not in the middle.' },
   'tall-strip': { title: 'A tall strip', caption: 'Rule a tall, narrow panel and let the subject sit high up in it.' },
   'postage-stamp': { title: 'Postage stamp', caption: 'Draw it tiny, in a little box, with a wide margin of bare paper all round.' },
   'three-studies': { title: 'Three studies', caption: 'Three small studies of the same thing, each from a different side.' },
@@ -18,9 +18,25 @@ export const DIAGRAMS = {
 
 export const FRAME_IDS = Object.keys(DIAGRAMS)
 
+// A quick doodle's Frame line says how to fit the subject on the page; the
+// diagram must agree with it. Plain paper, the middle or space round it reads
+// as a vignette; close up, filling the page or running off the edges as a
+// close crop. The space words win, since "close together, with plain paper
+// round them" still wants the paper.
+const SPACE_WORDS = /\b(plain|bare|empty|white) (white )?(paper|page)|\bpaper (all )?round\b|\bno background\b|\bnothing behind\b|\bmiddle of (the|a)\b[^.,]*\bpage\b|\bspace (round|around)\b|\bsmall and far away\b/i
+const CLOSE_WORDS = /\bclose\b|\bnear enough\b|\bfill(s|ing)?\b|\bedges?\b|\boff the (page|edge)\b|\bacross the page\b|\bas (big|large) as the page\b/i
+
+export function quickFrame(framing = '') {
+  const text = String(framing || '')
+  if (SPACE_WORDS.test(text)) return 'vignette'
+  if (CLOSE_WORDS.test(text)) return 'close-crop'
+  return 'vignette'
+}
+
 /**
  * Which diagram suits a reading: the twist's frame, else one of the Where
- * card's frames (chosen by the seed so it stays put), else a spread default.
+ * card's frames (chosen by the seed so it stays put), else a spread default
+ * (for a quick doodle, whatever its Frame line describes).
  */
 export function chooseFrame(reading, byId) {
   const get = (id) => (id && byId?.get ? byId.get(id) : undefined)
@@ -29,7 +45,7 @@ export function chooseFrame(reading, byId) {
   const frames = (get(reading?.cards?.where)?.frames || []).filter((f) => DIAGRAMS[f])
   if (frames.length) return frames[(reading.seed >>> 0) % frames.length]
   if (reading?.spread === 'small') return 'sampler'
-  if (reading?.spread === 'quick') return 'close-crop'
+  if (reading?.spread === 'quick') return quickFrame(reading.text?.framing)
   return 'thirds'
 }
 

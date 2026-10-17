@@ -254,6 +254,11 @@ export function render(root) {
             answer === code ? h('span.tin-q-tick', { 'aria-hidden': 'true' }, raw(ICONS.tick)) : null,
           )
         }),
+        // A way out for when the barrel has worn smooth: the box's usual pencil.
+        !answer && byCode.has(variant.default)
+          ? h('button.tin-q-option.tin-q-unsure', { type: 'button', onclick: () => answerVariant(variant, variant.default) },
+              `I’m not sure, keep ${byCode.get(variant.default).name}`)
+          : null,
       ),
       answer ? h('button.btn-text.tin-q-keep', { type: 'button', onclick: () => { changing = null; paintVariants(); focusAnswer(variant) } }, 'Keep it as it is') : null,
     )

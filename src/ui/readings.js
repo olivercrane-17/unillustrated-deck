@@ -10,12 +10,34 @@ import { toast } from './feedback.js'
 import { longDate, backLink, pageSheets } from './deck.js'
 
 export const RECENT_LIMIT = 20
+// Readings she never started are only ideas: a few are handy, a long list of
+// them would read like a to-do list.
+export const UNSTARTED_LIMIT = 5
 export const STATUS_LABELS = { dealt: 'Dealt', drawing: 'Drawing', drawn: 'Drawn', sealed: 'Sealed' }
 const pencilByCode = new Map(pencilCatalogue.map((p) => [p.code, p]))
 
 /** The newest readings first, at most `limit` of them. */
 export function recentReadings(list, limit = RECENT_LIMIT) {
   return list.slice().sort((a, b) => String(b.createdAt).localeCompare(String(a.createdAt))).slice(0, limit)
+}
+
+/**
+ * What the page lists. Every drawing still in progress, however old, pinned
+ * at the top (a started drawing must never become unreachable). Then, from
+ * the newest readings, the ones she finished, and at most a few she never
+ * started (the one on the table always stays), newest first.
+ */
+export function shownReadings(list, { currentId = null, limit = RECENT_LIMIT, unstarted = UNSTARTED_LIMIT } = {}) {
+  const drawing = recentReadings(list.filter((r) => r.status === 'drawing'), Infinity)
+  let ideas = 0
+  const rest = recentReadings(list, limit).filter((r) => {
+    if (r.status === 'drawing') return false
+    // An unknown status (a very old reading, say) counts as never started.
+    if ((r.status === 'drawn' || r.status === 'sealed') || r.id === currentId) return true
+    ideas += 1
+    return ideas <= unstarted
+  })
+  return [...drawing, ...rest]
 }
 
 export const canCarryOn = (r) => r.status === 'dealt' || r.status === 'drawing'
@@ -33,7 +55,7 @@ export async function render(root) {
   const sheets = pageSheets()
 
   async function paint({ focus } = {}) {
-    const list = recentReadings(readingsByDate())
+    const list = shownReadings(readingsByDate(), { currentId: state.currentId })
     const photos = new Map()
     await Promise.all(list.map(async (r) => {
       const seal = state.seals.find((s) => s.readingId === r.id && s.imageId)
@@ -76,13 +98,24 @@ export async function render(root) {
         others.length ? h('p.recent-others', others.join(' · ')) : null,
         r.text?.sentence ? h('p.recent-sentence', r.text.sentence) : null,
         swatches(r),
-        h('div.recent-actions',
-          canCarryOn(r) ? h('button.btn.btn-gilt.recent-carry', { type: 'button', onclick: () => carryOn(r) }, 'Carry on') : null,
-          h('button.btn-text', { type: 'button', onclick: () => go(`draw/${r.id}`) }, raw(ICONS.eye), 'Open drawing view'),
-          h('button.btn-text', { type: 'button', onclick: () => remove(r) }, 'Delete'),
-        ),
+        h('div.recent-actions', actionsFor(r)),
       ),
     )
+  }
+
+  // A reading she never started only goes back on the table to look at again
+  // (it isn't started for her). One she started can carry on at the table or
+  // go straight back to the drawing view.
+  function actionsFor(r) {
+    const remover = h('button.btn-text', { type: 'button', onclick: () => remove(r) }, 'Delete')
+    if (r.status !== 'drawing' && r.status !== 'drawn' && r.status !== 'sealed') {
+      return [h('button.btn-text.recent-look', { type: 'button', onclick: () => carryOn(r) }, raw(ICONS.eye), 'Look again'), remover]
+    }
+    return [
+      canCarryOn(r) ? h('button.btn.btn-gilt.recent-carry', { type: 'button', onclick: () => carryOn(r) }, 'Carry on') : null,
+      h('button.btn-text', { type: 'button', onclick: () => go(`draw/${r.id}`) }, raw(ICONS.pencil), 'Back to drawing'),
+      remover,
+    ]
   }
 
   function swatches(r) {
@@ -120,7 +153,7 @@ export async function render(root) {
       danger: true,
     })
     if (!ok || disposed) return
-    const list = recentReadings(readingsByDate())
+    const list = shownReadings(readingsByDate(), { currentId: state.currentId })
     const next = list[list.findIndex((x) => x.id === r.id) + 1]
     await deleteReading(r.id)
     toast('Deleted.')

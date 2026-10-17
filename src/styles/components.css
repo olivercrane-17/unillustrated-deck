@@ -12,6 +12,8 @@
 .wordmark {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  min-height: 44px;
   text-decoration: none;
   color: var(--cream);
   min-width: 0;
@@ -26,13 +28,53 @@
 .wordmark-name {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(17px, 5vw, 22px);
+  /* Sized to the room the labelled nav leaves, so the two never meet. */
+  font-size: clamp(14.5px, calc((100vw - 200px) / 11), 22px);
   letter-spacing: 0.1em;
   white-space: nowrap;
 }
 .topnav {
   display: flex;
+  flex: none;
   gap: 2px;
+}
+/* An icon with its name under it. */
+.nav-item {
+  display: inline-grid;
+  justify-items: center;
+  align-content: center;
+  gap: 1px;
+  min-width: 46px;
+  min-height: 48px;
+  padding: 3px 3px 2px;
+  border-radius: 12px;
+  color: var(--cream);
+  text-decoration: none;
+}
+.nav-item svg {
+  width: 24px;
+  height: 24px;
+}
+.nav-label {
+  font-size: 12.5px;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  color: var(--cream-soft);
+}
+.nav-item:hover {
+  background: rgba(241, 231, 208, 0.08);
+}
+.nav-item[aria-current='page'] {
+  background: rgba(241, 231, 208, 0.12);
+}
+.nav-item[aria-current='page'] .nav-label {
+  color: var(--cream);
+}
+/* The very narrowest phones: let the wordmark take two lines. */
+@media (max-width: 349px) {
+  .wordmark-name {
+    white-space: normal;
+  }
 }
 .icon-btn {
   display: inline-grid;
@@ -409,6 +451,12 @@ body:has(.sheet-backdrop) .toasts {
 
 :root[data-table='linen'] .btn-text {
   text-decoration-color: rgba(42, 33, 28, 0.4);
+}
+:root[data-table='linen'] .nav-item:hover {
+  background: rgba(42, 33, 28, 0.06);
+}
+:root[data-table='linen'] .nav-item[aria-current='page'] {
+  background: rgba(42, 33, 28, 0.1);
 }
 
 /* "See real photos" link out to an image search */

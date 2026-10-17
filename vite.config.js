@@ -30,7 +30,7 @@ const INDEX = new URL('./index.html', self.location).href
 self.addEventListener('install', (event) => {
   // Hashed build files never change under the same name, so the HTTP cache
   // copy is fine; only unhashed files are fetched fresh.
-  const fresh = (url) => !/\/assets\//.test(url)
+  const fresh = (url) => !url.includes('/assets/')
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(PRECACHE.map((url) => new Request(url, { cache: fresh(url) ? 'reload' : 'default' })))))
 })
 

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { shortDate, longDate, faceOf, groupDrawn, restOfDeck, matchesQuery, tiltOf, DECK_SUITS } from '../../src/ui/deck.js'
-import { recentReadings, canCarryOn, leadCardId, STATUS_LABELS, RECENT_LIMIT } from '../../src/ui/readings.js'
+import { recentReadings, shownReadings, canCarryOn, leadCardId, STATUS_LABELS, RECENT_LIMIT } from '../../src/ui/readings.js'
 import { fullDate, shareFileName, coverRect, wrapWords, fitTitle, layoutShare, PHOTO_RATIO } from '../../src/ui/share.js'
 
 const card = (id, title, extra = {}) => ({ id, title, suit: id.split('-')[0] === 'theme' ? undefined : id.split('-')[0], a: title.replace(/^The /, 'a ').toLowerCase(), phrases: [], ...extra })
@@ -106,6 +106,25 @@ describe('recent readings', () => {
     expect(recent[0].id).toBe('r29')
     expect(recent[19].id).toBe('r10')
     expect(list[0].id).toBe('r0')
+  })
+  it('lists every drawing in progress first, then finished ones and at most five never started', () => {
+    const day = (i) => new Date(2026, 0, i + 1).toISOString()
+    const list = [
+      r('old-drawing', day(0), 'drawing'),
+      ...Array.from({ length: 12 }, (_, i) => r(`idea${i}`, day(10 + i))),
+      r('drawn', day(23), 'drawn'),
+      r('sealed', day(24), 'sealed'),
+      r('drawing', day(25), 'drawing'),
+      ...Array.from({ length: 10 }, (_, i) => r(`new${i}`, day(30 + i))),
+    ]
+    const ids = shownReadings(list, { currentId: 'idea11' }).map((x) => x.id)
+    expect(ids.slice(0, 2)).toEqual(['drawing', 'old-drawing'])
+    expect(ids).toContain('drawn')
+    expect(ids).toContain('sealed')
+    expect(ids.filter((id) => id.startsWith('new'))).toEqual(['new9', 'new8', 'new7', 'new6', 'new5'])
+    // the one on the table always stays
+    expect(ids).toContain('idea11')
+    expect(ids).not.toContain('idea0')
   })
   it('only offers to carry on what is still in progress', () => {
     expect(canCarryOn(r('a', '', 'dealt'))).toBe(true)

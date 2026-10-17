@@ -12,6 +12,9 @@ import { confirmSheet } from './feedback.js'
 // The suits that live in her deck (Where, When and Twist cards are never sealed).
 export const DECK_SUITS = ['fur', 'leaf', 'hearth', 'theme']
 
+// How many cards of the rest of the deck go down per frame.
+const REST_BATCH = 4
+
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 
@@ -302,9 +305,9 @@ export async function render(root) {
       const step = () => {
         // Stop if the page was redrawn or left meanwhile.
         if (disposed || !chips.isConnected) return resolve()
-        const start = performance.now()
-        do buildItem(queue.shift())
-        while (queue.length && performance.now() - start < 10)
+        // Laying a card out costs more than building it, so count cards
+        // rather than time the script: a handful per frame keeps every frame short.
+        for (let n = 0; n < REST_BATCH && queue.length; n++) buildItem(queue.shift())
         if (queue.length) requestAnimationFrame(step)
         else resolve()
       }

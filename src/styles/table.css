@@ -614,8 +614,10 @@ details.layer-tips ol {
   background: none;
   border-radius: var(--radius-card);
 }
+/* Three never fit across a phone, so they sit two and one: give each the
+   room that leaves, so the colour words don't crowd the title. */
 .choices .card {
-  --card-w: min(30vw, 150px);
+  --card-w: min(calc((100vw - 2 * var(--gutter) - 12px) / 2), 150px);
 }
 
 /* Card zoom sheet */

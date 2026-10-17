@@ -41,7 +41,7 @@ export function render(root) {
   let disposed = false
   // When the question card appears or folds away, everything below it jumps.
   // The second tap of a double tap must not land on a box or an answer.
-  let shiftedAt = 0
+  let shiftedAt = -Infinity
   const justShifted = () => performance.now() - shiftedAt < 450
   const rows = new Map() // code -> { li, check, star, swatch, adjusted, owned, starred, hex }
   const groups = [] // { key, label, pencils, section, tickBtn, untickBtn }

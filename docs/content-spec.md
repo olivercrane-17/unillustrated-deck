@@ -209,7 +209,7 @@ Rules:
 
 ## Small-things themes: `themes.json`
 
-For the "A page of small things" spread: a page of 4 or 6 little vignettes on one theme.
+For the "A page of small things" spread: a page of 4 or 6 tiny pictures on one theme.
 
 ```json
 {

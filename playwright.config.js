@@ -13,8 +13,9 @@ export default defineConfig({
     ...(process.env.PLAYWRIGHT_CHROMIUM_PATH ? { launchOptions: { executablePath: process.env.PLAYWRIGHT_CHROMIUM_PATH } } : {}),
   },
   projects: [
-    { name: 'phone', use: { ...devices['Pixel 7'], browserName: 'chromium', reducedMotion: 'reduce' } },
-    { name: 'desktop', use: { viewport: { width: 1280, height: 900 }, browserName: 'chromium', reducedMotion: 'reduce' } },
+    // reducedMotion only takes effect through contextOptions.
+    { name: 'phone', use: { ...devices['Pixel 7'], browserName: 'chromium', contextOptions: { reducedMotion: 'reduce' } } },
+    { name: 'desktop', use: { viewport: { width: 1280, height: 900 }, browserName: 'chromium', contextOptions: { reducedMotion: 'reduce' } } },
   ],
   webServer: {
     command: 'npx vite preview --port 4173 --strictPort',

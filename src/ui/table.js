@@ -19,8 +19,7 @@ import { photosLink } from './photos.js'
 const SPREAD_ORDER = ['quick', 'evening', 'big', 'small']
 const FLIP_GAP = 340
 // The table's own wording for a spread's length, where the engine's is vague.
-const SPREAD_HINTS = { small: '4 or 6 tiny pictures' }
-const hintOf = (key) => SPREAD_HINTS[key] || SPREADS[key].hint
+const hintOf = (key) => SPREADS[key].hint
 
 const pick = (list, seed) => (list?.length ? list[seed % list.length] : '')
 const pencilByCode = new Map(pencilCatalogue.map((p) => [p.code, p]))
@@ -278,12 +277,11 @@ export async function render(root) {
         view.removeEventListener('click', skipTap, true)
         restoreFocus(focusKey)
       }
-      // A tap while the cards are still landing only skips ahead: it must not
-      // also open the card it landed on, or press a button not yet shown.
+      // A tap on a card while the cards are still landing only skips ahead:
+      // it must not also open that card's zoom sheet.
       const skipTap = (e) => {
         if (finished) return
-        e.stopPropagation()
-        e.preventDefault()
+        if (e.target.closest?.('.fan .card-slot')) e.stopPropagation()
         finish()
       }
       view.addEventListener('click', skipTap, true)
@@ -354,7 +352,7 @@ export async function render(root) {
   function tinContent(reading) {
     const p = reading.palette
     const presetKey = state.tin.preset
-    const presetText = pencilSets[presetKey] ? `From your ${pencilSets[presetKey].label.replace(' pencils', '')}-pencil tin` : `From your tin of ${state.tin.owned.length}`
+    const presetText = pencilSets[presetKey] ? `From your ${pencilSets[presetKey].label.replace(' pencils', '')}-pencil tin` : (state.tin.owned.length ? `From your tin of ${state.tin.owned.length}` : 'Your tin is empty right now')
     const who = reading.cards.who && content.byId.get(reading.cards.who)
     const tips = who && content.tips?.textures?.[who.texture]
     const rows = p.pencils.map((pen, i) => {

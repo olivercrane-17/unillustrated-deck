@@ -12,7 +12,7 @@ export const SPREADS = {
   quick: { key: 'quick', label: 'A quick doodle', hint: '10 min', positions: ['who'] },
   evening: { key: 'evening', label: 'A cosy evening', hint: 'an hour or so', positions: ['who', 'where', 'when'] },
   big: { key: 'big', label: 'Something big', hint: 'a proper piece', positions: ['who', 'where', 'when', 'also', 'twist'] },
-  small: { key: 'small', label: 'A page of small things', hint: 'little vignettes', positions: ['theme'] },
+  small: { key: 'small', label: 'A page of small things', hint: '4 or 6 tiny pictures', positions: ['theme'] },
 }
 
 export const POSITION_LABELS = {

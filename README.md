@@ -27,7 +27,7 @@ When the drawing is finished, you can photograph it and **seal it into its card*
   - *A quick doodle*: one subject, about 10 minutes.
   - *A cosy evening*: who, where and when.
   - *Something big*: adds a companion and a twist.
-  - *A page of small things*: 4 or 6 little vignettes on one theme.
+  - *A page of small things*: 4 or 6 tiny pictures on one theme.
 - **About 400 hand-written cards** in four groups:
   - Fur & Feather
   - Leaf & Stone

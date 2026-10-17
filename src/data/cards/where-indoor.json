@@ -11,7 +11,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["window", "close-crop"],
     "colours": ["#E8DCC4", "#8DA2B0"],
-    "role": "for the white painted sill",
+    "role": "for the shadows on the white painted sill",
     "excludes": ["fur-hedgehog", "fur-fox-cub", "fur-pipistrelle-bat", "fur-frog", "fur-toad", "hearth-pancakes", "hearth-tomato-soup", "hearth-porridge"]
   },
   {
@@ -94,7 +94,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "close-crop"],
     "colours": ["#F2EDE3", "#8BA7BF"],
-    "role": "for the white china cups",
+    "role": "for the shadows on the white china",
     "excludes": ["hearth-toffee-apple", "leaf-pea-pod"]
   },
   {
@@ -137,7 +137,7 @@
     "frames": ["from-above", "vignette", "thirds"],
     "colours": ["#B4654B", "#56717E"],
     "role": "for the rust red coils of the rug",
-    "excludes": ["fur-box-of-chicks", "fur-guinea-pig", "hearth-cocoa", "hearth-cup-of-tea", "hearth-darning-basket", "hearth-hot-water-bottle", "hearth-old-armchair", "hearth-patchwork-quilt", "hearth-sewing-tin", "hearth-reading-glasses", "hearth-wireless", "hearth-button-jar", "hearth-fairy-lights"]
+    "excludes": ["fur-box-of-chicks", "fur-guinea-pig", "hearth-cocoa", "hearth-cup-of-tea", "hearth-darning-basket", "hearth-hot-water-bottle", "hearth-patchwork-quilt", "hearth-sewing-tin", "hearth-reading-glasses", "hearth-wireless", "hearth-button-jar", "hearth-fairy-lights"]
   },
   {
     "id": "where-bay-window",

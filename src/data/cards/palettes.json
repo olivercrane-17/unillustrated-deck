@@ -21,9 +21,9 @@
     { "name": "Bluebell Wood", "seasons": ["spring"] },
     { "name": "Moonlit Milk Jug", "times": ["dusk", "night"] },
     "Willow Pattern",
-    "Wet Slate Roof",
+    "Slate Roof",
     { "name": "Frozen Puddle", "seasons": ["winter"] },
-    "Mackerel Sky",
+    { "name": "Mackerel Sky", "times": ["morning", "afternoon"] },
     "Mint Humbug",
     { "name": "Blue Hour Heron", "times": ["dawn", "dusk"] }
   ],
@@ -44,13 +44,13 @@
   "dark": [
     { "name": "Owl Light", "times": ["dusk", "night"] },
     { "name": "Badger Sett", "times": ["dusk", "night"] },
-    "Harbour Storm",
+    { "name": "Harbour Storm", "times": ["afternoon"] },
     { "name": "Midnight Feast", "times": ["night"] },
     "Coal Scuttle",
     "Damson Jam",
     { "name": "Plum Pudding", "seasons": ["winter"] },
     { "name": "Hedgehog Hour", "times": ["dusk", "night"] },
-    "Thunder Brewing",
+    { "name": "Thunder Brewing", "times": ["afternoon"] },
     "Sloe Gin",
     "Spilt Ink",
     { "name": "Cocoa Before Bed", "times": ["dusk", "night"] }

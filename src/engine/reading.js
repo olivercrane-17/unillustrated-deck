@@ -5,7 +5,8 @@ import { subRng, weightedPick, pick, shuffle, hashString } from './rng.js'
 import { seasonFor, timeOfDayFor, monthName, SEASON_MOOD } from './seasons.js'
 import { usableDoings, subjectFitsPlace, whenFitsPlace, companionFits } from './compat.js'
 import { MAIN_TEMPLATES, QUICK_TEMPLATES, COMPANION_TEMPLATES, fill, tidy, capitalise } from './templates.js'
-import { dealPalette, refitRoles, anchorFor } from './harmony.js'
+import { dealPalette, refitRoles, anchorFor, canDealMono } from './harmony.js'
+import { hueDistance } from './color.js'
 import { applyLonely } from './lonely.js'
 
 export const SPREADS = {
@@ -118,7 +119,10 @@ function pickWho(ctx, rng, { spread, twist, season, exclude = [], forceOldFriend
 
 function pickWhere(ctx, rng, { who, twist, season, exclude = [] }) {
   const places = placesFor(ctx, who, twist, season).filter((w) => ctx.content.whens.some((h) => whenFitsPlace(h, w, season)))
-  return pickFresh(rng, places, (w) => seasonWeight(w, season), ctx, 'where', exclude)
+  // Moonlight needs a place where a moonlit hour can happen.
+  const moon = twist?.effects?.palette === 'moon'
+  const moonlitHere = (w) => ctx.content.whens.some((h) => h.moonlit && whenFitsPlace(h, w, season))
+  return pickFresh(rng, places, (w) => seasonWeight(w, season) * (moon && !moonlitHere(w) ? 0.02 : 1), ctx, 'where', exclude)
 }
 
 function pickWhen(ctx, rng, { who, where, season, twist, exclude = [] }) {
@@ -136,8 +140,9 @@ function pickWhen(ctx, rng, { who, where, season, twist, exclude = [] }) {
     if (who?.active === 'night' && evening) w *= 2
     if (who?.active === 'day' && afterDark) w *= 0.02
     if (who?.active === 'night' && broadDay) w *= 0.04
-    // Moonlight wants a night; warm-only and cool-only palettes want hours that agree.
-    if (rule === 'moon') w *= evening ? 4 : 0.05
+    // Moonlight wants a moonlit hour (not lamplight, firelight or a sunset);
+    // warm-only and cool-only palettes want hours that agree.
+    if (rule === 'moon') w *= h.moonlit ? 4 : 0.001
     if ((rule === 'hearthfire' || rule === 'warm') && h.mood === 'cool') w *= 0.1
     if (rule === 'cool' && h.mood === 'warm') w *= 0.1
     return w
@@ -163,7 +168,9 @@ function friendFits(ctx, spread, season) {
 
 function pickTwist(ctx, rng, { exclude = [], spread = 'big', season = null }) {
   const canMirror = friendFits(ctx, spread, season)
-  const weightOf = (t) => (t.effects?.requires === 'seal' && !canMirror ? 0 : 1)
+  // One Colour Family needs a light, a middle and a dark of one colour.
+  const canMono = canDealMono(ctx.pencils)
+  const weightOf = (t) => ((t.effects?.requires === 'seal' && !canMirror) || (t.effects?.palette === 'mono' && !canMono) ? 0 : 1)
   return pickFresh(rng, ctx.content.twists, weightOf, ctx, 'twist', exclude)
 }
 
@@ -234,7 +241,9 @@ export function paletteSlots(reading, ctx) {
   const setting = where && { key: 'setting', kind: 'anchor', anchor: anchorFor(where.colours[0]), role: where.role }
   const accentHex = accentHexOf(who)
   const accent = accentHex && { key: 'accent', kind: 'anchor', anchor: anchorFor(accentHex), role: roles.accent }
-  const alsoSlot = also && { key: 'also', kind: 'anchor', anchor: anchorFor(also.colours[0]), role: `for the ${nameOf(also)}` }
+  const alsoAnchor = also && anchorFor(also.colours[0])
+  // A grey companion is a pale pencil pressed lightly; say so.
+  const alsoSlot = also && { key: 'also', kind: 'anchor', anchor: alsoAnchor, role: alsoAnchor.lch.C < 0.035 && alsoAnchor.lch.L > 0.5 ? `for the ${nameOf(also)}, pressed lightly` : `for the ${nameOf(also)}` }
   // A first mark that names the accent pencil ("the red breast in {accent}")
   // needs that pencil dealt.
   const needsAccent = Boolean(accent) && firstMarkTemplate(who, reading.picks).includes('{accent}')
@@ -248,7 +257,8 @@ export function paletteSlots(reading, ctx) {
   else if (reading.spread === 'evening') slots = [main, reading.picks.wide && setting, dark, needsAccent && accent, light]
   else slots = [main, setting, alsoSlot || accent || complement, dark, light, alsoSlot && needsAccent && accent]
   slots = slots.filter(Boolean)
-  if (rule === 'three') slots = slots.slice(0, 3)
+  // Three pencils: the subject, the shadows and one more.
+  if (rule === 'three') slots = [main, dark, slots.find((s) => s !== main && s !== dark)].filter(Boolean)
   const max = twist?.effects?.maxPencils
   if (max) slots = slots.slice(0, max)
   return { slots, mood, rule, allowMetallic: who.texture === 'metal' }
@@ -390,8 +400,14 @@ export function renderText(reading, ctx) {
       const marks = (doing.firstMark?.length ? doing.firstMark : who.firstMark).filter((m) => !m.includes('{accent}'))
       if (marks.length) mark = marks[reading.picks.firstMark % marks.length]
     }
+    // Opposite Colours has no shadow pencil: its shadows are the second
+    // colour layered over the first.
+    const compP = pencils.find((p) => p.slot === 'complement')
+    const darkName = reading.palette.rule === 'complement' && compP && mainP && !pencils.some((p) => p.slot === 'dark')
+      ? `${pencilName(compP.code)} layered over ${pencilName(mainP.code)}`
+      : pencilName(darkP?.code)
     text.firstMark = fill(mark, {
-      dark: pencilName(darkP?.code),
+      dark: darkName,
       main: pencilName(mainP?.code),
       accent: pencilName((accentP || mainP)?.code),
     })
@@ -632,6 +648,11 @@ export function swapCard(reading, ctx, position) {
     r.cards.when = when.id
     drop('dark', 'light')
   }
+  // Moonlight just arrived: move to a moonlit hour if this place has one.
+  if (position === 'twist' && twistNow?.effects?.palette === 'moon' && when && !when.moonlit) {
+    const next = pickWhen(ctx, subRng(r.seed, 'repair-moon', r.swaps[position]), { who, where, season, twist: twistNow })
+    if (next?.moonlit) { when = next; r.cards.when = next.id }
+  }
   if (r.cards.also) {
     const also = byId.get(r.cards.also)
     if (!companionFits(also, who, where, season, { ignoreScale: ignoreScaleFor(twistNow) })) {
@@ -739,9 +760,9 @@ function plainRoleIfOff(p, slot, ctx, who) {
   if (slot.kind === 'dark') return pencil.lch.L < 0.5 ? slot.role : 'for the darker parts'
   if (slot.kind === 'light') return pencil.lch.L > 0.84 && pencil.lch.C < 0.07 ? slot.role : 'for the lightest parts'
   if (!slot.anchor) return slot.role
-  const off = Math.hypot(pencil.lab.L - slot.anchor.lab.L, pencil.lab.a - slot.anchor.lab.a, pencil.lab.b - slot.anchor.lab.b) > 0.16
-  if (!off) return slot.role
-  if (slot.key === 'also') return slot.role
+  const far = Math.hypot(pencil.lab.L - slot.anchor.lab.L, pencil.lab.a - slot.anchor.lab.a, pencil.lab.b - slot.anchor.lab.b) > 0.16
+  const hueOff = pencil.lch.C > 0.04 && slot.anchor.lch.C > 0.04 && hueDistance(pencil.lch.h, slot.anchor.lch.h) > 60
+  if (!far && !hueOff) return slot.role
   return { main: `for the ${subject}`, setting: 'for the setting', accent: 'for the small details' }[slot.key] || 'for anything else in the picture'
 }
 

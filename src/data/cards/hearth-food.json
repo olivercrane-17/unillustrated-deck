@@ -244,9 +244,9 @@
     "phrases": ["brown shell, blue egg cup", "bright yellow runny yolk", "strips of toast for dipping"],
     "doing": [
       { "t": "has its top cut off and yolk running down", "scope": "any" },
-      { "t": "is wearing a knitted hat with a bobble", "scope": "any" },
+      { "t": "is wearing a knitted hat with a bobble", "scope": "any", "close": ["Just the egg in its knitted hat and the egg cup, filling the page."], "roles": { "accent": "for the knitted hat and its bobble" } },
       { "t": "has strips of toast lined up beside it", "scope": "any", "close": ["Just the egg in its cup and the strips of toast lined up beside it."] },
-      { "t": "has a face drawn on its shell in felt-tip", "scope": "any" }
+      { "t": "has a face drawn on its shell in felt-tip", "scope": "any", "roles": { "accent": "for the felt-tip face" } }
     ],
     "close": ["Just the egg and the egg cup, filling the page.", "Only the top of the egg and the rim of the egg cup, close up."],
     "scale": "tiny",
@@ -417,7 +417,7 @@
     "the": "the cheese board",
     "phrases": ["a round wooden board", "blue cheese and yellow cheddar", "a bunch of purple grapes"],
     "doing": [
-      { "t": "has a wedge of blue cheese with a nibble out", "scope": "any", "close": ["Just the wedge of blue cheese, close enough to see the veins and the nibble out of it."], "firstMark": ["Start with the shadow under the wedge, one firm triangle of {dark}."] },
+      { "t": "has a wedge of blue cheese with a nibble out", "scope": "any", "close": ["Just the board, with the nibbled wedge of blue cheese at the front."], "firstMark": ["Start with the shadow under the wedge, one firm triangle of {dark}."] },
       { "t": "is set with crackers and a spoonful of chutney", "scope": "any" },
       { "t": "has a knife standing upright in a soft cheese", "scope": "any" },
       { "t": "has a bunch of grapes hanging off one edge", "scope": "any" }

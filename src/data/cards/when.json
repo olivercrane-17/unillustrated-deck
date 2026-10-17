@@ -24,9 +24,9 @@
     "timeOfDay": ["afternoon", "dusk"],
     "scope": "any",
     "mood": "warm",
-    "light": "Give the sunny side of each thing a light layer of your warmest pencil, and pull its shadow out long behind it.",
+    "light": "Give the lit side of each thing a light layer of your warmest pencil, and pull its shadow out long behind it.",
     "shadow": "for the long shadows",
-    "highlight": "for the brightest edges facing the sun"
+    "highlight": "for the brightest warm edges"
   },
   {
     "id": "when-rainy-sunday",
@@ -52,6 +52,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dusk"],
     "scope": "any",
+    "moonlit": true,
     "sky": true,
     "mood": "cool",
     "light": "Colour everything in cool blues first, then add any lamp or lit window as one small warm spot.",
@@ -111,6 +112,7 @@
     "seasons": ["summer"],
     "timeOfDay": ["night"],
     "scope": "any",
+    "moonlit": true,
     "sky": true,
     "mood": "cool",
     "light": "Use a deep blue instead of black for the darkest parts.",
@@ -185,6 +187,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["night"],
     "scope": "outdoor",
+    "moonlit": true,
     "sky": true,
     "mood": "dark",
     "light": "Colour the darkest parts first and leave the moonlit tops of things almost bare.",
@@ -248,7 +251,7 @@
     "mood": "muted",
     "light": "Blend the edges of every shadow so that none of them has a hard line.",
     "shadow": "for the soft, blurry shadows",
-    "highlight": "for the soft, even daylight"
+    "highlight": "for the soft, even light"
   },
   {
     "id": "when-harvest-moon",
@@ -259,6 +262,7 @@
     "seasons": ["autumn"],
     "timeOfDay": ["dusk", "night"],
     "scope": "any",
+    "moonlit": true,
     "sky": true,
     "mood": "warm",
     "light": "Make the moon the warmest, brightest thing in the picture and keep everything else darker.",
@@ -292,7 +296,7 @@
     "mood": "cool",
     "light": "Keep most of the picture dark and cool, with just one strip of pale, cold light.",
     "shadow": "for the early dark",
-    "highlight": "for the last pale, cold daylight"
+    "highlight": "for the last pale, cold light"
   },
   {
     "id": "when-night-before-snow",
@@ -423,7 +427,7 @@
     "mood": "bright",
     "light": "Use a sharp pencil point and firm edges, and keep the shadows crisp and clean.",
     "shadow": "for the crisp shadows",
-    "highlight": "for the bright, cold sunshine"
+    "highlight": "for the bright, cold highlights"
   },
   {
     "id": "when-apple-picking",
@@ -437,7 +441,7 @@
     "mood": "warm",
     "light": "Lay a light layer of your palest warm pencil over everything first, then build the stronger colours on top.",
     "shadow": "for the soft, warm shadows",
-    "highlight": "for the sun on rounded surfaces"
+    "highlight": "for the light on rounded surfaces"
   },
   {
     "id": "when-april-shower",
@@ -478,6 +482,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dawn"],
     "scope": "any",
+    "moonlit": true,
     "sky": true,
     "mood": "dark",
     "light": "Work in dark blues, and lighten only a thin strip of sky along one edge.",
@@ -493,6 +498,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["night"],
     "scope": "outdoor",
+    "moonlit": true,
     "sky": true,
     "mood": "dark",
     "light": "Press the stars into the paper first with an empty ballpoint pen, then colour the dark sky over them so they stay white.",
@@ -509,9 +515,9 @@
     "timeOfDay": ["afternoon"],
     "scope": "any",
     "mood": "warm",
-    "light": "Keep the sunlit parts warm and light, and let the shade gather in soft, darker pools.",
+    "light": "Keep the lit parts warm and light, and let the shade gather in soft, darker pools.",
     "shadow": "for the pools of shade",
-    "highlight": "for the warm afternoon sunlight"
+    "highlight": "for the warm afternoon light"
   },
   {
     "id": "when-low-winter-sun",
@@ -523,9 +529,9 @@
     "timeOfDay": ["morning", "afternoon"],
     "scope": "any",
     "mood": "bright",
-    "light": "Leave the sunlit edges almost white and stretch the shadows right across the page.",
+    "light": "Leave the brightest edges almost white and stretch the shadows right across the page.",
     "shadow": "for the very long shadows",
-    "highlight": "for the dazzle where the sun hits"
+    "highlight": "for the dazzling edges"
   },
   {
     "id": "when-conker-season",

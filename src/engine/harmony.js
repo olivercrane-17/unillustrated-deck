@@ -28,6 +28,21 @@ const isDealable = (p, allowMetallic) => p.special !== 'blender' && (allowMetall
 const isWhiteish = (p) => p.lch.L > 0.93 && p.lch.C < 0.04
 const isBlack = (p) => p.code === BLACK || (p.lch.L < 0.26 && p.lch.C < 0.02)
 
+// One colour family: shades of the main hue, not White, Black or greys.
+const sameFamily = (main) => (p) => p.lch.C >= 0.03 && hueDistance(p.lch.h, main.lch.h) < 32
+const SHADE_STEP = 0.08
+function hasShades(p, pool) {
+  if (p.lch.C < 0.03) return false
+  const family = pool.filter((q) => q.code !== p.code && sameFamily(p)(q))
+  return family.some((q) => q.lch.L > p.lch.L + SHADE_STEP) && family.some((q) => q.lch.L < p.lch.L - SHADE_STEP)
+}
+
+/** Whether the tin holds a light, a middle and a dark of any one colour. */
+export function canDealMono(pencils) {
+  const owned = pencils.filter((p) => isDealable(p, false))
+  return owned.some((p) => hasShades(p, owned))
+}
+
 // Pick among the best few candidates so palettes vary without going off-key.
 function pickTop(rng, scored, k = 3) {
   const sorted = scored.slice().sort((x, y) => x.score - y.score)
@@ -192,19 +207,37 @@ export function dealPalette({ pencils, slots, mood, rule, keep = {}, avoid = [],
     let candidates = pool.filter((p) => !used.has(p.code) && !avoidSet.has(p.code))
     if (!candidates.length) candidates = pool.filter((p) => !used.has(p.code))
     if (!candidates.length) candidates = owned.filter((p) => !used.has(p.code))
-    // Highlights are White or a near-white: a bright yellow is not a highlight.
-    if (slot.kind === 'light') {
-      candidates = candidates.filter((p) => p.lch.L > 0.84 && p.lch.C < 0.06)
-      if (!candidates.length) continue
-    }
-    if (slot.kind === 'dark') {
-      const darks = candidates.filter((p) => p.lch.L < 0.5)
-      if (darks.length) candidates = darks
-    }
-    // One colour family: shades of the main hue, not White, Black or greys.
-    if (rule === 'mono' && ctx.main) {
-      const family = candidates.filter((p) => p.lch.C >= 0.03 && hueDistance(p.lch.h, ctx.main.lch.h) < 32)
-      if (family.length) candidates = family
+    if (rule === 'mono') {
+      // One colour family: a middle that has a lighter and a darker shade in
+      // the tin, then those shades. Never White, Black or a grey.
+      if (slot.kind === 'main') {
+        const shaded = candidates.filter((p) => hasShades(p, pool))
+        if (shaded.length) candidates = shaded
+      } else if (ctx.main) {
+        const { L } = ctx.main.lch
+        candidates = candidates.filter((p) => sameFamily(ctx.main)(p) &&
+          (slot.kind === 'light' ? p.lch.L > L + SHADE_STEP : slot.kind === 'dark' ? p.lch.L < L - SHADE_STEP : true))
+        if (!candidates.length) continue
+      }
+    } else {
+      // Highlights are White or a near-white: a bright yellow is not a highlight.
+      // A white detail or companion (a snowdrop) takes a pale pencil too.
+      const pale = slot.kind === 'light' || (slot.anchor && (slot.key === 'also' || slot.key === 'accent') && slot.anchor.lch.L > 0.85 && slot.anchor.lch.C < 0.05)
+      if (pale) {
+        candidates = candidates.filter((p) => p.lch.L > 0.84 && p.lch.C < 0.06)
+        if (!candidates.length) continue
+      }
+      // A grey thing gets a neutral pencil, not the nearest strong colour.
+      const target = slot.anchor || (slot.kind === 'main' ? ctx.subjectAnchor : null)
+      if (!pale && target && target.lch.C < 0.035) {
+        const neutral = candidates.filter((p) => p.lch.C <= 0.04 || (p.lch.C <= 0.065 && isWarmHue(p.lch.h)))
+        if (neutral.length) candidates = neutral
+        else if (slot.kind === 'anchor') continue
+      }
+      if (slot.kind === 'dark') {
+        const darks = candidates.filter((p) => p.lch.L < 0.5)
+        if (darks.length) candidates = darks
+      }
     }
     // Keep chosen pencils visibly distinct, relaxing if the tin is small.
     let picked
@@ -285,12 +318,17 @@ export function refitRoles({ pencils, codes, slots, mood }) {
     if (!remaining.length) break
     const scorer = slot.kind === 'anchor' ? scoreAnchor(slot.anchor) : SCORERS[slot.kind]
     if (!scorer || (slot.kind === 'main' && !ctx.subjectAnchor)) continue
-    let bestIdx = 0
+    // A shadow or highlight slot only takes a pencil that really is dark or
+    // light; otherwise the slot goes unfilled and the pencil becomes an extra.
+    const fits = (p) => (slot.kind === 'dark' ? p.lch.L < 0.5 : slot.kind === 'light' ? p.lch.L > 0.84 && p.lch.C < 0.07 : true)
+    let bestIdx = -1
     let best = Infinity
     remaining.forEach((p, i) => {
+      if (!fits(p)) return
       const s = scorer(p, ctx)
       if (s < best) { best = s; bestIdx = i }
     })
+    if (bestIdx < 0) continue
     const [p] = remaining.splice(bestIdx, 1)
     out.push({ code: p.code, slot: slot.key, role: slot.role })
     if (slot.kind === 'main') ctx.main = p

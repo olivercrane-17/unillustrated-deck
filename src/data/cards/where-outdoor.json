@@ -130,7 +130,7 @@
     "at": "on the garden bench",
     "phrases": ["a slatted seat with peeling green paint", "a ring where a mug stood", "a cushion left out"],
     "scope": "outdoor",
-    "admits": ["garden", "tabletop"],
+    "admits": ["garden"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "vignette"],

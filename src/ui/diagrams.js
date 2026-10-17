@@ -24,7 +24,7 @@ export const FRAME_IDS = Object.keys(DIAGRAMS)
 // close crop. The space words win, since "close together, with plain paper
 // round them" still wants the paper.
 const SPACE_WORDS = /\b(plain|bare|empty|white) (white )?(paper|page)|\bpaper (all )?round\b|\bno background\b|\bnothing behind\b|\bmiddle of (the|a)\b[^.,]*\bpage\b|\bspace (round|around)\b|\bsmall and far away\b/i
-const CLOSE_WORDS = /\bclose\b|\bnear enough\b|\bfill(s|ing)?\b|\bedges?\b|\boff the (page|edge)\b|\bacross the page\b|\bas (big|large) as the page\b/i
+const CLOSE_WORDS = /\bclose\b|\bnear enough\b|\bfill(s|ing)? (most of )?the page\b|\brunning off\b|\boff the (page|edge)\b|\b(at one|the) edge of the (page|nest|box)\b|\bat one edge\b|\bacross the page\b|\bas (big|large|tall) as the page\b/i
 
 export function quickFrame(framing = '') {
   const text = String(framing || '')

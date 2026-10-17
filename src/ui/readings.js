@@ -112,7 +112,7 @@ export async function render(root) {
       return [h('button.btn-text.recent-look', { type: 'button', onclick: () => carryOn(r) }, raw(ICONS.eye), 'Look again'), remover]
     }
     return [
-      canCarryOn(r) ? h('button.btn.btn-gilt.recent-carry', { type: 'button', onclick: () => carryOn(r) }, 'Carry on') : null,
+      canCarryOn(r) ? h('button.btn.btn-gilt.recent-carry', { type: 'button', onclick: () => carryOn(r) }, 'Back to the table') : null,
       h('button.btn-text', { type: 'button', onclick: () => go(`draw/${r.id}`) }, raw(ICONS.pencil), 'Back to drawing'),
       remover,
     ]

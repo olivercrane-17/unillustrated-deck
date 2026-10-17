@@ -178,6 +178,7 @@ Rules:
 - `seasons`: when it can happen. `timeOfDay`: when in the day it happens (1 to 3 values). "By lamplight" is `dusk`, `night`.
 - `scope`: `outdoor` if it only makes sense outdoors (a thunderstorm brewing could be seen through glass, so `any`; "under a sky full of stars" is `outdoor`). `indoor` for things like "while the kettle boils" or "by the fire". Prefer `any`. An `indoor` hour only fits indoor places.
 - `sky` (optional): `true` when the hour is only visible in the sky or the weather (mist, rain, frost, a sunset, the stars). It then fits outdoor and threshold places, and indoor places with `window: true`.
+- `moonlit` (optional): `true` when the moon or stars could be the only light (dusk, a full moon, a starry night, just before sunrise). The Moonlight twist only picks these hours. Never on hours lit by a lamp, a fire, candles, fireworks or the sun.
 - `places` (optional): a list of Where ids, for an hour that belongs to a few rooms only ("while the kettle boils" belongs in the kitchen). Every place still needs at least 5 hours that fit it in each season.
 - `mood`: drives the palette: `warm` (golden, fire, sun), `cool` (frost, blue hour, mist), `muted` (fog, overcast, rain, dust), `dark` (night, storm), `bright` (clear spring morning, midsummer noon).
 - `light`: one plain drawing hint about value and colour temperature. Full sentence.

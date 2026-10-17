@@ -280,7 +280,7 @@
     ],
     "close": ["Just the armchair, turned slightly, so you see one arm and the seat.", "Just the armchair from the front, with both arms and the seat between them."],
     "scale": "medium",
-    "habitats": ["home", "garden"],
+    "habitats": ["home"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#9A4E45", "#D8C3A0", "#4F2924"],

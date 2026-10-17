@@ -198,6 +198,8 @@ export function validateWhen(r, card, where) {
   checkRole(r, where + '.shadow', card.shadow)
   checkRole(r, where + '.highlight', card.highlight)
   if (card.sky !== undefined && typeof card.sky !== 'boolean') r.err(where, 'sky must be true or false')
+  if (card.moonlit !== undefined && typeof card.moonlit !== 'boolean') r.err(where, 'moonlit must be true or false')
+  if (card.moonlit && !card.timeOfDay?.some((t) => t === 'dusk' || t === 'night' || t === 'dawn')) r.warn(where, 'a moonlit hour should be at dusk, night or dawn')
   if (card.places !== undefined && !(Array.isArray(card.places) && card.places.length && card.places.every((x) => /^where-[a-z0-9-]+$/.test(x)))) r.err(where, 'places must be a list of Where ids')
   walkText(r, where, card)
 }

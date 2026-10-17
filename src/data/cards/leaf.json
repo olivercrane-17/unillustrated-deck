@@ -645,11 +645,11 @@
     "texture": "bark",
     "roles": {
       "main": "for the pale, frilly lichen",
-      "dark": "for the twig and the gaps under the frills",
+      "dark": "for the shady side of the twig and the gaps under the frills",
       "light": "for the pale edges of the frills",
       "accent": "for the spot of orange lichen"
     },
-    "firstMark": ["Start with the twig in {dark}, a slightly crooked line with a fork near the end.", "Start with the wavy edge of one patch of lichen in {main}."]
+    "firstMark": ["Start with the shady underside of the twig in {dark}, a slightly crooked line with a fork near the end.", "Start with the wavy edge of one patch of lichen in {main}."]
   },
   {
     "id": "leaf-birds-nest",
@@ -1041,11 +1041,11 @@
     "texture": "foliage",
     "roles": {
       "main": "for the yellow catkins",
-      "dark": "for the twig",
+      "dark": "for the shady side of the twig",
       "light": "for the dusty pollen",
       "accent": "for the tiny red buds on the twig"
     },
-    "firstMark": ["Start with the twig, a crooked line of {dark} with a bud at each bend.", "Start with one catkin as a column of overlapping scales in {main}."]
+    "firstMark": ["Start with the twig, a crooked line with a bud at each bend, shaded along its underside in {dark}.", "Start with one catkin as a column of overlapping scales in {main}."]
   },
   {
     "id": "leaf-horse-chestnut-leaf",
@@ -1106,11 +1106,11 @@
     "texture": "petal",
     "roles": {
       "main": "for the pale blush on the petals",
-      "dark": "for the twig",
+      "dark": "for the shady side of the twig",
       "light": "for the white of the open flowers",
       "accent": "for the yellow middles of the flowers"
     },
-    "firstMark": ["Start with the buds, rounded shapes of {main} pressed a little firmer than the open flowers.", "Start with the twig in {dark}, knobbly where the flowers join it."]
+    "firstMark": ["Start with the buds, rounded shapes of {main} pressed a little firmer than the open flowers.", "Start with the shadow along the twig in {dark}, knobbly where the flowers join it."]
   },
   {
     "id": "leaf-windfall-apple",

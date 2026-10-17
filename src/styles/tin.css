@@ -23,6 +23,12 @@
   box-shadow: 0 0 0 2px var(--gilt-mid), var(--shadow-lift);
   animation: tin-rise 360ms var(--ease-soft);
 }
+/* On the light linen the felt's deep lift shadow spread over "Start from a
+   box" below and greyed it to 3.7:1. A shorter, softer shadow still lifts the
+   card and stops short of the label. */
+:root[data-table='linen'] .tin-question {
+  box-shadow: 0 0 0 2px var(--gilt-mid), 0 1px 2px rgba(42, 33, 28, 0.16), 0 6px 12px rgba(42, 33, 28, 0.14);
+}
 .tin-question::before {
   content: '';
   position: absolute;
@@ -196,7 +202,7 @@
   margin: 4px 0 0;
   font-size: 14.5px;
   font-style: italic;
-  color: var(--cream-faint);
+  color: var(--cream-soft); /* --cream-faint sat at 4.49:1 on the felt */
 }
 .tin-empty {
   max-width: 38ch;
@@ -319,6 +325,9 @@
   border-top: 1px solid rgba(42, 33, 28, 0.09);
   scroll-margin-top: 140px;
   scroll-margin-bottom: 24px;
+  /* Narrow rows rearrange themselves (see below), on phones and in the
+     two-column tablet layout alike. */
+  container-type: inline-size;
 }
 .tin-row:first-child {
   border-top: 0;
@@ -439,6 +448,50 @@
   font-size: 14px;
   white-space: nowrap;
   color: var(--ink-soft);
+}
+
+/* A narrow row: the swatch moves up beside the code, so the name has the
+   row's full width and even "Mediterranean Blue" wraps only between words. */
+@container (max-width: 350px) {
+  .tin-label {
+    display: grid;
+    grid-template-columns: 26px auto minmax(0, 1fr);
+    align-items: center;
+    align-content: center;
+    gap: 1px 11px;
+  }
+  .tin-label .tin-check {
+    grid-row: 1 / span 4;
+  }
+  .tin-name {
+    display: contents;
+  }
+  .tin-label .tin-swatch {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .tin-name code {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .tin-name strong,
+  .tin-name .tin-blender,
+  .tin-name .tin-adjusted {
+    grid-column: 2 / -1;
+    justify-self: start;
+  }
+  .tin-name strong {
+    justify-self: stretch;
+  }
+}
+/* The narrowest phones: "Looks off?" takes two short lines to leave the name room. */
+@container (max-width: 290px) {
+  .tin-off {
+    width: min-content;
+    white-space: normal;
+    text-align: center;
+    line-height: 1.15;
+  }
 }
 
 .tin-nomatch {

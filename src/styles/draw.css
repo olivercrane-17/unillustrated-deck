@@ -233,6 +233,19 @@
   min-width: 0;
   line-height: 1.25;
 }
+/* The narrowest phones: a slimmer swatch, so "Mediterranean" fits whole. */
+.draw-pencil-list {
+  container-type: inline-size;
+}
+@container (max-width: 280px) {
+  .draw-pencil {
+    column-gap: 12px;
+  }
+  .drawing .draw-pencil .pencil-swatch.big {
+    width: 80px;
+    height: 25px;
+  }
+}
 .draw-pencil-text code {
   display: block;
   font-family: var(--font-display);

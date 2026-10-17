@@ -493,6 +493,12 @@ body:has(.sheet-backdrop) .toasts {
 .seal-ceremony {
   --focus: #f6d68a;
 }
+/* The photo sheet is painted with the table's own tokens, which linen makes
+   light, so there it takes linen's deep red ring. The zoom sheet and the
+   ceremony stay dark on every table and keep the pale gold. */
+:root[data-table='linen'] .sheet.photo {
+  --focus: #7b2d26;
+}
 .toast {
   --focus: var(--suit-hearth);
 }

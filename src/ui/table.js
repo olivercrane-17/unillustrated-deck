@@ -22,6 +22,8 @@ const FLIP_GAP = 340
 const hintOf = (key) => SPREADS[key].hint
 
 const pick = (list, seed) => (list?.length ? list[seed % list.length] : '')
+// "Ginger Root, Cream and Violet Blue"
+const listOf = (items, last = 'and') => (items.length > 1 ? `${items.slice(0, -1).join(', ')} ${last} ${items[items.length - 1]}` : items.join(''))
 const pencilByCode = new Map(pencilCatalogue.map((p) => [p.code, p]))
 
 export function positionsOf(reading) {
@@ -54,10 +56,13 @@ export async function render(root) {
   root.appendChild(h('h1.sr-only', 'The table'))
   root.appendChild(announcer)
   root.appendChild(view)
+  const say = (text) => {
+    announcer.textContent = ''
+    requestAnimationFrame(() => { announcer.textContent = text })
+  }
   const announce = (reading) => {
     const lines = (reading.text?.brief || []).map((l) => `${l.label}: ${l.text}`).join(' ')
-    announcer.textContent = ''
-    requestAnimationFrame(() => { announcer.textContent = `New reading. ${lines}` })
+    say(`New reading. ${lines}`)
   }
   cleanups.push(() => sound.unsubscribe?.())
 
@@ -198,9 +203,9 @@ export async function render(root) {
 
   function showChoices(spread) {
     const options = choices(spread)
-    const line = pick(content.lines.spreadOut, options[0]?.seed || 0)
+    const line = pick(content.lines.spreadOut, options[0]?.seed || 0) || 'The deck spreads itself out. Pick the one that tugs at you.'
     mount(view, h('section.reading',
-      h('p.deck-idea.hand', line || 'The deck spreads itself out. Pick the one that tugs at you.'),
+      h('p.deck-idea.hand', line),
       h('div.choices', options.map((r) => {
         const pos = r.cards.who ? 'who' : 'theme'
         const card = content.byId.get(r.cards[pos])
@@ -212,8 +217,13 @@ export async function render(root) {
         } }, renderCard({ card, label: POSITION_LABELS[pos], size: 'md' }))
       })),
       h('div.reading-actions',
-        h('button.btn-text', { type: 'button', onclick: async () => { busy = false; dealNew(spread) } }, raw(ICONS.shuffle), 'Shuffle again anyway')),
+        h('button.btn-text', { type: 'button', onclick: async () => { busy = false; dealNew(spread) } }, raw(ICONS.shuffle), 'Shuffle again anyway'),
+        h('div.table-sound', sound)),
     ))
+    // The button she pressed has gone: start her at the first card on offer.
+    view.querySelector('.choices .card-slot')?.focus({ preventScroll: true })
+    const titles = options.map((r) => content.byId.get(r.cards.who || r.cards.theme)?.title).filter(Boolean)
+    say(`${line} ${listOf(titles, 'or')}.`)
   }
 
   // ---------------------------------------------------------------------------
@@ -325,6 +335,8 @@ export async function render(root) {
       t.framing && { key: 'frame', label: 'Frame', text: t.framing },
       t.twist && { key: 'twist', label: 'Twist', text: t.twist.replace(/^Twist:\s*/, '') },
     ].filter(Boolean)
+    // A heading to jump to: the brief is the heart of the reading.
+    out.push(h('h2.sr-only', 'Your drawing'))
     out.push(h('dl.brief', brief.map((line) => h(`div.brief-row.brief-${line.key}`,
       h('dt', line.label),
       h(`dd${line.key === 'draw' ? '.sentence' : ''}`, line.key === 'twist' || line.key === 'light' ? glossify(line.text) : line.text),
@@ -384,7 +396,7 @@ export async function render(root) {
       reading.text.paperLine && h('p', reading.text.paperLine),
       reading.text.smallTin && h('p', reading.text.smallTin)].filter(Boolean)
     return [
-      h('div.tin-head', h('h2', 'Your pencils'), h('span.palette-name', p.name)),
+      h('div.tin-head', h('h2', { tabindex: '-1' }, 'Your pencils'), h('span.palette-name', p.name)),
       h('ul.pencil-rows', rows),
       notes.length ? h('div.tin-notes', notes) : null,
       tips ? h('details.layer-tips', h('summary', 'How to layer'), h('ol', tips.map((t) => h('li', glossify(t))))) : null,
@@ -442,14 +454,59 @@ export async function render(root) {
     else if (prev && !next.id) next.id = prev.id
     next.status = prev?.status && !fresh ? prev.status : next.status
     const saving = saveReading(next)
-    // A new picture, new colours or a swapped card: show it from the top.
-    if (allCards || allPencils || flipPos) await toTopOfReading()
+    // A new picture or a swapped card: show it from the top, with focus on a
+    // card she can see (never on the button she pressed, now below the fold).
+    const fromTop = Boolean(allCards || flipPos)
+    if (fromTop) await toTopOfReading()
     const saved = await saving
     if (disposed) return
     const flipOnly = flipPos ? [flipPos] : allCards ? positionsOf(saved) : []
-    showReading(saved, { flipOnly, focusKey: key })
-    if (allCards || flipPos) announce(saved)
-    if (newPencil !== undefined) view.querySelectorAll('.pencil-row')[newPencil]?.classList.add('is-new')
+    showReading(saved, { flipOnly, focusKey: allCards ? 'card-who' : key })
+    if (fromTop) {
+      if (!inView(document.activeElement)) restoreFocus('card-who')
+      announce(saved)
+      return
+    }
+    const nameOf = (pen) => pencilByCode.get(pen.code)?.name || pen.code
+    if (allPencils) {
+      // Only the pencils changed: bring them into view, not the top.
+      showPencils()
+      say(`New colours: ${listOf(saved.palette.pencils.map(nameOf))}.`)
+    }
+    if (newPencil !== undefined) {
+      view.querySelectorAll('.pencil-row')[newPencil]?.classList.add('is-new')
+      const pen = saved.palette.pencils[newPencil]
+      if (pen) say(`New pencil: ${nameOf(pen)}${pen.role ? `, ${pen.role}` : ''}.`)
+    }
+  }
+
+  const inView = (el) => {
+    if (!el || el === document.body || !el.isConnected) return false
+    const r = el.getBoundingClientRect()
+    return r.height > 0 && r.top >= 0 && r.bottom <= innerHeight
+  }
+
+  // Scroll "Your pencils" to the top of the screen (smoothly, or at once under
+  // reduced motion) unless it is all on screen already. Focus stays on the
+  // button she pressed if that is still in view afterwards; otherwise it moves
+  // to the panel's heading, so it is never left off-screen.
+  function showPencils() {
+    const panel = view.querySelector('.tin-panel')
+    if (!panel) return
+    const r = panel.getBoundingClientRect()
+    let shift = 0
+    if (r.top < 0 || r.bottom > innerHeight) {
+      const margin = parseFloat(getComputedStyle(panel).scrollMarginTop) || 0
+      const max = document.documentElement.scrollHeight - innerHeight
+      shift = Math.max(0, Math.min(max, scrollY + r.top - margin)) - scrollY
+      panel.scrollIntoView({ block: 'start', behavior: prefersReducedMotion() ? 'instant' : 'smooth' })
+    }
+    const active = document.activeElement
+    if (active && active !== document.body && view.contains(active)) {
+      const a = active.getBoundingClientRect()
+      if (a.top - shift >= 0 && a.bottom - shift <= innerHeight) return
+    }
+    panel.querySelector('.tin-head h2')?.focus({ preventScroll: true })
   }
 
   function zoom(reading, pos) {

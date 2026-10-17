@@ -1,0 +1,634 @@
+[
+  {
+    "id": "fur-hedgehog",
+    "suit": "fur",
+    "title": "The Hedgehog",
+    "a": "a hedgehog",
+    "the": "the hedgehog",
+    "phrases": ["a pincushion with a nose", "grunting like a clockwork toy", "out on its nightly rounds"],
+    "doing": [
+      { "t": "is snuffling along with its nose to the ground", "scope": "any" },
+      { "t": "is rolled up into a tight, prickly ball", "scope": "any" },
+      { "t": "is scratching behind one ear with a back foot", "scope": "any" },
+      { "t": "is nosing at a windfall apple", "scope": "outdoor", "seasons": ["autumn"] },
+      { "t": "is asleep, wound up tight in a bundle of dry leaves", "scope": "outdoor", "seasons": ["autumn", "winter"] }
+    ],
+    "close": ["Just the hedgehog, a nose and two black-bead eyes peeping out of the prickles.", "Only the hedgehog, mid-trundle, with one front foot lifted."],
+    "scale": "small",
+    "habitats": ["garden", "hedgerow", "woodland", "visitor"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "night",
+    "colours": ["#7A5A3D", "#D9C6A3", "#3B2C22"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the spines",
+      "dark": "for the nose, the eyes and the shadow under the belly",
+      "light": "for the cream tips of the spines",
+      "accent": "for the pinkish-brown feet and face"
+    },
+    "firstMark": ["Start with the nose: a small, polished point of {dark} at the end of the snout.", "Start with the spines in short, fanned flicks of {main}, working back from the face."]
+  },
+  {
+    "id": "fur-dormouse",
+    "suit": "fur",
+    "title": "The Dormouse",
+    "a": "a dormouse",
+    "the": "the dormouse",
+    "phrases": ["round as a hazelnut", "tail like a bottlebrush", "asleep more than awake"],
+    "doing": [
+      { "t": "is curled up fast asleep", "scope": "any" },
+      { "t": "is nibbling a hazelnut held in both paws", "scope": "any" },
+      { "t": "is climbing a honeysuckle stem", "scope": "outdoor", "seasons": ["spring", "summer"] },
+      { "t": "is snoozing inside a ball of dry grass", "scope": "any", "seasons": ["autumn", "winter"] }
+    ],
+    "close": ["Just the dormouse, close enough to count whiskers.", "Only the dormouse, curled into a ball, filling the page."],
+    "scale": "tiny",
+    "habitats": ["hedgerow", "woodland", "garden", "visitor"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "night",
+    "colours": ["#C98A3E", "#E9D6AE"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the fur",
+      "dark": "for the eye and the shadow underneath",
+      "light": "for the pale belly and whiskers",
+      "accent": "for the pink nose and toes"
+    },
+    "firstMark": ["Start with the eye: one dot of {dark}, the size of a peppercorn.", "Start with the curve of the back in a light pass of {main}."]
+  },
+  {
+    "id": "fur-wood-mouse",
+    "suit": "fur",
+    "title": "The Wood Mouse",
+    "a": "a wood mouse",
+    "the": "the wood mouse",
+    "phrases": ["all ears and back feet", "a hoard of seeds somewhere", "gone at the first creak"],
+    "doing": [
+      { "t": "is turning a sunflower seed round in its front paws", "scope": "any" },
+      { "t": "is standing on its back legs to sniff the air", "scope": "any" },
+      { "t": "is caught mid-leap with its long tail streaming out", "scope": "any" },
+      { "t": "is helping itself to a biscuit crumb", "scope": "any" },
+      { "t": "is carrying a rosehip off in its mouth", "scope": "outdoor", "seasons": ["autumn", "winter"] }
+    ],
+    "close": ["Just the wood mouse, with ears big enough to catch the light.", "Only the mouse, sitting up, its long tail looped round its feet."],
+    "scale": "tiny",
+    "habitats": ["woodland", "hedgerow", "garden", "farm", "visitor"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "night",
+    "colours": ["#8E6744", "#EEE7D9"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the warm brown back",
+      "dark": "for the bulging black eyes",
+      "light": "for the white belly and feet",
+      "accent": "for the pink ears and tail"
+    },
+    "firstMark": ["Start with the eye: a round, glossy blob of {dark}, bigger than you think.", "Start with the ear, a light outline of {main} shaped like a scallop shell."]
+  },
+  {
+    "id": "fur-harvest-mouse",
+    "suit": "fur",
+    "title": "The Harvest Mouse",
+    "a": "a harvest mouse",
+    "the": "the harvest mouse",
+    "phrases": ["lighter than a two-pence piece", "a tail that holds on", "a nest woven from leaves"],
+    "doing": [
+      { "t": "is nibbling a single grain of wheat", "scope": "any" },
+      { "t": "is asleep with its tail wrapped over its nose", "scope": "any" },
+      { "t": "is sitting up very straight to look around", "scope": "any" },
+      { "t": "is clinging to a swaying stalk with its tail wound round it", "scope": "outdoor" },
+      { "t": "is weaving a ball-shaped nest from shredded leaves", "scope": "outdoor", "seasons": ["summer", "autumn"] }
+    ],
+    "close": ["Just the harvest mouse, tail wound round a single stem.", "Only the harvest mouse and the ear of wheat it is holding on to."],
+    "scale": "tiny",
+    "habitats": ["meadow", "hedgerow", "farm"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#C47A3D", "#F2EBDD"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the russet back",
+      "dark": "for the eye and the shadow under the chin",
+      "light": "for the white underside",
+      "accent": "for the pink feet and the tip of the nose"
+    },
+    "firstMark": ["Start with the tail: one curling line of {main} wound round the stem.", "Start with the eye, a single speck of {dark}, then the short snout just in front of it."]
+  },
+  {
+    "id": "fur-red-squirrel",
+    "suit": "fur",
+    "title": "The Red Squirrel",
+    "a": "a red squirrel",
+    "the": "the red squirrel",
+    "phrases": ["ear tufts like paintbrushes", "a rust-red flicker", "pine cones stripped to the core"],
+    "doing": [
+      { "t": "is stripping a pine cone scale by scale", "scope": "any" },
+      { "t": "is sitting up with its tail arched over its back", "scope": "any" },
+      { "t": "is frozen mid-chew and staring straight back", "scope": "any" },
+      { "t": "is carefully hiding a nut for later", "scope": "outdoor", "seasons": ["autumn"] },
+      { "t": "is hanging head-down by its back feet", "scope": "outdoor" }
+    ],
+    "close": ["Just the squirrel and its enormous tail, nothing else.", "Only the squirrel's face and those tufted ears, as big as the paper allows."],
+    "scale": "small",
+    "habitats": ["woodland", "garden", "visitor"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "day",
+    "colours": ["#B4552C", "#EAD9BE", "#6E3420"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the russet fur",
+      "dark": "for the eye and the deepest parts of the tail",
+      "light": "for the cream chest",
+      "accent": "for the darker tips of the ear tufts"
+    },
+    "firstMark": ["Start with the ear tufts: two quick flicks of {main} pointing up and out.", "Start with the eye, a dark almond of {dark} with a pinhead of paper left for the shine."]
+  },
+  {
+    "id": "fur-hare",
+    "suit": "fur",
+    "title": "The Hare",
+    "a": "a hare",
+    "the": "the hare",
+    "phrases": ["ears tipped with soot", "amber eyes set wide", "gone in three bounds"],
+    "doing": [
+      { "t": "is sitting bolt upright with its ears turned to listen", "scope": "any" },
+      { "t": "is crouched low with its ears laid flat along its back", "scope": "any" },
+      { "t": "is pulling one long ear down to wash it", "scope": "any" },
+      { "t": "is loping away in no particular hurry", "scope": "outdoor" },
+      { "t": "is standing up to box with a second hare", "scope": "outdoor", "seasons": ["spring"] }
+    ],
+    "close": ["Just the hare, sitting up, ears tall enough to touch the top of the page.", "Only the hare's head in profile, with that big amber eye."],
+    "scale": "medium",
+    "habitats": ["meadow", "farm", "hedgerow"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#A67C50", "#D8C3A0", "#2B2421"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the tawny back",
+      "dark": "for the black ear tips",
+      "light": "for the pale chin and belly",
+      "accent": "for the amber eye"
+    },
+    "firstMark": ["Start with the black tips of the ears in {dark}, then work down the long ears.", "Start with the pupil, one round of {dark} set inside a wide amber eye."]
+  },
+  {
+    "id": "fur-wild-rabbit",
+    "suit": "fur",
+    "title": "The Wild Rabbit",
+    "a": "a wild rabbit",
+    "the": "the wild rabbit",
+    "phrases": ["a warren full of cousins", "a white flash of tail", "ears that swivel separately"],
+    "doing": [
+      { "t": "is washing its face with both front paws", "scope": "any" },
+      { "t": "is nibbling a dandelion leaf from the tip down", "scope": "any" },
+      { "t": "is lying stretched out with its back legs kicked out behind", "scope": "any" },
+      { "t": "is thumping a back foot in warning", "scope": "any" },
+      { "t": "is hopping off with its white tail bobbing", "scope": "outdoor" }
+    ],
+    "close": ["Just the rabbit in profile, from the twitching nose to the white scut.", "Only the rabbit, seen from behind, ears up and tail showing."],
+    "scale": "small",
+    "habitats": ["meadow", "hedgerow", "coast", "farm"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#8B7760", "#F2EDE4", "#B98A62"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the grey-brown coat",
+      "dark": "for the eye and the shadow under the chin",
+      "light": "for the white tail and belly",
+      "accent": "for the rusty patch at the nape"
+    },
+    "firstMark": ["Start with the eye, a large round shape of {dark} set high on the side of the head.", "Start with the ears in two long, light strokes of {main}."]
+  },
+  {
+    "id": "fur-fox-cub",
+    "suit": "fur",
+    "title": "The Fox Cub",
+    "a": "a fox cub",
+    "the": "the fox cub",
+    "phrases": ["all paws and curiosity", "smells of earth and bracken", "a yip at the end of the lane"],
+    "doing": [
+      { "t": "is tugging at a lost glove", "scope": "any" },
+      { "t": "is sitting with its head cocked at a sound", "scope": "any" },
+      { "t": "is curled up nose to tail", "scope": "any" },
+      { "t": "is giving an enormous pink yawn", "scope": "any" },
+      { "t": "is pouncing on a dandelion clock", "scope": "outdoor" },
+      { "t": "is wrestling a sibling in a tangle of legs", "scope": "outdoor" }
+    ],
+    "close": ["Just the cub, head on one side, ears far too big for it.", "Only the fox cub's face, with its dark muzzle and white chin."],
+    "scale": "small",
+    "habitats": ["hedgerow", "woodland", "meadow", "garden", "visitor"],
+    "seasons": ["spring", "summer"],
+    "active": "any",
+    "colours": ["#C2652F", "#F0E6D4", "#3A2B24"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the ginger coat",
+      "dark": "for the legs, the nose and the backs of the ears",
+      "light": "for the white chin and the tip of the tail",
+      "accent": "for the honey-brown eyes"
+    },
+    "firstMark": ["Start with the nose: a small triangle of {dark} at the end of the muzzle.", "Start with the ears, two big triangles outlined lightly in {main}."]
+  },
+  {
+    "id": "fur-badger",
+    "suit": "fur",
+    "title": "The Badger",
+    "a": "a badger",
+    "the": "the badger",
+    "phrases": ["a face striped like a humbug", "a sett centuries old", "a waddle with purpose"],
+    "doing": [
+      { "t": "is having a long, thorough scratch", "scope": "any" },
+      { "t": "is trotting along with its striped nose low", "scope": "any" },
+      { "t": "is sitting back on its haunches and looking thoughtful", "scope": "any" },
+      { "t": "is hauling an armful of bracken backwards", "scope": "outdoor" },
+      { "t": "is digging with its long front claws", "scope": "outdoor" }
+    ],
+    "close": ["Just the badger's face, a white stripe down the middle and dark eyes in the black.", "Only the badger coming straight towards you, a wide grey body under that striped head."],
+    "scale": "medium",
+    "habitats": ["woodland", "hedgerow", "meadow", "garden"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "night",
+    "colours": ["#9B958C", "#1F1C1B", "#F1EFEA"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the grizzled grey coat",
+      "dark": "for the black stripes and legs",
+      "light": "for the white stripes on the face",
+      "accent": "for the pale tips of the ears"
+    },
+    "firstMark": ["Start with the two black face stripes in {dark}, leaving bare paper for the white between them.", "Start with the body as one low wedge of {main}, heavy at the shoulders."]
+  },
+  {
+    "id": "fur-otter",
+    "suit": "fur",
+    "title": "The Otter",
+    "a": "an otter",
+    "the": "the otter",
+    "phrases": ["sleek as wet slate", "a line of bubbles", "never still for long"],
+    "doing": [
+      { "t": "is juggling a small stone between its front paws", "scope": "any" },
+      { "t": "is rolling over and over for the fun of it", "scope": "any" },
+      { "t": "is shaking itself dry with drops flying", "scope": "any" },
+      { "t": "is swimming low with a V of ripples behind it", "scope": "outdoor" }
+    ],
+    "close": ["Just the otter's head, sleek and wet, with its whiskers fanned out.", "Only the otter, the whole length of it, from whiskered nose to thick, tapering tail."],
+    "scale": "medium",
+    "habitats": ["water", "coast"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#5A4230", "#CDB89B", "#2A211B"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the dark brown coat",
+      "dark": "for the nose and the deepest shadows",
+      "light": "for the shine where the fur is wet",
+      "accent": "for the creamy throat"
+    },
+    "firstMark": ["Start with the nose, a shape of {dark} like a flattened heart.", "Start with the head as a smooth, flat oval in {main}, the ears barely showing."]
+  },
+  {
+    "id": "fur-stoat",
+    "suit": "fur",
+    "title": "The Stoat",
+    "a": "a stoat",
+    "the": "the stoat",
+    "phrases": ["a ribbon of ginger", "a black tip to the tail", "bounces when it runs"],
+    "doing": [
+      { "t": "is standing up on its back legs like a periscope", "scope": "any" },
+      { "t": "is pausing with one front foot raised", "scope": "any" },
+      { "t": "is asleep in a neat ginger knot", "scope": "any" },
+      { "t": "is twisting round to look back over its shoulder", "scope": "any" },
+      { "t": "is bounding along with its back arched", "scope": "outdoor" }
+    ],
+    "close": ["Just the stoat, standing up, with its cream bib and black-tipped tail.", "Only the stoat's long body, curved like a letter S."],
+    "scale": "small",
+    "habitats": ["hedgerow", "meadow", "woodland", "farm"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#A66A3B", "#F1E6CF", "#1E1A18"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the ginger back",
+      "dark": "for the black tail tip and the eye",
+      "light": "for the cream bib and belly",
+      "accent": "for the pinkish nose"
+    },
+    "firstMark": ["Start with the tail tip: a small, solid flame of {dark}.", "Start with the line where ginger meets cream, a wavy edge of {main} along the side."]
+  },
+  {
+    "id": "fur-mole",
+    "suit": "fur",
+    "title": "The Mole",
+    "a": "a mole",
+    "the": "the mole",
+    "phrases": ["velvet that brushes both ways", "hands like pink spades", "the maker of molehills"],
+    "doing": [
+      { "t": "is peering about with a puzzled air", "scope": "any" },
+      { "t": "is twitching its long snout at the air", "scope": "any" },
+      { "t": "is rowing itself along with its broad front paws", "scope": "any" },
+      { "t": "is surfacing nose first from a fresh molehill", "scope": "outdoor" },
+      { "t": "is shovelling away with great energy", "scope": "outdoor" }
+    ],
+    "close": ["Just the mole, front on, with those two enormous pink hands.", "Only the mole's head and paws, poking up out of the earth."],
+    "scale": "small",
+    "habitats": ["meadow", "garden", "farm", "woodland"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#2F2C2E", "#D8A39C"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the dark grey fur",
+      "dark": "for the deepest shadow under the body",
+      "light": "for the sheen along the back",
+      "accent": "for the pink paws and snout"
+    },
+    "firstMark": ["Start with the body as one rounded bean shape in a light, even layer of {main}.", "Start with the snout, a short pink cone, then the dark head behind it in {dark}."]
+  },
+  {
+    "id": "fur-pipistrelle-bat",
+    "suit": "fur",
+    "title": "The Pipistrelle Bat",
+    "a": "a pipistrelle bat",
+    "the": "the pipistrelle bat",
+    "phrases": ["fits in a matchbox", "wings like a folded umbrella", "a thousand midges for supper"],
+    "doing": [
+      { "t": "is stretching out one wing like a paper fan", "scope": "any" },
+      { "t": "is grooming its fur with quick, busy licks", "scope": "any" },
+      { "t": "is clinging on with its wings folded tight", "scope": "any" },
+      { "t": "is flitting about in quick zigzags", "scope": "outdoor" },
+      { "t": "is hanging upside down by its toes", "scope": "indoor" }
+    ],
+    "close": ["Just the bat, wings spread wide, every finger bone showing through.", "Only the pipistrelle, folded up and hanging, about the size of a walnut."],
+    "scale": "tiny",
+    "habitats": ["garden", "village", "woodland", "water", "visitor"],
+    "seasons": ["spring", "summer", "autumn"],
+    "active": "night",
+    "colours": ["#6D4F3F", "#382D2A"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the warm brown fur",
+      "dark": "for the wings and the face",
+      "light": "for the light showing through the stretched wing",
+      "accent": "for the faint rosy tinge in the ears"
+    },
+    "firstMark": ["Start with the body: a furry oval of {main}, about the size of your thumbnail.", "Start with the wing bones, four fine lines of {dark} fanning out from the wrist."]
+  },
+  {
+    "id": "fur-roe-fawn",
+    "suit": "fur",
+    "title": "The Roe Deer Fawn",
+    "a": "a roe deer fawn",
+    "the": "the roe deer fawn",
+    "phrases": ["legs still too long for it", "left hidden, not lost", "dapples down its back"],
+    "doing": [
+      { "t": "is lying low and quiet with its ears flat", "scope": "any" },
+      { "t": "is wobbling to its feet on long thin legs", "scope": "any" },
+      { "t": "is standing alert with its ears turned forward", "scope": "any" },
+      { "t": "is reaching up to taste a hazel leaf", "scope": "any" },
+      { "t": "is springing away with its white rump flared", "scope": "outdoor" }
+    ],
+    "close": ["Just the fawn, tucked up tight, with every spot along its back.", "Only the fawn's face: shiny black nose, big ears, bigger eyes."],
+    "scale": "medium",
+    "habitats": ["woodland", "meadow", "hedgerow"],
+    "seasons": ["spring", "summer"],
+    "active": "any",
+    "colours": ["#A96B3D", "#F1E3C8", "#2A2220"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the chestnut coat",
+      "dark": "for the nose and the huge eyes",
+      "light": "for the pale spots along the back",
+      "accent": "for the dark rims of the big ears"
+    },
+    "firstMark": ["Start with the eye: a big oval of {dark}, set halfway down the long face.", "Start with the spots: mark them out lightly, then colour {main} round them and leave the paper bare."]
+  },
+  {
+    "id": "fur-red-deer-stag",
+    "suit": "fur",
+    "title": "The Red Deer Stag",
+    "a": "a red deer stag",
+    "the": "the red deer stag",
+    "phrases": ["antlers like bare branches", "a shaggy ruff at the throat", "a roar that carries for miles"],
+    "doing": [
+      { "t": "is standing side on with its head held high", "scope": "any" },
+      { "t": "is grazing with one ear turned back", "scope": "any" },
+      { "t": "is lying down to chew the cud", "scope": "any" },
+      { "t": "is bellowing with its head thrown back", "scope": "outdoor", "seasons": ["autumn"] }
+    ],
+    "close": ["Just the stag's head and antlers, right out to the edges of the paper.", "Only the stag, far off, with plenty of empty space round it."],
+    "scale": "large",
+    "habitats": ["meadow", "woodland"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#8B5A3A", "#C9B58F", "#4A3527"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the red-brown coat",
+      "dark": "for the shaggy mane and the shadow under the belly",
+      "light": "for the pale rump patch",
+      "accent": "for the creamy antler tips"
+    },
+    "firstMark": ["Start with the antlers: two main beams in {dark}, then branch the points off them.", "Start with the eye and the long line of the face below it in {dark}."]
+  },
+  {
+    "id": "fur-frog",
+    "suit": "fur",
+    "title": "The Frog",
+    "a": "a frog",
+    "the": "the frog",
+    "phrases": ["legs folded like deckchairs", "a throat forever gulping", "a splash, then spreading rings"],
+    "doing": [
+      { "t": "is sitting with its throat pulsing", "scope": "any" },
+      { "t": "is mid-jump with its back legs at full stretch", "scope": "any" },
+      { "t": "is blinking at you with gold-ringed eyes", "scope": "any" },
+      { "t": "is floating with just its eyes above the surface", "scope": "outdoor" },
+      { "t": "is purring softly with its throat puffed out", "scope": "outdoor", "seasons": ["spring"] }
+    ],
+    "close": ["Just the frog, facing you, two gold eyes and a wide, solemn mouth.", "Only the frog's back foot, every long webbed toe, and nothing else."],
+    "scale": "tiny",
+    "habitats": ["water", "garden", "woodland", "visitor"],
+    "seasons": ["spring", "summer", "autumn"],
+    "active": "any",
+    "colours": ["#8E8748", "#4C412C", "#E2D7AE"],
+    "texture": "skin",
+    "roles": {
+      "main": "for the olive-brown skin",
+      "dark": "for the blotches and the dark patch behind the eye",
+      "light": "for the shine on the wet back and the pale throat",
+      "accent": "for the gold in the eye"
+    },
+    "firstMark": ["Start with the dark mask behind the eye, a smudged teardrop of {dark}.", "Start with the folded back leg, a long zigzag outlined lightly in {main}."]
+  },
+  {
+    "id": "fur-toad",
+    "suit": "fur",
+    "title": "The Toad",
+    "a": "a toad",
+    "the": "the toad",
+    "phrases": ["eyes like polished copper", "walks rather than hops", "faithful to one pond"],
+    "doing": [
+      { "t": "is plodding along one foot at a time", "scope": "any" },
+      { "t": "is sitting squat with its chin tucked low", "scope": "any" },
+      { "t": "is swallowing hard with its eyes squeezed shut", "scope": "any" },
+      { "t": "is setting off with great determination", "scope": "any" },
+      { "t": "is wriggling backwards to bury itself", "scope": "outdoor", "seasons": ["autumn"] }
+    ],
+    "close": ["Just the toad, chin down and copper eyes up.", "Only the toad, life size, every wart a small raised bump."],
+    "scale": "tiny",
+    "habitats": ["garden", "woodland", "water", "visitor"],
+    "seasons": ["spring", "summer", "autumn"],
+    "active": "night",
+    "colours": ["#8A6B48", "#C47A2E", "#5B4732"],
+    "texture": "skin",
+    "roles": {
+      "main": "for the warty brown back",
+      "dark": "for the shadows between the warts",
+      "light": "for the pale throat and the shine on each bump",
+      "accent": "for the copper eyes"
+    },
+    "firstMark": ["Start with the eye: a ring of copper round a horizontal slot of {dark}.", "Start with the warts on the back as small loose circles of {main}."]
+  },
+  {
+    "id": "fur-great-crested-newt",
+    "suit": "fur",
+    "title": "The Great Crested Newt",
+    "a": "a great crested newt",
+    "the": "the great crested newt",
+    "phrases": ["a pond dragon", "a belly of orange and ink", "a crest like a ragged comb"],
+    "doing": [
+      { "t": "is creeping along on splayed toes", "scope": "any" },
+      { "t": "is resting with its chin on its front feet", "scope": "any" },
+      { "t": "is turning to show its orange underside", "scope": "any" },
+      { "t": "is drifting with its legs spread wide", "scope": "outdoor" },
+      { "t": "is waving its tail to show off its crest", "scope": "outdoor", "seasons": ["spring"] }
+    ],
+    "close": ["Just the newt, seen from below, with its orange belly and black spots.", "Only the newt in profile, crest and all, from nose to tail tip."],
+    "scale": "tiny",
+    "habitats": ["water", "garden", "woodland"],
+    "seasons": ["spring", "summer", "autumn"],
+    "active": "night",
+    "colours": ["#3B3631", "#E0791F", "#1A1817"],
+    "texture": "skin",
+    "roles": {
+      "main": "for the dark warty back",
+      "dark": "for the black spots on the belly",
+      "light": "for the white speckles along the sides",
+      "accent": "for the orange belly"
+    },
+    "firstMark": ["Start with the crest: a jagged line of {dark} running along the back.", "Start with the body as one long, slim curve in {main}, the tail flattened like a blade."]
+  },
+  {
+    "id": "fur-slow-worm",
+    "suit": "fur",
+    "title": "The Slow Worm",
+    "a": "a slow worm",
+    "the": "the slow worm",
+    "phrases": ["a lizard that lost its legs", "smooth as a bronze bangle", "blinks, unlike a snake"],
+    "doing": [
+      { "t": "is coiled up in a loose figure of eight", "scope": "any" },
+      { "t": "is lying quite motionless with its eyes half closed", "scope": "any" },
+      { "t": "is sliding along in slow, smooth curves", "scope": "any" },
+      { "t": "is tasting the air with a flick of its tongue", "scope": "any" }
+    ],
+    "close": ["Just the slow worm, coiled in a loose spiral like a dropped necklace.", "Only the slow worm's head: a calm eye and the faint smile of its mouth."],
+    "scale": "small",
+    "habitats": ["garden", "hedgerow", "meadow", "woodland"],
+    "seasons": ["spring", "summer", "autumn"],
+    "active": "day",
+    "colours": ["#A9844F", "#4B3725", "#D8B984"],
+    "texture": "skin",
+    "roles": {
+      "main": "for the bronze scales",
+      "dark": "for the dark stripe down each side",
+      "light": "for the shine running along the back",
+      "accent": "for the warm brown eye"
+    },
+    "firstMark": ["Start with the shine: draw a thin line along the back, keep it as bare paper and lay {main} on either side.", "Start with the dark stripe along the flank in one unbroken line of {dark}."]
+  },
+  {
+    "id": "fur-water-vole",
+    "suit": "fur",
+    "title": "The Water Vole",
+    "a": "a water vole",
+    "the": "the water vole",
+    "phrases": ["a plop, then nothing", "a blunt nose and buried ears", "neat piles of nibbled stems"],
+    "doing": [
+      { "t": "is munching a grass stem like a stick of celery", "scope": "any" },
+      { "t": "is sitting hunched with its fur fluffed out", "scope": "any" },
+      { "t": "is grooming its round belly", "scope": "any" },
+      { "t": "is paddling along with just its head showing", "scope": "outdoor" }
+    ],
+    "close": ["Just the water vole, sitting up to eat, a stem held to its mouth.", "Only the vole's round face and blunt nose, drawn large."],
+    "scale": "small",
+    "habitats": ["water", "hedgerow"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "day",
+    "colours": ["#6E4F35", "#A7865F"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the rich brown fur",
+      "dark": "for the eye and the shadow under the chin",
+      "light": "for the paler fur on the belly",
+      "accent": "for the pink-brown paws"
+    },
+    "firstMark": ["Start with the eye, a glint of {dark} set close to the nose.", "Start with the hunched back as one round hill of {main}."]
+  },
+  {
+    "id": "fur-shrew",
+    "suit": "fur",
+    "title": "The Shrew",
+    "a": "a shrew",
+    "the": "the shrew",
+    "phrases": ["a nose that never stops twitching", "eats its weight every day", "squeaks like a rusty hinge"],
+    "doing": [
+      { "t": "is swivelling its long nose this way and that", "scope": "any" },
+      { "t": "is scurrying about at top speed", "scope": "any" },
+      { "t": "is sitting still for once", "scope": "any" },
+      { "t": "is flipping over a fallen leaf with its nose", "scope": "outdoor" }
+    ],
+    "close": ["Just the shrew, nose to tail, drawn the length of your thumb.", "Only the shrew's face: that long nose and two pinprick eyes."],
+    "scale": "tiny",
+    "habitats": ["hedgerow", "woodland", "meadow", "garden"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#5A4535", "#B59C7E", "#D6C6AE"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the dark chocolate back",
+      "dark": "for the eyes and the shadow underneath",
+      "light": "for the pale belly",
+      "accent": "for the pink tip of the nose"
+    },
+    "firstMark": ["Start with the nose: one long, tapering stroke of {main} coming to a point.", "Start with the eye, the smallest pinprick of {dark} you can make."]
+  },
+  {
+    "id": "fur-seal-pup",
+    "suit": "fur",
+    "title": "The Grey Seal Pup",
+    "a": "a grey seal pup",
+    "the": "the grey seal pup",
+    "phrases": ["eyes dark as sloes", "creamy as a new fleece", "honks for its mum"],
+    "doing": [
+      { "t": "is lying on its back with its flippers crossed", "scope": "any" },
+      { "t": "is scratching its chin with a front flipper", "scope": "any" },
+      { "t": "is heaving itself forward in clumsy lurches", "scope": "any" },
+      { "t": "is gazing up with enormous dark eyes", "scope": "any" }
+    ],
+    "close": ["Just the seal pup, head on, all round face and dark eyes.", "Only the pup, lying in a crescent, cream fur against bare paper."],
+    "scale": "medium",
+    "habitats": ["coast"],
+    "seasons": ["autumn", "winter"],
+    "active": "day",
+    "colours": ["#EEE9DE", "#B8B3A9", "#1C1B1D"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the cream fur",
+      "dark": "for the eyes and the nose",
+      "light": "for the whitest fur along the top of the head",
+      "accent": "for the cool grey shadow under the chin"
+    },
+    "firstMark": ["Start with the eyes: two big, round shapes of {dark}, set wide apart.", "Start with the nose: a small Y of {dark} just below and between the eyes."]
+  }
+]

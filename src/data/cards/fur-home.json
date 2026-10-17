@@ -1,0 +1,464 @@
+[
+  {
+    "id": "fur-tabby-cat",
+    "suit": "fur",
+    "title": "The Tabby Cat",
+    "a": "a tabby cat",
+    "the": "the tabby cat",
+    "phrases": ["stripes like a ploughed field", "an M on the forehead", "purrs even in its sleep"],
+    "doing": [
+      { "t": "is asleep with one paw over its eyes", "scope": "any" },
+      { "t": "is dozing with its tail wrapped round its feet", "scope": "any" },
+      { "t": "is folded into a neat bundle with its paws tucked away", "scope": "any" },
+      { "t": "is pretending not to watch the birds", "scope": "any" },
+      { "t": "is kneading a crocheted blanket with slow, blissful paws", "scope": "indoor" }
+    ],
+    "close": ["Just the tabby, asleep in a stripy comma, filling the page.", "Only the cat's sleeping face, with the M on its forehead right in the middle."],
+    "scale": "small",
+    "habitats": ["home", "tabletop", "garden", "village"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#8C6A47", "#3B2E24", "#D8C2A0"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the warm brown coat",
+      "dark": "for the stripes and the closed eyes",
+      "light": "for the chin, the chest and the whiskers",
+      "accent": "for the pink nose and the insides of the ears"
+    },
+    "firstMark": ["Start with the M on the forehead in short, sharp strokes of {dark}.", "Start with the stripes: a few curved bands of {dark} that wrap round the body, drawn lightly."]
+  },
+  {
+    "id": "fur-ginger-kitten",
+    "suit": "fur",
+    "title": "The Ginger Kitten",
+    "a": "a ginger kitten",
+    "the": "the ginger kitten",
+    "phrases": ["the colour of marmalade", "brave for about three seconds", "needle claws and milk teeth"],
+    "doing": [
+      { "t": "is batting at a loose end of wool", "scope": "any" },
+      { "t": "is chasing the tip of its own tail", "scope": "any" },
+      { "t": "is asleep in a heap of legs and whiskers", "scope": "any" },
+      { "t": "is peeping out of a paper bag", "scope": "indoor" },
+      { "t": "is stalking a leaf as it skitters past", "scope": "outdoor", "seasons": ["autumn"] }
+    ],
+    "close": ["Just the kitten, mid-pounce, with its front paws spread wide.", "Only the kitten's face, ears first, as big as the page allows."],
+    "scale": "small",
+    "habitats": ["home", "tabletop", "garden"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#D9822B", "#F3D9AE"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the orange stripes",
+      "dark": "for the eyes and the deepest stripes",
+      "light": "for the cream chin and paws",
+      "accent": "for the pink nose and paw pads"
+    },
+    "firstMark": ["Start with the eyes: two big circles of {dark}, each with a dot of bare paper left in it.", "Start with the ringed tail in short, curved bands of {main}."]
+  },
+  {
+    "id": "fur-black-cat",
+    "suit": "fur",
+    "title": "The Black Cat",
+    "a": "a black cat",
+    "the": "the black cat",
+    "phrases": ["eyes like gooseberries", "a shadow with opinions", "glossy as a piano lid"],
+    "doing": [
+      { "t": "is sitting like a china ornament with its tail over its toes", "scope": "any" },
+      { "t": "is staring at something nobody else can see", "scope": "any" },
+      { "t": "is washing a back leg hoisted high in the air", "scope": "any" },
+      { "t": "is picking its way along with its tail up like a question mark", "scope": "any" },
+      { "t": "is weaving in and out of a pair of muddy wellies", "scope": "indoor" }
+    ],
+    "close": ["Just the black cat, sitting tall, with a thin rim of light on its back.", "Only the cat's face: two green eyes floating in soft black."],
+    "scale": "small",
+    "habitats": ["home", "garden", "village", "tabletop"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#23212B", "#9BB53C"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the glossy black coat",
+      "dark": "for the deepest shadow under the chin and belly",
+      "light": "for the blue sheen on the back and the whiskers",
+      "accent": "for the green eyes"
+    },
+    "firstMark": ["Start with the shine: mark the strip where light runs along the back, then lay {main} all around it.", "Start with the eyes, then build {main} up around them so the green glows."]
+  },
+  {
+    "id": "fur-springer-spaniel",
+    "suit": "fur",
+    "title": "The Springer Spaniel",
+    "a": "a springer spaniel",
+    "the": "the springer spaniel",
+    "phrases": ["ears that dip in the water bowl", "a tail that wags the whole dog", "liver and white, mostly mud"],
+    "doing": [
+      { "t": "is having a tremendous shake from ears to tail", "scope": "any" },
+      { "t": "is carrying a stick far too big for it", "scope": "any" },
+      { "t": "is gazing up with hopeful brown eyes", "scope": "any" },
+      { "t": "is flat out on its side after a long walk", "scope": "any" },
+      { "t": "is following its nose with its tail going like a metronome", "scope": "outdoor" }
+    ],
+    "close": ["Just the spaniel's head, curly ears and all, with its tongue out.", "Only the spaniel, mid-shake, ears flying."],
+    "scale": "medium",
+    "habitats": ["home", "garden", "village", "meadow", "water"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#6B3523", "#F1ECE3"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the liver-brown ears and patches",
+      "dark": "for the nose, the eyes and the curls on the ears",
+      "light": "for the white blaze and the freckled legs",
+      "accent": "for the pink of the tongue"
+    },
+    "firstMark": ["Start with the nose: a damp, shiny shape of {dark}, with a speck of paper left for the gleam.", "Start with the ears in loose, looping curls of {main}."]
+  },
+  {
+    "id": "fur-dachshund",
+    "suit": "fur",
+    "title": "The Dachshund",
+    "a": "a dachshund",
+    "the": "the dachshund",
+    "phrases": ["a draught excluder that barks", "short legs, big ideas"],
+    "doing": [
+      { "t": "is hurrying off with its ears bouncing", "scope": "any" },
+      { "t": "is sitting up to beg with its front paws dangling", "scope": "any" },
+      { "t": "is lying stretched out like a sausage roll", "scope": "any" },
+      { "t": "is burrowing under a blanket until only its tail shows", "scope": "indoor" },
+      { "t": "is wearing a knitted jumper and looking very pleased with itself", "scope": "any", "seasons": ["autumn", "winter"] }
+    ],
+    "close": ["Just the dachshund, side on, stretching all the way across the page.", "Only the dachshund's head, with its ears hanging like two suede flaps."],
+    "scale": "medium",
+    "habitats": ["home", "garden", "village"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#9B4E24", "#3A2316"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the smooth chestnut coat",
+      "dark": "for the eyes, the nose and the shadow under the long belly",
+      "light": "for the shine along the back",
+      "accent": "for the red collar and the insides of the ears"
+    },
+    "firstMark": ["Start with the long line of the back in one light, unbroken stroke of {main}.", "Start with the nose: a glossy bead of {dark} at the very end of that long snout."]
+  },
+  {
+    "id": "fur-old-sheepdog",
+    "suit": "fur",
+    "title": "The Old Sheepdog",
+    "a": "an old sheepdog",
+    "the": "the old sheepdog",
+    "phrases": ["one ear up, one ear down", "retired, but still on duty", "a muzzle gone silver"],
+    "doing": [
+      { "t": "is lying with its chin on its paws and one eye open", "scope": "any" },
+      { "t": "is dreaming of sheep with its paws twitching", "scope": "any" },
+      { "t": "is thumping its tail at the sound of its name", "scope": "any" },
+      { "t": "is sitting to attention with its head held high", "scope": "any" },
+      { "t": "is crouched low, giving a stray hen the eye", "scope": "outdoor" }
+    ],
+    "close": ["Just the old dog's head, greying at the muzzle, with kind, patient eyes.", "Only the sheepdog, lying down with its front paws crossed."],
+    "scale": "medium",
+    "habitats": ["farm", "meadow", "home", "hedgerow"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#26221F", "#EFEBE3", "#A39D95"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the black coat",
+      "dark": "for the deepest fur and the nose",
+      "light": "for the white ruff, the blaze and the paws",
+      "accent": "for the amber of the eyes"
+    },
+    "firstMark": ["Start with the eyes: two warm brown circles, each ringed with {dark}.", "Start with the white ruff by drawing round it in {main}, so the paper does the work."]
+  },
+  {
+    "id": "fur-speckled-hen",
+    "suit": "fur",
+    "title": "The Speckled Hen",
+    "a": "a speckled hen",
+    "the": "the speckled hen",
+    "phrases": ["freckles on every feather", "a cluck for every occasion", "bossy in a motherly way"],
+    "doing": [
+      { "t": "is scratching about and muttering to herself", "scope": "any" },
+      { "t": "is announcing her new egg to anyone who will listen", "scope": "any" },
+      { "t": "is turning one eye down to inspect a beetle", "scope": "any" },
+      { "t": "is dust-bathing with her wings spread flat", "scope": "outdoor" },
+      { "t": "is sitting tight on a clutch of eggs", "scope": "any", "seasons": ["spring", "summer"] }
+    ],
+    "close": ["Just the hen, side on, every speckle accounted for.", "Only the hen's head, bright red comb and all, close enough to see her eye."],
+    "scale": "small",
+    "habitats": ["farm", "garden", "village"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "day",
+    "colours": ["#7C3A20", "#F2EBDC", "#C8322B"],
+    "texture": "feather",
+    "roles": {
+      "main": "for the mahogany feathers",
+      "dark": "for the black bar near the tip of each feather",
+      "light": "for the white speckles",
+      "accent": "for the red comb and wattles"
+    },
+    "firstMark": ["Start with the eye: a small amber circle with a pupil of {dark}.", "Start with the speckles: leave small dots of bare paper and work {main} in around each one."]
+  },
+  {
+    "id": "fur-box-of-chicks",
+    "suit": "fur",
+    "title": "The Box of Chicks",
+    "a": "a box of chicks",
+    "the": "the box of chicks",
+    "phrases": ["a cardboard box that cheeps", "warm as toast underneath", "beaks like grains of rice"],
+    "doing": [
+      { "t": "is cheeping at full volume", "scope": "any" },
+      { "t": "is a heap of yellow fluff with one chick asleep on top", "scope": "any" },
+      { "t": "has one brave chick trying to climb out", "scope": "any" },
+      { "t": "has one chick nodding off on its feet", "scope": "any" }
+    ],
+    "close": ["Just one chick, round as a bread roll, with its eyes closed.", "Only the box, seen from above, with every chick crowded into one corner."],
+    "scale": "small",
+    "habitats": ["home", "tabletop", "farm"],
+    "seasons": ["spring"],
+    "active": "day",
+    "colours": ["#F2D25A", "#B58A5C"],
+    "texture": "feather",
+    "roles": {
+      "main": "for the yellow down",
+      "dark": "for the beady eyes and the shadows in the box",
+      "light": "for the fluffiest tops of the heads",
+      "accent": "for the orange beaks and feet"
+    },
+    "firstMark": ["Start with the eyes: one sharp dot of {dark} for each chick, before any fluff.", "Start with the inside corners of the box in {dark}, so the chicks have something to glow against."]
+  },
+  {
+    "id": "fur-lamb",
+    "suit": "fur",
+    "title": "The Lamb",
+    "a": "a lamb",
+    "the": "the lamb",
+    "phrases": ["knees like knots in string", "a tail that never stops", "springs up for no reason at all"],
+    "doing": [
+      { "t": "is leaping straight up as if the ground were hot", "scope": "any" },
+      { "t": "is guzzling from a bottle with its tail whirring", "scope": "any" },
+      { "t": "is lying down with its legs folded under it", "scope": "any" },
+      { "t": "is head-butting its twin", "scope": "any" },
+      { "t": "is bleating for its mum with its mouth wide open", "scope": "any" }
+    ],
+    "close": ["Just the lamb, mid-leap, with its legs pointing four different ways.", "Only the lamb's face, with its ears sticking out sideways like a pair of leaves."],
+    "scale": "medium",
+    "habitats": ["farm", "meadow", "hedgerow"],
+    "seasons": ["spring"],
+    "active": "day",
+    "colours": ["#EEE6D3", "#C8B593"],
+    "texture": "wool",
+    "roles": {
+      "main": "for the creamy fleece",
+      "dark": "for the eyes, the nostrils and the shadows between the curls",
+      "light": "for the tops of the curls",
+      "accent": "for the pink inside the ears"
+    },
+    "firstMark": ["Start with the fleece in small, loose circles of {main}, like a row of curls.", "Start with the eyes: two dark sideways ovals of {dark}, set wide apart on the face."]
+  },
+  {
+    "id": "fur-spotted-pig",
+    "suit": "fur",
+    "title": "The Spotted Pig",
+    "a": "a spotted pig",
+    "the": "the spotted pig",
+    "phrases": ["a snout like a big pink button", "grunts of deep contentment", "never knowingly clean"],
+    "doing": [
+      { "t": "is rootling about with its snout", "scope": "any" },
+      { "t": "is trotting along on neat, pointed trotters", "scope": "any" },
+      { "t": "is munching an apple with a look of pure bliss", "scope": "any" },
+      { "t": "is snoozing with its ears flopped over its eyes", "scope": "any" },
+      { "t": "is wallowing in mud up to its chin", "scope": "outdoor" }
+    ],
+    "close": ["Just the pig's face, snout first, with its ears tipped forward.", "Only the pig, side on, from the end of its snout to the curl of its tail."],
+    "scale": "medium",
+    "habitats": ["farm", "meadow"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "day",
+    "colours": ["#EDC5B2", "#2D2727"],
+    "texture": "skin",
+    "roles": {
+      "main": "for the pale pink skin",
+      "dark": "for the black spots and the shadow under the belly",
+      "light": "for the bristly highlights on the back",
+      "accent": "for the wet nose and the curly tail"
+    },
+    "firstMark": ["Start with the snout: a flat oval with two nostrils of {dark}.", "Start with the spots as soft-edged patches of {dark}, then bring the pink up to meet them."]
+  },
+  {
+    "id": "fur-highland-cow",
+    "suit": "fur",
+    "title": "The Highland Cow",
+    "a": "a shaggy Highland cow",
+    "the": "the shaggy Highland cow",
+    "phrases": ["horns like handlebars", "a coat for all weathers", "too much hair to see out"],
+    "doing": [
+      { "t": "is peering out through its fringe", "scope": "any" },
+      { "t": "is chewing slowly with a faraway look", "scope": "any" },
+      { "t": "is lying down like a russet haystack", "scope": "any" },
+      { "t": "is licking its own nose with a long, curling tongue", "scope": "any" },
+      { "t": "is standing guard over a woolly calf", "scope": "any", "seasons": ["spring", "summer"] }
+    ],
+    "close": ["Just the cow's head, from the tips of its horns to its wet black nose.", "Only the cow, side on, like a great russet hearthrug on legs."],
+    "scale": "large",
+    "habitats": ["farm", "meadow"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "day",
+    "colours": ["#A65A2E", "#D99B5C", "#E9DEC3"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the russet coat",
+      "dark": "for the deep shadows in the coat and under the fringe",
+      "light": "for the pale horns and the sunlit tips of the hair",
+      "accent": "for the wet black nose"
+    },
+    "firstMark": ["Start with the fringe in long, downward flicks of {main}, falling over where the eyes would be.", "Start with the nose: a broad, damp shape of {dark} peeping out below all that hair."]
+  },
+  {
+    "id": "fur-goat-kid",
+    "suit": "fur",
+    "title": "The Goat Kid",
+    "a": "a goat kid",
+    "the": "the goat kid",
+    "phrases": ["climbs anything that keeps still", "a bleat like a creaky gate", "nibbles first, asks later"],
+    "doing": [
+      { "t": "is balancing on top of an upturned bucket", "scope": "any" },
+      { "t": "is bouncing sideways on stiff legs", "scope": "any" },
+      { "t": "is nibbling the frayed end of a rope", "scope": "any" },
+      { "t": "is bleating with its tongue sticking out", "scope": "any" },
+      { "t": "is standing on its back legs to reach a leaf", "scope": "outdoor" }
+    ],
+    "close": ["Just the kid, all four hooves bunched together on top of something it shouldn't be on.", "Only the kid's face, looking straight at you with those odd sideways pupils."],
+    "scale": "medium",
+    "habitats": ["farm", "meadow", "hedgerow"],
+    "seasons": ["spring", "summer"],
+    "active": "day",
+    "colours": ["#B5804F", "#F1EBDD", "#3A2C22"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the fawn coat",
+      "dark": "for the eyes, the hooves and the stripe down the back",
+      "light": "for the white face markings and legs",
+      "accent": "for the pink inside the long ears"
+    },
+    "firstMark": ["Start with the eye: a pale amber oval with a sideways bar of {dark} across it.", "Start with the legs: four thin, knobbly lines of {main}, then hang the body from them."]
+  },
+  {
+    "id": "fur-donkey",
+    "suit": "fur",
+    "title": "The Donkey",
+    "a": "a donkey",
+    "the": "the donkey",
+    "phrases": ["ears that say it all", "a dark cross along its back", "a hee-haw like a rusty pump"],
+    "doing": [
+      { "t": "is dozing with one back hoof tipped up", "scope": "any" },
+      { "t": "is braying with its lips curled back", "scope": "any" },
+      { "t": "is leaning its head over a friend's neck", "scope": "any" },
+      { "t": "is rolling on its back with its legs in the air", "scope": "outdoor" },
+      { "t": "is nibbling a thistle, carefully avoiding the prickles", "scope": "outdoor", "seasons": ["summer", "autumn"] }
+    ],
+    "close": ["Just the donkey's head, ears and all, gazing out of the page.", "Only the donkey's pale, velvety muzzle and whiskers, close up."],
+    "scale": "large",
+    "habitats": ["farm", "meadow", "coast"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "day",
+    "colours": ["#8A7F72", "#E6DFD3", "#3B342E"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the mousy grey-brown coat",
+      "dark": "for the cross on the back, the tips of the ears and the hooves",
+      "light": "for the pale muzzle and the rings round the eyes",
+      "accent": "for the warm brown of the eyes"
+    },
+    "firstMark": ["Start with the long ears in two upright strokes of {main}, tipped with {dark}.", "Start with the dark cross: one line down the spine and one across the shoulders in {dark}."]
+  },
+  {
+    "id": "fur-lop-rabbit",
+    "suit": "fur",
+    "title": "The Lop-Eared Rabbit",
+    "a": "a lop-eared rabbit",
+    "the": "the lop-eared rabbit",
+    "phrases": ["ears like a pair of oven gloves", "a powder-puff tail", "seriously fond of dandelions"],
+    "doing": [
+      { "t": "is flicking its heels in a sudden, joyful leap", "scope": "any" },
+      { "t": "is flopped out on its side with its eyes half shut", "scope": "any" },
+      { "t": "is working its way through a sprig of parsley", "scope": "any" },
+      { "t": "is nudging a cardboard tube along with its nose", "scope": "any" },
+      { "t": "is up on its haunches with its nose going nineteen to the dozen", "scope": "any" }
+    ],
+    "close": ["Just the rabbit, side on, with its ears hanging down past its chin.", "Only the rabbit's face, nose mid-twitch, between two long, drooping ears."],
+    "scale": "small",
+    "habitats": ["home", "garden"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#C9A27A", "#F2E8D8", "#E7B4AF"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the sandy coat",
+      "dark": "for the eye and the shadows under the ears",
+      "light": "for the pale belly and the powder-puff tail",
+      "accent": "for the pink of the nose and the insides of the ears"
+    },
+    "firstMark": ["Start with the ears: two long, drooping shapes of {main} hanging down past the chin.", "Start with the whisker pads: two soft bumps either side of the nose, shaded underneath with {dark}."]
+  },
+  {
+    "id": "fur-guinea-pig",
+    "suit": "fur",
+    "title": "The Guinea Pig",
+    "a": "a guinea pig",
+    "the": "the guinea pig",
+    "phrases": ["a potato that squeaks", "whistles at the rustle of a bag", "fur that won't lie flat"],
+    "doing": [
+      { "t": "is munching a stalk of hay that keeps getting shorter", "scope": "any" },
+      { "t": "is chomping on a slice of cucumber", "scope": "any" },
+      { "t": "is touching noses with a friend", "scope": "any" },
+      { "t": "is doing sudden popcorn jumps for joy", "scope": "any" }
+    ],
+    "close": ["Just the guinea pig, side on, a round loaf with a nose.", "Only the guinea pig's face, with a strand of hay hanging out of its mouth."],
+    "scale": "small",
+    "habitats": ["home", "garden"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#C67B3B", "#F2EBDE", "#2E2723"],
+    "texture": "fur",
+    "roles": {
+      "main": "for the ginger patches",
+      "dark": "for the black patches and the eyes",
+      "light": "for the white blaze and the fluffiest fur",
+      "accent": "for the pink feet and ears"
+    },
+    "firstMark": ["Start with the outline as one lumpy, potato-shaped line of {main}.", "Start with the eye: a shiny black dot of {dark}, set high on the side of the head."]
+  },
+  {
+    "id": "fur-goldfish",
+    "suit": "fur",
+    "title": "The Goldfish",
+    "a": "a goldfish in a bowl",
+    "the": "the goldfish in the bowl",
+    "phrases": ["a tail like a silk fan", "round and round, never bored", "bubbles like seed pearls"],
+    "doing": [
+      { "t": "is opening and closing its mouth as if about to speak", "scope": "any" },
+      { "t": "is nosing up at a floating flake of food", "scope": "any" },
+      { "t": "is hovering with its fins barely stirring", "scope": "any" },
+      { "t": "is swimming through the arch of a toy castle", "scope": "any" },
+      { "t": "is gazing out with its face pressed to the glass", "scope": "any" }
+    ],
+    "close": ["Just the goldfish, side on, with its tail fanned out behind it.", "Only the bowl and its fish, with the window reflected in the curve of the glass."],
+    "scale": "small",
+    "habitats": ["tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#E8732A", "#F5B54A", "#CFE2E4"],
+    "texture": "glass",
+    "roles": {
+      "main": "for the orange fish",
+      "dark": "for the eye and the deepest orange on the back",
+      "light": "for the shine on the glass and the bubbles",
+      "accent": "for the sprig of green water weed"
+    },
+    "firstMark": ["Start with the fish itself in {main}, then draw the bowl around it so the fish is never too small.", "Start with the eye: a single dot of {dark} inside a ring of gold."]
+  }
+]

@@ -1,0 +1,1272 @@
+[
+  {
+    "id": "leaf-conker",
+    "suit": "leaf",
+    "title": "The Conker",
+    "a": "a conker",
+    "the": "the conker",
+    "phrases": ["brown as a new saddle", "a pocketful by teatime"],
+    "doing": [
+      { "t": "is peeping out of its split, spiky case", "scope": "any" },
+      { "t": "has been polished by someone's thumb until it gleams", "scope": "any" },
+      { "t": "is threaded on a knotted string, ready for battle", "scope": "any" },
+      { "t": "has a pale, matt patch on top like a bald spot", "scope": "any" }
+    ],
+    "close": ["Just the conker, turned so the grain swirls round it like polished wood.", "Only the conker and its split green case, side by side."],
+    "scale": "tiny",
+    "habitats": ["woodland", "village", "tabletop", "home"],
+    "seasons": ["autumn"],
+    "active": "any",
+    "colours": ["#7A3B1E", "#D8C3A0", "#8FA046"],
+    "texture": "fruit",
+    "roles": {
+      "main": "for the chestnut brown",
+      "dark": "for the deepest grain and the shadow beneath",
+      "light": "for the shine and the matt patch on top",
+      "accent": "for the green, spiky case"
+    },
+    "firstMark": ["Start with the shadow under the conker: a crescent of {dark}, pressed firmly.", "Start with the swirl of grain in fine curved lines of {main}, leaving a bright window of paper for the shine."]
+  },
+  {
+    "id": "leaf-fairy-ring",
+    "suit": "leaf",
+    "title": "The Fairy Ring",
+    "a": "a fairy ring of mushrooms",
+    "the": "the fairy ring of mushrooms",
+    "phrases": ["a circle nobody planted", "darker grass inside the ring", "caps like scattered buttons"],
+    "doing": [
+      { "t": "has come up in an almost perfect circle", "scope": "any" },
+      { "t": "has one mushroom standing out of line", "scope": "any" },
+      { "t": "is made up of dozens of flat, fawn caps", "scope": "any" },
+      { "t": "has a gap where a few caps have toppled over", "scope": "outdoor" }
+    ],
+    "close": ["Just the fairy ring, seen from a little way above so the circle shows.", "Only one mushroom from the ring, tipped up to show the gills underneath."],
+    "scale": "medium",
+    "habitats": ["meadow", "garden", "woodland"],
+    "seasons": ["summer", "autumn"],
+    "active": "any",
+    "colours": ["#D8C29A", "#EFE6D2", "#6F8F3E"],
+    "texture": "skin",
+    "roles": {
+      "main": "for the fawn caps",
+      "dark": "for the shadow under each cap",
+      "light": "for the creamy gills and stems",
+      "accent": "for the green of the grass"
+    },
+    "firstMark": ["Start with a faint ring of {main} dots to plan the circle before drawing any caps.", "Start with the shadow tucked under the nearest cap in {dark}."]
+  },
+  {
+    "id": "leaf-fly-agaric",
+    "suit": "leaf",
+    "title": "The Fly Agaric",
+    "a": "a fly agaric toadstool",
+    "the": "the fly agaric toadstool",
+    "phrases": ["red as a post box", "spots like spilled sugar"],
+    "doing": [
+      { "t": "is still a round red button with its spots crowded together", "scope": "any" },
+      { "t": "has opened out flat and wide like a saucer", "scope": "any" },
+      { "t": "has had a corner of its cap nibbled", "scope": "any" },
+      { "t": "is wearing a frilled white skirt and leaning to one side", "scope": "any" }
+    ],
+    "close": ["Just the toadstool, cap and stem, with all its white spots in place.", "Only the fly agaric, seen from low down so the gills show under the rim."],
+    "scale": "small",
+    "habitats": ["woodland", "hedgerow", "garden"],
+    "seasons": ["autumn"],
+    "active": "any",
+    "colours": ["#C8251C", "#F3EDE0", "#E06A2A"],
+    "texture": "skin",
+    "roles": {
+      "main": "for the red cap",
+      "dark": "for the shadow under the cap and the deepest red at the crown",
+      "light": "for the white spots and stem",
+      "accent": "for the orange where the red thins towards the rim"
+    },
+    "firstMark": ["Start with the spots: mark each one as a circle of bare paper, then colour around them in {main}.", "Start with the dark band under the cap in {dark}, where the gills disappear into shade."]
+  },
+  {
+    "id": "leaf-pinecone",
+    "suit": "leaf",
+    "title": "The Pinecone",
+    "a": "a pinecone",
+    "the": "the pinecone",
+    "phrases": ["scales like roof tiles", "a smell of resin"],
+    "doing": [
+      { "t": "has opened every scale wide", "scope": "any" },
+      { "t": "has shut itself up tight as a fist", "scope": "any" },
+      { "t": "has a winged seed still caught between two scales", "scope": "any" },
+      { "t": "has had every tip dabbed with white paint", "scope": "any", "seasons": ["winter"] }
+    ],
+    "close": ["Just the pinecone, seen from the side so the scales spiral round.", "Only the pinecone, from underneath, looking into the pattern of scales."],
+    "scale": "tiny",
+    "habitats": ["woodland", "garden", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#8B5E3C", "#5A3A22", "#C9A47A"],
+    "texture": "bark",
+    "roles": {
+      "main": "for the warm brown scales",
+      "dark": "for the gaps between the scales",
+      "light": "for the worn lip of each scale",
+      "accent": "for the beads of amber resin"
+    },
+    "firstMark": ["Start with the dark gaps between the scales: small wedges of {dark}, working round from the bottom.", "Start with the outline of one scale near the middle in {main}, then build outwards."]
+  },
+  {
+    "id": "leaf-rosehips",
+    "suit": "leaf",
+    "title": "The Rosehips",
+    "a": "some rosehips",
+    "the": "the rosehips",
+    "phrases": ["sealing-wax red", "the hedge's last jewels"],
+    "doing": [
+      { "t": "are hanging in a shiny cluster from a thorny stem", "scope": "any" },
+      { "t": "are each tipped with a dry brown tuft", "scope": "any" },
+      { "t": "have gone soft, dark and wrinkled", "scope": "any", "seasons": ["winter"] },
+      { "t": "have one hip with a beak-sized peck taken out", "scope": "outdoor" }
+    ],
+    "close": ["Just the rosehips, three or four on one stem.", "Only one rosehip, big enough to fill the page."],
+    "scale": "tiny",
+    "habitats": ["hedgerow", "garden", "tabletop"],
+    "seasons": ["autumn", "winter"],
+    "active": "any",
+    "colours": ["#C2341F", "#E46A2E", "#4E3B2C"],
+    "texture": "fruit",
+    "roles": {
+      "main": "for the scarlet hips",
+      "dark": "for the stems, the thorns and the shadow side of each hip",
+      "light": "for the glint on each hip",
+      "accent": "for the orange where the red is thinnest"
+    },
+    "firstMark": ["Start with the shine: draw an oval of bare paper on each hip and colour round it in {main}.", "Start with the stem and its hooked thorns in {dark}, before any red goes down."]
+  },
+  {
+    "id": "leaf-fern",
+    "suit": "leaf",
+    "title": "The Fern",
+    "a": "a fern",
+    "the": "the fern",
+    "phrases": ["green lace, unrolling", "older than the dinosaurs", "cool and damp underneath"],
+    "doing": [
+      { "t": "is unfurling one tight green coil", "scope": "any", "seasons": ["spring"] },
+      { "t": "has its fronds spread out like long green feathers", "scope": "any" },
+      { "t": "is reaching out with one extra-long frond", "scope": "any" },
+      { "t": "has rows of brown dots along the backs of its fronds", "scope": "any", "seasons": ["summer", "autumn"] },
+      { "t": "has one frond turned the colour of toast", "scope": "any", "seasons": ["autumn", "winter"] }
+    ],
+    "close": ["Just one frond of the fern, from the stalk to the tip.", "Only the fiddlehead, coiled tight like the scroll of a violin."],
+    "scale": "small",
+    "habitats": ["woodland", "hedgerow", "garden", "water"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#5E8A35", "#3C5A28", "#A6C26A"],
+    "texture": "foliage",
+    "roles": {
+      "main": "for the green fronds",
+      "dark": "for the stem and the shade between the leaflets",
+      "light": "for the new, yellowy green at the tips",
+      "accent": "for the brown dots on the backs of the fronds"
+    },
+    "firstMark": ["Start with the midrib of one frond: a single curved line of {dark} from base to tip.", "Start with the coil at the tip in {main}, drawn like a snail shell."]
+  },
+  {
+    "id": "leaf-striped-pebble",
+    "suit": "leaf",
+    "title": "The Striped Pebble",
+    "a": "a pebble with a white stripe",
+    "the": "the pebble with a white stripe",
+    "phrases": ["the stripe goes all the way round", "cold, then warm in the hand", "one for the pocket"],
+    "doing": [
+      { "t": "is still wet and gleaming", "scope": "any" },
+      { "t": "sits at the top of a careful stack of three", "scope": "any" },
+      { "t": "has been chosen over a hundred plainer ones", "scope": "any" },
+      { "t": "is flecked with rust on either side of its stripe", "scope": "any" }
+    ],
+    "close": ["Just the pebble, with the white stripe running round its middle like a ribbon.", "Only the pebble, life size, with its speckles and the one clean stripe."],
+    "scale": "tiny",
+    "habitats": ["coast", "water", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#7F786F", "#EEEAE1", "#5A5650"],
+    "texture": "stone",
+    "roles": {
+      "main": "for the grey-brown stone",
+      "dark": "for the shadow it sits in",
+      "light": "for the white stripe and the shine",
+      "accent": "for the freckles of colour in the stone"
+    },
+    "firstMark": ["Start with the stripe: leave it as bare paper and colour each side of it in {main}.", "Start with the shadow underneath, a flat oval of {dark} hugging the bottom edge."]
+  },
+  {
+    "id": "leaf-sycamore-keys",
+    "suit": "leaf",
+    "title": "The Sycamore Keys",
+    "a": "some sycamore keys",
+    "the": "the sycamore keys",
+    "phrases": ["helicopters for pockets", "veined like a fly's wing"],
+    "doing": [
+      { "t": "are still joined in pairs, wings spread wide", "scope": "any" },
+      { "t": "are hanging in a bunch from the end of a twig", "scope": "any" },
+      { "t": "are lying in a heap, waiting to be tossed up again", "scope": "any" },
+      { "t": "have come twirling down in a scatter", "scope": "outdoor" },
+      { "t": "have dried from green to biscuit brown", "scope": "any", "seasons": ["autumn"] }
+    ],
+    "close": ["Just one pair of sycamore keys, wings spread like a moth.", "Only the sycamore keys, three pairs in a row, from green to brown."],
+    "scale": "tiny",
+    "habitats": ["woodland", "hedgerow", "garden", "village"],
+    "seasons": ["summer", "autumn"],
+    "active": "any",
+    "colours": ["#B49A5E", "#8AA04E", "#A45A3C"],
+    "texture": "foliage",
+    "roles": {
+      "main": "for the thin wings",
+      "dark": "for the seed at the base of each wing",
+      "light": "for the see-through edge of the wings",
+      "accent": "for the blush of red along the veins"
+    },
+    "firstMark": ["Start with the seed: a plump teardrop of {dark} at the root of each wing.", "Start with the veins of the wing in fine lines of {main}, fanning out from the seed."]
+  },
+  {
+    "id": "leaf-foxgloves",
+    "suit": "leaf",
+    "title": "The Foxgloves",
+    "a": "some foxgloves",
+    "the": "the foxgloves",
+    "phrases": ["bells all down one side", "speckled inside like a thrush", "a bee's front door"],
+    "doing": [
+      { "t": "are standing to attention in a tall row", "scope": "any" },
+      { "t": "have a bumblebee backing out of the lowest bell", "scope": "any" },
+      { "t": "are leaning together, heavy at the top", "scope": "any" },
+      { "t": "have flowered right up to the last bud", "scope": "any" }
+    ],
+    "close": ["Just one foxglove spire, from the lowest bell to the top bud.", "Only one bell, big enough to see the speckles inside."],
+    "scale": "medium",
+    "habitats": ["woodland", "hedgerow", "garden"],
+    "seasons": ["summer"],
+    "active": "any",
+    "colours": ["#B4579A", "#F1D6E6", "#6C8A4A"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the pinky purple bells",
+      "dark": "for the deep throats of the bells",
+      "light": "for the creamy insides",
+      "accent": "for the dark speckles and the green stem"
+    },
+    "firstMark": ["Start with the open mouth of the lowest bell, a dark curve of {dark}.", "Start with the outline of the lowest bell in {main}, then hang the others above it, each one a touch smaller."]
+  },
+  {
+    "id": "leaf-bramble",
+    "suit": "leaf",
+    "title": "The Bramble",
+    "a": "a bramble",
+    "the": "the bramble",
+    "phrases": ["purple fingers afterwards", "thorns that catch at sleeves", "one for the bowl, one for you"],
+    "doing": [
+      { "t": "is hung with blackberries, some ripe and some still red", "scope": "any" },
+      { "t": "has one fat blackberry that everyone else has missed", "scope": "any" },
+      { "t": "is arching over in a long, thorny loop", "scope": "any" },
+      { "t": "has pale pink flowers and hard green berries on the same stem", "scope": "any", "seasons": ["summer"] },
+      { "t": "has its leaves going plum and crimson at the edges", "scope": "any", "seasons": ["autumn"] }
+    ],
+    "close": ["Just one bramble stem with three blackberries at different stages.", "Only the blackberry, near enough to count the beads."],
+    "scale": "small",
+    "habitats": ["hedgerow", "woodland", "garden"],
+    "seasons": ["summer", "autumn"],
+    "active": "any",
+    "colours": ["#2E2238", "#A02A3C", "#5E7A3B"],
+    "texture": "fruit",
+    "roles": {
+      "main": "for the inky blackberries",
+      "dark": "for the shadows between the beads",
+      "light": "for the glints on each bead",
+      "accent": "for the red unripe berries and the leaves"
+    },
+    "firstMark": ["Start with one blackberry: a cluster of circles in {main}, each with a pinprick of paper left for the shine.", "Start with the thorns along the stem, hooked marks in {dark}."]
+  },
+  {
+    "id": "leaf-snowdrops",
+    "suit": "leaf",
+    "title": "The Snowdrops",
+    "a": "some snowdrops",
+    "the": "the snowdrops",
+    "phrases": ["first up, every year", "a green tick inside", "heads bowed, as if shy"],
+    "doing": [
+      { "t": "are nodding their heads in a huddle", "scope": "any" },
+      { "t": "have opened their outer petals wide like wings", "scope": "any" },
+      { "t": "have only just come up, still closed", "scope": "any" },
+      { "t": "are standing in an egg cup, three stems together", "scope": "indoor" }
+    ],
+    "close": ["Just one snowdrop, near enough to see the green mark on the inner petals.", "Only the snowdrops, a clump of five, from a worm's-eye view."],
+    "scale": "tiny",
+    "habitats": ["woodland", "garden", "hedgerow", "tabletop"],
+    "seasons": ["winter", "spring"],
+    "active": "any",
+    "colours": ["#F3F2EC", "#6F9A5A", "#A7B8A3"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the petals and their cool shadows",
+      "dark": "for the stems and leaves where they cross",
+      "light": "for the white of the petals",
+      "accent": "for the green mark inside each flower"
+    },
+    "firstMark": ["Start with the shadow side of each petal, the lightest touch of {main}, and let the paper be the white.", "Start with the stem in {dark}, arching over at the top like a hook."]
+  },
+  {
+    "id": "leaf-bluebells",
+    "suit": "leaf",
+    "title": "The Bluebells",
+    "a": "some bluebells",
+    "the": "the bluebells",
+    "phrases": ["a blue haze under the trees", "a sweet, cool scent", "tips curled back"],
+    "doing": [
+      { "t": "are drooping over at the top like shepherd's crooks", "scope": "any" },
+      { "t": "have a bee hanging upside down from one bell", "scope": "any" },
+      { "t": "are half open, more green than blue", "scope": "any" },
+      { "t": "have one stem bowed right over by the weight of its bells", "scope": "any" }
+    ],
+    "close": ["Just three bluebell stems, each one bending over at the tip.", "Only one bluebell flower, with its petals rolled back."],
+    "scale": "small",
+    "habitats": ["woodland", "hedgerow", "garden"],
+    "seasons": ["spring"],
+    "active": "any",
+    "colours": ["#5A5DA8", "#8A7FC4", "#6E8F45"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the blue-violet bells",
+      "dark": "for the inside of each bell",
+      "light": "for the paler tips of the petals",
+      "accent": "for the long green leaves"
+    },
+    "firstMark": ["Start with the bend of the stem in {dark}, curving over at the top.", "Start with the lowest bell, a small upside-down cup of {main}."]
+  },
+  {
+    "id": "leaf-dandelion-clock",
+    "suit": "leaf",
+    "title": "The Dandelion Clock",
+    "a": "a dandelion clock",
+    "the": "the dandelion clock",
+    "phrases": ["one o'clock, two o'clock", "a ball of parachutes"],
+    "doing": [
+      { "t": "is still a flawless white globe", "scope": "any" },
+      { "t": "has lost half its seeds already", "scope": "any" },
+      { "t": "is standing tall on a hollow stalk", "scope": "any" },
+      { "t": "has a few seeds drifting off from one side", "scope": "outdoor" }
+    ],
+    "close": ["Just the dandelion clock, a round cloud of seeds on a single stalk.", "Only one seed, drawn large, with its parachute of fine hairs."],
+    "scale": "tiny",
+    "habitats": ["meadow", "garden", "hedgerow", "village"],
+    "seasons": ["spring", "summer", "autumn"],
+    "active": "any",
+    "colours": ["#D9D5C6", "#7E9A4A", "#8C7F5E"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the silvery grey of the seed globe",
+      "dark": "for the packed seeds at the centre",
+      "light": "for the fine white parachutes",
+      "accent": "for the green stalk"
+    },
+    "firstMark": ["Start at the centre with a dome of dense dots in {dark}, where the seeds are packed together.", "Start with the parachutes, fine strokes of {main} radiating out from the middle."]
+  },
+  {
+    "id": "leaf-sunflower",
+    "suit": "leaf",
+    "title": "The Sunflower",
+    "a": "a sunflower head",
+    "the": "the sunflower head",
+    "phrases": ["seeds in a spiral", "as wide as a dinner plate", "the bees' favourite"],
+    "doing": [
+      { "t": "is turned full face towards the light", "scope": "any" },
+      { "t": "has a ruff of yellow petals round a dark, seedy middle", "scope": "any" },
+      { "t": "is still half closed, its petals folded over the middle", "scope": "any", "seasons": ["summer"] },
+      { "t": "is drooping on its neck, heavy with seed", "scope": "any", "seasons": ["autumn"] },
+      { "t": "has had half its seeds pinched by the birds", "scope": "any", "seasons": ["autumn"] }
+    ],
+    "close": ["Just the sunflower head, face on, with the seeds spiralling out from the middle.", "Only the sunflower head, seen from the side, with its petals and green ruff behind."],
+    "scale": "small",
+    "habitats": ["garden", "farm", "tabletop"],
+    "seasons": ["summer", "autumn"],
+    "active": "any",
+    "colours": ["#E7A51C", "#5A3A1E", "#7A8F3A"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the yellow petals",
+      "dark": "for the seedy centre",
+      "light": "for the petal tips where the light shines through",
+      "accent": "for the green sepals and the stalk"
+    },
+    "firstMark": ["Start with the centre: a big circle of {dark} dots laid down in spirals.", "Start with one petal at the top in {main}, then work round like a clock face."]
+  },
+  {
+    "id": "leaf-pumpkin",
+    "suit": "leaf",
+    "title": "The Pumpkin",
+    "a": "a pumpkin",
+    "the": "the pumpkin",
+    "phrases": ["orange as a lit lamp", "soup for a week", "too heavy to carry far"],
+    "doing": [
+      { "t": "is sitting squat and ribbed with a curly stalk", "scope": "any" },
+      { "t": "still has a twist of dry tendril hanging off it", "scope": "any" },
+      { "t": "has a face carved into it and a candle lit inside", "scope": "any" },
+      { "t": "is lined up with two smaller ones in order of size", "scope": "any" }
+    ],
+    "close": ["Just the pumpkin, with the ribs curving round from the stalk.", "Only the stalk and the top of the pumpkin, up close, with its corky ridges."],
+    "scale": "small",
+    "habitats": ["garden", "farm", "tabletop", "village"],
+    "seasons": ["autumn"],
+    "active": "any",
+    "colours": ["#D9731E", "#8A6A3A", "#4E6B33"],
+    "texture": "fruit",
+    "roles": {
+      "main": "for the orange skin",
+      "dark": "for the grooves between the ribs",
+      "light": "for the shine across the top of each rib",
+      "accent": "for the dry green-brown stalk"
+    },
+    "firstMark": ["Start with the grooves: curved lines of {dark} running from the stalk to the base.", "Start with the rib at the front in {main}, pressing harder towards its edges so it rounds out."]
+  },
+  {
+    "id": "leaf-acorn",
+    "suit": "leaf",
+    "title": "The Acorn",
+    "a": "an acorn",
+    "the": "the acorn",
+    "phrases": ["a whole oak, folded up small", "squirrels' pocket money"],
+    "doing": [
+      { "t": "is wearing its cup like a flat cap", "scope": "any" },
+      { "t": "has lost its cup, which lies beside it like a dropped hat", "scope": "any" },
+      { "t": "is still green and sleek, half in its cup", "scope": "any", "seasons": ["autumn"] },
+      { "t": "has split and sent out one pale root", "scope": "outdoor", "seasons": ["winter"] }
+    ],
+    "close": ["Just the acorn in its knobbly cup, drawn twice life size.", "Only the acorn and its cup, apart, side by side."],
+    "scale": "tiny",
+    "habitats": ["woodland", "hedgerow", "tabletop", "home"],
+    "seasons": ["autumn", "winter"],
+    "active": "any",
+    "colours": ["#9C6A32", "#7A8A3E", "#5C4630"],
+    "texture": "fruit",
+    "roles": {
+      "main": "for the polished brown nut",
+      "dark": "for the shadow in the cup and under the acorn",
+      "light": "for the gleam on the shell",
+      "accent": "for the green blush near the base"
+    },
+    "firstMark": ["Start with the cup: a row of overlapping scales in {dark}.", "Start with the curve of the acorn's shoulder in {main}, leaving a long highlight bare."]
+  },
+  {
+    "id": "leaf-oak-leaf",
+    "suit": "leaf",
+    "title": "The Oak Leaf",
+    "a": "an oak leaf",
+    "the": "the oak leaf",
+    "phrases": ["edges wavy as a pie crust", "a crunch underfoot"],
+    "doing": [
+      { "t": "is lying upside down with its veins standing proud", "scope": "any" },
+      { "t": "is curling up at the tips as it dries", "scope": "any" },
+      { "t": "is pressed flat between the pages of a book", "scope": "indoor" },
+      { "t": "has a round gall like a marble stuck to its underside", "scope": "any", "seasons": ["summer", "autumn"] },
+      { "t": "is going russet round the edges", "scope": "any", "seasons": ["autumn"] },
+      { "t": "is still clinging to its twig, crisp and brown", "scope": "outdoor", "seasons": ["winter"] }
+    ],
+    "close": ["Just the oak leaf, every lobe and vein, life size.", "Only the oak leaf, half green and half russet."],
+    "scale": "tiny",
+    "habitats": ["woodland", "hedgerow", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#A3592A", "#6E7A2E", "#C99A3B"],
+    "texture": "foliage",
+    "roles": {
+      "main": "for the russet leaf",
+      "dark": "for the veins and the curled edges",
+      "light": "for the silvery underside",
+      "accent": "for the last of the green"
+    },
+    "firstMark": ["Start with the central vein, one firm line of {dark} from stalk to tip.", "Start with the wavy outline in {main}, one lobe at a time."]
+  },
+  {
+    "id": "leaf-holly",
+    "suit": "leaf",
+    "title": "The Holly",
+    "a": "a sprig of holly",
+    "the": "the sprig of holly",
+    "phrases": ["prickles at every point", "shiny as a polished boot"],
+    "doing": [
+      { "t": "is thick with red berries", "scope": "any" },
+      { "t": "has one leaf near the top with no prickles at all", "scope": "any" },
+      { "t": "has leaves so shiny they look varnished", "scope": "any" },
+      { "t": "has been tied with a bow of tartan ribbon", "scope": "any", "seasons": ["winter"] }
+    ],
+    "close": ["Just the sprig of holly, three leaves and a cluster of berries.", "Only one holly leaf, with every prickle pointing its own way."],
+    "scale": "small",
+    "habitats": ["woodland", "hedgerow", "garden", "tabletop", "home"],
+    "seasons": ["autumn", "winter"],
+    "active": "any",
+    "colours": ["#2F5233", "#B3202A", "#5E7F45"],
+    "texture": "foliage",
+    "roles": {
+      "main": "for the dark green leaves",
+      "dark": "for the shadows where the leaves overlap",
+      "light": "for the hard white shine on each leaf",
+      "accent": "for the red berries"
+    },
+    "firstMark": ["Start with the centre vein of each leaf in {dark}, then draw the prickly edges out from it.", "Start with the outline of the top leaf in {main}, zigzagging from point to point."]
+  },
+  {
+    "id": "leaf-ivy",
+    "suit": "leaf",
+    "title": "The Ivy",
+    "a": "a trail of ivy",
+    "the": "the trail of ivy",
+    "phrases": ["green all year round", "veins like chalk lines", "a late feast for bees"],
+    "doing": [
+      { "t": "is creeping along in a line of pointed leaves", "scope": "any" },
+      { "t": "has sent one long shoot off on its own", "scope": "any" },
+      { "t": "is spilling over the edge of its pot", "scope": "indoor" },
+      { "t": "is covered in round green flower heads, humming with insects", "scope": "outdoor", "seasons": ["autumn"] },
+      { "t": "is hung with clusters of black berries", "scope": "any", "seasons": ["winter", "spring"] }
+    ],
+    "close": ["Just one length of ivy, five leaves and the stem that joins them.", "Only one ivy leaf, with its pale veins left as bare paper."],
+    "scale": "small",
+    "habitats": ["woodland", "hedgerow", "garden", "village", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#2E4A2A", "#8FA56A", "#24222A"],
+    "texture": "foliage",
+    "roles": {
+      "main": "for the dark green leaves",
+      "dark": "for the deepest shade and the berries",
+      "light": "for the chalky veins",
+      "accent": "for the reddish stems"
+    },
+    "firstMark": ["Start with the veins of one leaf: leave them as bare paper and colour between them in {main}.", "Start with the stem as a wandering line of {dark}, then hang the leaves off it."]
+  },
+  {
+    "id": "leaf-mossy-stone",
+    "suit": "leaf",
+    "title": "The Mossy Stone",
+    "a": "a mossy stone",
+    "the": "the mossy stone",
+    "phrases": ["a green velvet cushion", "cool to the touch", "a forest for beetles"],
+    "doing": [
+      { "t": "is furred with moss on its shady side", "scope": "any" },
+      { "t": "has moss so deep you could press a thumb into it", "scope": "any" },
+      { "t": "has a snail asleep in the dip on top", "scope": "any" },
+      { "t": "has moss sprouting hair-thin stalks with brown tips", "scope": "any", "seasons": ["winter", "spring"] }
+    ],
+    "close": ["Just the mossy stone, with the moss drawn as hundreds of short strokes.", "Only the top of the stone, where the moss is thickest."],
+    "scale": "small",
+    "habitats": ["woodland", "water", "hedgerow", "garden"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#6E8B2E", "#8A867C", "#A7B04A"],
+    "texture": "foliage",
+    "roles": {
+      "main": "for the moss",
+      "dark": "for the shadow under the stone and down in the moss",
+      "light": "for the bright tips of the moss",
+      "accent": "for the grey stone where it shows through"
+    },
+    "firstMark": ["Start with the moss in stippled dots of {main}, crowded together where it grows thickest.", "Start with the shadow at the base in {dark}, then work up the stone."]
+  },
+  {
+    "id": "leaf-lichen-twig",
+    "suit": "leaf",
+    "title": "The Lichen Twig",
+    "a": "a lichen-covered twig",
+    "the": "the lichen-covered twig",
+    "phrases": ["frilly as a lace collar", "only where the air is clean"],
+    "doing": [
+      { "t": "is frilled all over with sage-green lichen", "scope": "any" },
+      { "t": "has a spot of orange lichen like a crumb of marmalade", "scope": "any" },
+      { "t": "forks into a perfect Y", "scope": "any" },
+      { "t": "has a single bud still waiting at its tip", "scope": "any", "seasons": ["winter", "spring"] }
+    ],
+    "close": ["Just the twig, with the lichen built up in crinkled layers.", "Only the end of the twig, where the lichen ruffles like lettuce."],
+    "scale": "small",
+    "habitats": ["woodland", "hedgerow", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#A9B79A", "#6B5A48", "#E3A52A"],
+    "texture": "bark",
+    "roles": {
+      "main": "for the grey-green lichen",
+      "dark": "for the twig and the gaps under the frills",
+      "light": "for the lightest edges of the frills",
+      "accent": "for the spot of orange"
+    },
+    "firstMark": ["Start with the twig in {dark}, a slightly crooked line with a fork near the end.", "Start with the frilly edge of one patch of lichen in {main}, like the edge of a cabbage leaf."]
+  },
+  {
+    "id": "leaf-birds-nest",
+    "suit": "leaf",
+    "title": "The Bird's Nest",
+    "a": "a bird's nest",
+    "the": "the bird's nest",
+    "phrases": ["a cup made with a beak", "moss, hair and a bit of string"],
+    "doing": [
+      { "t": "is woven from moss, grass and one stray thread of red wool", "scope": "any" },
+      { "t": "is lined with a few downy feathers", "scope": "any" },
+      { "t": "is holding four blue-green eggs", "scope": "outdoor", "seasons": ["spring"] },
+      { "t": "is full of open yellow beaks", "scope": "outdoor", "seasons": ["spring", "summer"] },
+      { "t": "has been left empty, its lining pressed flat", "scope": "any", "seasons": ["autumn", "winter"] }
+    ],
+    "close": ["Just the nest, looking down into the cup.", "Only the nest, from the side, the strands wound round and round."],
+    "scale": "small",
+    "habitats": ["hedgerow", "garden", "woodland"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#8A6E4B", "#5E5A33", "#C9B48A"],
+    "texture": "foliage",
+    "roles": {
+      "main": "for the woven grass",
+      "dark": "for the hollow inside the cup",
+      "light": "for the straw-coloured stalks on top",
+      "accent": "for the stray thread of wool"
+    },
+    "firstMark": ["Start with the dark hollow of the cup, an oval of {dark} pressed in firmly.", "Start with the rim in short, curved strokes of {main}, going round and round."]
+  },
+  {
+    "id": "leaf-speckled-egg",
+    "suit": "leaf",
+    "title": "The Speckled Egg",
+    "a": "a speckled egg",
+    "the": "the speckled egg",
+    "phrases": ["the colour of duck-egg paint", "freckled at the broad end"],
+    "doing": [
+      { "t": "is lying in a nest beside three others", "scope": "any" },
+      { "t": "has a hairline crack and a beak tip showing", "scope": "any" },
+      { "t": "is tucked under the edge of a downy feather", "scope": "any" }
+    ],
+    "close": ["Just the egg, life size, with each freckle placed one at a time.", "Only the egg and the edge of the nest around it."],
+    "scale": "tiny",
+    "habitats": ["hedgerow", "garden", "woodland"],
+    "seasons": ["spring", "summer"],
+    "active": "any",
+    "colours": ["#A9CBBE", "#8A5A3E", "#E8EFE8"],
+    "texture": "shell",
+    "roles": {
+      "main": "for the blue-green shell",
+      "dark": "for the shadow side of the egg",
+      "light": "for the highlight on the curve",
+      "accent": "for the rusty freckles"
+    },
+    "firstMark": ["Start with the shadow on the egg's underside, a gentle crescent of {dark}.", "Start with an even, light layer of {main}, leaving an oval of paper near the top for the shine."]
+  },
+  {
+    "id": "leaf-jay-feather",
+    "suit": "leaf",
+    "title": "The Jay Feather",
+    "a": "a jay's feather",
+    "the": "the jay's feather",
+    "phrases": ["the bluest thing in the wood", "blue, black, white, repeat"],
+    "doing": [
+      { "t": "has its blue bars catching the light", "scope": "any" },
+      { "t": "is tucked into the band of an old straw hat", "scope": "any" },
+      { "t": "has a ruffled edge where the barbs have come apart", "scope": "any" },
+      { "t": "is standing upright in a jam jar of finds", "scope": "indoor" },
+      { "t": "is drifting down in slow loops", "scope": "outdoor" }
+    ],
+    "close": ["Just the feather, life size, with the bars counted carefully.", "Only the barred blue part of the feather, drawn as large as the page allows."],
+    "scale": "tiny",
+    "habitats": ["woodland", "hedgerow", "garden", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#3F77C0", "#1E1E26", "#ECECE6"],
+    "texture": "feather",
+    "roles": {
+      "main": "for the bright blue bars",
+      "dark": "for the black stripes between them",
+      "light": "for the white bands and the shaft",
+      "accent": "for the fluffy brown base"
+    },
+    "firstMark": ["Start with the shaft, one fine curved line of {dark} from base to tip.", "Start with the blue bar nearest the tip in {main}, then leave a gap for the white before the next."]
+  },
+  {
+    "id": "leaf-whelk-shell",
+    "suit": "leaf",
+    "title": "The Whelk Shell",
+    "a": "a whelk shell",
+    "the": "the whelk shell",
+    "phrases": ["the sea, if you listen", "chalky outside, pearly inside"],
+    "doing": [
+      { "t": "is spiralled tight, its point worn blunt", "scope": "any" },
+      { "t": "is lying mouth up, with a little sand still inside", "scope": "any" },
+      { "t": "has a barnacle or two stuck to its back", "scope": "any" },
+      { "t": "is propped on its side so the spiral shows", "scope": "any" }
+    ],
+    "close": ["Just the shell, turned so the spiral winds up to its point.", "Only the opening of the shell, pearly and pinkish, turning inwards."],
+    "scale": "tiny",
+    "habitats": ["coast", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#E2D3B6", "#C49A72", "#D9A08A"],
+    "texture": "shell",
+    "roles": {
+      "main": "for the chalky cream shell",
+      "dark": "for the inside of the opening and the grooves of the spiral",
+      "light": "for the smooth lip",
+      "accent": "for the peachy pink inside"
+    },
+    "firstMark": ["Start with the opening: a dark curl of {dark} where the shell turns inwards.", "Start with the spiral line in {main}, from the point down, getting wider as it goes."]
+  },
+  {
+    "id": "leaf-cockle-shell",
+    "suit": "leaf",
+    "title": "The Cockle Shell",
+    "a": "a cockle shell",
+    "the": "the cockle shell",
+    "phrases": ["ribbed like corduroy", "one half of a pair"],
+    "doing": [
+      { "t": "is still joined at the hinge, open like a butterfly", "scope": "any" },
+      { "t": "has a neat round hole worn near its hinge", "scope": "any" },
+      { "t": "is holding a thimbleful of water", "scope": "any" },
+      { "t": "is one of a row of shells set out by size", "scope": "any" }
+    ],
+    "close": ["Just the cockle shell, its ribs running out from the hinge.", "Only the inside of the shell, smooth and pale, with the ribs showing through at the rim."],
+    "scale": "tiny",
+    "habitats": ["coast", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#D8C3A0", "#A9774F", "#EFE5D1"],
+    "texture": "shell",
+    "roles": {
+      "main": "for the sandy ribs",
+      "dark": "for the grooves between the ribs",
+      "light": "for the smooth inside",
+      "accent": "for the rusty bands of colour"
+    },
+    "firstMark": ["Start at the hinge and draw the ribs out like a fan in {main}.", "Start with the grooves in fine lines of {dark}, each one fanning out from the hinge."]
+  },
+  {
+    "id": "leaf-sea-glass",
+    "suit": "leaf",
+    "title": "The Sea Glass",
+    "a": "a piece of sea glass",
+    "the": "the piece of sea glass",
+    "phrases": ["a bottle, once", "smoothed by a thousand tides"],
+    "doing": [
+      { "t": "is worn smooth and frosted all over", "scope": "any" },
+      { "t": "is glowing green with the light behind it", "scope": "any" },
+      { "t": "is shaped almost exactly like a heart", "scope": "any" },
+      { "t": "sits in a saucer with a handful of blue and white ones", "scope": "indoor" }
+    ],
+    "close": ["Just the sea glass, its frosted surface built up in light, circling strokes.", "Only the sea glass, brightest at the edges where it is thinnest."],
+    "scale": "tiny",
+    "habitats": ["coast", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#9CC5A8", "#D8E8DC", "#5E8F72"],
+    "texture": "glass",
+    "roles": {
+      "main": "for the frosted green",
+      "dark": "for the deeper green at the thick edges",
+      "light": "for the milky frosting",
+      "accent": "for the cast shadow, tinted green"
+    },
+    "firstMark": ["Start with the thick edge, where the green is deepest, in {dark}.", "Start with an even, light layer of {main} in small circles, so the glass looks frosted rather than shiny."]
+  },
+  {
+    "id": "leaf-driftwood",
+    "suit": "leaf",
+    "title": "The Driftwood",
+    "a": "a piece of driftwood",
+    "the": "the piece of driftwood",
+    "phrases": ["silvered by salt", "a long way from its tree"],
+    "doing": [
+      { "t": "is bleached silver and smooth as a bone", "scope": "any" },
+      { "t": "is worn into the shape of a sleeping dog", "scope": "any" },
+      { "t": "has a knot hole worn right through", "scope": "any" },
+      { "t": "still has a length of blue rope knotted round one end", "scope": "any" },
+      { "t": "has three pebbles balanced along its top", "scope": "any" }
+    ],
+    "close": ["Just the driftwood, with the grain drawn in long, flowing lines.", "Only the knotted end of the driftwood, up close."],
+    "scale": "small",
+    "habitats": ["coast", "water", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#B8AFA0", "#8A7D6B", "#D9D2C4"],
+    "texture": "wood",
+    "roles": {
+      "main": "for the silvery wood",
+      "dark": "for the cracks and the knot hole",
+      "light": "for the bleached ridges",
+      "accent": "for the scrap of blue rope"
+    },
+    "firstMark": ["Start with the longest crack in the wood, one wavering line of {dark}.", "Start with the grain in long strokes of {main}, following the twist of the wood."]
+  },
+  {
+    "id": "leaf-bladderwrack",
+    "suit": "leaf",
+    "title": "The Bladderwrack",
+    "a": "a strand of bladderwrack",
+    "the": "the strand of bladderwrack",
+    "phrases": ["pop, pop, pop", "smells like the harbour"],
+    "doing": [
+      { "t": "is dotted with air pockets just asking to be popped", "scope": "any" },
+      { "t": "is lying in a slick olive tangle", "scope": "any" },
+      { "t": "has a periwinkle clinging to one frond", "scope": "any" },
+      { "t": "is drying out, dark and leathery at the tips", "scope": "any" }
+    ],
+    "close": ["Just one frond of bladderwrack, with its pairs of air pockets.", "Only the bladderwrack, magnified, with a glint on each bubble."],
+    "scale": "small",
+    "habitats": ["coast", "water"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#6B6A2E", "#8C6E2E", "#3E3A1E"],
+    "texture": "skin",
+    "roles": {
+      "main": "for the olive fronds",
+      "dark": "for the shadows between the strands",
+      "light": "for the wet shine on each air pocket",
+      "accent": "for the amber where the light comes through"
+    },
+    "firstMark": ["Start with the air pockets: pairs of ovals in {main}, each with a bright spot of paper left on top.", "Start with the midrib running up each frond in {dark}."]
+  },
+  {
+    "id": "leaf-lavender",
+    "suit": "leaf",
+    "title": "The Lavender",
+    "a": "a bunch of lavender",
+    "the": "the bunch of lavender",
+    "phrases": ["smells of clean sheets", "a sleepy sort of purple"],
+    "doing": [
+      { "t": "is hanging upside down to dry", "scope": "any" },
+      { "t": "is tied round the middle with green string", "scope": "any" },
+      { "t": "is shedding purple grains at the slightest touch", "scope": "any" },
+      { "t": "has a bee clinging to every other spike", "scope": "outdoor", "seasons": ["summer"] }
+    ],
+    "close": ["Just the bunch of lavender, stems bound together and flowers fanning out.", "Only one stem of lavender, with its buds stacked up the spike."],
+    "scale": "small",
+    "habitats": ["garden", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn", "winter"],
+    "active": "any",
+    "colours": ["#8C7AB5", "#9AA58A", "#5E4E8A"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the lavender buds",
+      "dark": "for the deepest purple where the buds overlap",
+      "light": "for the silvery stems",
+      "accent": "for the string round the middle"
+    },
+    "firstMark": ["Start with the buds at the tip of one spike, stacked marks of {main}, like grains of rice.", "Start with the darkest buds, low down on each spike, in short dabs of {dark}."]
+  },
+  {
+    "id": "leaf-rose",
+    "suit": "leaf",
+    "title": "The Rose",
+    "a": "a rose",
+    "the": "the rose",
+    "phrases": ["a scent you lean in for", "petals like folded silk", "one thorn under a leaf"],
+    "doing": [
+      { "t": "is opening slowly, still tight in the middle", "scope": "any" },
+      { "t": "is full blown and dropping its petals one by one", "scope": "any" },
+      { "t": "has a single drop of water sitting on one petal", "scope": "any" },
+      { "t": "is standing in a milk bottle, its stem a little too long", "scope": "indoor" }
+    ],
+    "close": ["Just the rose, looking straight down into the whorl of petals.", "Only the rose and one leaf, from the side."],
+    "scale": "small",
+    "habitats": ["garden", "village", "tabletop", "home"],
+    "seasons": ["summer", "autumn"],
+    "active": "any",
+    "colours": ["#D9809A", "#A8455E", "#5E7F45"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the pink petals",
+      "dark": "for the deep folds at the centre",
+      "light": "for the rolled edges where the light catches",
+      "accent": "for the green leaves and stem"
+    },
+    "firstMark": ["Start at the very centre with a tight curl of {dark}.", "Start with the outer petal at the front in {main}, cupped like a hand."]
+  },
+  {
+    "id": "leaf-sweet-peas",
+    "suit": "leaf",
+    "title": "The Sweet Peas",
+    "a": "some sweet peas",
+    "the": "the sweet peas",
+    "phrases": ["pick them and more come", "frilled like a party frock"],
+    "doing": [
+      { "t": "are holding up their ruffled petals like flags", "scope": "any" },
+      { "t": "have one flower going over while the next bud opens", "scope": "any" },
+      { "t": "are crammed into a chipped mug, every colour at once", "scope": "indoor" },
+      { "t": "are scrambling up their canes", "scope": "outdoor" }
+    ],
+    "close": ["Just one sweet pea stem with three flowers, from bud to wide open.", "Only one flower, up close, with its frilled top petal like a sail."],
+    "scale": "small",
+    "habitats": ["garden", "tabletop", "home"],
+    "seasons": ["summer"],
+    "active": "any",
+    "colours": ["#C77BB5", "#F2C4D6", "#8C5A9E"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the pink and mauve petals",
+      "dark": "for the deepest colour at the heart of each flower",
+      "light": "for the paler frilled edges",
+      "accent": "for the curly green tendrils"
+    },
+    "firstMark": ["Start with the frilled edge of the top petal in {main}, a wavy line like the edge of a ribbon.", "Start where the petals meet the stem, a tight knot of {dark}."]
+  },
+  {
+    "id": "leaf-poppy",
+    "suit": "leaf",
+    "title": "The Poppy",
+    "a": "a poppy",
+    "the": "the poppy",
+    "phrases": ["petals like crumpled tissue", "black at the centre"],
+    "doing": [
+      { "t": "has just shrugged off its bud case, petals still creased", "scope": "any" },
+      { "t": "is nodding on a long, wiry stem", "scope": "any" },
+      { "t": "has dropped its petals to show a pepper-pot seed head", "scope": "any" },
+      { "t": "has a bee dusted black with pollen in its middle", "scope": "any" }
+    ],
+    "close": ["Just the poppy, looking into the black centre.", "Only the seed head, with its flat, ridged crown on top."],
+    "scale": "small",
+    "habitats": ["meadow", "farm", "hedgerow", "garden"],
+    "seasons": ["summer"],
+    "active": "any",
+    "colours": ["#D6301E", "#1E1A1A", "#7A8A4A"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the scarlet petals",
+      "dark": "for the black blotches and the centre",
+      "light": "for the creases where the light catches",
+      "accent": "for the grey-green stem and seed head"
+    },
+    "firstMark": ["Start with the black centre: a firm circle of {dark} with dots around it.", "Start with the creases in the petals, light wavy lines of {main} running out from the middle."]
+  },
+  {
+    "id": "leaf-catkins",
+    "suit": "leaf",
+    "title": "The Catkins",
+    "a": "some hazel catkins",
+    "the": "the hazel catkins",
+    "phrases": ["the first yellow of the year", "pollen on your fingertips"],
+    "doing": [
+      { "t": "are dangling like lambs' tails", "scope": "any" },
+      { "t": "are shaking out a puff of pollen", "scope": "any" },
+      { "t": "are still short, tight and green", "scope": "any" },
+      { "t": "are standing in a tall enamel jug with sprigs of pussy willow", "scope": "indoor" }
+    ],
+    "close": ["Just the hazel twig with three catkins hanging from it.", "Only one catkin, drawn large, with its overlapping scales."],
+    "scale": "small",
+    "habitats": ["hedgerow", "woodland", "garden", "tabletop"],
+    "seasons": ["winter", "spring"],
+    "active": "any",
+    "colours": ["#C9B24A", "#6B4E32", "#B04A5A"],
+    "texture": "foliage",
+    "roles": {
+      "main": "for the yellow catkins",
+      "dark": "for the twig",
+      "light": "for the dusting of pollen",
+      "accent": "for the red flowers along the twig"
+    },
+    "firstMark": ["Start with the twig, a crooked line of {dark} with a bud at each bend.", "Start with one catkin as a column of overlapping scales in {main}."]
+  },
+  {
+    "id": "leaf-horse-chestnut-leaf",
+    "suit": "leaf",
+    "title": "The Horse Chestnut Leaf",
+    "a": "a horse chestnut leaf",
+    "the": "the horse chestnut leaf",
+    "phrases": ["five fingers, sometimes seven", "first tree in leaf"],
+    "doing": [
+      { "t": "is spread out like a big green hand", "scope": "any" },
+      { "t": "is lying flat with all its leaflets fanned out", "scope": "any" },
+      { "t": "is still crumpled and limp, fresh from its sticky bud", "scope": "any", "seasons": ["spring"] },
+      { "t": "is blotched with brown across its leaflets", "scope": "any", "seasons": ["summer", "autumn"] },
+      { "t": "has turned buttery yellow with rusty tips", "scope": "any", "seasons": ["autumn"] }
+    ],
+    "close": ["Just the leaf, its leaflets spread from the stalk like fingers.", "Only one leaflet, big enough to show each vein."],
+    "scale": "small",
+    "habitats": ["woodland", "village", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn"],
+    "active": "any",
+    "colours": ["#5E8A35", "#D9A030", "#8A4A26"],
+    "texture": "foliage",
+    "roles": {
+      "main": "for the green leaflets",
+      "dark": "for the veins and the shadow where the leaflets meet",
+      "light": "for the lighter undersides",
+      "accent": "for the turning yellows and rusts"
+    },
+    "firstMark": ["Start where the leaflets meet the stalk, a star of {dark}.", "Start with the midrib of the largest leaflet in {main}, then fan out the others."]
+  },
+  {
+    "id": "leaf-apple-blossom",
+    "suit": "leaf",
+    "title": "The Apple Blossom",
+    "a": "a sprig of apple blossom",
+    "the": "the sprig of apple blossom",
+    "phrases": ["a hum in the orchard", "petals like confetti", "pink before it's white"],
+    "doing": [
+      { "t": "has pink buds and open white flowers side by side", "scope": "any" },
+      { "t": "is losing petals at the slightest nudge", "scope": "any" },
+      { "t": "is all buds, still tight and pink", "scope": "any" },
+      { "t": "is standing in a pottery jug, already dropping petals", "scope": "indoor" }
+    ],
+    "close": ["Just the sprig, five flowers and two leaves.", "Only one apple flower, near enough to count the stamens."],
+    "scale": "small",
+    "habitats": ["farm", "garden", "village", "tabletop"],
+    "seasons": ["spring"],
+    "active": "any",
+    "colours": ["#F4E1E6", "#D98AA0", "#7E9A4A"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the blush on the petals",
+      "dark": "for the twig",
+      "light": "for the white of the open flowers",
+      "accent": "for the yellow-tipped stamens and new leaves"
+    },
+    "firstMark": ["Start with the buds, rounded shapes of {main} pressed a little firmer than the open flowers.", "Start with the twig in {dark}, gnarled where the flowers join it."]
+  },
+  {
+    "id": "leaf-windfall-apple",
+    "suit": "leaf",
+    "title": "The Windfall Apple",
+    "a": "a windfall apple",
+    "the": "the windfall apple",
+    "phrases": ["free to whoever bends down", "sweeter on the sunny side"],
+    "doing": [
+      { "t": "is rosy on one cheek and green on the other", "scope": "any" },
+      { "t": "still has one leaf hanging from its stalk", "scope": "any" },
+      { "t": "has a blackbird-pecked hollow in one side", "scope": "any" },
+      { "t": "is lying on its side to show the crinkled dimple underneath", "scope": "any" }
+    ],
+    "close": ["Just the apple, with its stalk and the speckles on its skin.", "Only the apple, cut in half to show the star of pips."],
+    "scale": "small",
+    "habitats": ["farm", "garden", "tabletop", "home"],
+    "seasons": ["autumn"],
+    "active": "any",
+    "colours": ["#B83A2A", "#9BB24A", "#E8D59A"],
+    "texture": "fruit",
+    "roles": {
+      "main": "for the rosy red cheek",
+      "dark": "for the hollow round the stalk and the shadow underneath",
+      "light": "for the gloss along the curve",
+      "accent": "for the green side and the yellow freckles"
+    },
+    "firstMark": ["Start with the dip where the stalk goes in, a curl of {dark}.", "Start with the red cheek in streaky strokes of {main} that follow the curve of the apple."]
+  },
+  {
+    "id": "leaf-strawberry-plant",
+    "suit": "leaf",
+    "title": "The Strawberry Plant",
+    "a": "a strawberry plant",
+    "the": "the strawberry plant",
+    "phrases": ["pips on the outside", "hidden under the leaves", "sun-warm and sweet"],
+    "doing": [
+      { "t": "has one berry ripe and the rest still white", "scope": "any" },
+      { "t": "is sending out a runner with a new plantlet on the end", "scope": "any" },
+      { "t": "has its best berry hidden right under the leaves", "scope": "any" },
+      { "t": "has white flowers with buttery middles", "scope": "any", "seasons": ["spring"] }
+    ],
+    "close": ["Just one strawberry, with its pips and the green ruff on top.", "Only the strawberry plant, three leaves, one flower and one berry."],
+    "scale": "small",
+    "habitats": ["garden", "farm", "tabletop"],
+    "seasons": ["spring", "summer"],
+    "active": "any",
+    "colours": ["#C8282E", "#5E8A3A", "#F2EFE0"],
+    "texture": "fruit",
+    "roles": {
+      "main": "for the red berry",
+      "dark": "for the shadows under the leaves",
+      "light": "for the highlights on the berry and the white flowers",
+      "accent": "for the yellow pips"
+    },
+    "firstMark": ["Start with the dimples: a dot of {dark} beside each pip, then colour round them.", "Start with the berry's outline in {main}, a fat heart shape with a rounded tip."]
+  },
+  {
+    "id": "leaf-pea-pod",
+    "suit": "leaf",
+    "title": "The Pea Pod",
+    "a": "a pea pod",
+    "the": "the pea pod",
+    "phrases": ["eaten before they reach the pan", "pops open under a thumb"],
+    "doing": [
+      { "t": "has been split open to show a row of peas", "scope": "any" },
+      { "t": "has one pea missing from the end of the row", "scope": "any" },
+      { "t": "is fat and bumpy, ready for picking", "scope": "any" },
+      { "t": "is still hanging on the plant beside a curly tendril", "scope": "outdoor" }
+    ],
+    "close": ["Just the pea pod, split open, with every pea a slightly different green.", "Only the peas, lined up in their pod like passengers."],
+    "scale": "tiny",
+    "habitats": ["garden", "farm", "tabletop", "home"],
+    "seasons": ["summer"],
+    "active": "any",
+    "colours": ["#7FAF4A", "#A9CC6A", "#5C7F34"],
+    "texture": "fruit",
+    "roles": {
+      "main": "for the green pod",
+      "dark": "for the shadows between the peas",
+      "light": "for the shine on each pea",
+      "accent": "for the waxy inside of the pod"
+    },
+    "firstMark": ["Start with the peas: a row of circles in {main}, each with a dot of bare paper for the shine.", "Start with the seam of the pod in a single line of {dark}."]
+  },
+  {
+    "id": "leaf-radishes",
+    "suit": "leaf",
+    "title": "The Radishes",
+    "a": "a bunch of radishes",
+    "the": "the bunch of radishes",
+    "phrases": ["peppery and cold", "pulled with the soil still on"],
+    "doing": [
+      { "t": "is still muddy at the roots", "scope": "any" },
+      { "t": "has been rinsed and is dripping clean", "scope": "any" },
+      { "t": "is tied with a twist of raffia, leaves flopping over", "scope": "any" }
+    ],
+    "close": ["Just one radish, root and leaves and all.", "Only the bunch, tied together, with the leaves drawn loosely."],
+    "scale": "small",
+    "habitats": ["garden", "tabletop", "home", "village"],
+    "seasons": ["spring", "summer", "autumn"],
+    "active": "any",
+    "colours": ["#C8304A", "#F3EEE6", "#6E8F3E"],
+    "texture": "fruit",
+    "roles": {
+      "main": "for the red-pink skins",
+      "dark": "for the soil and the shadow between the roots",
+      "light": "for the white tips and the shine",
+      "accent": "for the green leaves"
+    },
+    "firstMark": ["Start with one radish in {main}, round at the top and tapering to a white tail.", "Start with the shadows where the radishes touch, slim wedges of {dark}."]
+  },
+  {
+    "id": "leaf-allium",
+    "suit": "leaf",
+    "title": "The Allium",
+    "a": "an allium head",
+    "the": "the allium head",
+    "phrases": ["a firework that stays put", "a lollipop on a long stick"],
+    "doing": [
+      { "t": "is a round purple globe of star-shaped flowers", "scope": "any" },
+      { "t": "sits high on a stalk as straight as a knitting needle", "scope": "any" },
+      { "t": "has a hoverfly resting on one of its stars", "scope": "any" },
+      { "t": "is splitting out of its papery bud skin", "scope": "any", "seasons": ["spring"] },
+      { "t": "has dried to a sphere the colour of string", "scope": "any", "seasons": ["autumn"] }
+    ],
+    "close": ["Just the allium head, a ball of flowers on its stem.", "Only a handful of the flowers, enlarged, each one a six-pointed star."],
+    "scale": "small",
+    "habitats": ["garden", "tabletop", "home"],
+    "seasons": ["spring", "summer", "autumn"],
+    "active": "any",
+    "colours": ["#8A5AAE", "#C9A9D9", "#6E8B4E"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the purple flowers",
+      "dark": "for the shade at the back of the ball",
+      "light": "for the stars nearest the light",
+      "accent": "for the green stem"
+    },
+    "firstMark": ["Start with a light circle in {main} to place the ball, then fill it with star shapes.", "Start with the shaded underside of the ball in {dark}, so the top can stay light."]
+  },
+  {
+    "id": "leaf-daisy-chain",
+    "suit": "leaf",
+    "title": "The Daisy Chain",
+    "a": "a daisy chain",
+    "the": "the daisy chain",
+    "phrases": ["split stems and green thumbs", "a crown for anyone sitting still"],
+    "doing": [
+      { "t": "is long enough to go round twice", "scope": "any" },
+      { "t": "has one daisy that keeps slipping out", "scope": "any" },
+      { "t": "is coiled up in a loose ring", "scope": "any" },
+      { "t": "has been finished off with a dandelion as the clasp", "scope": "any" }
+    ],
+    "close": ["Just the daisy chain, curled in a loop, the flowers all facing up.", "Only three links of the chain, near enough to see the slit in each stem."],
+    "scale": "small",
+    "habitats": ["meadow", "garden", "village", "tabletop"],
+    "seasons": ["spring", "summer"],
+    "active": "any",
+    "colours": ["#6E9A3E", "#E8C33A", "#E8B8C0"],
+    "texture": "petal",
+    "roles": {
+      "main": "for the green stems",
+      "dark": "for the shadow under the chain",
+      "light": "for the white of the petals",
+      "accent": "for the yellow centres and the pink petal tips"
+    },
+    "firstMark": ["Start with the stems: a looping line of {main}, with a slit drawn in each.", "Start with the shadow under the chain in {dark}, so the white petals stand up off the page."]
+  },
+  {
+    "id": "leaf-honesty",
+    "suit": "leaf",
+    "title": "The Honesty",
+    "a": "a stem of honesty",
+    "the": "the stem of honesty",
+    "phrases": ["silver pennies on a stalk", "thin as tracing paper"],
+    "doing": [
+      { "t": "is holding up its seed pods like a row of moons", "scope": "any" },
+      { "t": "has had its outer skins rubbed off to show the silver", "scope": "any" },
+      { "t": "still has three dark seeds showing through each pod", "scope": "any" },
+      { "t": "is standing on its own in an old glass bottle", "scope": "indoor" }
+    ],
+    "close": ["Just one stem of honesty, five seed discs from big to small.", "Only one seed pod, with the seeds showing through like shadows."],
+    "scale": "small",
+    "habitats": ["garden", "hedgerow", "tabletop", "home"],
+    "seasons": ["autumn", "winter"],
+    "active": "any",
+    "colours": ["#D9D6CC", "#8A7E6A", "#B4A9C8"],
+    "texture": "paper",
+    "roles": {
+      "main": "for the silvery discs",
+      "dark": "for the stalks and the seeds",
+      "light": "for the shine on each disc",
+      "accent": "for the faint violet at the edges"
+    },
+    "firstMark": ["Start with the seeds: three ovals of {dark} in each disc.", "Start with the outline of the biggest disc in {main}, the lightest touch you have."]
+  },
+  {
+    "id": "leaf-cobweb",
+    "suit": "leaf",
+    "title": "The Cobweb",
+    "a": "a cobweb strung with dew",
+    "the": "the cobweb strung with dew",
+    "phrases": ["a spider's washing line", "beads on a thread"],
+    "doing": [
+      { "t": "is sagging in the middle with the weight of its beads", "scope": "any" },
+      { "t": "is spun as round and neat as a dartboard", "scope": "any" },
+      { "t": "has its spider waiting patiently at the hub", "scope": "any" },
+      { "t": "has one broken thread trailing loose", "scope": "any" }
+    ],
+    "close": ["Just the cobweb, with the threads left as bare white paper.", "Only the middle of the web, near enough to see each bead."],
+    "scale": "small",
+    "habitats": ["garden", "hedgerow", "meadow"],
+    "seasons": ["spring", "summer", "autumn"],
+    "active": "any",
+    "colours": ["#D8E2E4", "#9AAEB8", "#5E6E5A"],
+    "texture": "liquid",
+    "roles": {
+      "main": "for the grey-blue shadows on the beads",
+      "dark": "for the background behind the web",
+      "light": "for the threads and the brightest beads",
+      "accent": "for the spider"
+    },
+    "firstMark": ["Start with the background: a dark layer of {dark} around the web, leaving the threads as bare paper.", "Start with the spokes in faint, straight lines of {main}, from the middle outwards."]
+  },
+  {
+    "id": "leaf-hyacinth",
+    "suit": "leaf",
+    "title": "The Hyacinth",
+    "a": "a hyacinth in a glass",
+    "the": "the hyacinth in a glass",
+    "phrases": ["roots like white string", "a scent that fills the hall"],
+    "doing": [
+      { "t": "is sending white roots down into the water", "scope": "any" },
+      { "t": "is leaning over, too heavy for its own stem", "scope": "any" },
+      { "t": "has a fat green bud nosing out of the top", "scope": "any", "seasons": ["winter"] },
+      { "t": "is in full flower, every bell open", "scope": "any" }
+    ],
+    "close": ["Just the hyacinth and its glass, with the roots coiling at the bottom.", "Only the flower spike, its bells turned back at the tips."],
+    "scale": "small",
+    "habitats": ["tabletop", "home"],
+    "seasons": ["winter", "spring"],
+    "active": "any",
+    "colours": ["#6A6FC0", "#E9EEF0", "#6E9A4A"],
+    "texture": "glass",
+    "roles": {
+      "main": "for the blue flowers",
+      "dark": "for the deepest blue between the bells",
+      "light": "for the white roots and the shine on the glass",
+      "accent": "for the green leaves"
+    },
+    "firstMark": ["Start with the lowest bell of the flower spike in {main}, its petals turned back.", "Start with the water line on the glass in {dark}, then leave the roots as bare paper beneath it."]
+  }
+]

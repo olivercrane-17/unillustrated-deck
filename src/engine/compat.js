@@ -31,9 +31,16 @@ export function subjectFitsPlace(subject, place, season, { ignoreScale = false }
   return usableDoings(subject, place.scope, season).length > 0
 }
 
+// Hours fit places by scope. Two refinements: an indoor-only hour ("while the
+// kettle boils") wants a real room, not a porch; and an hour you can only see
+// in the sky or the weather (`sky: true`) needs the place to be outdoors, at a
+// threshold, or a room with a window onto it (`window: true`).
 export function whenFitsPlace(when, place, season) {
   if (!inSeason(when, season)) return false
-  if (!place || when.scope === 'any' || place.scope === 'threshold') return true
+  if (!place) return true
+  if (when.scope === 'indoor') return place.scope === 'indoor'
+  if (when.sky && place.scope === 'indoor' && !place.window) return false
+  if (when.scope === 'any' || place.scope === 'threshold') return true
   return when.scope === place.scope
 }
 

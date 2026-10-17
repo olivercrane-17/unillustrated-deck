@@ -86,8 +86,9 @@ export function colourName(hex) {
     return 'black'
   }
   if (h < 35 || h >= 350) {
-    if (C >= 0.15) return L < 0.45 ? 'dark red' : 'red'
     if (L >= 0.68) return L > 0.86 ? 'pale pink' : 'pink'
+    if (C >= 0.11) return L < 0.42 ? 'dark red' : 'red'
+    if (C >= 0.07 && L < 0.42) return 'dark red'
     return L < 0.42 ? 'dark brown' : 'reddish brown'
   }
   if (h < 55) {
@@ -96,6 +97,7 @@ export function colourName(hex) {
     return L < 0.34 ? 'dark brown' : 'chestnut'
   }
   if (h < 80) {
+    if (C >= 0.12 && L >= 0.78) return 'golden yellow'
     if (C >= 0.13 && L >= 0.58) return 'orange'
     if (C >= 0.09) return L < 0.5 ? 'brown' : 'golden brown'
     if (L > 0.8) return 'sand'
@@ -119,7 +121,7 @@ export function colourName(hex) {
     if (L < 0.42) return 'dark green'
     return h < 175 ? 'green' : 'teal'
   }
-  if (h < 275) {
+  if (h < 285) {
     if (L >= 0.78) return 'pale blue'
     if (L < 0.42) return 'navy blue'
     return 'blue'

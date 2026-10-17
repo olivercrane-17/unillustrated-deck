@@ -31,6 +31,8 @@ export function cardColours(card) {
   return [...new Set(list.map((c) => c.toUpperCase()))].slice(0, 4)
 }
 
+// Cards may name their own colours when the automatic words would mislead.
 export function colourWords(card) {
+  if (card.colourWords?.length) return card.colourWords
   return [...new Set(cardColours(card).map(colourName))]
 }

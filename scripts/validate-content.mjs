@@ -99,6 +99,13 @@ function checkColours(r, where, arr, min, max) {
   arr.forEach((c) => { if (!HEX.test(c)) r.err(where, `bad hex "${c}"`) })
 }
 
+function checkFirstMark(r, where, f) {
+  checkSentence(r, where + '.firstMark', f)
+  if (!/\{(dark|main|accent)\}/.test(f)) r.err(where, `firstMark must contain {dark}, {main} or {accent}: "${f}"`)
+  const other = f.replace(/\{(dark|main|accent)\}/g, '').match(/\{[^}]*\}/)
+  if (other) r.err(where, `firstMark has an unknown slot ${other[0]}`)
+}
+
 export function validateSubject(r, card, where) {
   if (!isStr(card.id) || !/^(fur|leaf|hearth)-[a-z0-9-]+$/.test(card.id)) r.err(where, `bad id "${card.id}"`)
   if (!SUBJECT_SUITS.includes(card.suit)) r.err(where, `bad suit "${card.suit}"`)
@@ -118,6 +125,22 @@ export function validateSubject(r, card, where) {
       inVocab(r, w, d.scope, VOCAB.doingScope, 'scope')
       if (d.seasons !== undefined) checkArrVocab(r, w, d.seasons, VOCAB.seasons, 'seasons')
       if (d.scope === 'any' && d.seasons === undefined) universal++
+      // Optional per-doing overrides, for poses that change what can be seen.
+      if (d.close !== undefined) {
+        if (!isArr(d.close, 1, 2)) r.err(w, 'doing.close must have 1..2 sentences')
+        else d.close.forEach((c) => { checkSentence(r, w + '.close', c); if (!/^(Just|Only)\b/.test(c)) r.err(w, `close should start with "Just" or "Only": "${c}"`) })
+      }
+      if (d.firstMark !== undefined) {
+        if (!isArr(d.firstMark, 1, 3)) r.err(w, 'doing.firstMark must have 1..3 sentences')
+        else d.firstMark.forEach((f) => checkFirstMark(r, w, f))
+      }
+      if (d.roles !== undefined) {
+        if (!d.roles || typeof d.roles !== 'object') r.err(w, 'doing.roles must be an object')
+        else for (const [k, v] of Object.entries(d.roles)) {
+          if (!['main', 'dark', 'light', 'accent'].includes(k)) r.err(w, `doing.roles.${k} is not a role`)
+          checkRole(r, `${w}.roles.${k}`, v)
+        }
+      }
       if (/\b(spring|summer|autumn|winter|tonight|morning|evening|midnight|rain|snow|frost|sunshine|windowsill|meadow|garden|kitchen)\b/i.test(d.t)) r.warn(w, `doing may contain a time, weather or place: "${d.t}"`)
     })
     if (universal < 2) r.err(where, 'needs at least 2 doing phrases with scope "any" and no season restriction')
@@ -135,12 +158,8 @@ export function validateSubject(r, card, where) {
   if (!card.roles || typeof card.roles !== 'object') r.err(where, 'roles missing')
   else for (const k of ['main', 'dark', 'light', 'accent']) checkRole(r, `${where}.roles.${k}`, card.roles[k])
   if (!isArr(card.firstMark, 1, 3)) r.err(where, 'firstMark must have 1..3 sentences')
-  else card.firstMark.forEach((f) => {
-    checkSentence(r, where + '.firstMark', f)
-    if (!/\{(dark|main)\}/.test(f)) r.err(where, `firstMark must contain {dark} or {main}: "${f}"`)
-    const other = f.replace(/\{(dark|main)\}/g, '').match(/\{[^}]*\}/)
-    if (other) r.err(where, `firstMark has an unknown slot ${other[0]}`)
-  })
+  else card.firstMark.forEach((f) => checkFirstMark(r, where, f))
+  if (card.colourWords !== undefined && !(isArr(card.colourWords, 1, 4) && card.colourWords.every((w) => isStr(w) && w === w.toLowerCase()))) r.err(where, 'colourWords must be 1..4 lowercase words')
   walkText(r, where, card)
 }
 
@@ -158,6 +177,8 @@ export function validateWhere(r, card, where) {
   checkArrVocab(r, where, card.frames, VOCAB.frames, 'frames', 1, 3)
   checkColours(r, where, card.colours, 1, 2)
   checkRole(r, where + '.role', card.role)
+  if (card.window !== undefined && typeof card.window !== 'boolean') r.err(where, 'window must be true or false')
+  if (card.window && card.scope !== 'indoor') r.warn(where, 'window only matters for indoor places')
   if (card.excludes !== undefined && !(Array.isArray(card.excludes) && card.excludes.every((x) => /^(fur|leaf|hearth)-[a-z0-9-]+$/.test(x)))) r.err(where, 'excludes must be an array of subject ids')
   walkText(r, where, card)
 }
@@ -176,6 +197,7 @@ export function validateWhen(r, card, where) {
   checkSentence(r, where + '.light', card.light)
   checkRole(r, where + '.shadow', card.shadow)
   checkRole(r, where + '.highlight', card.highlight)
+  if (card.sky !== undefined && typeof card.sky !== 'boolean') r.err(where, 'sky must be true or false')
   walkText(r, where, card)
 }
 
@@ -251,7 +273,16 @@ function validatePalettes(r, data, where) {
   const all = []
   for (const m of VOCAB.mood) {
     if (!isArr(data[m], 8)) r.err(where, `${m} needs at least 8 names`)
-    else data[m].forEach((n) => { all.push(n); if (!/^[A-Z]/.test(n)) r.err(where, `palette name should be title case: "${n}"`) })
+    else data[m].forEach((entry) => {
+      const n = typeof entry === 'string' ? entry : entry?.name
+      if (!isStr(n)) return r.err(where, `${m}: each entry is a name or { name, seasons?, times? }`)
+      all.push(n)
+      if (!/^[A-Z]/.test(n)) r.err(where, `palette name should be title case: "${n}"`)
+      if (typeof entry === 'object') {
+        if (entry.seasons !== undefined) checkArrVocab(r, `${where}.${m}.${n}`, entry.seasons, VOCAB.seasons, 'seasons')
+        if (entry.times !== undefined) checkArrVocab(r, `${where}.${m}.${n}`, entry.times, VOCAB.timeOfDay, 'times')
+      }
+    })
   }
   if (new Set(all).size !== all.length) r.err(where, 'duplicate palette names')
   walkText(r, where, data)
@@ -330,6 +361,18 @@ function crossCheck(r, byKind) {
       const n = sub.filter((s) => s.suit === suit).length
       if (subjects.length && n < 10) r.warn(`coverage ${season}`, `only ${n} ${suit} subjects`)
     }
+  }
+  // Every place needs enough hours that fit it (same rule as the engine).
+  const hourFits = (h, p, season) => {
+    if (!h.seasons.includes(season)) return false
+    if (h.scope === 'indoor') return p.scope === 'indoor'
+    if (h.sky && p.scope === 'indoor' && !p.window) return false
+    return h.scope === 'any' || p.scope === 'threshold' || h.scope === p.scope
+  }
+  for (const season of VOCAB.seasons) for (const p of wheres) {
+    if (!p.seasons.includes(season)) continue
+    const n = whens.filter((h) => hourFits(h, p, season)).length
+    if (whens.length && n < 5) r.err(`coverage ${season}`, `${p.id} has only ${n} hours that fit`)
   }
   for (const t of VOCAB.timeOfDay) {
     const n = whens.filter((h) => h.timeOfDay.includes(t)).length

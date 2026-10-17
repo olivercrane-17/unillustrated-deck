@@ -247,3 +247,80 @@ describe('harmony details', () => {
     }
   })
 })
+
+describe('final review fixes', () => {
+  it('weather hours need a window indoors; indoor hours stay indoors', async () => {
+    const { whenFitsPlace } = await import('../../src/engine/compat.js')
+    const cooker = { scope: 'indoor', seasons: ['spring', 'summer', 'autumn', 'winter'] }
+    const bay = { ...cooker, window: true }
+    const porch = { ...cooker, scope: 'threshold' }
+    const mist = { scope: 'any', sky: true, seasons: ['spring', 'summer', 'autumn', 'winter'] }
+    const kettle = { scope: 'indoor', seasons: ['spring', 'summer', 'autumn', 'winter'] }
+    expect(whenFitsPlace(mist, cooker, 'spring')).toBe(false)
+    expect(whenFitsPlace(mist, bay, 'spring')).toBe(true)
+    expect(whenFitsPlace(mist, porch, 'spring')).toBe(true)
+    expect(whenFitsPlace(kettle, porch, 'spring')).toBe(false)
+    expect(whenFitsPlace(kettle, cooker, 'spring')).toBe(true)
+  })
+
+  it('drops the Light line under a palette twist', () => {
+    let seen = 0
+    for (let seed = 0; seed < 300; seed++) {
+      const r = dealReading(ctxFor(), { spread: 'big', seed })
+      if (r.palette.rule) {
+        seen++
+        expect(r.text.brief.some((l) => l.key === 'light')).toBe(false)
+      }
+    }
+    expect(seen).toBeGreaterThan(0)
+  })
+
+  it('never deals a strongly coloured pencil as the highlight', () => {
+    const pencils = tinOf('48')
+    for (let seed = 0; seed < 300; seed++) {
+      const out = dealPalette({
+        pencils,
+        slots: [
+          { key: 'main', kind: 'main', anchor: anchorFor('#F2E6CF'), role: 'm' },
+          { key: 'dark', kind: 'dark', role: 'd' },
+          { key: 'light', kind: 'light', role: 'l' },
+        ],
+        mood: 'bright',
+        rng: mulberry32(seed),
+      })
+      const light = out.pencils.find((p) => p.slot === 'light')
+      if (light) expect(pencils.find((p) => p.code === light.code).lch.C).toBeLessThan(0.06)
+    }
+  })
+
+  it('a lonely-pencil note goes when its pencil leaves the palette', () => {
+    const ctx = ctxFor()
+    const r = dealReading(ctx, { spread: 'evening', seed: 3 })
+    r.lonely = { code: 'PC999', since: '2026-01-01T00:00:00Z' }
+    r.text.lonelyLine = 'Nobody has seen PC999 for ages.'
+    const s = swapCard(r, ctx, 'when')
+    expect(s.text.lonelyLine).toBe('')
+  })
+
+  it('new picture keeps a palette twist and its pencils', () => {
+    const ctx = ctxFor()
+    let checked = 0
+    for (let seed = 0; seed < 300 && checked < 5; seed++) {
+      const r = dealReading(ctx, { spread: 'big', seed })
+      if (r.cards.twist !== 'twist-moon') continue
+      checked++
+      const n = newPicture(r, ctx)
+      expect(n.cards.twist).toBe('twist-moon')
+      expect(n.palette.pencils.map((p) => p.code).sort()).toEqual(['PC901', 'PC938'])
+    }
+    expect(checked).toBeGreaterThan(0)
+  })
+
+  it('names reds as red, not reddish brown', async () => {
+    const { colourName } = await import('../../src/engine/color.js')
+    expect(colourName('#C3302C')).toBe('red')
+    expect(colourName('#B8463C')).toBe('red')
+    expect(colourName('#E8A39B')).toBe('pink')
+    expect(colourName('#C98A3E')).toBe('golden brown')
+  })
+})

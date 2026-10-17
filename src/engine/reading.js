@@ -121,19 +121,25 @@ function pickWhere(ctx, rng, { who, twist, season, exclude = [] }) {
   return pickFresh(rng, places, (w) => seasonWeight(w, season), ctx, 'where', exclude)
 }
 
-function pickWhen(ctx, rng, { who, where, season, exclude = [] }) {
+function pickWhen(ctx, rng, { who, where, season, twist, exclude = [] }) {
   const tod = timeOfDayFor(ctx.date)
+  const rule = twist?.effects?.palette
   const weightOf = (h) => {
     if (!whenFitsPlace(h, where, season)) return 0
     let w = seasonWeight(h, season)
     if (h.timeOfDay.includes(tod)) w *= 1.5
     const evening = h.timeOfDay.some((t) => t === 'dusk' || t === 'night')
-    // Mostly keep day creatures out of the dark and night creatures out of broad daylight.
+    // Keep day creatures out of the dark and night creatures out of broad
+    // daylight (a tiny weight remains so a deal can never get stuck).
     const afterDark = h.timeOfDay.includes('night') && h.timeOfDay.every((t) => t === 'dusk' || t === 'night')
     const broadDay = h.timeOfDay.every((t) => t === 'morning' || t === 'afternoon')
     if (who?.active === 'night' && evening) w *= 2
-    if (who?.active === 'day' && afterDark) w *= 0.1
-    if (who?.active === 'night' && broadDay) w *= 0.15
+    if (who?.active === 'day' && afterDark) w *= 0.02
+    if (who?.active === 'night' && broadDay) w *= 0.04
+    // Moonlight wants a night; warm-only and cool-only palettes want hours that agree.
+    if (rule === 'moon') w *= evening ? 4 : 0.05
+    if ((rule === 'hearthfire' || rule === 'warm') && h.mood === 'cool') w *= 0.1
+    if (rule === 'cool' && h.mood === 'warm') w *= 0.1
     return w
   }
   return pickFresh(rng, ctx.content.whens, weightOf, ctx, 'when', exclude)
@@ -198,7 +204,7 @@ export function paletteSlots(reading, ctx) {
 
   if (reading.spread === 'small') {
     const theme = byId.get(reading.cards.theme)
-    const anchorRoles = ['the thread: use it in every little picture', 'for colour wherever it fits', 'for a little contrast']
+    const anchorRoles = ['use a little in every picture, to tie the page together', 'for the second main colour', 'for small details']
     const slots = theme.colours.map((hex, i) => ({ key: `a${i}`, kind: i === 0 ? 'main' : 'anchor', anchor: anchorFor(hex), role: anchorRoles[i] }))
     slots.push({ key: 'dark', kind: 'dark', role: 'for the shadows and the outlines' })
     slots.push({ key: 'light', kind: 'light', role: 'for the highlights' })
@@ -210,15 +216,17 @@ export function paletteSlots(reading, ctx) {
   const also = reading.cards.also && byId.get(reading.cards.also)
   const mood = rule === 'hearthfire' || rule === 'warm' ? 'warm' : rule === 'cool' ? 'cool' : when?.mood || SEASON_MOOD[reading.season] || 'warm'
 
-  const main = { key: 'main', kind: 'main', anchor: anchorFor(who.colours[0]), role: who.roles.main }
-  const dark = { key: 'dark', kind: 'dark', role: when ? when.shadow : who.roles.dark }
-  const light = { key: 'light', kind: 'light', role: when ? when.highlight : who.roles.light }
+  // A doing can carry its own role lines (wings closed hide the eyespots).
+  const roles = { ...who.roles, ...(who.doing[reading.picks?.doing]?.roles || {}) }
+  const main = { key: 'main', kind: 'main', anchor: anchorFor(who.colours[0]), role: roles.main }
+  const dark = { key: 'dark', kind: 'dark', role: when ? when.shadow : roles.dark }
+  const light = { key: 'light', kind: 'light', role: when ? when.highlight : roles.light }
   const setting = where && { key: 'setting', kind: 'anchor', anchor: anchorFor(where.colours[0]), role: where.role }
   const accentHex = accentHexOf(who)
   const accent = also
     ? { key: 'accent', kind: 'anchor', anchor: anchorFor(also.colours[0]), role: `for the ${nameOf(also)}` }
-    : accentHex && { key: 'accent', kind: 'anchor', anchor: anchorFor(accentHex), role: who.roles.accent }
-  const complement = { key: 'complement', kind: 'complement', role: 'for a spark of the opposite colour' }
+    : accentHex && { key: 'accent', kind: 'anchor', anchor: anchorFor(accentHex), role: roles.accent }
+  const complement = { key: 'complement', kind: 'complement', role: rule === 'complement' ? 'the opposite colour: layer it over the first for the shadows' : 'for a spark of the opposite colour' }
 
   let slots
   if (rule === 'two') slots = [main, dark]
@@ -267,10 +275,15 @@ function rebuildPalette(reading, ctx, { keepSlots = [], avoid = [] } = {}) {
   return reading
 }
 
+// Palette names may be plain strings or { name, seasons?, times? }, so a name
+// like "Conker Season" never turns up in spring.
 function paletteName(reading, ctx, mood) {
-  const names = ctx.content.palettes?.[mood] || ctx.content.palettes?.warm || ['Pencil Tin']
-  const rng = paletteRng(reading, 'name')
-  return pick(rng, names)
+  const list = ctx.content.palettes?.[mood] || ctx.content.palettes?.warm || ['Pencil Tin']
+  const when = reading.cards.when && ctx.content.byId.get(reading.cards.when)
+  const fits = (n) => typeof n === 'string' || ((!n.seasons || !reading.season || n.seasons.includes(reading.season)) && (!n.times || !when || n.times.some((t) => when.timeOfDay.includes(t))))
+  const names = list.filter(fits)
+  const chosen = pick(paletteRng(reading, 'name'), names.length ? names : list)
+  return typeof chosen === 'string' ? chosen : chosen.name
 }
 
 // ---------------------------------------------------------------------------
@@ -283,8 +296,11 @@ export function renderText(reading, ctx) {
   const darkest = pencils.slice().sort((a, b) => (ctx.pencilsByCode?.get(a.code)?.lch.L ?? 1) - (ctx.pencilsByCode?.get(b.code)?.lch.L ?? 1))[0]
   const mainP = pencils.find((p) => p.slot === 'main' || p.slot === 'a0') || pencils[0]
   const darkP = pencils.find((p) => p.slot === 'dark') || darkest || mainP
+  const accentP = pencils.find((p) => p.slot === 'accent' || p.slot === 'a1') || mainP
   const twist = reading.cards.twist && byId.get(reading.cards.twist)
-  const text = { opener: '', brief: [], sentence: '', framing: '', twist: '', firstMark: '', lightLine: '', paperLine: '', lonelyLine: reading.text?.lonelyLine || '', smallTin: '' }
+  // A lonely-pencil note only stands while that pencil is still dealt.
+  const lonelyStill = reading.lonely && pencils.some((p) => p.code === reading.lonely.code)
+  const text = { opener: '', brief: [], sentence: '', framing: '', twist: '', firstMark: '', lightLine: '', paperLine: '', lonelyLine: lonelyStill ? reading.text?.lonelyLine || '' : '', smallTin: '' }
 
   // The brief: short labelled lines she can scan from beside the paper.
   const brief = []
@@ -308,13 +324,16 @@ export function renderText(reading, ctx) {
     const draw = tidy(fill(QUICK_TEMPLATES[0].t, { subject, doing: doing.t }))
     brief.push({ key: 'draw', label: 'Draw', text: draw })
     if (reading.spread === 'quick') {
-      text.framing = who.close[reading.picks.close % who.close.length]
+      const closes = doing.close?.length ? doing.close : who.close
+      text.framing = closes[reading.picks.close % closes.length]
       brief.push({ key: 'frame', label: 'Frame', text: text.framing })
       text.sentence = draw
     } else {
       brief.push({ key: 'where', label: 'Where', text: `${capitalise(where.at)}.` })
       brief.push({ key: 'when', label: 'When', text: `${capitalise(when.when)}.` })
-      if (when.light) brief.push({ key: 'light', label: 'Light', text: when.light })
+      // Under a palette twist the hour's colour advice would contradict the
+      // twist ("cool blues" with Warm Colours Only), so the twist speaks alone.
+      if (when.light && !reading.palette?.rule) brief.push({ key: 'light', label: 'Light', text: when.light })
       let s = fill(MAIN_TEMPLATES[0].t, { subject, doing: doing.t, at: where.at, when: when.when })
       if (also) {
         const ad = also.doing[reading.picks.alsoDoing] || also.doing[0]
@@ -323,10 +342,11 @@ export function renderText(reading, ctx) {
       }
       text.sentence = tidy(s)
     }
-    const marks = who.firstMark
+    const marks = doing.firstMark?.length ? doing.firstMark : who.firstMark
     text.firstMark = fill(marks[reading.picks.firstMark % marks.length], {
       dark: pencilName(darkP?.code),
       main: pencilName(mainP?.code),
+      accent: pencilName(accentP?.code),
     })
   }
   if (twist) brief.push({ key: 'twist', label: 'Twist', text: twist.rule })
@@ -344,7 +364,7 @@ export function renderText(reading, ctx) {
 // ---------------------------------------------------------------------------
 // Dealing.
 
-function dealCards(ctx, reading, { fixedWho } = {}) {
+function dealCards(ctx, reading, { fixedWho, fixedTwist } = {}) {
   const season = reading.season
   const s = reading.swaps
   const rngFor = (pos) => subRng(reading.seed, pos, s[pos] || 0)
@@ -360,7 +380,10 @@ function dealCards(ctx, reading, { fixedWho } = {}) {
   }
 
   let twist
-  if (spread === 'big' || (spread === 'evening' && rngFor('twist-chance')() < EVENING_TWIST_CHANCE)) {
+  if (fixedTwist !== undefined) {
+    twist = fixedTwist || undefined
+    if (twist) cards.twist = twist.id
+  } else if (spread === 'big' || (spread === 'evening' && rngFor('twist-chance')() < EVENING_TWIST_CHANCE)) {
     twist = pickTwist(ctx, rngFor('twist'), {})
     if (twist) cards.twist = twist.id
   }
@@ -378,7 +401,7 @@ function dealCards(ctx, reading, { fixedWho } = {}) {
     where = pickWhere(ctx, rngFor('where'), { who, twist, season })
     if (!where) throw new Error(`No place fits ${who.id}`)
     cards.where = where.id
-    const when = pickWhen(ctx, rngFor('when'), { who, where, season })
+    const when = pickWhen(ctx, rngFor('when'), { who, where, season, twist })
     if (!when) throw new Error(`No hour fits ${where.id}`)
     cards.when = when.id
   }
@@ -435,7 +458,7 @@ export function buildContext({ content, pencils, date = new Date(), hemisphere =
   }
 }
 
-export function dealReading(ctx, { spread = 'evening', seed, fixedWho, lonely = true } = {}) {
+export function dealReading(ctx, { spread = 'evening', seed, fixedWho, fixedTwist, lonely = true } = {}) {
   if (!SPREADS[spread]) throw new Error(`Unknown spread ${spread}`)
   if (!ctx.pencils.length) throw new Error('The tin is empty')
   const reading = {
@@ -455,7 +478,7 @@ export function dealReading(ctx, { spread = 'evening', seed, fixedWho, lonely = 
     text: null,
     status: 'dealt',
   }
-  dealCards(ctx, reading, { fixedWho })
+  dealCards(ctx, reading, { fixedWho, fixedTwist })
   if (spread === 'small') pickPhrasesSmall(reading)
   rebuildPalette(reading, ctx)
   if (lonely) applyLonely(reading, ctx, subRng(reading.seed, 'lonely'))
@@ -525,7 +548,7 @@ export function swapCard(reading, ctx, position) {
     if (next) { where = next; r.cards.where = next.id }
     drop('setting')
   } else if (position === 'when') {
-    const next = pickWhen(ctx, rng, { who, where, season, exclude: [when.id] })
+    const next = pickWhen(ctx, rng, { who, where, season, twist, exclude: [when.id] })
     if (next) { when = next; r.cards.when = next.id }
     drop('dark', 'light')
   } else if (position === 'also') {
@@ -546,7 +569,7 @@ export function swapCard(reading, ctx, position) {
     drop('setting')
   }
   if (when && !whenFitsPlace(when, where, season)) {
-    when = pickWhen(ctx, subRng(r.seed, 'repair-when', r.swaps[position]), { who, where, season }) || when
+    when = pickWhen(ctx, subRng(r.seed, 'repair-when', r.swaps[position]), { who, where, season, twist: twistNow }) || when
     r.cards.when = when.id
     drop('dark', 'light')
   }
@@ -614,17 +637,46 @@ export function toggleLock(reading, index) {
 }
 
 // New picture, same colours: re-deal the cards and re-fit the same pencils.
+// A palette twist (Moonlight, Brown and White...) only makes sense with its own
+// pencils, so a reading dealt under one keeps that twist; a fresh deal never
+// introduces one.
 export function newPicture(reading, ctx) {
   const n = (reading.swaps.picture || 0) + 1
-  const fresh = dealReading(ctx, { spread: reading.spread, seed: hashString(`${reading.seed}:picture:${n}`), lonely: false })
+  const { byId } = ctx.content
+  const oldTwist = reading.cards.twist && byId.get(reading.cards.twist)
+  let fresh
+  for (let k = 0; k < 10; k++) {
+    const opts = { spread: reading.spread, seed: hashString(`${reading.seed}:picture:${n}:${k}`), lonely: false }
+    if (oldTwist?.effects?.palette) opts.fixedTwist = oldTwist
+    fresh = dealReading(ctx, opts)
+    const twist = fresh.cards.twist && byId.get(fresh.cards.twist)
+    if (oldTwist?.effects?.palette || !twist?.effects?.palette) break
+  }
   fresh.swaps.picture = n
+  if (fresh.palette.rule) return renderText(fresh, ctx)
   const codes = reading.palette.pencils.map((p) => p.code)
   const { slots, mood } = paletteSlots(fresh, ctx)
   const locked = new Set(reading.palette.pencils.filter((p) => p.locked).map((p) => p.code))
   const refit = refitRoles({ pencils: ctx.pencils, codes, slots, mood })
-  fresh.palette.pencils = refit.map((p) => ({ ...p, locked: locked.has(p.code) }))
-  fresh.palette.name = reading.palette.name
+  const who = fresh.cards.who && byId.get(fresh.cards.who)
+  const slotByKey = new Map(slots.map((sl) => [sl.key, sl]))
+  fresh.palette.pencils = refit.map((p) => ({ ...p, role: plainRoleIfOff(p, slotByKey.get(p.slot), ctx, who), locked: locked.has(p.code) }))
   fresh.palette.bareLights = !fresh.palette.pencils.some((p) => (ctx.pencilsByCode.get(p.code)?.lch.L ?? 0) > 0.84)
+  fresh.palette.name = reading.palette.name
   return renderText(fresh, ctx)
+}
+
+// When a kept pencil is far from the colour a role describes, use a plain
+// role that can't be wrong ("Indigo Blue for the rich brown fur" is wrong).
+function plainRoleIfOff(p, slot, ctx, who) {
+  const pencil = ctx.pencilsByCode.get(p.code)
+  if (!slot || !pencil) return 'for anything else in the picture'
+  const subject = who ? nameOf(who) : 'picture'
+  if (slot.kind === 'dark') return pencil.lch.L < 0.5 ? slot.role : 'for the darker parts'
+  if (slot.kind === 'light') return pencil.lch.L > 0.84 && pencil.lch.C < 0.07 ? slot.role : 'for the lightest parts'
+  if (!slot.anchor) return slot.role
+  const off = Math.hypot(pencil.lab.L - slot.anchor.lab.L, pencil.lab.a - slot.anchor.lab.a, pencil.lab.b - slot.anchor.lab.b) > 0.16
+  if (!off) return slot.role
+  return { main: `for the ${subject}`, setting: 'for the setting', accent: 'for the small details' }[slot.key] || 'for anything else in the picture'
 }
 

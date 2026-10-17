@@ -192,16 +192,18 @@ export function dealPalette({ pencils, slots, mood, rule, keep = {}, avoid = [],
     let candidates = pool.filter((p) => !used.has(p.code) && !avoidSet.has(p.code))
     if (!candidates.length) candidates = pool.filter((p) => !used.has(p.code))
     if (!candidates.length) candidates = owned.filter((p) => !used.has(p.code))
+    // Highlights are White or a near-white: a bright yellow is not a highlight.
     if (slot.kind === 'light') {
-      candidates = candidates.filter((p) => p.lch.L > 0.84)
+      candidates = candidates.filter((p) => p.lch.L > 0.84 && p.lch.C < 0.06)
       if (!candidates.length) continue
     }
     if (slot.kind === 'dark') {
       const darks = candidates.filter((p) => p.lch.L < 0.5)
       if (darks.length) candidates = darks
     }
+    // One colour family: shades of the main hue, not White, Black or greys.
     if (rule === 'mono' && ctx.main) {
-      const family = candidates.filter((p) => p.lch.C < 0.03 || hueDistance(p.lch.h, ctx.main.lch.h) < 32)
+      const family = candidates.filter((p) => p.lch.C >= 0.03 && hueDistance(p.lch.h, ctx.main.lch.h) < 32)
       if (family.length) candidates = family
     }
     // Keep chosen pencils visibly distinct, relaxing if the tin is small.
@@ -293,6 +295,6 @@ export function refitRoles({ pencils, codes, slots, mood }) {
     out.push({ code: p.code, slot: slot.key, role: slot.role })
     if (slot.kind === 'main') ctx.main = p
   }
-  for (const p of remaining) out.push({ code: p.code, slot: 'extra', role: 'for wherever it wants to go' })
+  for (const p of remaining) out.push({ code: p.code, slot: 'extra', role: 'for anything else in the picture' })
   return out
 }

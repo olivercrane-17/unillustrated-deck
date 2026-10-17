@@ -1,6 +1,6 @@
 # Sample readings
 
-1024 readings dealt and checked; 96 shown (48-pencil tin).
+512 readings dealt and checked; 96 shown (48-pencil tin).
 
 ## spring, north, quick
 - **Draw:** A striped deckchair has a sunhat left on its seat.
@@ -63,7 +63,7 @@ First mark: Start with the warts on the back: small, loose circles of Light Umbe
 - **Light:** Keep the colours light and clear, with yellowy greens and plenty of white paper showing.
 - **Also:** A piece of driftwood has three pebbles balanced along its top.
 - **Twist:** Draw the picture the size of a postage stamp, with a zigzag edge all round.
-Tin, Buttercup Meadow: PC1034 Goldenrod (for the wicker); PC912 Apple Green (for the slatted seat and its peeling paint); PC927 Light Peach (for the piece of driftwood); PC946 Dark Brown (for the short spring shadows); PC916 Canary Yellow (for the sunlit tops of things)
+Tin, Buttercup Meadow: PC1034 Goldenrod (for the wicker); PC912 Apple Green (for the slatted seat and its peeling paint); PC927 Light Peach (for the piece of driftwood); PC946 Dark Brown (for the short spring shadows); PC938 White (for the sunlit tops of things)
 First mark: Start with the leather straps, two short bands of Dark Brown across the lid.
 
 ## spring, north, big
@@ -73,7 +73,7 @@ First mark: Start with the leather straps, two short bands of Dark Brown across 
 - **Light:** Keep every edge soft and every colour pale, with no hard darks anywhere.
 - **Also:** A hyacinth in a glass vase is in full flower, every bell open.
 - **Twist:** Hide a small animal somewhere in the picture for someone else to find.
-Tin, Blue Hour Heron: PC945 Sienna Brown (for the glazed mug); PC927 Light Peach (for the lace and the raspberry-red paint); PC1008 Parma Violet (for the hyacinth in a glass vase); PC901 Indigo Blue (for the faint, soft shadows); PC916 Canary Yellow (for the misty light)
+Tin, Blue Hour Heron: PC945 Sienna Brown (for the glazed mug); PC927 Light Peach (for the lace and the raspberry-red paint); PC1008 Parma Violet (for the hyacinth in a glass vase); PC901 Indigo Blue (for the faint, soft shadows); PC938 White (for the misty light)
 First mark: Start with the inside of the rim, a thin dark band of Indigo Blue just under the top edge.
 
 ## spring, north, small
@@ -84,7 +84,7 @@ First mark: Start with the inside of the rim, a thin dark band of Indigo Blue ju
   - a hot-water bottle in a stripy cover
   - an umbrella opened out to dry
   - a teapot in a knitted tea cosy
-Tin, Mizzle Lane: PC941 Light Umber (the thread: use it in every little picture); PC1034 Goldenrod (for colour wherever it fits); PC924 Crimson Red (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Mizzle Lane: PC941 Light Umber (use a little in every picture, to tie the page together); PC1034 Goldenrod (for the second main colour); PC924 Crimson Red (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Light Umber in every picture.
 
 ## spring, north, small
@@ -95,7 +95,7 @@ First mark: Start with whichever one you like, and put a little Light Umber in e
   - a trail of crumbs across the counter (one line)
   - a chunk of sourdough with big holes
   - a cottage loaf, one round on top of another
-Tin, Ginger Biscuit: PC1034 Goldenrod (the thread: use it in every little picture); PC927 Light Peach (for colour wherever it fits); PC945 Sienna Brown (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
+Tin, Ginger Biscuit: PC1034 Goldenrod (use a little in every picture, to tie the page together); PC927 Light Peach (for the second main colour); PC945 Sienna Brown (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Goldenrod in every picture.
 
 ## spring, north, small
@@ -106,7 +106,7 @@ First mark: Start with whichever one you like, and put a little Goldenrod in eve
   - a squirrel eating the peanuts
   - a dunnock picking up crumbs underneath
   - a blue tit hanging upside down from a feeder
-Tin, Buttercup Meadow: PC946 Dark Brown (the thread: use it in every little picture); PC1003 Spanish Orange (for colour wherever it fits); PC1027 Peacock Blue (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Buttercup Meadow: PC946 Dark Brown (use a little in every picture, to tie the page together); PC1003 Spanish Orange (for the second main colour); PC1027 Peacock Blue (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Dark Brown in every picture.
 
 ## summer, north, quick
@@ -143,7 +143,7 @@ First mark: Start with the eye: a big oval of Dark Brown, with a dot of bare pap
 - **Where:** On the windowsill.
 - **When:** On a scorching hot day.
 - **Light:** Keep the sunny parts very pale, almost white, and make the shadows small and very dark.
-Tin, Washing Line: PC924 Crimson Red (for the red berry); PC927 Light Peach (for the painted sill and the glass); PC946 Dark Brown (for the small dark shadows right under things); PC916 Canary Yellow (for the sun-bleached tops of things)
+Tin, Washing Line: PC924 Crimson Red (for the red berry); PC927 Light Peach (for the painted sill and the glass); PC946 Dark Brown (for the small dark shadows right under things); PC938 White (for the sun-bleached tops of things)
 First mark: Start with the berry's outline in Crimson Red, a fat heart shape with a rounded tip.
 
 ## summer, north, evening
@@ -168,11 +168,10 @@ First mark: Start with the opening at the top of each boot, a dark oval of Indig
 - **Draw:** A bumblebee is resting with its wings folded flat.
 - **Where:** By the allotment fence.
 - **When:** On a sunny morning.
-- **Light:** Keep it light and loose, with lots of white paper and only a few firm darks.
 - **Also:** Some sweet peas have one flower fading and one bud opening.
 - **Twist:** Use only three shades of one colour: a light, a middle and a dark.
-Tin, Washing Line: PC1003 Spanish Orange (for the yellow bands); PC947 Dark Umber (for the few firm shadows); PC938 White (for the bright morning light)
-First mark: Start with the fuzz: short strokes of Dark Umber flicked outwards from the middle of the body.
+Tin, Washing Line: PC1003 Spanish Orange (for the yellow bands); PC946 Dark Brown (for the few firm shadows); PC927 Light Peach (for the bright morning light)
+First mark: Start with the fuzz: short strokes of Dark Brown flicked outwards from the middle of the body.
 
 ## summer, north, big
 - **Draw:** A swallow is stretching out one long, pointed wing.
@@ -192,7 +191,7 @@ First mark: Start with the forked tail: two long, thin strokes of Indigo Blue in
   - a toy mouse with one ear chewed off
   - an empty cat food bowl
   - two eyes watching from the top of the wardrobe
-Tin, Toast and Marmalade: PC1034 Goldenrod (the thread: use it in every little picture); PC927 Light Peach (for colour wherever it fits); PC910 True Green (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
+Tin, Toast and Marmalade: PC1034 Goldenrod (use a little in every picture, to tie the page together); PC927 Light Peach (for the second main colour); PC910 True Green (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Goldenrod in every picture.
 
 ## summer, north, small
@@ -203,7 +202,7 @@ First mark: Start with whichever one you like, and put a little Goldenrod in eve
   - a red geranium in a pot by the door
   - a milk jug with a drip down the side
   - a chocolate croissant with flaky ends
-Tin, Bramble Dusk: PC941 Light Umber (the thread: use it in every little picture); PC927 Light Peach (for colour wherever it fits); PC908 Dark Green (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
+Tin, Bramble Dusk: PC941 Light Umber (use a little in every picture, to tie the page together); PC927 Light Peach (for the second main colour); PC908 Dark Green (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Light Umber in every picture.
 
 ## summer, north, small
@@ -214,7 +213,7 @@ First mark: Start with whichever one you like, and put a little Light Umber in e
   - a stack of terracotta pots
   - a trowel stuck in a bag of compost
   - a spider's web in the corner of the window
-Tin, Faded Deckchair: PC943 Burnt Ochre (the thread: use it in every little picture); PC941 Light Umber (for colour wherever it fits); PC911 Olive Green (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Faded Deckchair: PC943 Burnt Ochre (use a little in every picture, to tie the page together); PC941 Light Umber (for the second main colour); PC911 Olive Green (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Burnt Ochre in every picture.
 
 ## autumn, north, quick
@@ -242,9 +241,8 @@ First mark: Start with the knitted pattern: two wavy lines of Dark Brown running
 - **Draw:** A slow worm is curled up in a loose figure of eight.
 - **Where:** By the allotment fence.
 - **When:** On a wet autumn day.
-- **Light:** Use muddy browns and dull oranges, then add a few sharp white highlights so the wet leaves shine.
 - **Twist:** Use only these two opposite colours, and layer one over the other for the shadows.
-Tin, Foggy Allotment: PC941 Light Umber (for the bronze scales); PC933 Violet Blue (for a spark of the opposite colour)
+Tin, Foggy Allotment: PC941 Light Umber (for the bronze scales); PC933 Violet Blue (the opposite colour: layer it over the first for the shadows)
 First mark: Start with the shine: leave a thin line of bare paper along the back and colour Light Umber either side of it.
 
 ## autumn, north, evening
@@ -301,7 +299,7 @@ First mark: Start with one stripe of Sienna Brown following the curve of the coi
   - a fat wood pigeon on the tray
   - a goldfinch with a red face and yellow wing bars
   - a dunnock picking up crumbs underneath
-Tin, Lemon Sherbet: PC946 Dark Brown (the thread: use it in every little picture); PC942 Yellow Ochre (for colour wherever it fits); PC1027 Peacock Blue (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Lemon Sherbet: PC946 Dark Brown (use a little in every picture, to tie the page together); PC942 Yellow Ochre (for the second main colour); PC1027 Peacock Blue (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Dark Brown in every picture.
 
 ## autumn, north, small
@@ -312,7 +310,7 @@ First mark: Start with whichever one you like, and put a little Dark Brown in ev
   - a limpet stuck tight to the rock
   - a hermit crab in a borrowed shell
   - a frond of pink seaweed
-Tin, Moonlit Milk Jug: PC905 Aquamarine (the thread: use it in every little picture); PC945 Sienna Brown (for colour wherever it fits); PC942 Yellow Ochre (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Moonlit Milk Jug: PC905 Aquamarine (use a little in every picture, to tie the page together); PC945 Sienna Brown (for the second main colour); PC942 Yellow Ochre (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Aquamarine in every picture.
 
 ## autumn, north, small
@@ -323,7 +321,7 @@ First mark: Start with whichever one you like, and put a little Aquamarine in ev
   - a basket full of green cooking apples
   - a song thrush in the orchard grass
   - a russet apple with rough brown skin
-Tin, Fox in Bracken: PC945 Sienna Brown (the thread: use it in every little picture); PC912 Apple Green (for colour wherever it fits); PC946 Dark Brown (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Fox in Bracken: PC945 Sienna Brown (use a little in every picture, to tie the page together); PC912 Apple Green (for the second main colour); PC946 Dark Brown (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Sienna Brown in every picture.
 
 ## winter, north, quick
@@ -374,7 +372,6 @@ First mark: Start with the black stripe behind the eye: one long, thin line of D
 - **Draw:** A jug of milk is full right up to the lip.
 - **Where:** On the stone wall.
 - **When:** On a frosty morning.
-- **Light:** Keep the shadows pale blue and leave the paper bare for the frost.
 - **Also:** A harvest mouse is nibbling a single grain of wheat.
 - **Twist:** Use only the three pencils dealt, and layer them to mix any other colours.
 Tin, Rockpool Shallows: PC1027 Peacock Blue (for the blue stripes); PC941 Light Umber (for the stacked stones and their lichen); PC943 Burnt Ochre (for the harvest mouse)
@@ -385,7 +382,6 @@ First mark: Start with the dark inside of the lip, one thin curve of Peacock Blu
 - **Draw:** A piece of sea glass is worn smooth and frosted all over.
 - **Where:** On the mantelpiece.
 - **When:** On a misty morning.
-- **Light:** Keep every edge soft and every colour pale, with no hard darks anywhere.
 - **Also:** A vase of tulips has one tulip open wide, showing its dark middle.
 - **Twist:** Use only Dark Brown and White, on tan or brown paper if you have some.
 Tin, Frosted Pane: PC946 Dark Brown (for every line and shadow); PC938 White (for the highlights on the tan paper)
@@ -399,7 +395,7 @@ First mark: Start with the thickest part, where the colour is darkest, in Dark B
 - **Light:** Use a sharp pencil point and firm edges, and keep the shadows crisp and clean.
 - **Also:** A boiled egg in an egg cup has its top cut off and yolk running down.
 - **Twist:** Make everything tiny, small enough to fit in a teacup.
-Tin, Pick Your Own: PC939 Peach (for the sandy ribs); PC914 Cream (for the white cups and their blue pattern); PC1005 Lime Peel (for the boiled egg); PC946 Dark Brown (for the crisp shadows); PC928 Blush Pink (for the bright, cold sunshine)
+Tin, Pick Your Own: PC939 Peach (for the sandy ribs); PC914 Cream (for the white cups and their blue pattern); PC1005 Lime Peel (for the boiled egg); PC946 Dark Brown (for the crisp shadows); PC927 Light Peach (for the bright, cold sunshine)
 First mark: Start at the top of the shell and draw the ribs fanning out in Peach.
 
 ## winter, north, small
@@ -410,7 +406,7 @@ First mark: Start at the top of the shell and draw the ribs fanning out in Peach
   - a jug of dried flowers and seed heads
   - a china dog with a chipped ear
   - a clementine with its peel in one piece (one line)
-Tin, Crumble and Custard: PC945 Sienna Brown (the thread: use it in every little picture); PC908 Dark Green (for colour wherever it fits); PC1034 Goldenrod (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Crumble and Custard: PC945 Sienna Brown (use a little in every picture, to tie the page together); PC908 Dark Green (for the second main colour); PC1034 Goldenrod (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Sienna Brown in every picture.
 
 ## winter, north, small
@@ -421,7 +417,7 @@ First mark: Start with whichever one you like, and put a little Sienna Brown in 
   - a row of cards with one tipped over
   - a sprig of holly tucked behind a frame
   - a china dog with a chipped ear
-Tin, Fox in Bracken: PC937 Tuscan Red (the thread: use it in every little picture); PC908 Dark Green (for colour wherever it fits); PC942 Yellow Ochre (for a little contrast); PC947 Dark Umber (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Fox in Bracken: PC937 Tuscan Red (use a little in every picture, to tie the page together); PC908 Dark Green (for the second main colour); PC942 Yellow Ochre (for small details); PC947 Dark Umber (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Tuscan Red in every picture.
 
 ## winter, north, small
@@ -432,7 +428,7 @@ First mark: Start with whichever one you like, and put a little Tuscan Red in ev
   - a bulrush with a velvety brown head
   - a male mallard with a shiny green head
   - a duck tipped up with its tail in the air
-Tin, Duck Egg Teacup: PC905 Aquamarine (the thread: use it in every little picture); PC908 Dark Green (for colour wherever it fits); PC941 Light Umber (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Duck Egg Teacup: PC905 Aquamarine (use a little in every picture, to tie the page together); PC908 Dark Green (for the second main colour); PC941 Light Umber (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Aquamarine in every picture.
 
 ## spring, south, quick
@@ -460,7 +456,7 @@ First mark: Start with the wire guards across the glass, a few curved lines of D
 - **Where:** On the mantelpiece.
 - **When:** At sunset.
 - **Light:** Colour the lit side of each thing a warm pink-orange, and add a little purple to the shadows.
-Tin, Crumble and Custard: PC1084 Ginger Root (for the chalky cream shell); PC938 White (for the mantelpiece and the tiles round the fire); PC946 Dark Brown (for the evening shadows); PC916 Canary Yellow (for the sunset light on the edges of things)
+Tin, Crumble and Custard: PC1084 Ginger Root (for the chalky cream shell); PC938 White (for the mantelpiece and the tiles round the fire); PC946 Dark Brown (for the evening shadows); PC927 Light Peach (for the sunset light on the edges of things)
 First mark: Start with the spiral line in Ginger Root, from the point down, getting wider as it goes.
 
 ## spring, south, evening
@@ -468,7 +464,7 @@ First mark: Start with the spiral line in Ginger Root, from the point down, gett
 - **Where:** Beside the old green cooker.
 - **When:** On a cold, clear morning.
 - **Light:** Use a sharp pencil point and firm edges, and keep the shadows crisp and clean.
-Tin, Seaside Rock: PC927 Light Peach (for the cream enamel); PC946 Dark Brown (for the crisp shadows); PC916 Canary Yellow (for the bright, cold sunshine)
+Tin, Seaside Rock: PC927 Light Peach (for the cream enamel); PC946 Dark Brown (for the crisp shadows); PC938 White (for the bright, cold sunshine)
 First mark: Start with the chips in the enamel, two or three ragged dots of Dark Brown.
 
 ## spring, south, evening
@@ -482,12 +478,12 @@ First mark: Start with the fuzz: short strokes of Dark Brown flicked outwards fr
 ## spring, south, big
 - **Draw:** A newt is twisting round to show its orange belly.
 - **Where:** Among the flowerpots in the garden shed.
-- **When:** By lamplight.
-- **Light:** Choose where the lamp is, keep the brightest colours right beside it and get darker as you move away.
+- **When:** At dusk.
+- **Light:** Colour everything in cool blues first, then add any lamp or lit window as a warm yellow spot.
 - **Also:** A fern is uncurling one tight green coil.
 - **Twist:** Draw the outline in one long line without lifting the pencil, then colour as usual.
-Tin, Treacle Tart: PC947 Dark Umber (for the dark warty back); PC943 Burnt Ochre (for the terracotta pots and the dark wooden walls); PC911 Olive Green (for the fern); PC937 Tuscan Red (for the dim edges away from the lamp); PC938 White (for the surfaces facing the lamp)
-First mark: Start with the crest: a jagged line of Tuscan Red running along the back.
+Tin, Wet Slate Roof: PC947 Dark Umber (for the dark warty back); PC943 Burnt Ochre (for the terracotta pots and the dark wooden walls); PC911 Olive Green (for the fern); PC901 Indigo Blue (for the deep blue shadows); PC938 White (for the last light in the sky)
+First mark: Start with the crest: a jagged line of Indigo Blue running along the back.
 
 ## spring, south, big
 - **Draw:** A peacock butterfly is resting with its wings closed, showing the dark underside.
@@ -505,7 +501,7 @@ First mark: Start with the body: one short, furry line of Dark Umber.
 - **Light:** Use clean, bright yellows for anything in the sun and keep the shadows a cool, pale green.
 - **Also:** A black cat is washing one back leg stuck up in the air.
 - **Twist:** Draw the scene inside a keyhole shape, as if you were peeping through a door.
-Tin, Washing Line: PC918 Orange (for the marmalade glowing through the glass); PC927 Light Peach (for the cream enamel and its blue rim); PC935 Black (for the black cat); PC946 Dark Brown (for the shadows under the leaves); PC916 Canary Yellow (for the brightest sunlit petals)
+Tin, Washing Line: PC918 Orange (for the marmalade glowing through the glass); PC927 Light Peach (for the cream enamel and its blue rim); PC935 Black (for the black cat); PC946 Dark Brown (for the shadows under the leaves); PC938 White (for the brightest sunlit petals)
 First mark: Start with a few strips of peel floating in the jar, short slivers of Orange pressed hard.
 
 ## spring, south, small
@@ -516,7 +512,7 @@ First mark: Start with a few strips of peel floating in the jar, short slivers o
   - a tomato-shaped pincushion full of pins
   - an old biscuit tin with roses on the lid
   - a silver thimble covered in tiny dents (one line)
-Tin, Fox in Bracken: PC924 Crimson Red (the thread: use it in every little picture); PC1084 Ginger Root (for colour wherever it fits); PC1027 Peacock Blue (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Fox in Bracken: PC924 Crimson Red (use a little in every picture, to tie the page together); PC1084 Ginger Root (for the second main colour); PC1027 Peacock Blue (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Crimson Red in every picture.
 
 ## spring, south, small
@@ -527,7 +523,7 @@ First mark: Start with whichever one you like, and put a little Crimson Red in e
   - a brown paper bag twisted shut
   - a fruit scone broken open (one line)
   - a cottage loaf, one round on top of another
-Tin, Hearth Rug: PC943 Burnt Ochre (the thread: use it in every little picture); PC927 Light Peach (for colour wherever it fits); PC941 Light Umber (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
+Tin, Hearth Rug: PC943 Burnt Ochre (use a little in every picture, to tie the page together); PC927 Light Peach (for the second main colour); PC941 Light Umber (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Burnt Ochre in every picture.
 
 ## spring, south, small
@@ -538,7 +534,7 @@ First mark: Start with whichever one you like, and put a little Burnt Ochre in e
   - a thrush's nest with four blue eggs
   - a robin carrying a dry leaf
   - a duck's nest lined with fluffy feathers (one line)
-Tin, Beach Huts: PC941 Light Umber (the thread: use it in every little picture); PC992 Light Aqua (for colour wherever it fits); PC912 Apple Green (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Beach Huts: PC941 Light Umber (use a little in every picture, to tie the page together); PC992 Light Aqua (for the second main colour); PC912 Apple Green (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Light Umber in every picture.
 
 ## summer, south, quick
@@ -583,7 +579,7 @@ First mark: Start with the tyres, two circles of Indigo Blue the same size, side
 - **Where:** In the orchard.
 - **When:** On a scorching hot day.
 - **Light:** Keep the sunny parts very pale, almost white, and make the shadows small and very dark.
-Tin, Seaside Rock: PC927 Light Peach (for the grey-blue shading in the drops); PC946 Dark Brown (for the small dark shadows right under things); PC916 Canary Yellow (for the sun-bleached tops of things)
+Tin, Seaside Rock: PC927 Light Peach (for the grey-blue shading in the drops); PC946 Dark Brown (for the small dark shadows right under things); PC938 White (for the sun-bleached tops of things)
 First mark: Start with the spokes in faint, straight lines of Light Peach, from the middle outwards.
 
 ## summer, south, big
@@ -600,7 +596,6 @@ First mark: Start with the opening: a dark curl of Dark Umber where the shell tu
 - **Draw:** A daisy chain has one yellow dandelion among the daisies.
 - **Where:** Among the geraniums in the conservatory.
 - **When:** On a rainy afternoon.
-- **Light:** Keep all the colours soft and greyish, and leave small spots of white paper for the wet shine.
 - **Also:** A tabby cat is sitting up tall with its ears pricked forward.
 - **Twist:** Use only the three pencils dealt, and layer them to mix any other colours.
 Tin, Linen Cupboard: PC911 Olive Green (for the green stems); PC912 Apple Green (for the geranium leaves and flowers); PC941 Light Umber (for the tabby cat)
@@ -625,7 +620,7 @@ First mark: Start with one blackberry: a cluster of small circles in Black, each
   - a starfish with one arm curled up
   - a see-through prawn
   - a frond of pink seaweed
-Tin, Moonlit Milk Jug: PC905 Aquamarine (the thread: use it in every little picture); PC945 Sienna Brown (for colour wherever it fits); PC942 Yellow Ochre (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Moonlit Milk Jug: PC905 Aquamarine (use a little in every picture, to tie the page together); PC945 Sienna Brown (for the second main colour); PC942 Yellow Ochre (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Aquamarine in every picture.
 
 ## summer, south, small
@@ -636,7 +631,7 @@ First mark: Start with whichever one you like, and put a little Aquamarine in ev
   - a watering can with a brass spout
   - a seed packet with sweet peas on the front
   - a pair of muddy gardening gloves
-Tin, Damp Sheep: PC943 Burnt Ochre (the thread: use it in every little picture); PC941 Light Umber (for colour wherever it fits); PC911 Olive Green (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Damp Sheep: PC943 Burnt Ochre (use a little in every picture, to tie the page together); PC941 Light Umber (for the second main colour); PC911 Olive Green (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Burnt Ochre in every picture.
 
 ## summer, south, small
@@ -647,7 +642,7 @@ First mark: Start with whichever one you like, and put a little Burnt Ochre in e
   - a moorhen with a red and yellow beak
   - a red post box by the pond
   - a white feather floating on the water
-Tin, Snowdrop Morning: PC905 Aquamarine (the thread: use it in every little picture); PC908 Dark Green (for colour wherever it fits); PC941 Light Umber (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Snowdrop Morning: PC905 Aquamarine (use a little in every picture, to tie the page together); PC908 Dark Green (for the second main colour); PC941 Light Umber (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Aquamarine in every picture.
 
 ## autumn, south, quick
@@ -691,7 +686,7 @@ First mark: Start with the weave in short, slanting rows of Light Umber, each ro
 - **Where:** In the tearoom window.
 - **When:** At sunset.
 - **Light:** Colour the lit side of each thing a warm pink-orange, and add a little purple to the shadows.
-Tin, Ginger Biscuit: PC924 Crimson Red (for the tomato soup); PC927 Light Peach (for the lace and the raspberry-red paint); PC946 Dark Brown (for the evening shadows); PC916 Canary Yellow (for the sunset light on the edges of things)
+Tin, Ginger Biscuit: PC924 Crimson Red (for the tomato soup); PC927 Light Peach (for the lace and the raspberry-red paint); PC946 Dark Brown (for the evening shadows); PC938 White (for the sunset light on the edges of things)
 First mark: Start with the inside edge of the bowl, a narrow shadow of Dark Brown along the far rim.
 
 ## autumn, south, big
@@ -708,7 +703,6 @@ First mark: Start with the shine: leave a strip of bare paper along the back, th
 - **Draw:** A sunflower head is drooping on its stalk, heavy with seeds.
 - **Where:** On the windowsill.
 - **When:** At dusk.
-- **Light:** Colour everything in cool blues first, then add any lamp or lit window as a warm yellow spot.
 - **Also:** A lemon drizzle cake has a crackly crust of white sugar.
 - **Twist:** Use only the three pencils dealt, and layer them to mix any other colours.
 Tin, Moonlit Milk Jug: PC1002 Yellowed Orange (for the yellow petals); PC927 Light Peach (for the painted sill and the glass); PC1005 Lime Peel (for the lemon drizzle cake)
@@ -732,7 +726,7 @@ First mark: Start with the outline of the top leaf in Dark Green, zigzagging fro
   - a pear with a leaf still on the stalk
   - a song thrush in the orchard grass
   - a wooden ladder propped against a branch
-Tin, Bonfire Toffee: PC924 Crimson Red (the thread: use it in every little picture); PC912 Apple Green (for colour wherever it fits); PC941 Light Umber (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Bonfire Toffee: PC924 Crimson Red (use a little in every picture, to tie the page together); PC912 Apple Green (for the second main colour); PC941 Light Umber (for small details); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Crimson Red in every picture.
 
 ## autumn, south, small
@@ -743,7 +737,7 @@ First mark: Start with whichever one you like, and put a little Crimson Red in e
   - a hermit crab in a borrowed shell
   - a limpet stuck tight to the rock
   - a starfish with one arm curled up (one line)
-Tin, Duck Egg Teacup: PC1027 Peacock Blue (the thread: use it in every little picture); PC945 Sienna Brown (for colour wherever it fits); PC942 Yellow Ochre (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Duck Egg Teacup: PC1027 Peacock Blue (use a little in every picture, to tie the page together); PC945 Sienna Brown (for the second main colour); PC942 Yellow Ochre (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Peacock Blue in every picture.
 
 ## autumn, south, small
@@ -754,7 +748,7 @@ First mark: Start with whichever one you like, and put a little Peacock Blue in 
   - a fruit scone broken open
   - a plaited loaf with a shiny top
   - a trail of crumbs across the counter
-Tin, Crumble and Custard: PC943 Burnt Ochre (the thread: use it in every little picture); PC927 Light Peach (for colour wherever it fits); PC946 Dark Brown (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
+Tin, Crumble and Custard: PC943 Burnt Ochre (use a little in every picture, to tie the page together); PC927 Light Peach (for the second main colour); PC946 Dark Brown (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Burnt Ochre in every picture.
 
 ## winter, south, quick
@@ -796,9 +790,9 @@ First mark: Start with the black stripe across the cheek in a firm line of Black
 ## winter, south, evening
 - **Draw:** A badger is dragging a bundle of dry bracken backwards.
 - **Where:** In the sand dunes.
-- **When:** In the evening sun.
-- **Light:** Colour the sunny side of each thing a warm orange and pull its shadow out long behind it.
-Tin, Conker Season: PC941 Light Umber (for the grey coat); PC942 Yellow Ochre (for the pale sand and the spiky grass); PC946 Dark Brown (for the long shadows); PC938 White (for the sunny side of each thing)
+- **When:** On a frosty morning.
+- **Light:** Keep the shadows pale blue and leave the paper bare for the frost.
+Tin, Bluebell Wood: PC941 Light Umber (for the grey coat); PC942 Yellow Ochre (for the pale sand and the spiky grass); PC901 Indigo Blue (for the blue shadows, pressed lightly); PC938 White (for the frost along the edges of things)
 First mark: Start with the body: one big rounded shape in a light layer of Light Umber.
 
 ## winter, south, big
@@ -808,17 +802,16 @@ First mark: Start with the body: one big rounded shape in a light layer of Light
 - **Light:** Leave the sunlit edges almost white and stretch the shadows right across the page.
 - **Also:** A pebble with a white stripe sits on top of two other pebbles.
 - **Twist:** Draw the picture the size of a postage stamp, with a zigzag edge all round.
-Tin, Daffodil Jug: PC914 Cream (for the cream fur); PC908 Dark Green (for the clear water and the rocks); PC941 Light Umber (for the pebble with a white stripe); PC946 Dark Brown (for the very long shadows); PC928 Blush Pink (for the dazzle where the sun hits)
+Tin, Daffodil Jug: PC914 Cream (for the cream fur); PC908 Dark Green (for the clear water and the rocks); PC941 Light Umber (for the pebble with a white stripe); PC946 Dark Brown (for the very long shadows); PC1084 Ginger Root (for the dazzle where the sun hits)
 First mark: Start with the nose: a small Y of Dark Brown just below and between the eyes.
 
 ## winter, south, big
 - **Draw:** A stag is grazing with its head down.
 - **Where:** On the riverbank.
-- **When:** In the low winter sun.
-- **Light:** Leave the sunlit edges almost white and stretch the shadows right across the page.
+- **When:** While the snow is falling.
 - **Also:** Some hazel catkins are giving off a puff of yellow pollen.
 - **Twist:** Use only warm colours, and press hard on the last layer so it shines.
-Tin, Bonfire Toffee: PC946 Dark Brown (for the red-brown coat); PC945 Sienna Brown (for the muddy bank and the slow water); PC942 Yellow Ochre (for the hazel catkins); PC935 Black (for the very long shadows); PC938 White (for the dazzle where the sun hits)
+Tin, Bonfire Toffee: PC946 Dark Brown (for the red-brown coat); PC945 Sienna Brown (for the muddy bank and the slow water); PC942 Yellow Ochre (for the hazel catkins); PC935 Black (for the few dark things the snow hasn't covered); PC938 White (for the snow on the tops of things)
 First mark: Start with the antlers: two main lines of Black, then add the branches.
 
 ## winter, south, big
@@ -839,7 +832,7 @@ First mark: Start with the outline of the body: one rounded shape in a light lin
   - a wren with its tail up on the woodpile
   - a frosty cobweb between two canes
   - a blackbird with its feathers fluffed up
-Tin, Bluebell Wood: PC1084 Ginger Root (the thread: use it in every little picture); PC911 Olive Green (for colour wherever it fits); PC938 White (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
+Tin, Bluebell Wood: PC1084 Ginger Root (use a little in every picture, to tie the page together); PC911 Olive Green (for the second main colour); PC938 White (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC927 Light Peach (for the highlights)
 First mark: Start with whichever one you like, and put a little Ginger Root in every picture.
 
 ## winter, south, small
@@ -850,7 +843,7 @@ First mark: Start with whichever one you like, and put a little Ginger Root in e
   - a snowman with a carrot nose
   - a line of bird footprints in the snow
   - a mug of hot chocolate with marshmallows
-Tin, Duck Egg Teacup: PC927 Light Peach (the thread: use it in every little picture); PC943 Burnt Ochre (for colour wherever it fits); PC939 Peach (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
+Tin, Duck Egg Teacup: PC927 Light Peach (use a little in every picture, to tie the page together); PC943 Burnt Ochre (for the second main colour); PC939 Peach (for small details); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Light Peach in every picture.
 
 ## winter, south, small
@@ -861,5 +854,5 @@ First mark: Start with whichever one you like, and put a little Light Peach in e
   - a slice of toast with honey
   - a half-done jigsaw with one piece missing
   - a stack of library books (one line)
-Tin, Linen Cupboard: PC941 Light Umber (the thread: use it in every little picture); PC1034 Goldenrod (for colour wherever it fits); PC937 Tuscan Red (for a little contrast); PC947 Dark Umber (for the shadows and the outlines); PC938 White (for the highlights)
+Tin, Linen Cupboard: PC941 Light Umber (use a little in every picture, to tie the page together); PC1034 Goldenrod (for the second main colour); PC937 Tuscan Red (for small details); PC947 Dark Umber (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Light Umber in every picture.

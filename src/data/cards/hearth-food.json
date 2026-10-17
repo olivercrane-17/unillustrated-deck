@@ -767,7 +767,7 @@
       { "t": "has brown sugar dissolving in dark streaks", "scope": "any" },
       { "t": "has a moat of cold cream round the edge", "scope": "any" },
       { "t": "has a spoon standing bolt upright", "scope": "any" },
-      { "t": "has blueberries bleeding purple into the oats", "scope": "any" }
+      { "t": "has blueberries staining it purple", "scope": "any" }
     ],
     "close": ["Just the bowl from above, with the sugar melting in dark rings.", "Only the spoon standing up in the porridge, as tall as the page."],
     "scale": "small",

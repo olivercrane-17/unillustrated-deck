@@ -143,6 +143,7 @@ h3.suit-head .suit-mark {
 .rest-card .card-title,
 .detail-figure .card-title {
   max-width: 100%;
+  -webkit-hyphens: auto;
   hyphens: auto;
   overflow-wrap: anywhere;
 }
@@ -1036,6 +1037,9 @@ p.share-wait:not(.hand) {
 :root[data-table='linen'] .photo-caption .hand,
 :root[data-table='linen'] .share-wait {
   color: var(--suit-hearth);
+}
+:root[data-table='linen'] .sheet.photo .btn-text {
+  text-decoration-color: rgba(42, 33, 28, 0.35);
 }
 :root[data-table='linen'] .suit-head .suit-mark,
 :root[data-table='linen'] .detail-suit .suit-mark {

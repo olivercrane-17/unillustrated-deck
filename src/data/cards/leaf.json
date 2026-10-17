@@ -856,7 +856,7 @@
     "the": "the rose",
     "phrases": ["a scent you lean in for", "petals like folded silk", "one thorn under a leaf"],
     "doing": [
-      { "t": "is half open, its heart still tightly furled", "scope": "any" },
+      { "t": "is only half open, with a tight centre", "scope": "any" },
       { "t": "is full blown and dropping its petals one by one", "scope": "any" },
       { "t": "has a single drop of water sitting on one petal", "scope": "any" },
       { "t": "is standing in a milk bottle, leaning to one side", "scope": "indoor" }

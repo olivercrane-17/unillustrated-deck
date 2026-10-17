@@ -115,7 +115,7 @@ function suitHeading(suit, label, tag = 'h2') {
 export async function render(root) {
   const params = new URLSearchParams(location.hash.split('?')[1] || '')
   let restOpen = params.has('rest')
-  let restSuit = DECK_SUITS.includes(params.get('rest')) ? params.get('rest') : 'all'
+  let restSuit = DECK_SUITS.includes(params.get('rest')) ? params.get('rest') : null
   let query = ''
   let disposed = false
 
@@ -145,12 +145,13 @@ export async function render(root) {
         const url = urls.get(e.card.id) || ''
         const shown = url ? e.face : e.latest
         const date = shortDate(shown.createdAt)
-        return h('li', h('a.gallery-card', {
+        const link = h('a.gallery-card', {
           href: `#/card/${encodeURIComponent(e.card.id)}`,
           'aria-label': `${e.card.title}, drawn ${longDate(shown.createdAt)}`,
-          style: { '--tilt': `${tiltOf(e.card.id)}deg` },
           onclick: () => rememberCard(e.card.id),
-        }, renderCard({ card: e.card, size: 'sm', imageUrl: url, dateText: date, drawn: !url, className: url ? 'sealed' : '' })))
+        }, renderCard({ card: e.card, size: 'sm', imageUrl: url, dateText: date, drawn: !url, className: url ? 'sealed' : '' }))
+        link.style.setProperty('--tilt', `${tiltOf(e.card.id)}deg`)
+        return h('li', link)
       })),
     )
   }
@@ -197,6 +198,7 @@ export async function render(root) {
   }
 
   function restBrowser(groups) {
+    if (!groups.some((g) => g.suit === restSuit)) restSuit = groups[0].suit
     const items = []
     const sections = groups.map((g) => {
       const list = h('ul.rest-grid', g.cards.map((card) => {
@@ -213,8 +215,18 @@ export async function render(root) {
     })
     const none = h('p.rest-none', { hidden: true }, 'Nothing by that name in the box. Try another word?')
     const chips = h('div.chips.rest-chips', { role: 'group', 'aria-label': 'Show a suit' },
-      [['all', 'All of them'], ...groups.map((g) => [g.suit, g.label])].map(([key, label]) =>
-        h('button.chip', { type: 'button', 'aria-pressed': String(restSuit === key), dataset: { suit: key }, onclick: () => { restSuit = key; apply(); saveRestState() } }, label)),
+      groups.map((g) => h('button.chip', {
+        type: 'button',
+        'aria-pressed': String(restSuit === g.suit),
+        dataset: { suit: g.suit },
+        onclick: () => {
+          restSuit = g.suit
+          query = ''
+          search.value = ''
+          apply()
+          saveRestState()
+        },
+      }, g.label)),
     )
     const search = h('input.input.rest-search', {
       type: 'search',
@@ -225,11 +237,13 @@ export async function render(root) {
       value: query,
       oninput: (e) => { query = e.target.value; apply() },
     })
+    // Typing searches every suit; otherwise one suit at a time.
     function apply() {
-      chips.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c.dataset.suit === restSuit)))
+      const searching = Boolean(query.trim())
+      chips.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(!searching && c.dataset.suit === restSuit)))
       let shown = 0
       for (const it of items) {
-        const visible = (restSuit === 'all' || it.suit === restSuit) && matchesQuery(it.card, query)
+        const visible = searching ? matchesQuery(it.card, query) : it.suit === restSuit
         it.li.hidden = !visible
         if (visible) shown += 1
       }
@@ -249,7 +263,7 @@ export async function render(root) {
 
   // Keep the stack open (and the suit chosen) when she comes back from a card.
   function saveRestState() {
-    const hash = restOpen ? `#/deck?rest${restSuit !== 'all' ? '=' + restSuit : ''}` : '#/deck'
+    const hash = restOpen ? `#/deck?rest${restSuit ? '=' + restSuit : ''}` : '#/deck'
     history.replaceState(null, '', hash)
   }
 

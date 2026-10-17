@@ -273,7 +273,7 @@ export function openSealFlow(reading, { onDone } = {}) {
     setStep(h('div.crop-step',
       h('header.crop-head',
         h('h2', { tabindex: '-1' }, 'Into the frame'),
-        h('p.crop-hint', { id: hintId }, 'Drag to move it, pinch or scroll to zoom. Arrow keys and + or − work too.'),
+        h('p.crop-hint', { id: hintId }, 'Drag to move it, pinch or scroll to zoom.', h('span.sr-only', ' Arrow keys move it, and plus or minus zoom.')),
       ),
       frameEl,
       h('div.crop-side',

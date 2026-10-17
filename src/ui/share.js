@@ -59,18 +59,42 @@ export function wrapWords(text, maxWidth, measure) {
 }
 
 /**
+ * Choose a title size and its lines: one line from `big` down to `small` if it
+ * fits, otherwise two lines, shrinking until they fit. `measureAt(size)`
+ * returns a measure function for that size.
+ */
+export function fitTitle(title, maxWidth, measureAt, { big, small, min }) {
+  const step = Math.max((big - small) / 3, 1)
+  for (let size = big; size >= small - 0.01; size -= step) {
+    const m = measureAt(size)
+    if (m(title) <= maxWidth) return { size, lines: [String(title)] }
+  }
+  let size = Math.min(big, small * 1.1)
+  let lines = []
+  while (size > min) {
+    const m = measureAt(size)
+    lines = wrapWords(title, maxWidth, m)
+    if (lines.length <= 2 && lines.every((l) => m(l) <= maxWidth)) return { size, lines }
+    size *= 0.93
+  }
+  const m = measureAt(min)
+  lines = wrapWords(title, maxWidth, m)
+  return { size: min, lines: lines.length > 2 ? [lines[0], lines.slice(1).join(' ')] : lines }
+}
+
+/**
  * Lay the card out top to bottom: label, photo, title, date, "from the deck
  * of". The photo gives way if the words need the room. Values are offsets
  * from the card's top-left corner; text values are baselines.
  */
-export function layoutShare({ cw = CARD_W, ch = CARD_H, titleLines = 1, titleSize = cw * 0.115, hasDate = true, hasFrom = false } = {}) {
+export function layoutShare({ cw = CARD_W, ch = CARD_H, titleLines = 1, titleSize = cw * 0.105, hasDate = true, hasFrom = false } = {}) {
   const labelSize = cw * 0.058
   const dateSize = cw * 0.085
   const fromSize = cw * 0.04
-  const top = cw * 0.15
-  const bottom = ch - cw * 0.15
+  const top = cw * 0.135
+  const bottom = ch - cw * 0.13
   const titleLead = titleSize * 1.06
-  const gaps = { label: cw * 0.05, photo: cw * 0.075, title: cw * 0.02, date: cw * 0.012 }
+  const gaps = { label: cw * 0.05, photo: cw * 0.07, title: cw * 0.018, date: cw * 0.012 }
   const words = labelSize * 1.1 + gaps.label + gaps.photo + titleLines * titleLead
     + (hasDate ? gaps.title + dateSize : 0) + (hasFrom ? gaps.date + fromSize * 1.3 : 0)
   const maxPhotoW = cw * 0.7
@@ -285,17 +309,13 @@ export async function renderShareCard({ card, seal, backName = '' }) {
     }
   } catch { /* the frame is enough on its own */ }
 
-  // Measure the title so the layout knows how many lines it needs
-  const maxTitleW = cw * 0.74
-  let titleSize = cw * 0.115
-  let lines = []
-  for (let i = 0; i < 8; i++) {
-    ctx.font = `700 ${titleSize}px ${t.display}`
-    spaced(ctx, titleSize * 0.06)
-    lines = wrapWords(card.title, maxTitleW, (txt) => ctx.measureText(txt).width)
-    if (lines.length <= 2 && lines.every((l) => ctx.measureText(l).width <= maxTitleW)) break
-    titleSize *= 0.92
+  // Fit the title: one line if it will go at a comfortable size, else two
+  const measureAt = (size) => {
+    ctx.font = `700 ${size}px ${t.display}`
+    spaced(ctx, size * 0.06)
+    return (txt) => ctx.measureText(txt).width
   }
+  const { size: titleSize, lines } = fitTitle(card.title, cw * 0.76, measureAt, { big: cw * 0.105, small: cw * 0.085, min: cw * 0.06 })
   const date = seal ? fullDate(seal.createdAt) : ''
   const L = layoutShare({ cw, ch, titleLines: lines.length, titleSize, hasDate: Boolean(date), hasFrom: Boolean(backName) })
 
@@ -469,10 +489,10 @@ export function openShareSheet({ card, cardId, seal } = {}) {
           }
         }
         const sharing = canShareFile(file)
-        actions.replaceChildren(
+        actions.replaceChildren(...[
           sharing ? h('button.btn.btn-gilt', { type: 'button', onclick: share }, raw(ICONS.share), 'Share') : null,
           h(sharing ? 'button.btn-text' : 'button.btn.btn-gilt', { type: 'button', onclick: save }, raw(ICONS.download), 'Save the picture'),
-        )
+        ].filter(Boolean))
         if (sheet.contains(document.activeElement) || document.activeElement === sheet.parentElement) actions.querySelector('button')?.focus()
       })
       .catch((e) => {

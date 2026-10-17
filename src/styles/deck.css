@@ -45,10 +45,14 @@
   font-weight: 700;
   color: var(--cream);
 }
+.suit-head > span:last-child {
+  white-space: nowrap;
+}
 .suit-head::before,
 .suit-head::after {
   content: '';
   flex: 0 1 72px;
+  min-width: 14px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(232, 203, 126, 0.55));
 }
@@ -116,6 +120,20 @@ h3.suit-head .suit-mark {
 .gallery-card:hover,
 .gallery-card:focus-visible {
   transform: translateY(-6px) rotate(0deg);
+}
+/* A little more room for long titles under a photo */
+.gallery-card .card-art.has-image,
+.detail-figure .card-art.has-image {
+  width: 62cqw;
+}
+.gallery-card .card-title,
+.detail-figure .card-title {
+  font-size: max(11px, 10.5cqw);
+}
+.gallery-card .card-title,
+.rest-card .card-title {
+  hyphens: auto;
+  overflow-wrap: break-word;
 }
 .gallery-card:hover .card-face,
 .gallery-card:focus-visible .card-face {
@@ -262,6 +280,9 @@ h3.suit-head .suit-mark {
   color: var(--gilt-dark);
   opacity: 0.5;
 }
+.rest-card .card-title {
+  letter-spacing: 0.03em;
+}
 .rest-card:hover,
 .rest-card:focus-visible {
   transform: translateY(-4px);
@@ -393,8 +414,8 @@ button.detail-card-btn:hover .card {
   color: var(--cream-soft);
   text-wrap: balance;
 }
-.detail-phrases .dot {
-  color: var(--gilt-mid);
+.detail-phrases span {
+  display: block;
 }
 .detail-rule {
   margin: 0;
@@ -439,6 +460,7 @@ button.detail-card-btn:hover .card {
 .history-head::after {
   content: '';
   flex: 0 1 60px;
+  min-width: 14px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(232, 203, 126, 0.55));
 }
@@ -675,9 +697,8 @@ button.detail-card-btn:hover .card {
 
 /* A drawing, big, in a sheet */
 .sheet.photo {
-  background: transparent;
-  background-image: none;
-  box-shadow: none;
+  background-color: var(--felt-deep);
+  background-image: var(--felt-nap), radial-gradient(ellipse at 50% 20%, var(--felt-raised) 0%, var(--felt) 50%, var(--felt-deep) 100%);
   color: var(--cream);
 }
 .sheet.photo .sheet-close {

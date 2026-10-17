@@ -382,3 +382,17 @@
   color: var(--cream-soft);
   max-width: 40ch;
 }
+
+/* Gold focus rings vanish on cream, so paper surfaces use a deep red ring. */
+.paper,
+.sheet {
+  --focus: var(--suit-hearth);
+}
+.sheet-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}

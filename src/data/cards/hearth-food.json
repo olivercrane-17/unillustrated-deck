@@ -34,7 +34,7 @@
     "title": "The Cinnamon Bun",
     "a": "a cinnamon bun",
     "the": "the cinnamon bun",
-    "phrases": ["a spiral of dark cinnamon", "a sticky, shiny top", "pale dough between the turns"],
+    "phrases": ["a spiral of dark cinnamon", "a sugary glazed top", "pale dough between the turns"],
     "doing": [
       { "t": "has its outer coil half unrolled", "scope": "any" },
       { "t": "is oozing sticky brown sugar", "scope": "any" },
@@ -128,7 +128,7 @@
       { "t": "has one long curl of peel trailing over the rim", "scope": "any" },
       { "t": "has one clementine rolled away from the rest", "scope": "any" }
     ],
-    "close": ["Just one clementine, drawn as big as the page.", "Only two clementines side by side, close up."],
+    "close": ["Just one clementine, drawn as big as the page.", "Only two clementines side by side, filling the page."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["autumn", "winter"],
@@ -244,7 +244,7 @@
       { "t": "has strips of toast lined up beside it", "scope": "any" },
       { "t": "has a face drawn on its shell in felt-tip", "scope": "any" }
     ],
-    "close": ["Just the egg and the egg cup, drawn big.", "Only the top of the egg and the rim of the egg cup, close up."],
+    "close": ["Just the egg and the egg cup, filling the page.", "Only the top of the egg and the rim of the egg cup, close up."],
     "scale": "tiny",
     "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -331,7 +331,7 @@
       { "t": "has steam curling up from it", "scope": "any" },
       { "t": "has a spoon resting against the rim", "scope": "any" }
     ],
-    "close": ["Just the bowl, seen from above, with the soup filling it.", "Only the soup and the rim of the bowl, close up."],
+    "close": ["Just the bowl, seen from above, with the soup filling it.", "Only one side of the bowl, close enough to see the shine on the soup."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "autumn", "winter"],
@@ -499,7 +499,7 @@
     "title": "The Bowl of Cherries",
     "a": "a bowl of cherries",
     "the": "the bowl of cherries",
-    "phrases": ["shiny dark red cherries", "green stalks joined in pairs", "a white spot of shine on each"],
+    "phrases": ["glossy dark red cherries", "green stalks joined in pairs", "a white spot of shine on each"],
     "doing": [
       { "t": "has a pair of cherries hooked over the rim", "scope": "any" },
       { "t": "has a heap of stones and stalks to one side", "scope": "any" },
@@ -557,7 +557,7 @@
     "title": "The Steak Pie",
     "a": "a steak pie",
     "the": "the steak pie",
-    "phrases": ["shiny brown pastry lid", "crimped edges all round", "rich brown gravy"],
+    "phrases": ["a browned pastry lid", "crimped edges all round", "rich brown gravy"],
     "doing": [
       { "t": "has steam puffing out of a hole in the middle", "scope": "any" },
       { "t": "has gravy bubbling out at the edges", "scope": "any" },
@@ -615,7 +615,7 @@
     "title": "The Hot Cross Bun",
     "a": "a hot cross bun",
     "the": "the hot cross bun",
-    "phrases": ["shiny brown glazed top", "a pale cross on top", "dark currants in the dough"],
+    "phrases": ["a sticky brown top", "a pale cross on top", "dark currants in the dough"],
     "doing": [
       { "t": "is split, toasted and soaking up butter", "scope": "any" },
       { "t": "has a shiny glaze across its top", "scope": "any" },
@@ -702,14 +702,14 @@
     "title": "The Toffee Apple",
     "a": "a toffee apple",
     "the": "the toffee apple",
-    "phrases": ["shiny red toffee coating", "a wooden stick", "white glints on the toffee"],
+    "phrases": ["bright red toffee coating", "a wooden stick", "white glints on the toffee"],
     "doing": [
       { "t": "has a crack running through its toffee", "scope": "any" },
       { "t": "is sitting in a puddle of set toffee", "scope": "any" },
       { "t": "has one bite out, showing the white apple", "scope": "any" },
       { "t": "has its stick poking up at an angle", "scope": "any" }
     ],
-    "close": ["Just the toffee apple, with one bright white glint on the toffee.", "Only the top of the apple and the stick, close up."],
+    "close": ["Just the toffee apple, with one bright white glint on the toffee.", "Only the stick and the top of the apple, filling the page."],
     "scale": "tiny",
     "habitats": ["tabletop", "village"],
     "seasons": ["autumn"],
@@ -796,7 +796,7 @@
       { "t": "has a spoon standing straight up in it", "scope": "any" },
       { "t": "has blueberries on top, turning it purple", "scope": "any" }
     ],
-    "close": ["Just the bowl from above, with the oats filling it.", "Only the edge of the bowl and the oats, close up."],
+    "close": ["Just the bowl from above, with the oats filling it.", "Only a corner of the bowl, close enough to see each oat."],
     "scale": "small",
     "habitats": ["tabletop"],
     "seasons": ["spring", "autumn", "winter"],

@@ -35,7 +35,7 @@ function pickTop(rng, scored, k = 3) {
   if (!top.length) return undefined
   // Only consider runners-up that are nearly as good as the best.
   const best = top[0].score
-  const close = top.filter((t) => t.score <= best + 0.06)
+  const close = top.filter((t) => t.score <= best + 0.045)
   const weights = [0.62, 0.26, 0.12]
   let total = 0
   close.forEach((_, i) => (total += weights[i]))
@@ -63,6 +63,9 @@ function moodPenalty(p, mood) {
 function anchorScore(p, anchor, mood) {
   let s = deltaE(p.lab, anchor.lab) + moodPenalty(p, mood) * 0.5
   if (anchor.lch.C < 0.035) s += 3 * Math.max(0, p.lch.C - 0.035)
+  // A pencil whose hue drifts far from the target reads as the wrong colour
+  // (an olive green for a brown cat), even when the raw distance is small.
+  else s += (hueDistance(p.lch.h, anchor.lch.h) / 90) * Math.min(anchor.lch.C, p.lch.C) * 1.5
   if (isBlack(p) && anchor.lch.L > 0.3) s += 0.5
   return s
 }

@@ -1,142 +1,142 @@
 [
   {
     "id": "twist-teacup",
-    "title": "The Teacup",
+    "title": "Everything Tiny",
     "rule": "Make everything tiny, small enough to fit in a teacup.",
-    "phrases": ["the world in miniature", "a crumb is a boulder"],
+    "phrases": ["teacup-sized", "crumbs look big"],
     "effects": { "scale": "any" }
   },
   {
     "id": "twist-from-above",
-    "title": "From Above",
-    "rule": "Look down on everything from straight overhead, the way a passing rook would see it.",
-    "phrases": ["the tops of things", "shadows pooled underneath"],
+    "title": "Seen From Above",
+    "rule": "Draw everything as if you were looking straight down on it from above.",
+    "phrases": ["the tops of things", "shadows tucked underneath"],
     "effects": { "frame": "from-above" }
   },
   {
     "id": "twist-close-enough-to-touch",
-    "title": "Close Enough to Touch",
-    "rule": "Come in so close that the subject spills off the edges of the page.",
-    "phrases": ["near enough to breathe on", "let the edges crop it"],
+    "title": "Up Close",
+    "rule": "Draw the subject so close that it runs off the edges of the page.",
+    "phrases": ["fill the whole page", "let the edges cut it off"],
     "effects": { "frame": "close-crop" }
   },
   {
     "id": "twist-lantern",
-    "title": "The Lantern",
-    "rule": "Choose a single source of light and let it decide where every shadow goes.",
-    "phrases": ["one warm pool of light", "shadows all leaning away"],
+    "title": "One Light Only",
+    "rule": "Pick one spot for the light and make every shadow fall away from it.",
+    "phrases": ["one bright side", "every shadow on the far side"],
     "effects": {}
   },
   {
     "id": "twist-moon",
-    "title": "The Moon",
-    "rule": "Use nothing but a deep blue and White, as if the moon were the only light.",
-    "phrases": ["a sky like spilt ink", "moonlight on the edges"],
+    "title": "Two Pencils: Moonlight",
+    "rule": "Use only a dark blue and White, as if the moon were the only light.",
+    "phrases": ["dark blue for the shadows", "White for the moonlight"],
     "effects": { "palette": "moon", "paper": "dark" }
   },
   {
     "id": "twist-hearthfire",
-    "title": "The Hearthfire",
-    "rule": "Use warm colours only, and burnish them until they glow like embers.",
-    "phrases": ["ember reds and toast browns", "warmed right through"],
+    "title": "Warm Colours Only",
+    "rule": "Use only warm colours, and press hard on the last layer so it shines.",
+    "phrases": ["reds, oranges, yellows and browns", "a shiny, pressed finish"],
     "effects": { "palette": "hearthfire" }
   },
   {
     "id": "twist-sepia-hour",
-    "title": "The Sepia Hour",
-    "rule": "Use only Dark Brown and White, on tan or kraft paper if you have some.",
-    "phrases": ["a photo from gran's drawer", "brown lines, pale lights"],
+    "title": "Two Pencils: Brown and White",
+    "rule": "Use only Dark Brown and White, on tan or brown paper if you have some.",
+    "phrases": ["brown for lines and shadows", "White for the highlights"],
     "effects": { "palette": "sepia", "paper": "tan" }
   },
   {
     "id": "twist-three-pencils-only",
     "title": "Three Pencils Only",
-    "rule": "Use just the three pencils dealt, and make them do all the work.",
-    "phrases": ["less is plenty", "mix by layering"],
+    "rule": "Use only the three pencils dealt, and layer them to mix any other colours.",
+    "phrases": ["just three pencils", "layer to mix colours"],
     "effects": { "palette": "three" }
   },
   {
     "id": "twist-opposites",
-    "title": "Opposites",
-    "rule": "Use the two opposite colours and nothing else, layering one over the other for the shadows.",
-    "phrases": ["orange against blue", "shadows made of both"],
+    "title": "Two Pencils: Opposite Colours",
+    "rule": "Use only these two opposite colours, and layer one over the other for the shadows.",
+    "phrases": ["like orange and blue", "shadows from layering both"],
     "effects": { "palette": "complement" }
   },
   {
     "id": "twist-postage-stamp",
-    "title": "The Postage Stamp",
-    "rule": "Shrink the picture to the size of a postage stamp, with a perforated edge all round.",
-    "phrases": ["first class to anywhere", "a scene the size of a thumbnail"],
+    "title": "Postage Stamp Size",
+    "rule": "Draw the picture the size of a postage stamp, with a zigzag edge all round.",
+    "phrases": ["about the size of your thumb", "a zigzag edge like a stamp"],
     "effects": { "frame": "postage-stamp" }
   },
   {
     "id": "twist-seen-through-glass",
-    "title": "Seen Through Glass",
-    "rule": "Put a pane of glass between you and the scene, and show it with one streak of reflection.",
-    "phrases": ["breath on the window", "a faint double of the room"],
+    "title": "Seen Through a Window",
+    "rule": "Draw the scene as if through a window, with one pale streak of reflection across the glass.",
+    "phrases": ["a window frame around it", "one white streak on the glass"],
     "effects": { "frame": "window" }
   },
   {
     "id": "twist-half-hidden",
     "title": "Half Hidden",
-    "rule": "Tuck half of the subject behind something nearer, and let the visible half tell the story.",
-    "phrases": ["one ear round the corner", "the rest left to guess"],
+    "rule": "Hide half of the subject behind something in front of it.",
+    "phrases": ["only half showing", "something in front"],
     "effects": {}
   },
   {
     "id": "twist-keyhole",
-    "title": "The Keyhole",
-    "rule": "Frame the scene inside a keyhole shape, as though you were spying from the other side of a door.",
-    "phrases": ["an eye to the lock", "only allowed a glimpse"],
+    "title": "Through a Keyhole",
+    "rule": "Draw the scene inside a keyhole shape, as if you were peeping through a door.",
+    "phrases": ["a keyhole-shaped frame", "dark all round the edge"],
     "effects": { "frame": "vignette" }
   },
   {
     "id": "twist-visitor",
-    "title": "The Visitor",
+    "title": "Hide a Small Animal",
     "rule": "Hide a small animal somewhere in the picture for someone else to find.",
-    "phrases": ["who's that in the corner", "a mouse who wasn't invited"],
+    "phrases": ["a mouse, a bird or a snail", "tucked in a corner"],
     "effects": {}
   },
   {
     "id": "twist-one-long-line",
     "title": "One Long Line",
     "rule": "Draw the outline in one long line without lifting the pencil, then colour as usual.",
-    "phrases": ["no lifting allowed", "wobbles are welcome"],
+    "phrases": ["don't lift the pencil", "wobbles are fine"],
     "effects": {}
   },
   {
     "id": "twist-left-hand-warm-up",
-    "title": "Left Hand Warm-Up",
-    "rule": "Work with the hand you don't write with for the first five minutes, then swap back.",
-    "phrases": ["wonky on purpose", "the other hand's turn"],
+    "title": "Your Other Hand First",
+    "rule": "Draw with the hand you don't write with for the first five minutes, then swap back.",
+    "phrases": ["wobbly lines are fine", "swap back after five minutes"],
     "effects": {}
   },
   {
     "id": "twist-mirror",
-    "title": "The Mirror",
-    "rule": "Bring back an old friend from your sealed cards and draw it again at a new hour.",
-    "phrases": ["same face, another light", "a card you already know"],
+    "title": "Draw It Again",
+    "rule": "Draw this subject again in its new place and light, then compare it with your first drawing.",
+    "phrases": ["a subject you've drawn before", "a new place and a new light"],
     "effects": { "requires": "seal" }
   },
   {
     "id": "twist-three-studies",
-    "title": "Three Studies",
-    "rule": "Draw the subject three times across the page, from the front, the side and the back.",
-    "phrases": ["turn it round and look again", "a naturalist's notebook page"],
+    "title": "Three Views",
+    "rule": "Draw the subject three times across the page: from the front, the side and the back.",
+    "phrases": ["front, side and back", "three small drawings in a row"],
     "effects": { "frame": "three-studies" }
   },
   {
     "id": "twist-bookmark",
-    "title": "The Bookmark",
+    "title": "Tall and Narrow",
     "rule": "Fit the picture into a tall, narrow strip the shape of a bookmark.",
-    "phrases": ["tall and narrow", "a slice through the middle"],
+    "phrases": ["three times taller than wide", "the shape of a bookmark"],
     "effects": { "frame": "tall-strip" }
   },
   {
     "id": "twist-single-skein",
-    "title": "The Single Skein",
-    "rule": "Keep to one colour family only, in a light, a middle and a dark.",
-    "phrases": ["like a jumper in one wool", "three shades of the same"],
+    "title": "One Colour Family",
+    "rule": "Use only one colour family, in a light, a middle and a dark shade.",
+    "phrases": ["light, middle and dark", "all shades of one colour"],
     "effects": { "palette": "mono" }
   }
 ]

@@ -163,7 +163,7 @@
       { "t": "is sitting up straight with its head held high", "scope": "any" },
       { "t": "is crouched low, staring at a hen", "scope": "outdoor" }
     ],
-    "close": ["Just the old dog's head, with its grey muzzle and brown eyes.", "Only the sheepdog, drawn big, with nothing behind it."],
+    "close": ["Just the old dog's head, with its grey muzzle and brown eyes.", "Only the sheepdog, from the tips of its ears down to its paws."],
     "scale": "medium",
     "habitats": ["farm", "meadow", "home", "hedgerow"],
     "seasons": ["spring", "summer", "autumn", "winter"],

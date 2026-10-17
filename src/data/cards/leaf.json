@@ -5,7 +5,7 @@
     "title": "The Conker",
     "a": "a conker",
     "the": "the conker",
-    "phrases": ["glossy chestnut brown", "a pale round patch on top", "a spiky green case"],
+    "phrases": ["glossy chestnut brown", "round, with one flat side", "a spiky green case"],
     "doing": [
       { "t": "is peeping out of its split, spiky green case", "scope": "any" },
       { "t": "is polished to a bright shine", "scope": "any" },
@@ -38,7 +38,7 @@
     "doing": [
       { "t": "has come up in a neat circle", "scope": "any" },
       { "t": "has one mushroom just outside the circle", "scope": "any" },
-      { "t": "is made of dozens of flat, pale brown caps", "scope": "any" },
+      { "t": "is made of dozens of flat caps", "scope": "any" },
       { "t": "has a gap where a few mushrooms have fallen over", "scope": "outdoor" }
     ],
     "close": ["Just the ring of mushrooms, seen from a little above so the circle shows.", "Only one mushroom from the ring, tipped up to show the gills underneath."],
@@ -535,7 +535,7 @@
     "the": "the trail of ivy",
     "phrases": ["dark green pointed leaves", "pale veins", "a long trailing stem"],
     "doing": [
-      { "t": "is trailing along in a line of leaves", "scope": "any" },
+      { "t": "is winding along in a line of pointed leaves", "scope": "any" },
       { "t": "has one long stem going off on its own", "scope": "any" },
       { "t": "is spilling over the edge of its pot", "scope": "indoor" },
       { "t": "has round green flower heads with bees on them", "scope": "outdoor", "seasons": ["autumn"] },
@@ -635,7 +635,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#8A6E4B", "#5E5A33", "#C9B48A"],
-    "accent": "#6E8A3A",
+    "accent": "#5E8A34",
     "texture": "foliage",
     "roles": {
       "main": "for the woven grass",
@@ -681,7 +681,7 @@
     "the": "the blue striped feather",
     "phrases": ["bright blue, black and white stripes", "about as long as a thumb", "fluffy grey-brown at the base"],
     "doing": [
-      { "t": "is lying flat with its blue stripes showing", "scope": "any" },
+      { "t": "is lying flat with its tip curled up", "scope": "any" },
       { "t": "is tucked into the band of an old straw hat", "scope": "any" },
       { "t": "has a ruffled edge where it has split", "scope": "any" },
       { "t": "is standing upright in a jam jar", "scope": "indoor" },
@@ -788,7 +788,7 @@
       "light": "for the milky white frosting",
       "accent": "for the bright green along the thin edges"
     },
-    "firstMark": ["Start with the thickest part, where the green is darkest, in {dark}.", "Start with an even, light layer of {main} in small circles, so the glass looks frosted rather than shiny."]
+    "firstMark": ["Start with the thickest part, where the colour is darkest, in {dark}.", "Start with an even, light layer of {main} in small circles, so the glass looks frosted rather than shiny."]
   },
   {
     "id": "leaf-driftwood",
@@ -1022,7 +1022,7 @@
       "light": "for the lighter undersides",
       "accent": "for the long brown stalk"
     },
-    "firstMark": ["Start where the leaflets meet the stalk, a star of {dark}.", "Start with the midrib of the largest leaflet in {main}, then fan out the others."]
+    "firstMark": ["Start where the leaflets meet the stalk, a star of {dark}.", "Start with the centre vein of the largest leaflet in {main}, then fan out the others."]
   },
   {
     "id": "leaf-apple-blossom",
@@ -1080,7 +1080,7 @@
       "light": "for the shine along the curve",
       "accent": "for the green round the stalk"
     },
-    "firstMark": ["Start with the dip where the stalk goes in, a curl of {dark}.", "Start with the red cheek in streaky strokes of {main} that follow the curve of the apple."]
+    "firstMark": ["Start with the dip where the stalk goes in, a curl of {dark}.", "Start with the red side in streaky strokes of {main} that follow the curve of the apple."]
   },
   {
     "id": "leaf-strawberry-plant",
@@ -1109,7 +1109,7 @@
       "light": "for the shine on the berry and the white flowers",
       "accent": "for the yellow seeds"
     },
-    "firstMark": ["Start with the seeds: a dot of {dark} beside each one, then colour round them.", "Start with the berry's outline in {main}, a fat heart shape with a rounded tip."]
+    "firstMark": ["Start with the seeds: put a dot of {dark} beside each one, then colour the red round them.", "Start with the berry's outline in {main}, a fat heart shape with a rounded tip."]
   },
   {
     "id": "leaf-pea-pod",
@@ -1235,7 +1235,7 @@
     "the": "the stem of silver seed pods",
     "phrases": ["flat, round, see-through pods", "each the size of a coin", "pale silver, thin as paper"],
     "doing": [
-      { "t": "is holding up a row of round, flat pods", "scope": "any" },
+      { "t": "has a dozen pods all along its stem", "scope": "any" },
       { "t": "has had its brown outer skins peeled off", "scope": "any" },
       { "t": "has dark seeds showing through each pod", "scope": "any" },
       { "t": "is standing in an old glass bottle", "scope": "indoor" }

@@ -1,6 +1,6 @@
 # Sample readings
 
-384 readings dealt and checked; 96 shown (48-pencil tin).
+1024 readings dealt and checked; 96 shown (48-pencil tin).
 
 ## spring, north, quick
 - **Draw:** A striped deckchair has a sunhat left on its seat.
@@ -260,7 +260,7 @@ First mark: Start with the tartan: a few crossing stripes of Dark Umber laid lig
 - **Where:** On the village green.
 - **When:** As a big orange moon rises.
 - **Light:** Make the moon the warmest, brightest thing in the picture and keep everything else darker.
-Tin, Bramble Dusk: PC1034 Goldenrod (for the orange-buff back and wings); PC910 True Green (for the mown grass and the cottages round it); PC946 Dark Brown (for the evening shadows); PC938 White (for the moon and its glow)
+Tin, Bramble Dusk: PC1034 Goldenrod (for the orange-brown back and wings); PC910 True Green (for the mown grass and the cottages round it); PC946 Dark Brown (for the evening shadows); PC938 White (for the moon and its glow)
 First mark: Start with the outline of the heart-shaped face in a faint line of Goldenrod.
 
 ## autumn, north, big

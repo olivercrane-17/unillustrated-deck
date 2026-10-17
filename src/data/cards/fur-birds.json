@@ -100,7 +100,7 @@
       { "t": "is clinging on sideways with its tail curved round", "scope": "any" },
       { "t": "is balancing with its tail held out straight", "scope": "any" },
       { "t": "is carrying a strand of cobweb in its beak", "scope": "outdoor", "seasons": ["spring"] },
-      { "t": "is huddled in a tight row with three others", "scope": "any" }
+      { "t": "is stretching up tall with its tail hanging down", "scope": "any" }
     ],
     "close": ["Just the long-tailed tit: a round body with a tail longer than the rest of it.", "Only the long-tailed tit, with the whole length of its tail on the page."],
     "scale": "tiny",
@@ -272,7 +272,7 @@
     "title": "The Barn Owl",
     "a": "a barn owl",
     "the": "the barn owl",
-    "phrases": ["a white heart-shaped face", "orange-buff back and wings", "a white front and dark eyes"],
+    "phrases": ["a white heart-shaped face", "pale orange-brown back and wings", "a white front and dark eyes"],
     "doing": [
       { "t": "is staring straight ahead with its dark eyes", "scope": "any" },
       { "t": "is tilting its face to one side", "scope": "any" },
@@ -289,7 +289,7 @@
     "accent": "#9A958F",
     "texture": "feather",
     "roles": {
-      "main": "for the orange-buff back and wings",
+      "main": "for the orange-brown back and wings",
       "dark": "for the eyes and the fine speckles",
       "light": "for the white face and underparts",
       "accent": "for the grey patches on the wings"
@@ -302,7 +302,7 @@
     "title": "The Tawny Owl",
     "a": "a tawny owl",
     "the": "the tawny owl",
-    "phrases": ["streaky brown feathers", "big black eyes", "a pale round face"],
+    "phrases": ["streaky brown feathers", "big black eyes", "a round, flat face"],
     "doing": [
       { "t": "is turning its head right round to look behind", "scope": "any" },
       { "t": "is hooting with its throat puffed out", "scope": "any" },
@@ -335,7 +335,7 @@
     "phrases": ["a big striped orange beak", "black back, white face and front", "bright orange feet"],
     "doing": [
       { "t": "is waddling along on its orange feet", "scope": "any" },
-      { "t": "is tapping beaks with another puffin", "scope": "any" },
+      { "t": "is stretching its wings out wide", "scope": "any" },
       { "t": "is standing and staring straight at you", "scope": "any" },
       { "t": "is carrying a beakful of dry grass", "scope": "outdoor", "seasons": ["spring"] },
       { "t": "is flying with its orange feet tucked back", "scope": "outdoor" }
@@ -519,7 +519,7 @@
       { "t": "is sitting still with its legs tucked in", "scope": "any" },
       { "t": "is folding its wings back under its shell", "scope": "any" },
       { "t": "is climbing to the top of a stem", "scope": "outdoor" },
-      { "t": "is huddled in a cluster with lots of others", "scope": "any", "seasons": ["autumn", "winter"] }
+      { "t": "is tucked inside a curled-up dry leaf", "scope": "any", "seasons": ["autumn", "winter"] }
     ],
     "close": ["Just the ladybird, drawn as big as a plum, with all its spots.", "Only the ladybird, seen from above, on plain paper."],
     "scale": "tiny",
@@ -603,7 +603,7 @@
     "title": "The Snail",
     "a": "a snail",
     "the": "the snail",
-    "phrases": ["a brown spiral shell", "a soft grey body", "two long eye stalks"],
+    "phrases": ["a brown spiral shell", "a shiny grey body", "two long eye stalks"],
     "doing": [
       { "t": "is stretching out its eye stalks", "scope": "any" },
       { "t": "is sliding slowly along, leaving a shiny trail", "scope": "any" },
@@ -637,7 +637,7 @@
     "doing": [
       { "t": "is resting with all four wings held out flat", "scope": "any" },
       { "t": "is turning its big round head", "scope": "any" },
-      { "t": "is hovering with its wings a blur", "scope": "outdoor" },
+      { "t": "is hovering in mid-air", "scope": "outdoor" },
       { "t": "is flying fast with its long body held straight", "scope": "outdoor" },
       { "t": "is opening out its new, crumpled wings", "scope": "outdoor", "seasons": ["spring", "summer"] }
     ],

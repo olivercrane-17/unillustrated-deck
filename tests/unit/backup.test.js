@@ -166,6 +166,42 @@ describe('backup round trip', () => {
     expect(S.state.seals.find((s) => s.id === a.id).isFace).toBe(false)
   })
 
+  it('brings back the tin’s variant answers, and only real colour corrections', async () => {
+    await S.saveTin({ owned: ['PC901', 'PC956'], preset: '48', overrides: { PC901: '#223355' }, variantAnswers: { purple: 'PC956' } })
+    const { bytes } = await B.buildBackup()
+    const copy = await B.readBackup(bytes)
+    copy.data.tin.overrides = { PC901: '#223355', PC956: 'red', PC935: '#12345', PC1034: '#abcdef', PC910: 7, PC911: '<b>#112233</b>' }
+    copy.data.tin.starred = ['PC901', 3, null]
+    await wipe()
+    await B.importBackup(null, { mode: 'replace', parsed: copy })
+    expect(S.state.tin.variantAnswers).toEqual({ purple: 'PC956' })
+    expect(S.state.tin.overrides).toEqual({ PC901: '#223355', PC1034: '#ABCDEF' })
+    expect(S.state.tin.starred).toEqual(['PC901'])
+    expect(S.state.tin.preset).toBe('48')
+    expect((await db.get('kv', 'tin')).overrides).toEqual({ PC901: '#223355', PC1034: '#ABCDEF' })
+  })
+
+  it('a tin without a preset comes back as her own, not the default set', () => {
+    expect(B.cleanTin({ owned: ['PC901'] })).toMatchObject({ owned: ['PC901'], preset: 'custom', starred: [], overrides: {}, variantAnswers: {} })
+  })
+
+  it('trying one mode and then the other uses the copy as it was read', async () => {
+    const r = await S.saveReading(fakeReading())
+    const { seal } = await S.recordDrawn(r, { image: jpeg(9), thumb: jpeg(10) })
+    const { bytes } = await B.buildBackup()
+    const copy = await B.readBackup(bytes)
+    // Here, the same card has another face, so merging keeps that one.
+    await wipe()
+    const mine = await S.saveReading(fakeReading({ cards: { who: r.cards.who } }))
+    await S.recordDrawn(mine, { image: jpeg(11), thumb: jpeg(12) })
+    await B.importBackup(null, { mode: 'merge', parsed: copy })
+    expect(S.state.seals.find((s) => s.id === seal.id).isFace).toBe(false)
+    expect(copy.data.seals[0].isFace).toBe(true)
+    await B.importBackup(null, { mode: 'replace', parsed: copy })
+    expect(S.state.seals).toHaveLength(1)
+    expect(S.state.seals[0].isFace).toBe(true)
+  })
+
   it('a copy never turns shake on by itself', async () => {
     S.setSetting('shake', true)
     S.setSetting('sound', true)
@@ -271,6 +307,8 @@ describe('backup helpers', () => {
   it('only restores settings it knows, of the right kind', () => {
     expect(B.cleanSettings({ backName: 'x'.repeat(40), sound: 'yes', hemisphere: 'east', smallCount: 4, mystery: 1 }))
       .toEqual({ backName: 'x'.repeat(24), smallCount: 4 })
+    expect(B.cleanSettings({ lastSpread: 'enormous', deals: -2 })).toEqual({})
+    expect(B.cleanSettings({ lastSpread: 'small', deals: 12 })).toEqual({ lastSpread: 'small', deals: 12 })
   })
 })
 

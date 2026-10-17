@@ -8,8 +8,8 @@ import {
 import { dealReading, SPREADS } from '../engine/reading.js'
 import { newSeed } from '../engine/rng.js'
 import { go } from './app.js'
-import { toast, openSheet, confirmSheet } from './feedback.js'
-import { shortDate, longDate, backLink } from './deck.js'
+import { toast, openSheet } from './feedback.js'
+import { shortDate, longDate, sentenceDate, backLink, pageSheets } from './deck.js'
 import { openShareSheet } from './share.js'
 
 const SUBJECT_SUITS = ['fur', 'leaf', 'hearth']
@@ -23,6 +23,7 @@ export async function render(root, { id } = {}) {
   let disposed = false
   let busy = false
   let acting = 0 // while an action repaints by itself, ignore store events
+  const sheets = pageSheets()
 
   async function paint({ focus } = {}) {
     const seals = sealsFor(card.id).slice().reverse()
@@ -41,6 +42,8 @@ export async function render(root, { id } = {}) {
       dateText: shown ? shortDate(shown.createdAt) : '',
       drawn: Boolean(shown && !faceUrl),
       className: faceUrl ? 'sealed' : '',
+      // Three phrases and a date don't fit on a card this size; they sit below it.
+      phrases: false,
     })
     const cardEl = faceUrl
       ? h('button.detail-card-btn', { type: 'button', 'aria-label': `See your drawing of ${card.the || card.title} bigger`, onclick: () => openPhoto(face) }, big)
@@ -53,8 +56,7 @@ export async function render(root, { id } = {}) {
         h('div.detail-words',
           SUIT_LABELS[suit] ? h('p.detail-suit', h('span.suit-mark', raw(EMBLEMS[suit])), SUIT_LABELS[suit]) : null,
           h('h1.detail-title', { tabindex: '-1' }, card.title),
-          // The card face shows its phrases until a photo takes their place.
-          faceUrl && card.phrases?.length ? h('p.detail-phrases', card.phrases.map((p) => h('span', p))) : null,
+          card.phrases?.length ? h('p.detail-phrases', card.phrases.map((p) => h('span', p))) : null,
           card.rule ? h('p.detail-rule', card.rule) : null,
           card.note ? h('p.detail-rule', card.note) : null,
           actions(face),
@@ -71,7 +73,7 @@ export async function render(root, { id } = {}) {
       out.push(h('button.btn.btn-gilt.detail-draw', { type: 'button', onclick: (e) => drawThis(e.currentTarget) }, raw(ICONS.pencil), 'Draw this one'))
     }
     if (face) {
-      out.push(h('button.btn.btn-ghost', { type: 'button', onclick: () => openShareSheet({ card, seal: face }) }, raw(ICONS.share), 'Share this card'))
+      out.push(h('button.btn.btn-ghost', { type: 'button', onclick: () => sheets.track(openShareSheet({ card, seal: face })) }, raw(ICONS.share), 'Share this card'))
     }
     return out.length ? h('div.detail-actions', out) : null
   }
@@ -91,7 +93,7 @@ export async function render(root, { id } = {}) {
     const isFace = Boolean(thumb) && faceSealFor(card.id)?.id === seal.id
     const when = longDate(seal.createdAt)
     const pic = thumb
-      ? h('button.history-photo', { type: 'button', 'aria-label': `See your drawing from ${when} bigger`, onclick: () => openPhoto(seal) },
+      ? h('button.history-photo', { type: 'button', 'aria-label': `See your drawing from ${sentenceDate(seal.createdAt)} bigger`, onclick: () => openPhoto(seal) },
           h('img', { src: thumb, alt: '', draggable: false }))
       : h('div.history-tick', { 'aria-hidden': 'true' }, raw(ICONS.tick))
     return h(`li.history-entry.paper.on-paper${isFace ? '.is-face' : ''}`, { id: `seal-${seal.id}`, tabindex: '-1' },
@@ -125,51 +127,60 @@ export async function render(root, { id } = {}) {
   // ---- Actions ---------------------------------------------------------------
 
   function openPhoto(seal) {
-    openSheet((close) => {
-      const img = h('img.photo-big', { alt: `Your drawing of ${card.the || card.title}, ${longDate(seal.createdAt)}`, draggable: false })
+    sheets.track(openSheet((close) => {
+      const img = h('img.photo-big', { alt: `Your drawing of ${card.the || card.title}, ${sentenceDate(seal.createdAt)}`, draggable: false })
       imageUrl(seal.imageId, 'image').then((url) => { if (url) img.src = url })
       const isFace = faceSealFor(card.id)?.id === seal.id
       return h('div.photo-sheet',
         h('div.photo-mount', img),
         h('p.photo-caption', h('span.hand', longDate(seal.createdAt)), isFace ? h('span.face-badge', 'The card’s face') : null),
         h('div.photo-actions',
-          h('button.btn.btn-paper', { type: 'button', autofocus: true, onclick: () => { close(); openShareSheet({ card, seal }) } }, raw(ICONS.share), 'Share'),
+          h('button.btn.btn-paper', { type: 'button', autofocus: true, onclick: () => { close(); sheets.track(openShareSheet({ card, seal })) } }, raw(ICONS.share), 'Share'),
           !isFace ? h('button.btn-text', { type: 'button', onclick: () => { close(); useAsFace(seal) } }, raw(ICONS.star), 'Use as the card’s face') : null,
           h('button.btn-text', { type: 'button', onclick: () => { close(); remove(seal) } }, 'Remove'),
         ),
       )
-    }, { label: `Your drawing of ${card.the || card.title}`, className: 'photo' })
+    }, { label: `Your drawing of ${card.the || card.title}`, className: 'photo' }))
   }
 
   async function useAsFace(seal) {
+    if (acting) return
     acting += 1
     try {
       await setFace(seal.id)
       toast(`${card.title} has a new face.`)
       await paint({ focus: `#seal-${CSS.escape(seal.id)}` })
+    } catch (e) {
+      console.error(e)
+      toast('That didn’t stick this time. Try again in a moment?')
     } finally {
       acting -= 1
     }
   }
 
   async function remove(seal) {
+    if (acting) return
     const others = sealsFor(card.id).filter((s) => s.id !== seal.id)
     const what = seal.imageId ? 'drawing' : 'tick'
-    const ok = await confirmSheet({
+    const ok = await sheets.confirm({
       title: seal.imageId ? 'Remove this drawing?' : 'Remove this tick?',
       body: others.length
-        ? `The ${what} from ${longDate(seal.createdAt).replace(/^(Today|Yesterday)$/, (d) => d.toLowerCase())} goes for good. ${card.title} keeps the rest.`
+        ? `The ${what} from ${sentenceDate(seal.createdAt)} goes for good. ${card.title} keeps the rest.`
         : `This is the only ${what} on ${card.title}, so the card goes back in the box. You can always draw it again.`,
       confirm: 'Remove it',
       cancel: 'Keep it',
       danger: true,
     })
-    if (!ok) return
+    if (!ok || disposed) return
     acting += 1
     try {
       await deleteSeal(seal.id)
       toast(seal.imageId ? 'Removed. The photo has gone from this device.' : 'Removed.')
       await paint({ focus: others.length ? '#history-head' : '.detail-title' })
+    } catch (e) {
+      console.error(e)
+      toast('That one wouldn’t come out of the deck. Try again in a moment?')
+      paint()
     } finally {
       acting -= 1
     }
@@ -191,7 +202,7 @@ export async function render(root, { id } = {}) {
         console.warn('Falling back to a quick doodle', e)
         await attempt('quick')
       }
-      go('')
+      if (!disposed) go('')
     } catch (e) {
       console.error(e)
       busy = false
@@ -207,6 +218,7 @@ export async function render(root, { id } = {}) {
   return () => {
     disposed = true
     off()
+    sheets.closeAll()
   }
 }
 

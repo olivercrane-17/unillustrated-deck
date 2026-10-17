@@ -63,9 +63,9 @@
     "the": "the enamel kettle",
     "phrases": ["a watched kettle never boils", "the sound of someone home", "one more brew before bed"],
     "doing": [
-      { "t": "is just beginning to sing", "scope": "any" },
+      { "t": "has a tea towel hung over its handle", "scope": "any" },
       { "t": "has a chip in its enamel the shape of Wales", "scope": "any" },
-      { "t": "is whistling fit to burst", "scope": "any" },
+      { "t": "has its lid sitting slightly askew", "scope": "any" },
       { "t": "is still warm from the last pot", "scope": "any" }
     ],
     "close": ["Just the kettle, with the light sliding round its round belly.", "Only the spout and the first curl of steam."],
@@ -208,7 +208,7 @@
     "doing": [
       { "t": "is heaped with pulled weeds", "scope": "any" },
       { "t": "is standing empty, tipped up on its nose", "scope": "any" },
-      { "t": "has a spade and a trowel rattling about in it", "scope": "any" },
+      { "t": "has a spade and a trowel laid across it", "scope": "any" },
       { "t": "has a flat tyre that nobody has got round to", "scope": "any" },
       { "t": "is piled high with marrows", "scope": "any", "seasons": ["summer", "autumn"] },
       { "t": "has a robin perched on one handle", "scope": "outdoor" }
@@ -238,7 +238,7 @@
     "doing": [
       { "t": "is leaning on its kickstand", "scope": "any" },
       { "t": "has a loaf and a bunch of flowers riding up front", "scope": "any" },
-      { "t": "has a wonky mudguard and a bell that sticks", "scope": "any" },
+      { "t": "has a sticky bell and a wonky mudguard", "scope": "any" },
       { "t": "has a flat back tyre", "scope": "any" }
     ],
     "close": ["Just the bicycle, side on, with both wheels and the basket.", "Only the handlebars and the basket, with whatever's inside spilling over."],
@@ -490,7 +490,7 @@
     "doing": [
       { "t": "has three babies dangling on long runners", "scope": "any" },
       { "t": "is leaning towards the light", "scope": "any" },
-      { "t": "has one leaf gone brown at the tip", "scope": "any" },
+      { "t": "has one leaf with a crisp brown tip", "scope": "any" },
       { "t": "is sitting in a saucer of fresh water", "scope": "any" }
     ],
     "close": ["Just the plant, with its striped leaves arching out of the pot.", "Only one runner and its baby plant, hanging down the page."],

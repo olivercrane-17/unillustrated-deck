@@ -396,3 +396,7 @@
   justify-content: center;
   margin-top: 16px;
 }
+
+:root[data-table='linen'] .btn-text {
+  text-decoration-color: rgba(42, 33, 28, 0.4);
+}

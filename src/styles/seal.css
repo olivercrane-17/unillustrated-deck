@@ -14,6 +14,13 @@
 .seal-step h2:focus {
   outline: none;
 }
+/* The headings leave room for the close button, so it takes no space of its
+   own (otherwise the framer, a grid beside the float, is squeezed off centre),
+   and it sits above .seal-flow, which is positioned and would cover it. */
+.seal-sheet .sheet-close {
+  z-index: 2;
+  margin-bottom: -36px;
+}
 .seal-flow {
   position: relative;
 }
@@ -315,7 +322,7 @@
   gap: 26px;
   padding: calc(24px + env(safe-area-inset-top)) var(--gutter) calc(24px + env(safe-area-inset-bottom));
   overflow: auto;
-  background-color: rgba(12, 21, 16, 0.95);
+  background-color: rgba(12, 21, 16, 0.97);
   background-image: radial-gradient(ellipse 60% 45% at 50% 40%, rgba(232, 203, 126, 0.16), transparent 70%);
   animation: fade-in 300ms ease;
   transition: opacity 220ms ease;
@@ -332,13 +339,6 @@
 }
 .ceremony-stage > .card {
   grid-area: 1 / 1;
-}
-/* Her whole 5:8 crop, exactly as she framed it. Same height as the usual
-   4:5 window; min-height stops the photo stretching the card. */
-.seal-ceremony .card-art.has-image {
-  width: 54cqw;
-  aspect-ratio: 5 / 8;
-  min-height: 0;
 }
 .seal-ceremony .card-lg {
   --card-w: min(76vw, 300px, calc((100dvh - 250px) * 0.625));

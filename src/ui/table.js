@@ -254,10 +254,12 @@ export async function render(root) {
     const t = reading.text
     const out = []
     if (t.opener) out.push(h('p.opener', t.opener))
-    out.push(h('p.sentence', t.sentence))
-    if (t.framing) out.push(h('p.framing', t.framing))
+    const brief = t.brief?.length ? t.brief : [{ key: 'draw', label: 'Draw', text: t.sentence }]
+    out.push(h('dl.brief', brief.map((line) => h(`div.brief-row.brief-${line.key}`,
+      h('dt', line.label),
+      h(`dd${line.key === 'draw' ? '.sentence' : ''}`, line.key === 'twist' || line.key === 'light' ? glossify(line.text) : line.text),
+    ))))
     if (reading.spread === 'small' && reading.slots) out.push(smallSlots(reading))
-    if (t.twist) out.push(h('p.twist-line', h('strong', 'Twist: '), t.twist.replace(/^Twist:\s*/, '')))
     return out
   }
 

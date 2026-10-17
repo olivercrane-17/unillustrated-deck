@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest'
 import {
   FAMILY_GROUPS, groupPencils, matchesQuery, passesFilter, countLine, canDeal, setTicked, presetNeedsConfirm,
-  variantNeedsAnswer, variantApplies, chooseVariant, ownedInOrder, toInputHex,
+  variantAnswer, variantNeedsAnswer, variantApplies, variantAnswerShows, chooseVariant, ownedInOrder, toInputHex, pickedHex,
 } from '../../src/ui/tin-helpers.js'
 import pencils from '../../src/data/pencils.json'
 import sets from '../../src/data/sets.json'
@@ -128,6 +128,24 @@ describe('which purple?', () => {
     expect(variantApplies({ preset: '150', owned: [...sets['150'].codes], variantAnswers: { purple: 'PC956' } }, purple, '48')).toBe(false)
   })
 
+  it('only counts an answer that is one of the options', () => {
+    expect(variantAnswer({ variantAnswers: { purple: 'PC956' } }, purple)).toBe('PC956')
+    expect(variantAnswer({ variantAnswers: { purple: 'PC937' } }, purple)).toBe('')
+    expect(variantAnswer({ variantAnswers: 'nonsense' }, purple)).toBe('')
+    expect(variantAnswer({}, purple)).toBe('')
+    // a junk answer from an old backup means the question is still open
+    expect(variantNeedsAnswer({ preset: '48', owned: [...sets['48'].codes], variantAnswers: { purple: '<b>' } }, purple, '48')).toBe(true)
+  })
+
+  it('shows her answer only while that pencil is still ticked', () => {
+    const lilacTin = { preset: '48', owned: chooseVariant([...sets['48'].codes], purple, 'PC956'), variantAnswers: { purple: 'PC956' } }
+    expect(variantAnswerShows(lilacTin, purple, '48')).toBe(true)
+    // she swapped Lilac for Greyed Lavender by hand: the old answer no longer describes the tin
+    const swapped = { ...lilacTin, preset: 'custom', owned: [...lilacTin.owned.filter((c) => c !== 'PC956'), 'PC1026'] }
+    expect(variantAnswerShows(swapped, purple, '48')).toBe(false)
+    expect(variantAnswerShows({ ...lilacTin, variantAnswers: {} }, purple, '48')).toBe(false)
+  })
+
   it('swaps in the chosen purple and drops the other options', () => {
     const owned = [...sets['48'].codes]
     const lilac = chooseVariant(owned, purple, 'PC956')
@@ -152,5 +170,14 @@ describe('the swatch chart and colour input', () => {
     expect(toInputHex('#823E3E')).toBe('#823e3e')
     expect(toInputHex('823e3e')).toBe('#823e3e')
     expect(toInputHex('rubbish')).toBe('#999999')
+  })
+  it('only ever saves a picked colour as #RRGGBB', () => {
+    expect(pickedHex('#a1b2c3')).toBe('#A1B2C3')
+    expect(pickedHex(' #A1B2C3 ')).toBe('#A1B2C3')
+    expect(pickedHex('a1b2c3')).toBe(null)
+    expect(pickedHex('#abc')).toBe(null)
+    expect(pickedHex('red')).toBe(null)
+    expect(pickedHex('#a1b2c3" onload="x')).toBe(null)
+    expect(pickedHex(undefined)).toBe(null)
   })
 })

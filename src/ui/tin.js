@@ -10,7 +10,7 @@ import {
 import { hexToOklab } from '../engine/color.js'
 import {
   groupPencils, matchesQuery, passesFilter, countLine, canDeal, setTicked, presetNeedsConfirm,
-  variantNeedsAnswer, variantApplies, chooseVariant, ownedInOrder, toInputHex,
+  variantAnswer, variantNeedsAnswer, variantAnswerShows, chooseVariant, ownedInOrder, toInputHex, pickedHex,
 } from './tin-helpers.js'
 
 const TRUTH = 'Screen colours are approximate. Your pencils are the truth.'
@@ -37,6 +37,12 @@ export function render(root) {
   let filter = 'all'
   let changing = null // id of a variant question she has reopened
   let closeSheet = null
+  let asking = false // a confirm sheet is open
+  let disposed = false
+  // When the question card appears or folds away, everything below it jumps.
+  // The second tap of a double tap must not land on a box or an answer.
+  let shiftedAt = 0
+  const justShifted = () => performance.now() - shiftedAt < 450
   const rows = new Map() // code -> { li, check, star, swatch, adjusted, owned, starred, hex }
   const groups = [] // { key, label, pencils, section, tickBtn, untickBtn }
   const groupOf = new Map() // code -> group
@@ -85,12 +91,13 @@ export function render(root) {
     if (r.hex !== hex) {
       r.hex = hex
       r.swatch.innerHTML = pencilSvg(hex)
-      r.adjusted.hidden = !state.tin.overrides?.[code]
+      r.adjusted.hidden = !overrideOf(code)
     }
   }
 
   // pencilHex() without its catalogue search, since this runs for every row.
-  const hexOf = (code) => state.tin.overrides?.[code] || byCode.get(code)?.hex || pencilHex(code)
+  const overrideOf = (code) => pickedHex(state.tin.overrides?.[code])
+  const hexOf = (code) => overrideOf(code) || byCode.get(code)?.hex || pencilHex(code)
   const ownedSet = () => new Set(state.tin.owned)
   const starredSet = () => new Set(state.tin.starred)
   const paintOne = (code) => paintRow(code, ownedSet(), starredSet())
@@ -188,18 +195,21 @@ export function render(root) {
   }
 
   async function choosePreset(key) {
-    if (key === state.tin.preset) return
+    if (key === state.tin.preset || asking || justShifted()) return
     changing = null
     if (presetNeedsConfirm(state.tin, key)) {
+      asking = true
       const ok = await confirmSheet(key === 'none'
         ? { title: 'Empty the tin?', body: 'This unticks every pencil, so you can start from nothing. Your stars and colour fixes stay put.', confirm: 'Empty it', cancel: 'Keep my tin' }
         : { title: `Start again from ${boxName(key)}?`, body: `Your hand-ticked tin will be swapped for ${boxName(key)}. Your stars and colour fixes stay put.`, confirm: `Use ${boxName(key)}`, cancel: 'Keep my tin' })
-      if (!ok) return
+      asking = false
+      // She may have gone back while the sheet was up: leave her tin alone then.
+      if (!ok || disposed) return
     }
     const saving = [applyPreset(key)]
     // She has already told us which purple is in this box: keep her answer.
     for (const { setKey, variant } of VARIANTS) {
-      const answer = state.tin.variantAnswers?.[variant.id]
+      const answer = variantAnswer(state.tin, variant)
       if (setKey === key && answer) saving.push(saveTin({ owned: chooseVariant(state.tin.owned, variant, answer) }))
     }
     syncAll()
@@ -211,17 +221,21 @@ export function render(root) {
   // The "which purple?" question
 
   let variantSig = ''
+  let variantModes = ''
 
   function paintVariants() {
     const parts = VARIANTS.map(({ setKey, variant }) => {
-      const answer = state.tin.variantAnswers?.[variant.id] || ''
+      const answer = variantAnswer(state.tin, variant)
       const mode = changing === variant.id || variantNeedsAnswer(state.tin, variant, setKey) ? 'ask'
-        : answer && variantApplies(state.tin, variant, setKey) ? 'answered' : 'none'
+        : variantAnswerShows(state.tin, variant, setKey) ? 'answered' : 'none'
       return { variant, answer, mode }
     })
     const sig = parts.map((p) => `${p.variant.id}:${p.mode}:${p.answer}`).join('|')
     if (sig === variantSig) return
+    const modes = parts.map((p) => p.mode).join('|')
+    if (variantModes && modes !== variantModes) shiftedAt = performance.now()
     variantSig = sig
+    variantModes = modes
     mount(variantHost, parts.map((p) => (p.mode === 'ask' ? questionCard(p.variant, p.answer) : p.mode === 'answered' ? answerLine(p.variant, p.answer) : null)))
   }
 
@@ -256,7 +270,7 @@ export function render(root) {
   function reopen(variant) {
     changing = variant.id
     paintVariants()
-    variantHost.querySelector('.tin-q-option[aria-pressed="true"], .tin-q-option')?.focus()
+    ;(variantHost.querySelector('.tin-q-option[aria-pressed="true"]') || variantHost.querySelector('.tin-q-option'))?.focus()
   }
 
   function focusAnswer(variant) {
@@ -264,8 +278,10 @@ export function render(root) {
   }
 
   function answerVariant(variant, code) {
+    if (justShifted()) return
     changing = null
-    const saving = saveTin({ owned: chooseVariant(state.tin.owned, variant, code), variantAnswers: { ...state.tin.variantAnswers, [variant.id]: code } })
+    const answers = state.tin.variantAnswers && typeof state.tin.variantAnswers === 'object' ? state.tin.variantAnswers : {}
+    const saving = saveTin({ owned: chooseVariant(state.tin.owned, variant, code), variantAnswers: { ...answers, [variant.id]: code } })
     syncAll()
     applyFilter()
     focusAnswer(variant)
@@ -277,40 +293,50 @@ export function render(root) {
 
   function openLooksOff(code) {
     const p = byCode.get(code)
-    if (!p) return
+    // One sheet at a time (a held-down Enter key clicks again and again).
+    if (!p || closeSheet) return
     let picked = toInputHex(pencilHex(code))
-    const chip = (hex) => h('span.lo-chip', { style: { backgroundColor: hex } })
+    const chip = (hex) => h('span.lo-chip', { 'aria-hidden': 'true', style: { backgroundColor: hex } })
+    const pencil = (hex) => h('span.lo-pencil', { 'aria-hidden': 'true' }, raw(pencilSvg(hex, { big: true })))
     closeSheet = openSheet((close) => {
       const yoursChip = chip(picked)
-      const yoursPencil = h('span.lo-pencil', raw(pencilSvg(picked, { big: true })))
+      const yoursPencil = pencil(picked)
       const yoursHex = h('span.lo-hex', picked.toUpperCase())
       const input = h('input.lo-input', { type: 'color', value: picked, id: 'lo-colour' })
-      input.addEventListener('input', () => {
-        picked = input.value
+      const preview = () => {
+        const hex = pickedHex(input.value)
+        if (!hex) return
+        picked = hex.toLowerCase()
         yoursChip.style.backgroundColor = picked
         yoursPencil.innerHTML = pencilSvg(picked, { big: true })
-        yoursHex.textContent = picked.toUpperCase()
-      })
-      const save = () => {
-        const same = picked.toLowerCase() === p.hex.toLowerCase()
-        setOverride(code, same ? null : picked)
+        yoursHex.textContent = hex
+      }
+      input.addEventListener('input', preview)
+      input.addEventListener('change', preview)
+      const done = (message) => {
+        synced = state.tin
         paintOne(code)
         close()
-        toast(same ? `${p.name} is back to the original.` : `Saved. ${p.name} will look like that from now on.`)
+        if (message) toast(message)
+      }
+      const save = () => {
+        const hex = pickedHex(picked)
+        if (!hex) return close()
+        const same = hex === pickedHex(p.hex)
+        setOverride(code, same ? null : hex)
+        done(same ? `${p.name} is back to the original.` : `Saved. ${p.name} will look like that from now on.`)
       }
       const reset = () => {
-        const had = Boolean(state.tin.overrides?.[code])
+        const had = Boolean(overrideOf(code))
         setOverride(code, null)
-        paintOne(code)
-        close()
-        if (had) toast(`${p.name} is back to the original.`)
+        done(had ? `${p.name} is back to the original.` : '')
       }
       return h('div.looks-off',
         h('h2', 'Looks off?'),
         h('p.lo-which', h('code', p.code), ' ', h('strong', p.name), p.discontinued ? h('span.tin-retired', ' (retired)') : null),
         h('p.lo-how', 'Swatch it on your paper, then nudge this colour until the screen looks more like the real thing.'),
         h('div.lo-compare',
-          h('figure.lo-side', chip(p.hex), h('span.lo-pencil', raw(pencilSvg(p.hex, { big: true }))),
+          h('figure.lo-side', chip(p.hex), pencil(p.hex),
             h('figcaption', h('span.lo-cap', 'The original'), h('span.lo-hex', p.hex.toUpperCase()))),
           h('figure.lo-side', yoursChip, yoursPencil, h('figcaption', h('span.lo-cap', 'Yours'), yoursHex)),
         ),
@@ -387,7 +413,7 @@ export function render(root) {
   const presetNote = h('p.tin-preset-note.hand')
   const countEl = h('p.tin-count')
   const emptyNote = h('p.tin-empty', { hidden: true })
-  const noMatch = h('p.empty-note.tin-nomatch', { hidden: true })
+  const noMatch = h('p.empty-note.tin-nomatch', { role: 'status', hidden: true })
 
   const search = h('input.input.tin-search-input', {
     type: 'search', placeholder: 'Search by name or code', 'aria-label': 'Search pencils by name or code',
@@ -467,8 +493,11 @@ export function render(root) {
   })
 
   return () => {
+    disposed = true
     off()
     closeSheet?.()
+    // confirmSheet gives no handle to close it, but every sheet closes on Escape.
+    if (asking) document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape' }))
     window.removeEventListener('beforeprint', buildPrintSheet)
     printEl.remove()
     document.body.classList.remove('has-tin-print')

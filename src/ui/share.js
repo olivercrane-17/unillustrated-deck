@@ -331,7 +331,7 @@ export async function renderShareCard({ card, seal, backName = '' }) {
     ctx.font = `600 ${L.labelSize}px ${t.display}`
     spaced(ctx, L.labelSize * 0.16)
     ctx.fillStyle = suitColour
-    ctx.fillText(label.toUpperCase(), cx, y0 + L.label)
+    ctx.fillText(label.toUpperCase(), cx, y0 + L.label, cw * 0.56)
   }
 
   // Her photo in a gilt mount, or the emblem if there isn't one
@@ -387,7 +387,7 @@ export async function renderShareCard({ card, seal, backName = '' }) {
   ctx.font = `700 ${L.titleSize}px ${t.display}`
   spaced(ctx, L.titleSize * 0.06)
   ctx.fillStyle = t.ink
-  lines.forEach((line, i) => ctx.fillText(line, cx, y0 + L.titles[i]))
+  lines.forEach((line, i) => ctx.fillText(line, cx, y0 + L.titles[i], cw * 0.76))
 
   // The date, in handwriting, a little askew
   if (date) {
@@ -401,11 +401,20 @@ export async function renderShareCard({ card, seal, backName = '' }) {
     ctx.restore()
   }
 
+  // It sits low, between the corner curls, so a long name gets a smaller hand.
   if (backName) {
-    ctx.font = `italic 400 ${L.fromSize}px ${t.body}`
+    const from = `from the deck of ${backName}`
+    const room = cw * 0.54
+    let size = L.fromSize
+    ctx.font = `italic 400 ${size}px ${t.body}`
     spaced(ctx, 0)
+    const wide = ctx.measureText(from).width
+    if (wide > room) {
+      size = Math.max(L.fromSize * 0.72, (size * room) / wide)
+      ctx.font = `italic 400 ${size}px ${t.body}`
+    }
     ctx.fillStyle = t.inkFaint
-    ctx.fillText(`from the deck of ${backName}`, cx, y0 + L.from)
+    ctx.fillText(from, cx, y0 + L.from, room)
   }
 
   // A small wordmark on the felt
@@ -482,18 +491,22 @@ export function openShareSheet({ card, cardId, seal } = {}) {
           saveFile(url, name)
           toast('Saved. It’s with your downloads.')
         }
+        let sharing = false
         const share = async () => {
+          if (sharing) return // a second tap while the system sheet opens would fail and download
+          sharing = true
           try {
             await navigator.share({ files: [file], title: c.title })
           } catch (e) {
-            if (e?.name === 'AbortError') return
-            save()
+            if (e?.name !== 'AbortError') save()
+          } finally {
+            sharing = false
           }
         }
-        const sharing = canShareFile(file)
+        const canShare = canShareFile(file)
         actions.replaceChildren(...[
-          sharing ? h('button.btn.btn-gilt', { type: 'button', onclick: share }, raw(ICONS.share), 'Share') : null,
-          h(sharing ? 'button.btn-text' : 'button.btn.btn-gilt', { type: 'button', onclick: save }, raw(ICONS.download), 'Save the picture'),
+          canShare ? h('button.btn.btn-gilt', { type: 'button', onclick: share }, raw(ICONS.share), 'Share') : null,
+          h(canShare ? 'button.btn-text' : 'button.btn.btn-gilt', { type: 'button', onclick: save }, raw(ICONS.download), 'Save the picture'),
         ].filter(Boolean))
         if (sheet.contains(document.activeElement) || document.activeElement === sheet.parentElement) actions.querySelector('button')?.focus()
       })

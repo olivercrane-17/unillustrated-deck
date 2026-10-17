@@ -8,6 +8,7 @@
 import { zipSync, unzipSync, strToU8, strFromU8 } from 'fflate'
 import { db } from './db.js'
 import { state, SCHEMA_VERSION, DEFAULT_SETTINGS, setSetting, setMeta, reloadFromDb } from './state.js'
+import { SPREADS } from '../engine/reading.js'
 import pkg from '../../package.json'
 
 export const APP_ID = 'unillustrated-deck'
@@ -71,6 +72,8 @@ const ALLOWED = {
   motion: ['auto', 'reduced'],
   table: ['felt', 'linen'],
   smallCount: [4, 6],
+  // The table deals straight from this, so an unknown spread would break it.
+  lastSpread: Object.keys(SPREADS),
 }
 
 // Only settings we know, with the same type as the default.
@@ -80,9 +83,36 @@ export function cleanSettings(settings) {
     const v = settings?.[k]
     if (v === undefined || typeof v !== typeof def) continue
     if (ALLOWED[k] && !ALLOWED[k].includes(v)) continue
+    if (k === 'deals' && !(Number.isInteger(v) && v >= 0)) continue
     out[k] = k === 'backName' ? v.slice(0, 24) : v
   }
   return out
+}
+
+const HEX = /^#[0-9a-f]{6}$/i
+
+// The tin as it goes back on the shelf: colour corrections only when they are
+// real #RRGGBB colours, starred and owned codes only when they are codes, and
+// the answers to "which of these is in your box?" kept as they were.
+export function cleanTin(tin) {
+  const overrides = {}
+  for (const [code, hex] of Object.entries(isObj(tin.overrides) ? tin.overrides : {})) {
+    if (isId(code) && typeof hex === 'string' && HEX.test(hex)) overrides[code] = hex.toUpperCase()
+  }
+  const variantAnswers = {}
+  for (const [id, code] of Object.entries(isObj(tin.variantAnswers) ? tin.variantAnswers : {})) {
+    if (isId(id) && isId(code)) variantAnswers[id] = code
+  }
+  return {
+    ...tin,
+    key: 'tin',
+    owned: tin.owned.filter(isId),
+    starred: Array.isArray(tin.starred) ? tin.starred.filter(isId) : [],
+    overrides,
+    // Without one the deck would assume its default set, which may not be hers.
+    preset: isId(tin.preset) ? tin.preset : 'custom',
+    variantAnswers,
+  }
 }
 
 const later = (a, b) => (!a ? b || null : !b ? a : String(a) > String(b) ? a : b)
@@ -145,9 +175,10 @@ export function settleFaces(seals, preferIds = new Set()) {
 }
 
 // A photo seal whose picture didn't come along becomes a tick, so the deck
-// never shows an empty frame.
+// never shows an empty frame. Always copies, so settling faces later never
+// changes the copy that was read (she may try the other mode next).
 export function dropMissingImages(seals, haveImage) {
-  return seals.map((s) => (s.imageId && !haveImage(s.imageId) ? { ...s, imageId: null, kind: 'tick', isFace: false } : s))
+  return seals.map((s) => (s.imageId && !haveImage(s.imageId) ? { ...s, imageId: null, kind: 'tick', isFace: false } : { ...s }))
 }
 
 // ---------------------------------------------------------------------------
@@ -226,7 +257,10 @@ function download(blob, filename) {
  */
 export async function saveFile(blob, filename, { fallback = false } = {}) {
   const file = typeof File === 'function' ? new File([blob], filename, { type: 'application/zip' }) : null
-  if (file && navigator.canShare?.({ files: [file] })) {
+  // The share sheet is how a phone or tablet saves to Files. On a computer it
+  // usually has no way to save at all, so a plain download is kinder there.
+  const touchFirst = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches
+  if (file && touchFirst && navigator.canShare?.({ files: [file] })) {
     try {
       await navigator.share({ files: [file], title: 'The Unillustrated Deck' })
       return 'shared'
@@ -321,7 +355,7 @@ function metaFrom(copyMeta, manifest) {
 async function replaceAll({ manifest, data, images }) {
   const seals = dropMissingImages(data.seals, (id) => images.has(id))
   settleFaces(seals)
-  const tin = data.tin ? { ...data.tin, key: 'tin' } : null
+  const tin = data.tin ? cleanTin(data.tin) : null
   const meta = metaFrom(data.meta, manifest)
   const currentId = data.readings.some((r) => r.id === data.currentId) ? data.currentId : null
   await db.batch(STORES, (store) => {

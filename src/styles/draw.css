@@ -611,3 +611,21 @@
     padding: 24px 26px 26px;
   }
 }
+
+/* The brief, a size up for reading from beside the paper. */
+.draw-brief {
+  margin-top: 6px;
+}
+.draw-brief .brief-row {
+  grid-template-columns: 5em 1fr;
+}
+.draw-brief dt {
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.draw-brief dd {
+  font-size: 20px;
+}
+.draw-brief .brief-draw dd {
+  font-size: clamp(23px, 6vw, 28px);
+}

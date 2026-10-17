@@ -456,7 +456,7 @@
     "the": "the frog",
     "phrases": ["legs folded like deckchairs", "a throat forever gulping", "a splash, then spreading rings"],
     "doing": [
-      { "t": "is sitting propped up on its front feet with its toes turned in", "scope": "any" },
+      { "t": "is sitting propped up on its front feet with its toes turned inwards", "scope": "any" },
       { "t": "is mid-jump with its back legs at full stretch", "scope": "any" },
       { "t": "is blinking at you with gold-ringed eyes", "scope": "any" },
       { "t": "is peeping out with only its eyes and nose showing", "scope": "outdoor" },

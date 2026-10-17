@@ -35,25 +35,34 @@ const HAND_TICK = `<svg class="hand-tick" viewBox="0 0 120 100" fill="none" stro
 
 // One flow at a time: a quick double tap on "I've drawn it" must not stack
 // two sheets (and two seals).
-let flowOpen = false
+let activeFlow = null
 
+// Returns a function that closes whatever the flow is showing (the sheet, the
+// framer or the ceremony). The flow also closes itself if the page changes.
+// Closed that way, onDone is not called: the caller is leaving anyway.
 export function openSealFlow(reading, { onDone } = {}) {
-  if (flowOpen) return
-  flowOpen = true
+  if (activeFlow) return () => {}
+  const flow = {}
+  activeFlow = flow
+  const startHash = location.hash
   const cardId = reading.cards.who || reading.cards.theme
   const card = content.byId.get(cardId) || { id: cardId || 'twist-card', title: 'This card' }
   let photo = null
   let busy = false
+  let saving = false
   let finished = false
   let closed = false
+  // She has moved on (the page changed, or the caller closed the flow).
+  let abandoned = false
   let stepCleanup = null
   let closeSheet = () => {}
+  let closeCeremony = null
 
   const camera = fileInput('seal-camera', true)
   const library = fileInput('seal-library', false)
   const stepHost = h('div.seal-step')
-  // The page underneath changed (the back button, say): the sheet goes with it.
-  const onRoute = () => closeSheet()
+  // The page underneath changed (the back button, say): the flow goes with it.
+  const onRoute = () => leave()
 
   openSheet((close) => {
     closeSheet = close
@@ -64,26 +73,52 @@ export function openSealFlow(reading, { onDone } = {}) {
     className: 'seal-sheet',
     onClose: () => {
       closed = true
-      window.removeEventListener('hashchange', onRoute)
+      if (location.hash !== startHash) abandoned = true
       stepCleanup?.()
       stepCleanup = null
-      if (!finished) {
-        dropPhoto()
-        flowOpen = false
-      }
+      dropPhoto()
+      // A save still in flight ends the flow itself when it settles.
+      if (!finished && !saving) end()
     },
   })
   window.addEventListener('hashchange', onRoute)
 
-  // The seal is saved by now, so whatever happens to the ceremony the caller
-  // still hears about it.
-  function celebrate(result, imageBlob) {
+  function end() {
+    window.removeEventListener('hashchange', onRoute)
+    if (activeFlow === flow) activeFlow = null
+  }
+
+  function leave() {
+    abandoned = true
+    closeSheet()
+    const c = closeCeremony
+    closeCeremony = null
+    c?.()
+    if (!saving) end()
+  }
+
+  // The seal is saved by now, so the flow ends whatever happens next.
+  function saved(result, imageBlob) {
+    finished = true
+    saving = false
+    dropPhoto()
+    closeSheet()
+    const isPhoto = result.seal.kind === 'photo'
+    if (isPhoto && state.seals.filter((s) => s.kind === 'photo').length === 1) requestPersistence()
+    if (abandoned) {
+      // She has gone elsewhere: a quiet word rather than a ceremony over another page.
+      end()
+      toast(pickLine(isPhoto ? 'sealed' : 'drawnNoPhoto', result.seal.id, card.title))
+      if (isPhoto) maybeNudgeBackup()
+      return
+    }
     const done = (r) => {
-      flowOpen = false
+      closeCeremony = null
+      end()
       onDone?.(r)
     }
     try {
-      ceremony({ ...result, card, onDone: done, imageBlob })
+      closeCeremony = ceremony({ ...result, card, onDone: done, imageBlob })
     } catch (e) {
       console.error(e)
       done(result)
@@ -183,6 +218,7 @@ export function openSealFlow(reading, { onDone } = {}) {
   async function drawnNoPhoto() {
     if (busy) return
     busy = true
+    saving = true
     setBusy('Making a note…')
     let result
     try {
@@ -190,13 +226,12 @@ export function openSealFlow(reading, { onDone } = {}) {
     } catch (e) {
       console.error(e)
       busy = false
+      saving = false
+      if (closed) return end()
       showChoice({ error: NOTE_ERROR })
       return
     }
-    finished = true
-    dropPhoto()
-    closeSheet()
-    celebrate(result)
+    saved(result)
   }
 
   // -------------------------------------------------------------------------
@@ -345,32 +380,37 @@ export function openSealFlow(reading, { onDone } = {}) {
     async function seal() {
       if (busy) return
       busy = true
+      saving = true
       // Back and "A different photo" wait too, so the photo can't change mid-seal.
       setBusy('Sealing…')
       sealBtn.textContent = 'Sealing…'
       let result
       let image
       try {
+        // Drawn straight away, so closing the sheet now can't spoil the photo.
         const out = await renderSeal(photo, view)
         // She closed the sheet while it was drawing: nothing is saved.
-        if (closed) return
+        if (closed) {
+          saving = false
+          return end()
+        }
         image = out.image
         result = await recordDrawn(reading, out)
       } catch (e) {
         console.error(e)
         busy = false
+        saving = false
+        if (closed) return end()
         setBusy('')
         sealBtn.textContent = 'Seal it'
         notes.replaceChildren(h('p.seal-error', { role: 'alert' }, SAVE_ERROR))
         return
       }
-      finished = true
-      dropPhoto()
-      closeSheet()
-      if (state.seals.filter((s) => s.kind === 'photo').length === 1) requestPersistence()
-      celebrate(result, image)
+      saved(result, image)
     }
   }
+
+  return leave
 }
 
 // ---------------------------------------------------------------------------
@@ -502,6 +542,9 @@ function ceremony({ seal, reading, card, onDone, imageBlob }) {
     dateText: handDate(seal.createdAt),
     backName: state.settings.backName,
     className: isPhoto ? 'sealed' : 'drawn-plain',
+    // Three phrases, a tick and a date don't fit on one card (a long title
+    // pushed the date off the bottom), so the card keeps to its title here.
+    phrases: false,
   })
   let tick = null
   if (!isPhoto) {
@@ -526,7 +569,7 @@ function ceremony({ seal, reading, card, onDone, imageBlob }) {
   let done = false
   let gone = false
   const finish = ({ skipped = false } = {}) => {
-    if (done) return
+    if (done || gone) return
     done = true
     if (skipped) cardEl.classList.add('is-instant')
     // A tap during the calm crossfade shows the face straight away.
@@ -559,7 +602,8 @@ function ceremony({ seal, reading, card, onDone, imageBlob }) {
     }
   }, true)
 
-  function dismiss() {
+  // `quiet`: the page is changing under it, so it just goes, without onDone.
+  function dismiss({ quiet = false } = {}) {
     if (gone) return
     gone = true
     document.removeEventListener('keydown', onKey)
@@ -567,14 +611,16 @@ function ceremony({ seal, reading, card, onDone, imageBlob }) {
       overlay.remove()
       if (imageUrl) URL.revokeObjectURL(imageUrl)
     }
-    if (reduce) remove()
+    if (reduce || quiet) remove()
     else {
       overlay.classList.add('is-leaving')
       setTimeout(remove, 240)
     }
     document.body.style.overflow = ''
-    if (previouslyFocused?.isConnected && typeof previouslyFocused.focus === 'function') previouslyFocused.focus({ preventScroll: true })
-    onDone?.({ seal, reading })
+    if (!quiet) {
+      if (previouslyFocused?.isConnected && typeof previouslyFocused.focus === 'function') previouslyFocused.focus({ preventScroll: true })
+      onDone?.({ seal, reading })
+    }
     if (isPhoto) maybeNudgeBackup()
   }
 
@@ -601,13 +647,13 @@ function ceremony({ seal, reading, card, onDone, imageBlob }) {
       return
     }
     await wait(isPhoto ? 720 : 520)
-    if (done) return
+    if (done || gone) return
     if (isPhoto) {
       cardEl.classList.add('is-lifting')
       flip(cardEl, true)
       flipSound()
       await wait(620)
-      if (done) return
+      if (done || gone) return
       cardEl.classList.add('shimmer')
       await wait(260)
     } else {
@@ -615,7 +661,13 @@ function ceremony({ seal, reading, card, onDone, imageBlob }) {
       await wait(560)
     }
     finish()
-  })()
+  })().catch((e) => {
+    // Whatever went wrong, the face and the button still appear.
+    console.error(e)
+    finish({ skipped: true })
+  })
+
+  return () => dismiss({ quiet: true })
 }
 
 function maybeNudgeBackup() {

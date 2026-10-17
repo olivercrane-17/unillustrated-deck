@@ -94,7 +94,7 @@
       { "t": "has opened every scale wide", "scope": "any" },
       { "t": "has shut itself up tight as a fist", "scope": "any" },
       { "t": "has a winged seed still caught between two scales", "scope": "any" },
-      { "t": "has had every tip dabbed with white paint", "scope": "any", "seasons": ["winter"] }
+      { "t": "has had every tip dabbed with white paint", "scope": "indoor", "seasons": ["winter"] }
     ],
     "close": ["Just the pinecone, seen from the side so the scales spiral round.", "Only the pinecone, from underneath, looking into the pattern of scales."],
     "scale": "tiny",
@@ -235,7 +235,7 @@
     "doing": [
       { "t": "are standing to attention in a tall row", "scope": "any" },
       { "t": "have a bumblebee backing out of the lowest bell", "scope": "any" },
-      { "t": "are leaning together, heavy at the top", "scope": "any" },
+      { "t": "are leaning together, top-heavy with flowers", "scope": "any" },
       { "t": "have flowered right up to the last bud", "scope": "any" }
     ],
     "close": ["Just one foxglove spire, from the lowest bell to the top bud.", "Only one bell, big enough to see the speckles inside."],
@@ -308,7 +308,7 @@
       "light": "for the white of the petals",
       "accent": "for the green mark inside each flower"
     },
-    "firstMark": ["Start with the shadow side of each petal, the lightest touch of {main}, and let the paper be the white.", "Start with the stem in {dark}, arching over at the top like a hook."]
+    "firstMark": ["Start with the shadow side of each petal, the lightest touch of {dark}, and let the paper be the white.", "Start with the stem in {dark}, arching over at the top like a hook."]
   },
   {
     "id": "leaf-bluebells",
@@ -548,7 +548,7 @@
     "doing": [
       { "t": "is furred with moss on its shady side", "scope": "any" },
       { "t": "has moss so deep you could press a thumb into it", "scope": "any" },
-      { "t": "has a snail asleep in the dip on top", "scope": "any" },
+      { "t": "has a snail asleep in a dip in the moss", "scope": "any" },
       { "t": "has moss sprouting hair-thin stalks with brown tips", "scope": "any", "seasons": ["winter", "spring"] }
     ],
     "close": ["Just the mossy stone, with the moss drawn as hundreds of short strokes.", "Only the top of the stone, where the moss is thickest."],
@@ -688,7 +688,7 @@
     "phrases": ["the sea, if you listen", "chalky outside, pearly inside"],
     "doing": [
       { "t": "is spiralled tight, its point worn blunt", "scope": "any" },
-      { "t": "is lying mouth up, with a little sand still inside", "scope": "any" },
+      { "t": "is lying mouth up, still gritty with sand", "scope": "any" },
       { "t": "has a barnacle or two stuck to its back", "scope": "any" },
       { "t": "is propped on its side so the spiral shows", "scope": "any" }
     ],
@@ -761,7 +761,7 @@
       "light": "for the milky frosting",
       "accent": "for the cast shadow, tinted green"
     },
-    "firstMark": ["Start with the thick edge, where the green is deepest, in {dark}.", "Start with an even, light layer of {main} in small circles, so the glass looks frosted rather than shiny."]
+    "firstMark": ["Start with the thick edge, where the colour is deepest, in {dark}.", "Start with an even, light layer of {main} in small circles, so the glass looks frosted rather than shiny."]
   },
   {
     "id": "leaf-driftwood",
@@ -828,7 +828,7 @@
     "the": "the bunch of lavender",
     "phrases": ["smells of clean sheets", "a sleepy sort of purple"],
     "doing": [
-      { "t": "is hanging upside down to dry", "scope": "any" },
+      { "t": "is hanging upside down to dry", "scope": "indoor" },
       { "t": "is tied round the middle with green string", "scope": "any" },
       { "t": "is shedding purple grains at the slightest touch", "scope": "any" },
       { "t": "has a bee clinging to every other spike", "scope": "outdoor", "seasons": ["summer"] }
@@ -1054,7 +1054,7 @@
     "phrases": ["pips on the outside", "hidden under the leaves", "sun-warm and sweet"],
     "doing": [
       { "t": "has one berry ripe and the rest still white", "scope": "any" },
-      { "t": "is sending out a runner with a new plantlet on the end", "scope": "any" },
+      { "t": "is sending out a runner with a new plantlet dangling from it", "scope": "any" },
       { "t": "has its best berry hidden right under the leaves", "scope": "any" },
       { "t": "has white flowers with buttery middles", "scope": "any", "seasons": ["spring"] }
     ],
@@ -1138,7 +1138,7 @@
     "doing": [
       { "t": "is a round purple globe of star-shaped flowers", "scope": "any" },
       { "t": "sits high on a stalk as straight as a knitting needle", "scope": "any" },
-      { "t": "has a hoverfly resting on one of its stars", "scope": "any" },
+      { "t": "has a hoverfly resting on one of its stars", "scope": "outdoor" },
       { "t": "is splitting out of its papery bud skin", "scope": "any", "seasons": ["spring"] },
       { "t": "has dried to a sphere the colour of string", "scope": "any", "seasons": ["autumn"] }
     ],

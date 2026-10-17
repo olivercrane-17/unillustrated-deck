@@ -91,7 +91,7 @@
     "the": "the jar of marmalade",
     "phrases": ["thick-cut, with plenty of peel", "bitter oranges, made in January", "a sunrise in a jar"],
     "doing": [
-      { "t": "has its lid off and a knife left beside it", "scope": "any" },
+      { "t": "has its lid off and a sticky knife laid across the top", "scope": "any" },
       { "t": "is glowing orange where the light comes through", "scope": "any" },
       { "t": "has a dribble running down its label", "scope": "any" },
       { "t": "has a gingham cloth tied over its lid with string", "scope": "any" }
@@ -109,7 +109,7 @@
       "light": "for the glints on the glass",
       "accent": "for the blue gingham cloth on the lid"
     },
-    "firstMark": ["Start with a few shreds of peel floating in the jar, short slivers of {dark}.", "Start with the glowing middle of the jar, one light, even patch of {main}."]
+    "firstMark": ["Start with a few shreds of peel floating in the jar, short slivers of {main} pressed hard.", "Start with the glowing middle of the jar, one light, even patch of {main}."]
   },
   {
     "id": "hearth-clementines",
@@ -121,7 +121,7 @@
     "doing": [
       { "t": "has one clementine peeled open like a star", "scope": "any" },
       { "t": "is heaped up with two still wearing their leaves", "scope": "any" },
-      { "t": "has one long curl of peel lying beside it", "scope": "any" },
+      { "t": "has one long curl of peel trailing over the rim", "scope": "any" },
       { "t": "has one clementine rolled away from the rest", "scope": "any" }
     ],
     "close": ["Just one clementine, half peeled, with its segments showing.", "Only the peeled star of skin, open on the page like a flower."],
@@ -149,7 +149,7 @@
     "doing": [
       { "t": "has three slashes split open across its top", "scope": "any" },
       { "t": "has the heel cut off and crumbs everywhere", "scope": "any" },
-      { "t": "has a bread knife resting beside it", "scope": "any" },
+      { "t": "has a bread knife lying ready", "scope": "any" },
       { "t": "is being watched by a hopeful sparrow", "scope": "outdoor" }
     ],
     "close": ["Just the loaf, with the light catching every ridge of crust.", "Only the cut end, crumb and crust, filling the page."],
@@ -345,7 +345,7 @@
     "doing": [
       { "t": "is split in half and piled high", "scope": "any" },
       { "t": "has a dollop of clotted cream sliding off the top", "scope": "any" },
-      { "t": "has a strawberry perched on top", "scope": "any" },
+      { "t": "has a strawberry perched on the cream", "scope": "any" },
       { "t": "has a robin waiting politely for crumbs", "scope": "outdoor" }
     ],
     "close": ["Just the scone, split open, with the jam and cream as tall as the bake.", "Only the top half, cream piled high, filling the page."],
@@ -459,7 +459,7 @@
       { "t": "has a feather caught among the eggs", "scope": "any" },
       { "t": "has one pale blue egg among the brown ones", "scope": "any" },
       { "t": "is lined with a checked tea towel", "scope": "any" },
-      { "t": "has a hen keeping a beady eye on it", "scope": "outdoor" }
+      { "t": "is being guarded by a beady-eyed hen", "scope": "outdoor" }
     ],
     "close": ["Just three eggs from the basket, each a different brown.", "Only the eggs, piled up, with the shadows tucked between them."],
     "scale": "small",
@@ -485,7 +485,7 @@
     "phrases": ["red to the fingertips", "a pair for each ear", "stones for counting"],
     "doing": [
       { "t": "has a pair of cherries hooked over the rim", "scope": "any" },
-      { "t": "has a heap of stones and stalks beside it", "scope": "any" },
+      { "t": "has a heap of stones and stalks to one side", "scope": "any" },
       { "t": "is shining with a highlight on every cherry", "scope": "any" },
       { "t": "has a blackbird working up its nerve", "scope": "outdoor" }
     ],
@@ -726,7 +726,7 @@
       "light": "for the sugar crust and the icing",
       "accent": "for the lemon zest"
     },
-    "firstMark": ["Start with the browned top edge of the loaf in a steady line of {dark}.", "Start with the cut face of the cake in light, even strokes of {main}, with dots of bare paper for the crumb."]
+    "firstMark": ["Start with the shadow along the base of the loaf, one steady line of {dark}.", "Start with the cut face of the cake in light, even strokes of {main}, with dots of bare paper for the crumb."]
   },
   {
     "id": "hearth-wrapped-sandwich",
@@ -766,8 +766,8 @@
     "doing": [
       { "t": "has brown sugar dissolving in dark streaks", "scope": "any" },
       { "t": "has a moat of cold cream round the edge", "scope": "any" },
-      { "t": "has a spoon standing straight up in it", "scope": "any" },
-      { "t": "has a handful of blueberries sinking in", "scope": "any" }
+      { "t": "has a spoon standing bolt upright", "scope": "any" },
+      { "t": "has blueberries bleeding purple into the oats", "scope": "any" }
     ],
     "close": ["Just the bowl from above, with the sugar melting in dark rings.", "Only the spoon standing up in the porridge, as tall as the page."],
     "scale": "small",
@@ -810,7 +810,7 @@
       "light": "for the shine on the china",
       "accent": "for the blue saucer"
     },
-    "firstMark": ["Start with the tea inside the cup, a dark oval of {dark} just below the rim.", "Start with the rim of the cup, a gentle ellipse drawn lightly in {main}."]
+    "firstMark": ["Start with the shadow the cup throws on the saucer, a small crescent of {dark}.", "Start with the rim of the cup, a gentle ellipse drawn lightly in {main}."]
   },
   {
     "id": "hearth-lemonade",

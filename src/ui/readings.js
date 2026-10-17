@@ -6,8 +6,8 @@ import { ICONS, pencilSvg } from './ornaments.js'
 import { state, content, readingsByDate, saveReading, deleteReading, imageUrl, subscribe, pencilHex, pencilCatalogue } from '../store/state.js'
 import { SPREADS } from '../engine/reading.js'
 import { go } from './app.js'
-import { confirmSheet, toast } from './feedback.js'
-import { longDate, backLink } from './deck.js'
+import { toast } from './feedback.js'
+import { longDate, backLink, pageSheets } from './deck.js'
 
 export const RECENT_LIMIT = 20
 export const STATUS_LABELS = { dealt: 'Dealt', drawing: 'Drawing', drawn: 'Drawn', sealed: 'Sealed' }
@@ -21,8 +21,16 @@ export function recentReadings(list, limit = RECENT_LIMIT) {
 export const canCarryOn = (r) => r.status === 'dealt' || r.status === 'drawing'
 export const leadCardId = (r) => r.cards?.who || r.cards?.theme || null
 
+/** A reading stays 'sealed' after its photo is removed; it is still drawn. */
+export function statusOf(r, seals = []) {
+  if (r.status === 'sealed' && !seals.some((s) => s.readingId === r.id && s.imageId)) return 'drawn'
+  return STATUS_LABELS[r.status] ? r.status : 'dealt'
+}
+
 export async function render(root) {
   let disposed = false
+  let busy = false
+  const sheets = pageSheets()
 
   async function paint({ focus } = {}) {
     const list = recentReadings(readingsByDate())
@@ -49,18 +57,18 @@ export async function render(root) {
   function entry(r, photo) {
     const cardId = leadCardId(r)
     const card = cardId && content.byId.get(cardId)
-    const status = STATUS_LABELS[r.status] || 'Dealt'
+    const status = statusOf(r, state.seals)
     const onTable = r.id === state.currentId && canCarryOn(r)
     const titleId = `reading-${r.id}`
     const others = ['where', 'when', 'also', 'twist'].map((p) => r.cards?.[p] && content.byId.get(r.cards[p])?.title).filter(Boolean)
-    return h(`li.recent-entry.paper.on-paper.status-${r.status || 'dealt'}`, { id: `entry-${r.id}`, 'aria-labelledby': titleId },
+    return h(`li.recent-entry.paper.on-paper.status-${status}`, { id: `entry-${r.id}`, 'aria-labelledby': titleId },
       card
         ? h('a.recent-card', { href: `#/card/${encodeURIComponent(card.id)}`, 'aria-label': `Open ${card.title} in your deck` },
             renderCard({ card, size: 'xs', imageUrl: photo || '', className: photo ? 'sealed' : '' }))
         : h('div.recent-card'),
       h('div.recent-words',
         h('p.recent-meta',
-          h('span.status-pill', status),
+          h('span.status-pill', STATUS_LABELS[status]),
           onTable ? h('span.on-table', 'On the table') : null,
           h('span.hand.recent-date', longDate(r.createdAt))),
         h('h2.recent-title', { id: titleId }, card?.title || 'A reading',
@@ -88,23 +96,30 @@ export async function render(root) {
   }
 
   async function carryOn(r) {
-    await saveReading(r, { makeCurrent: true })
-    go('')
+    if (busy) return
+    busy = true
+    try {
+      // The freshest copy, in case it changed since the list was drawn.
+      await saveReading(state.readings.get(r.id) || r, { makeCurrent: true })
+      if (!disposed) go('')
+    } finally {
+      busy = false
+    }
   }
 
   async function remove(r) {
     const card = content.byId.get(leadCardId(r))
-    const sealed = r.status === 'sealed' || r.status === 'drawn'
-    const ok = await confirmSheet({
+    const seal = state.seals.find((s) => s.readingId === r.id && s.imageId) || state.seals.find((s) => s.readingId === r.id)
+    const ok = await sheets.confirm({
       title: 'Delete this reading?',
-      body: sealed && card
-        ? `It goes from this list. ${card.title} stays in your deck with your drawing.`
+      body: seal && card
+        ? `It goes from this list. ${card.title} stays in your deck${seal.imageId ? ' with your drawing' : ''}.`
         : 'It goes from this list for good. The deck has plenty more ideas.',
       confirm: 'Delete it',
       cancel: 'Keep it',
       danger: true,
     })
-    if (!ok) return
+    if (!ok || disposed) return
     const list = recentReadings(readingsByDate())
     const next = list[list.findIndex((x) => x.id === r.id) + 1]
     await deleteReading(r.id)
@@ -117,5 +132,6 @@ export async function render(root) {
   return () => {
     disposed = true
     off()
+    sheets.closeAll()
   }
 }

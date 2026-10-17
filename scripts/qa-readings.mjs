@@ -50,6 +50,11 @@ function checkReading(r, ctx) {
   if (r.palette.pencils.some((p) => p.code === 'PC1077')) fail('blender dealt', r)
   if (!r.palette.pencils.length) fail('no pencils', r)
   for (const k of ['opener', 'sentence', 'framing', 'twist', 'firstMark', 'lightLine', 'paperLine', 'lonelyLine', 'smallTin']) checkText(r, k, r.text[k])
+  if (!r.text.brief?.length || r.text.brief[0].key !== 'draw') fail('brief must start with a Draw line', r)
+  for (const line of r.text.brief || []) checkText(r, `brief.${line.key}`, line.text)
+  const keys = (r.text.brief || []).map((l) => l.key)
+  const want = { quick: ['draw', 'frame'], evening: ['draw', 'where', 'when'], big: ['draw', 'where', 'when'], small: ['draw'] }[r.spread]
+  for (const k of want) if (!keys.includes(k)) fail(`brief missing ${k}`, r)
   if (r.spread !== 'small' && r.spread !== 'quick') {
     const twist = r.cards.twist && by(r.cards.twist)
     const opts = { ignoreScale: twist?.effects?.scale === 'any' }
@@ -109,10 +114,8 @@ const lines = ['# Sample readings', '', `${total} readings dealt and checked; ${
 for (const { hemi, season, spread, r } of samples) {
   lines.push(`## ${season}, ${hemi}, ${spread}`)
   if (r.text.opener) lines.push(`_${r.text.opener}_`)
-  lines.push(`**${r.text.sentence}**`)
-  if (r.slots) lines.push(r.slots.map((s) => `- ${s.text}${s.wobbly ? ' (one line)' : ''}`).join('\n'))
-  if (r.text.framing) lines.push(r.text.framing)
-  if (r.text.twist) lines.push(r.text.twist)
+  for (const line of r.text.brief) lines.push(`- **${line.label}:** ${line.text}`)
+  if (r.slots) lines.push(r.slots.map((s) => `  - ${s.text}${s.wobbly ? ' (one line)' : ''}`).join('\n'))
   lines.push(`Tin, ${r.palette.name}: ${r.palette.pencils.map((p) => `${p.code} ${nameOf.get(p.code)} (${p.role})`).join('; ')}`)
   for (const k of ['lightLine', 'paperLine', 'lonelyLine']) if (r.text[k]) lines.push(r.text[k])
   lines.push(`First mark: ${r.text.firstMark}`)

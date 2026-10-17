@@ -4,7 +4,7 @@
 import { subRng, weightedPick, pick, shuffle, hashString } from './rng.js'
 import { seasonFor, timeOfDayFor, monthName, SEASON_MOOD } from './seasons.js'
 import { usableDoings, subjectFitsPlace, whenFitsPlace, companionFits } from './compat.js'
-import { MAIN_TEMPLATES, QUICK_TEMPLATES, COMPANION_TEMPLATES, fill, tidy } from './templates.js'
+import { MAIN_TEMPLATES, QUICK_TEMPLATES, COMPANION_TEMPLATES, fill, tidy, capitalise } from './templates.js'
 import { dealPalette, refitRoles, anchorFor } from './harmony.js'
 import { applyLonely } from './lonely.js'
 
@@ -24,6 +24,7 @@ export const POSITION_LABELS = {
   theme: 'Small things',
 }
 
+const NUMBER_WORDS = { 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six' }
 const RECENT_WINDOW = 30
 const OLD_FRIEND_CHANCE = 1 / 6
 const EVENING_TWIST_CHANCE = 0.15
@@ -127,8 +128,12 @@ function pickWhen(ctx, rng, { who, where, season, exclude = [] }) {
     let w = seasonWeight(h, season)
     if (h.timeOfDay.includes(tod)) w *= 1.5
     const evening = h.timeOfDay.some((t) => t === 'dusk' || t === 'night')
+    // Mostly keep day creatures out of the dark and night creatures out of broad daylight.
+    const afterDark = h.timeOfDay.includes('night') && h.timeOfDay.every((t) => t === 'dusk' || t === 'night')
+    const broadDay = h.timeOfDay.every((t) => t === 'morning' || t === 'afternoon')
     if (who?.active === 'night' && evening) w *= 2
-    if (who?.active === 'day' && h.timeOfDay.every((t) => t === 'night')) w *= 0.3
+    if (who?.active === 'day' && afterDark) w *= 0.1
+    if (who?.active === 'night' && broadDay) w *= 0.15
     return w
   }
   return pickFresh(rng, ctx.content.whens, weightOf, ctx, 'when', exclude)
@@ -279,12 +284,16 @@ export function renderText(reading, ctx) {
   const mainP = pencils.find((p) => p.slot === 'main' || p.slot === 'a0') || pencils[0]
   const darkP = pencils.find((p) => p.slot === 'dark') || darkest || mainP
   const twist = reading.cards.twist && byId.get(reading.cards.twist)
-  const text = { opener: '', sentence: '', framing: '', twist: '', firstMark: '', lightLine: '', paperLine: '', lonelyLine: reading.text?.lonelyLine || '', smallTin: '' }
+  const text = { opener: '', brief: [], sentence: '', framing: '', twist: '', firstMark: '', lightLine: '', paperLine: '', lonelyLine: reading.text?.lonelyLine || '', smallTin: '' }
 
+  // The brief: short labelled lines she can scan from beside the paper.
+  const brief = []
   if (reading.spread === 'small') {
     const theme = byId.get(reading.cards.theme)
+    const count = NUMBER_WORDS[reading.slots?.length] || String(reading.slots?.length || '')
+    brief.push({ key: 'draw', label: 'Draw', text: `${count} small things ${theme.of}.` })
     text.sentence = `Small things ${theme.of}.`
-    text.firstMark = mainP ? `Start with the one that tugs at you, and put a little ${pencilName(mainP.code)} in every picture.` : ''
+    text.firstMark = mainP ? `Start with whichever one you like, and put a little ${pencilName(mainP.code)} in every picture.` : ''
   } else {
     const who = byId.get(reading.cards.who)
     const where = reading.cards.where && byId.get(reading.cards.where)
@@ -296,18 +305,22 @@ export function renderText(reading, ctx) {
       const openers = lines?.oldFriend?.length ? lines.oldFriend : ['An old friend: your {name} from {month}.']
       text.opener = fill(openers[reading.picks.opener % openers.length], { name: nameOf(who), month: reading.oldFriend.month })
     }
+    const draw = tidy(fill(QUICK_TEMPLATES[0].t, { subject, doing: doing.t }))
+    brief.push({ key: 'draw', label: 'Draw', text: draw })
     if (reading.spread === 'quick') {
-      text.sentence = tidy(fill(QUICK_TEMPLATES[0].t, { subject, doing: doing.t }))
       text.framing = who.close[reading.picks.close % who.close.length]
+      brief.push({ key: 'frame', label: 'Frame', text: text.framing })
+      text.sentence = draw
     } else {
-      const tpl = MAIN_TEMPLATES.find((t) => t.id === reading.picks.template) || MAIN_TEMPLATES[0]
-      let s = fill(tpl.t, { subject, doing: doing.t, at: where.at, when: when.when })
+      brief.push({ key: 'where', label: 'Where', text: `${capitalise(where.at)}.` })
+      brief.push({ key: 'when', label: 'When', text: `${capitalise(when.when)}.` })
+      if (when.light) brief.push({ key: 'light', label: 'Light', text: when.light })
+      let s = fill(MAIN_TEMPLATES[0].t, { subject, doing: doing.t, at: where.at, when: when.when })
       if (also) {
-        const ct = COMPANION_TEMPLATES[reading.picks.companionTemplate % COMPANION_TEMPLATES.length]
         const ad = also.doing[reading.picks.alsoDoing] || also.doing[0]
-        s += ' ' + fill(ct.t, { alsoA: also.a, alsoDoing: ad.t })
+        brief.push({ key: 'also', label: 'Also', text: tidy(fill('{AlsoA} {alsoDoing}.', { alsoA: also.a, alsoDoing: ad.t })) })
+        s += ' ' + fill(COMPANION_TEMPLATES[0].t, { alsoA: also.a, alsoDoing: ad.t })
       }
-      if (reading.picks.note && when.note) s += ' ' + when.note
       text.sentence = tidy(s)
     }
     const marks = who.firstMark
@@ -316,6 +329,8 @@ export function renderText(reading, ctx) {
       main: pencilName(mainP?.code),
     })
   }
+  if (twist) brief.push({ key: 'twist', label: 'Twist', text: twist.rule })
+  text.brief = brief
   if (twist) text.twist = `Twist: ${twist.rule}`
   if (reading.palette.bareLights && reading.palette.rule !== 'two' && reading.palette.rule !== 'complement') {
     text.lightLine = 'Leave the paper bare for the lights.'

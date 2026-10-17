@@ -400,8 +400,15 @@ function safePanel(disposedRef) {
     const when = manifest.exportedAt ? friendlyDate(manifest.exportedAt) : ''
     const summary = `${when ? `Saved ${when === 'Today' || when === 'Yesterday' ? when.toLowerCase() : `on ${when}`}, with` : 'It holds'} ${listJoin(parts)}.`
 
+    // Drawings made here since the copy, which Replace would take away.
+    const inCopy = new Set(data.seals.map((s) => s.id))
+    const lost = state.seals.filter((s) => s.imageId && !inCopy.has(s.id)).length
+    let replaceAsked = false
+
     let open = true
     openSheet((close) => {
+      // The page underneath going away (the back button, say) takes the sheet with it.
+      disposedRef.closeSheet = close
       let busy = false
       const note = h('p.restore-note', { role: 'status', 'aria-live': 'polite' })
       const option = (mode, title, text) => h(`button.restore-option.${mode}`, { type: 'button', onclick: () => go(mode) },
@@ -411,6 +418,12 @@ function safePanel(disposedRef) {
       const notNow = h('button.btn-text', { type: 'button', autofocus: true, onclick: close }, 'Not now')
       async function go(mode) {
         if (busy) return
+        if (mode === 'replace' && lost && !replaceAsked) {
+          replaceAsked = true
+          const them = lost === 1 ? 'it' : 'them'
+          note.textContent = `${lost === 1 ? 'One drawing on this device isn’t' : `${lost} drawings on this device aren’t`} in the copy, so Replace would remove ${them}. Tap Replace again if that’s all right, or choose Merge to keep ${them}.`
+          return
+        }
         busy = true
         merge.disabled = replace.disabled = notNow.disabled = true
         note.textContent = mode === 'merge' ? 'Merging…' : 'Restoring…'
@@ -425,7 +438,10 @@ function safePanel(disposedRef) {
           const message = e instanceof BackupError ? e.message : 'Something went wrong, so nothing has changed.'
           note.textContent = message
           // If the sheet was closed while it worked, say so on the page instead.
-          if (!open && !disposedRef.disposed) say(message, 'bad')
+          if (!open) {
+            if (disposedRef.disposed) toast(message)
+            else say(message, 'bad')
+          }
           busy = false
           merge.disabled = replace.disabled = notNow.disabled = false
           if (open) (mode === 'merge' ? merge : replace).focus()
@@ -438,7 +454,14 @@ function safePanel(disposedRef) {
         note,
         h('div.sheet-actions', notNow),
       )
-    }, { label: 'Restore from a copy', className: 'restore', onClose: () => { open = false } })
+    }, {
+      label: 'Restore from a copy',
+      className: 'restore',
+      onClose: () => {
+        open = false
+        disposedRef.closeSheet = null
+      },
+    })
   }
 
   const warn = state.storageOk ? null : h('p.safe-warn', 'Right now this browser isn’t letting the deck save anything (private browsing can do that), so readings will vanish when the tab closes.')
@@ -509,6 +532,7 @@ export function render(root) {
 
   return () => {
     disposedRef.disposed = true
+    disposedRef.closeSheet?.()
     off()
     cleanups.splice(0).forEach((fn) => fn())
   }

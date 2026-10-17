@@ -33,6 +33,7 @@ export function openSheet(build, { label = 'Dialog', className = '', onClose } =
     if (closed) return
     closed = true
     document.removeEventListener('keydown', onKey)
+    window.removeEventListener('hashchange', close)
     backdrop.remove()
     document.body.style.overflow = ''
     onClose?.()
@@ -58,6 +59,8 @@ export function openSheet(build, { label = 'Dialog', className = '', onClose } =
     if (e.key === 'Tab') trapFocus(e, sheet)
   }
   document.addEventListener('keydown', onKey)
+  // A sheet belongs to the page it opened on: leaving the page closes it.
+  window.addEventListener('hashchange', close)
   document.body.appendChild(backdrop)
   document.body.style.overflow = 'hidden'
   requestAnimationFrame(() => {

@@ -25,7 +25,7 @@
     "frames": ["close-crop", "tall-strip", "thirds"],
     "colours": ["#D9CBA6", "#8A5A3C"],
     "role": "for the cream shelf and the jars of chutney",
-    "excludes": ["fur-goldfish", "hearth-teapot-cosy", "hearth-toast-and-jam", "hearth-victoria-sponge", "hearth-pancakes", "hearth-boiled-egg", "hearth-cocoa", "hearth-tomato-soup", "hearth-cream-tea", "hearth-cheese-board", "hearth-porridge", "hearth-cup-of-tea", "hearth-library-books", "hearth-knitting", "hearth-watering-can", "hearth-sewing-tin", "hearth-postcard", "hearth-spider-plant", "hearth-tulips", "hearth-snow-globe", "hearth-fairy-lights", "hearth-alarm-clock", "leaf-conker", "leaf-pinecone", "leaf-striped-pebble", "leaf-snowdrops", "leaf-acorn", "leaf-oak-leaf", "leaf-ivy", "leaf-lichen-twig", "leaf-jay-feather", "leaf-whelk-shell", "leaf-cockle-shell", "leaf-sea-glass", "leaf-driftwood", "leaf-rose", "leaf-sweet-peas", "leaf-catkins", "leaf-horse-chestnut-leaf", "leaf-apple-blossom", "leaf-allium", "leaf-daisy-chain", "leaf-honesty", "leaf-hyacinth"]
+    "excludes": ["fur-goldfish", "hearth-teapot-cosy", "hearth-toast-and-jam", "hearth-victoria-sponge", "hearth-pancakes", "hearth-boiled-egg", "hearth-cocoa", "hearth-tomato-soup", "hearth-cream-tea", "hearth-cheese-board", "hearth-porridge", "hearth-cup-of-tea", "hearth-library-books", "hearth-knitting", "hearth-watering-can", "hearth-sewing-tin", "hearth-postcard", "hearth-spider-plant", "hearth-tulips", "hearth-snow-globe", "hearth-fairy-lights", "hearth-alarm-clock", "leaf-conker", "leaf-pinecone", "leaf-striped-pebble", "leaf-snowdrops", "leaf-acorn", "leaf-oak-leaf", "leaf-ivy", "leaf-lichen-twig", "leaf-jay-feather", "leaf-whelk-shell", "leaf-cockle-shell", "leaf-sea-glass", "leaf-driftwood", "leaf-rose", "leaf-sweet-peas", "leaf-catkins", "leaf-horse-chestnut-leaf", "leaf-apple-blossom", "leaf-strawberry-plant", "leaf-allium", "leaf-daisy-chain", "leaf-honesty", "leaf-hyacinth"]
   },
   {
     "id": "where-bottom-step",
@@ -66,7 +66,7 @@
     "frames": ["thirds", "close-crop", "low-horizon"],
     "colours": ["#3E5C4D", "#D9CBA8"],
     "role": "for the green enamel of the range",
-    "excludes": ["fur-guinea-pig", "fur-goldfish", "hearth-snow-globe", "leaf-striped-pebble", "leaf-acorn", "leaf-oak-leaf", "leaf-lichen-twig", "leaf-jay-feather", "leaf-whelk-shell", "leaf-cockle-shell", "leaf-sea-glass", "leaf-driftwood", "leaf-horse-chestnut-leaf", "leaf-daisy-chain"]
+    "excludes": ["fur-guinea-pig", "fur-goldfish", "hearth-snow-globe", "leaf-striped-pebble", "leaf-acorn", "leaf-oak-leaf", "leaf-lichen-twig", "leaf-jay-feather", "leaf-whelk-shell", "leaf-cockle-shell", "leaf-sea-glass", "leaf-driftwood", "leaf-horse-chestnut-leaf", "leaf-strawberry-plant", "leaf-daisy-chain"]
   },
   {
     "id": "where-bread-bin",
@@ -276,7 +276,7 @@
     "frames": ["vignette", "close-crop", "from-above"],
     "colours": ["#BC915F", "#8A6640"],
     "role": "for the cardboard and the shadows under the flaps",
-    "excludes": ["fur-box-of-chicks", "fur-guinea-pig", "fur-goldfish", "hearth-teapot-cosy", "hearth-toast-and-jam", "hearth-victoria-sponge", "hearth-pancakes", "hearth-boiled-egg", "hearth-cocoa", "hearth-tomato-soup", "hearth-cream-tea", "hearth-cheese-board", "hearth-porridge", "hearth-cup-of-tea", "hearth-lemonade", "leaf-daisy-chain", "leaf-hyacinth"]
+    "excludes": ["fur-box-of-chicks", "fur-guinea-pig", "fur-goldfish", "hearth-teapot-cosy", "hearth-toast-and-jam", "hearth-victoria-sponge", "hearth-pancakes", "hearth-boiled-egg", "hearth-cocoa", "hearth-tomato-soup", "hearth-cream-tea", "hearth-cheese-board", "hearth-porridge", "hearth-cup-of-tea", "hearth-lemonade", "hearth-hot-water-bottle", "hearth-candlestick", "hearth-tulips", "leaf-snowdrops", "leaf-rose", "leaf-sweet-peas", "leaf-catkins", "leaf-apple-blossom", "leaf-allium", "leaf-daisy-chain", "leaf-honesty", "leaf-hyacinth"]
   },
   {
     "id": "where-tearoom-window",

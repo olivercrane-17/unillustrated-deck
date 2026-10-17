@@ -98,12 +98,15 @@
   line-height: 1.2;
   color: var(--gilt-light);
 }
+/* Cards lie side by side, never overlapping (overlaps hid the titles). Big
+   spreads wrap onto a second row. */
 .fan {
   --n: 3;
-  --overlap: 26px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+  gap: 12px 8px;
   padding: 14px 0 6px;
   min-height: 150px;
 }
@@ -115,14 +118,12 @@
   border-radius: var(--radius-card);
   transition: transform 220ms var(--ease-soft);
 }
-.fan .card-slot + .card-slot {
-  margin-left: calc(var(--overlap) * -1);
-}
+
 .fan .card-md {
   --card-w: 156px;
 }
 .fan .card-sm {
-  --card-w: min(116px, calc((100vw - 2 * var(--gutter) + (var(--n) - 1) * var(--overlap)) / var(--n)));
+  --card-w: min(116px, calc((100vw - 2 * var(--gutter) - 16px) / 3));
 }
 .fan .card-slot:hover,
 .fan .card-slot:focus-visible {
@@ -164,12 +165,60 @@
   font-style: italic;
   color: var(--suit-hearth);
 }
-.slip .sentence {
+/* The brief: Draw / Where / When / Also / Twist, scannable from beside the paper. */
+.brief {
+  display: grid;
+  gap: 12px;
   margin: 0;
-  font-size: clamp(21px, 5.6vw, 26px);
-  line-height: 1.38;
+}
+.brief-row {
+  display: grid;
+  grid-template-columns: 4.6em 1fr;
+  gap: 4px 12px;
+  align-items: baseline;
+}
+.brief dt {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.brief dd {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
   color: var(--ink);
   text-wrap: pretty;
+}
+.brief .brief-draw dd {
+  font-size: clamp(20px, 5.4vw, 24px);
+  line-height: 1.32;
+}
+.brief .brief-draw dt {
+  color: var(--suit-hearth);
+}
+.brief .brief-light dd {
+  font-size: 16px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.brief .brief-twist {
+  padding: 10px 12px;
+  margin: 2px -12px 0;
+  border-radius: 10px;
+  background: rgba(91, 58, 94, 0.07);
+  box-shadow: inset 0 0 0 1px rgba(91, 58, 94, 0.25);
+}
+.brief .brief-twist dt,
+.brief .brief-twist dd {
+  color: var(--suit-twist);
+}
+@media (max-width: 360px) {
+  .brief-row {
+    grid-template-columns: 1fr;
+  }
 }
 .slip .framing {
   margin: 10px 0 0;
@@ -555,12 +604,9 @@ details.layer-tips ol {
     grid-area: fan;
     position: sticky;
     top: 16px;
-    flex-wrap: wrap;
     row-gap: 18px;
-    --overlap: 0px;
     gap: 14px;
   }
-  .fan .card-slot + .card-slot { margin-left: 0; }
   .fan .card-sm { --card-w: 150px; }
   .fan .card-lead .card { --card-w: 200px; }
   .slip { grid-area: slip; }

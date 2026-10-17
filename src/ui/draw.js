@@ -100,11 +100,23 @@ function wordsPanel(reading, { latest, onSlots }) {
       spread ? h('span.draw-spread', spread.label) : null,
     ),
     t.opener ? h('p.draw-opener', t.opener) : null,
-    h('p.draw-sentence', t.sentence || 'Draw whatever tugs at you.'),
-    t.framing ? h('p.draw-framing', t.framing) : null,
-    t.twist ? h('p.draw-twist', h('strong', 'Twist: '), glossify(t.twist.replace(/^Twist:\s*/, ''))) : null,
+    briefList(t),
     reading.spread === 'small' && reading.slots?.length ? slotList(reading, { latest, onSlots }) : null,
   )
+}
+
+// The labelled brief (Draw / Where / When / Also / Twist). Readings saved
+// before the brief existed fall back to their sentence and twist.
+function briefList(t) {
+  const lines = t.brief?.length ? t.brief : [
+    { key: 'draw', label: 'Draw', text: t.sentence || 'Draw whatever you like.' },
+    t.framing && { key: 'frame', label: 'Frame', text: t.framing },
+    t.twist && { key: 'twist', label: 'Twist', text: t.twist.replace(/^Twist:\s*/, '') },
+  ].filter(Boolean)
+  return h('dl.brief.draw-brief', lines.map((line) => h(`div.brief-row.brief-${line.key}`,
+    h('dt', line.label),
+    h(`dd${line.key === 'draw' ? '.draw-sentence' : ''}`, line.key === 'twist' || line.key === 'light' ? glossify(line.text) : line.text),
+  )))
 }
 
 // "A page of small things": a checklist she ticks as she goes.

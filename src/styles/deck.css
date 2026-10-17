@@ -139,8 +139,15 @@ h3.suit-head .suit-mark {
 }
 .gallery-card .card-title,
 .rest-card .card-title {
+  max-width: 100%;
   hyphens: auto;
-  overflow-wrap: break-word;
+  overflow-wrap: anywhere;
+}
+/* A long word ("Bladderwrack") must not widen the card's one column and push
+   the title and photo out past the frame. */
+.gallery-card .card-front,
+.rest-card .card-front {
+  grid-template-columns: minmax(0, 1fr);
 }
 .gallery-card:hover .card-face,
 .gallery-card:focus-visible .card-face {
@@ -746,10 +753,11 @@ button.detail-card-btn:hover .card {
   text-decoration-color: rgba(241, 231, 208, 0.45);
 }
 .photo-sheet {
+  clear: both; /* below the floated close button, so it centres */
   display: grid;
   justify-items: center;
   gap: 12px;
-  padding-top: 26px;
+  padding-top: 4px;
   text-align: center;
 }
 .photo-mount {
@@ -792,6 +800,7 @@ button.detail-card-btn:hover .card {
 
 /* ---------- Share a card ---------- */
 .share-sheet {
+  clear: both;
   display: grid;
   justify-items: center;
   gap: 12px;
@@ -807,8 +816,9 @@ button.detail-card-btn:hover .card {
 .share-preview {
   display: grid;
   place-items: center;
-  width: min(100%, 300px, 44vh);
-  width: min(100%, 300px, 44dvh);
+  /* small enough that Share stays in view on a short phone */
+  width: min(100%, 300px, 36vh);
+  width: min(100%, 300px, 36dvh);
   aspect-ratio: 4 / 5;
   overflow: hidden;
   border-radius: 10px;
@@ -885,6 +895,15 @@ p.share-wait:not(.hand) {
 }
 .recent-card .card-face {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.18);
+}
+/* The title is right beside it in the heading; at this size it only spilled
+   past the frame. */
+.recent-card .card-front {
+  grid-template-rows: 1fr;
+  grid-template-columns: minmax(0, 1fr);
+}
+.recent-card .card-title {
+  display: none;
 }
 .recent-words {
   min-width: 0;
@@ -1001,4 +1020,28 @@ p.share-wait:not(.hand) {
   .recent-card .card {
     --card-w: 84px;
   }
+}
+
+/* Gilt handwriting is unreadable on the light linen table. */
+:root[data-table='linen'] .gallery-empty-note,
+:root[data-table='linen'] .rest-caption,
+:root[data-table='linen'] .rest-note,
+:root[data-table='linen'] .detail-suit,
+:root[data-table='linen'] .history-none .hand,
+:root[data-table='linen'] .recent-empty .hand,
+:root[data-table='linen'] .photo-caption .hand,
+:root[data-table='linen'] .share-wait {
+  color: var(--suit-hearth);
+}
+:root[data-table='linen'] .suit-head .suit-mark,
+:root[data-table='linen'] .detail-suit .suit-mark {
+  color: var(--gilt-dark);
+}
+:root[data-table='linen'] .suit-head::before,
+:root[data-table='linen'] .history-head::before {
+  background: linear-gradient(90deg, transparent, rgba(156, 115, 48, 0.6));
+}
+:root[data-table='linen'] .suit-head::after,
+:root[data-table='linen'] .history-head::after {
+  background: linear-gradient(270deg, transparent, rgba(156, 115, 48, 0.6));
 }

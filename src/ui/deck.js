@@ -7,6 +7,7 @@ import { EMBLEMS, ICONS, SUIT_LABELS } from './ornaments.js'
 import { state, content, imageUrl, subscribe } from '../store/state.js'
 import { hashString } from '../engine/rng.js'
 import { go } from './app.js'
+import { confirmSheet } from './feedback.js'
 
 // The suits that live in her deck (Where, When and Twist cards are never sealed).
 export const DECK_SUITS = ['fur', 'leaf', 'hearth', 'theme']
@@ -37,6 +38,11 @@ export function longDate(iso, now = new Date()) {
   if (dayKey(d) === dayKey(yesterday)) return 'Yesterday'
   if (d.getFullYear() === now.getFullYear()) return `${DAYS[d.getDay()]} ${d.getDate()} ${MONTHS[d.getMonth()]}`
   return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`
+}
+
+/** longDate for the middle of a sentence: "drawn today", "from Saturday 17 October". */
+export function sentenceDate(iso, now = new Date()) {
+  return longDate(iso, now).replace(/^(Today|Yesterday)$/, (d) => d.toLowerCase())
 }
 
 const byNewest = (a, b) => String(b.createdAt).localeCompare(String(a.createdAt))
@@ -104,6 +110,35 @@ function suitHeading(suit, label, tag = 'h2') {
   return h(`${tag}.suit-head.suit-${suit}`, h('span.suit-mark', raw(EMBLEMS[suit])), h('span', label))
 }
 
+/**
+ * The sheets a page opens, so its cleanup can put them away: a sheet left
+ * over the next page (Back on Android, say) would act on a page that's gone.
+ */
+export function pageSheets() {
+  const open = new Set()
+  return {
+    track(close) {
+      if (close) open.add(close)
+      return close
+    },
+    confirm(opts) {
+      const answer = confirmSheet(opts)
+      // confirmSheet hands back no close; its sheet is the one it just added.
+      const backdrop = document.body.lastElementChild
+      if (backdrop?.classList.contains('sheet-backdrop')) {
+        const close = () => backdrop.querySelector('.sheet-close')?.click()
+        open.add(close)
+        answer.finally(() => open.delete(close))
+      }
+      return answer
+    },
+    closeAll() {
+      for (const close of [...open]) close()
+      open.clear()
+    },
+  }
+}
+
 // ---------------------------------------------------------------------------
 // The view
 
@@ -142,7 +177,7 @@ export async function render(root) {
         const date = shortDate(shown.createdAt)
         const link = h('a.gallery-card', {
           href: `#/card/${encodeURIComponent(e.card.id)}`,
-          'aria-label': `${e.card.title}, drawn ${longDate(shown.createdAt)}`,
+          'aria-label': `${e.card.title}, drawn ${sentenceDate(shown.createdAt)}`,
           onclick: () => saveRestState({ returnTo: e.card.id }),
         }, renderCard({ card: e.card, size: 'sm', imageUrl: url, dateText: date, drawn: !url, className: url ? 'sealed' : '' }))
         link.style.setProperty('--tilt', `${tiltOf(e.card.id)}deg`)
@@ -165,7 +200,7 @@ export async function render(root) {
     const groups = restOfDeck([...content.subjects, ...(content.themes || [])], drawnIds)
     if (!groups.length) {
       return h('section.rest', h('h2.rest-title', 'The rest of the deck'),
-        h('p.rest-note.hand', 'Every card in the box has your drawing on it. Quite something.'))
+        h('p.rest-note.hand', 'Every card in the box is one you’ve drawn. Quite something.'))
     }
     const browserId = 'rest-browser'
     const stack = h('button.rest-stack', {
@@ -269,6 +304,8 @@ export async function render(root) {
   }
 
   function returnToLastCard() {
+    // She may have moved on while the deck was being laid out.
+    if (!root.isConnected) return
     const id = history.state?.returnTo
     if (!id) return
     history.replaceState({ ...history.state, returnTo: null }, '', location.hash)

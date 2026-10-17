@@ -18,6 +18,28 @@ An adult hobbyist who colours on paper with Prismacolor Premier coloured pencils
 - Avoid brand names and copyrighted characters.
 - Avoid repeating the same distinctive word across many cards (for example "tiny", "little", "cosy", "golden", "soft"). Vary vocabulary.
 
+## Plain language (overrides anything above that conflicts)
+
+The reading is shown as a brief she scans from beside her paper:
+
+```
+DRAW   A dormouse curled up asleep.
+WHERE  On the windowsill.
+WHEN   On a frosty morning.
+LIGHT  Keep the shadows pale blue and leave the paper bare for frost.
+```
+
+So every phrase must be **instantly clear and drawable**. If a hobbyist could misread it, wonder what it means, or not know how to draw it, rewrite it.
+
+- **Titles** name the thing in the everyday word she would use: "The Dormouse", "The Steak Pie", "The Riverbank", "A Frosty Morning". No puns, no obscure or specialist words ("pie bird", "allium", "skein", "honesty"), no titles that sound like something else. Twist titles say what the twist does: "Everything Tiny", "Seen From Above", "Two Pencils: Moonlight".
+- **Card phrases** (`phrases`) are 2 or 3 plain visual notes that help her draw it: colour, shape, texture, size or the key feature. "golden-brown fur", "big black eyes", "thick fluffy tail". No metaphors, trivia, jokes or feelings ("asleep more than awake", "eats its weight every day").
+- **Doing** phrases are a simple pose, action or state she can picture at once, in plain words, ideally 10 words or fewer: "is curled up asleep", "is sitting up washing its face", "has one slice cut out". No idioms, inner states or abstractions ("with great determination", "looking pleased with itself").
+- **Where** (`at`) is a simple, concrete, everyday place: "on the windowsill", "by the garden gate", "on the riverbank".
+- **When** (`when`) is a simple time of day and/or weather or season she can show in a picture: "on a frosty morning", "at sunset", "on a rainy afternoon", "under a full moon", "on a snowy day". Never something invisible or relative ("the night before the first snow", "the day the swallows come back") and no cultural references or vague moods ("apple-picking weather").
+- **Light** is one practical colour or value tip. **Close** (framing) lines and **twist rules** are one plain instruction each.
+- **Themes** have plain titles ("A Rainy Sunday", "The Bird Table") and plain slots.
+- Keep the warmth in word choice, not in riddles. Plain does not mean dull: specific everyday detail ("a slice of toast with butter melting into it") is both clear and charming.
+
 ## Controlled vocabularies
 
 Use only these exact strings.

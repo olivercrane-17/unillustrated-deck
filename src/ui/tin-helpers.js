@@ -94,6 +94,15 @@ export function presetNeedsConfirm(tin, key) {
 }
 
 /**
+ * Her answer to a variant question, or '' if she hasn't given one. Only one
+ * of the options counts (a restored backup could hold anything).
+ */
+export function variantAnswer(tin, variant) {
+  const answer = tin.variantAnswers?.[variant.id]
+  return variant.options.includes(answer) ? answer : ''
+}
+
+/**
  * Does the variant question belong to this tin? Yes for the box that has the
  * variant, or for a hand-ticked tin holding exactly one of the options. A tin
  * holding two of them, such as the 150, plainly has both, so asking "which
@@ -107,7 +116,16 @@ export function variantApplies(tin, variant, setKey) {
 
 /** Ask while it applies and she hasn't answered yet. */
 export function variantNeedsAnswer(tin, variant, setKey) {
-  return !tin.variantAnswers?.[variant.id] && variantApplies(tin, variant, setKey)
+  return !variantAnswer(tin, variant) && variantApplies(tin, variant, setKey)
+}
+
+/**
+ * Show her answer only while it still describes the tin: the question applies
+ * and the pencil she chose is still ticked (not after she has hand-swapped it).
+ */
+export function variantAnswerShows(tin, variant, setKey) {
+  const answer = variantAnswer(tin, variant)
+  return Boolean(answer) && tin.owned.includes(answer) && variantApplies(tin, variant, setKey)
 }
 
 /** Her tin with the chosen option in place of the others. */
@@ -124,6 +142,12 @@ export function ownedInOrder(groups, ownedCodes) {
   return groups
     .map((g) => ({ key: g.key, label: g.label, pencils: g.pencils.filter((p) => owned.has(p.code)) }))
     .filter((g) => g.pencils.length)
+}
+
+/** A colour she picked, as #RRGGBB, or null if it isn't one (never save anything else). */
+export function pickedHex(value) {
+  const m = /^#([0-9a-f]{6})$/i.exec(String(value || '').trim())
+  return m ? `#${m[1].toUpperCase()}` : null
 }
 
 /** A colour input wants lowercase #rrggbb. */

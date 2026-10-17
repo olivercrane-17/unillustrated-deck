@@ -192,7 +192,7 @@
     "frames": ["low-horizon", "thirds"],
     "colours": ["#D8C699", "#A3A86C"],
     "role": "for the pale sand and the spiky marram",
-    "excludes": ["fur-grey-heron", "fur-cygnet", "fur-spotted-pig", "fur-mole", "hearth-wooden-sledge", "leaf-fairy-ring"]
+    "excludes": ["fur-grey-heron", "fur-cygnet", "fur-spotted-pig", "fur-goat-kid", "fur-harvest-mouse", "fur-mole", "fur-roe-fawn", "fur-red-deer-stag", "hearth-wooden-sledge", "leaf-fairy-ring"]
   },
   {
     "id": "where-village-green",
@@ -318,7 +318,7 @@
     "frames": ["tall-strip", "low-horizon"],
     "colours": ["#7D786C", "#6A7E44"],
     "role": "for the cracked tarmac and its verges",
-    "excludes": ["fur-cygnet", "fur-box-of-chicks", "hearth-milk-jug", "hearth-cup-of-tea", "hearth-watering-can", "hearth-bird-feeder", "hearth-fairy-lights", "leaf-strawberry-plant", "leaf-pea-pod", "leaf-radishes"]
+    "excludes": ["fur-cygnet", "fur-box-of-chicks", "hearth-milk-jug", "hearth-cup-of-tea", "hearth-library-books", "hearth-watering-can", "hearth-postcard", "hearth-bird-feeder", "hearth-fairy-lights", "leaf-strawberry-plant", "leaf-pea-pod", "leaf-radishes"]
   },
   {
     "id": "where-frozen-puddle",

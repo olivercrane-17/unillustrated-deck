@@ -2,12 +2,11 @@
 // the grammar never has to conjugate anything. A capitalised slot name means
 // "capitalise the first letter of this phrase".
 
+// One plain summary sentence for history and sharing. The reading itself is
+// shown as a labelled brief (Draw / Where / When), which reads more clearly
+// than any amount of sentence variety.
 export const MAIN_TEMPLATES = [
-  { id: 'm1', t: '{When}, {subject} {doing} {at}.' },
   { id: 'm2', t: '{Subject} {doing} {at}, {when}.' },
-  { id: 'm3', t: '{At}, {subject} {doing}, {when}.' },
-  { id: 'm4', t: '{When}, {at}, {subject} {doing}.' },
-  { id: 'm5', t: '{When}: {subject} {doing} {at}.' },
 ]
 
 export const QUICK_TEMPLATES = [

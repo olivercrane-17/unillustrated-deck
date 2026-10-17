@@ -40,7 +40,9 @@ export function openSheet(build, { label = 'Dialog', className = '', onClose } =
     if (previouslyFocused && typeof previouslyFocused.focus === 'function' && document.contains(previouslyFocused)) previouslyFocused.focus()
   }
   const sheet = h(`div.sheet.paper.on-paper${className ? '.' + className : ''}`, { role: 'dialog', 'aria-modal': 'true', 'aria-label': label, tabindex: '-1' },
-    h('button.icon-btn.sheet-close', { type: 'button', 'aria-label': 'Close', onclick: close }, raw(ICONS.close)),
+    // A zero-height sticky strip holds the close button, so it stays in reach
+    // while the sheet scrolls but takes no room from centred content.
+    h('div.sheet-top', h('button.icon-btn.sheet-close', { type: 'button', 'aria-label': 'Close', onclick: close }, raw(ICONS.close))),
     build(close),
   )
   // Close on a tap on the backdrop, but only when the press also started there

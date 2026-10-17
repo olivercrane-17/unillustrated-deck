@@ -7,6 +7,7 @@ import { state, content, pencilCatalogue, pencilHex, startDrawing, updateReading
 import { SPREADS } from '../engine/reading.js'
 import { go } from './app.js'
 import { glossify } from './gloss.js'
+import { photosLink } from './photos.js'
 import { openSealFlow } from './seal.js'
 import {
   DIAGRAMS, diagramSvg, chooseFrame, TIMER_MINUTES, newTimer, pauseTimer, resumeTimer, timerStatus, ringSvg, ringOffset,
@@ -101,6 +102,7 @@ function wordsPanel(reading, { latest, onSlots }) {
     ),
     t.opener ? h('p.draw-opener', t.opener) : null,
     briefList(t),
+    lead?.suit ? h('p.draw-photos', photosLink(lead)) : null,
     reading.spread === 'small' && reading.slots?.length ? slotList(reading, { latest, onSlots }) : null,
   )
 }

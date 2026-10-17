@@ -71,3 +71,63 @@ export function luminance(hex) {
 export function inkOn(hex) {
   return luminance(hex) > 0.36 ? '#2A211C' : '#FBF6EA'
 }
+
+// A rough everyday colour word ("golden brown", "pale blue", "cream") for a
+// hex colour, so a card can say what the thing looks like at a glance.
+// Bands are tuned by eye in OKLCH against real subject colours.
+export function colourName(hex) {
+  const { L, C, h } = hexToOklch(hex)
+  if (C < 0.035) {
+    if (L > 0.95) return 'white'
+    if (L > 0.86) return C > 0.012 && h > 40 && h < 110 ? 'cream' : 'off-white'
+    if (L > 0.68) return 'pale grey'
+    if (L > 0.45) return 'grey'
+    if (L > 0.3) return 'dark grey'
+    return 'black'
+  }
+  if (h < 35 || h >= 350) {
+    if (C >= 0.15) return L < 0.45 ? 'dark red' : 'red'
+    if (L >= 0.68) return L > 0.86 ? 'pale pink' : 'pink'
+    return L < 0.42 ? 'dark brown' : 'reddish brown'
+  }
+  if (h < 55) {
+    if (L >= 0.72) return C < 0.1 ? 'peach' : 'apricot'
+    if (C >= 0.13) return 'rusty orange'
+    return L < 0.34 ? 'dark brown' : 'chestnut'
+  }
+  if (h < 80) {
+    if (C >= 0.13 && L >= 0.58) return 'orange'
+    if (C >= 0.09) return L < 0.5 ? 'brown' : 'golden brown'
+    if (L > 0.8) return 'sand'
+    return L < 0.45 ? 'dark brown' : 'brown'
+  }
+  if (h < 110) {
+    if (L >= 0.85 && C < 0.08) return 'cream'
+    if (C >= 0.12 && L >= 0.75) return 'yellow'
+    if (C >= 0.08) return 'mustard'
+    return L > 0.7 ? 'sand' : 'olive brown'
+  }
+  if (h < 150) {
+    if (L >= 0.78) return 'pale green'
+    if (L < 0.42) return 'dark green'
+    if (C >= 0.12 && h < 125) return 'lime green'
+    if (C < 0.09) return L < 0.6 ? 'moss green' : 'sage green'
+    return 'green'
+  }
+  if (h < 200) {
+    if (L >= 0.78) return h < 175 ? 'pale green' : 'pale teal'
+    if (L < 0.42) return 'dark green'
+    return h < 175 ? 'green' : 'teal'
+  }
+  if (h < 275) {
+    if (L >= 0.78) return 'pale blue'
+    if (L < 0.42) return 'navy blue'
+    return 'blue'
+  }
+  if (h < 330) {
+    if (L >= 0.7) return 'lilac'
+    return L < 0.4 ? 'dark purple' : 'purple'
+  }
+  if (L >= 0.65) return 'pink'
+  return C >= 0.15 ? 'magenta' : 'plum'
+}

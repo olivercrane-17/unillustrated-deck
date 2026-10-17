@@ -253,13 +253,22 @@
   font-size: 24px;
   margin-bottom: 6px;
 }
-.sheet-close {
+.sheet-top {
   position: sticky;
-  z-index: 3;
   top: 0;
-  float: right;
-  margin: -8px -6px 0 0;
+  height: 0;
+  z-index: 3;
+}
+.sheet-close {
+  position: absolute;
+  top: -10px;
+  right: -8px;
   color: var(--ink);
+}
+/* While a sheet is open, toasts move to the top so they never cover its buttons. */
+body:has(.sheet-backdrop) .toasts {
+  top: calc(16px + env(safe-area-inset-top));
+  bottom: auto;
 }
 @media (min-width: 720px) {
   .sheet-backdrop {
@@ -400,4 +409,32 @@
 
 :root[data-table='linen'] .btn-text {
   text-decoration-color: rgba(42, 33, 28, 0.4);
+}
+
+/* "See real photos" link out to an image search */
+.photos-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 44px;
+  font-size: 15.5px;
+  color: var(--suit-when);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.photos-link .icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+.slip-photos,
+.draw-photos {
+  margin: 6px 0 -6px;
+}
+.zoom-photos {
+  margin: 0;
+}
+.zoom-photos .photos-link {
+  color: var(--cream);
 }

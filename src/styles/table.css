@@ -634,3 +634,25 @@ details.layer-tips ol {
 :root[data-table='linen'] .wordmark-the {
   color: var(--suit-hearth);
 }
+
+.sheet-backdrop:has(.sheet.zoom) {
+  background: rgba(12, 20, 16, 0.96);
+}
+.zoom-phrases {
+  list-style: none;
+  margin: -4px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+  max-width: 340px;
+}
+.zoom-phrases li {
+  padding: 4px 12px;
+  border-radius: 99px;
+  background: rgba(241, 231, 208, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(241, 231, 208, 0.25);
+  color: var(--cream);
+  font-size: 15px;
+}

@@ -14,6 +14,7 @@ import { openSheet } from './feedback.js'
 import { riffle, flipSound, clink } from './sound.js'
 import { glossify } from './gloss.js'
 import { openSealFlow } from './seal.js'
+import { photosLink } from './photos.js'
 
 const SPREAD_ORDER = ['quick', 'evening', 'big', 'small']
 const FLIP_GAP = 340
@@ -260,6 +261,8 @@ export async function render(root) {
       h(`dd${line.key === 'draw' ? '.sentence' : ''}`, line.key === 'twist' || line.key === 'light' ? glossify(line.text) : line.text),
     ))))
     if (reading.spread === 'small' && reading.slots) out.push(smallSlots(reading))
+    const who = reading.cards.who && content.byId.get(reading.cards.who)
+    if (who) out.push(h('p.slip-photos', photosLink(who)))
     return out
   }
 
@@ -354,17 +357,20 @@ export async function render(root) {
     const card = content.byId.get(reading.cards[pos])
     const isFriend = pos === 'who' && reading.oldFriend
     openSheet((close) => {
-      const cardEl = renderCard({ card, label: isFriend ? 'An old friend' : POSITION_LABELS[pos], size: 'lg' })
+      const cardEl = renderCard({ card, label: isFriend ? 'An old friend' : POSITION_LABELS[pos], size: 'lg', phrases: false })
       if (isFriend) {
         const seal = faceSealFor(card.id)
         if (seal) imageUrl(seal.imageId, 'image').then((url) => {
           if (!url) return
-          const fresh = renderCard({ card, label: 'An old friend', size: 'lg', imageUrl: url })
+          const fresh = renderCard({ card, label: 'An old friend', size: 'lg', imageUrl: url, phrases: false })
           cardEl.querySelector('.card-front').replaceWith(fresh.querySelector('.card-front'))
         })
       }
+      const lookable = card.suit || card.id.startsWith('where-')
       return h('div.zoom-sheet',
         cardEl,
+        card.phrases?.length ? h('ul.zoom-phrases', card.phrases.map((p) => h('li', p))) : null,
+        lookable ? h('p.zoom-photos', photosLink(card)) : null,
         h('div.btns',
           h('button.btn.btn-paper', { type: 'button', autofocus: true, onclick: () => {
             close()

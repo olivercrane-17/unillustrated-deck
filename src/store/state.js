@@ -379,6 +379,13 @@ export async function deleteSeal(sealId) {
     const next = faceSealFor(seal.cardId)
     if (next) await setFace(next.id)
   }
+  // The reading that made this seal is no longer "sealed" once its photo goes.
+  const reading = state.readings.get(seal.readingId)
+  if (reading && reading.status === 'sealed') {
+    const left = state.seals.filter((s) => s.readingId === reading.id)
+    const status = left.some((s) => s.imageId) ? 'sealed' : left.length ? 'drawn' : 'drawing'
+    if (status !== reading.status) await saveReading({ ...reading, status }, { makeCurrent: false })
+  }
   emit('seal')
 }
 

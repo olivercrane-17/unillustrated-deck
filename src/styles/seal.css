@@ -19,7 +19,6 @@
    and it sits above .seal-flow, which is positioned and would cover it. */
 .seal-sheet .sheet-close {
   z-index: 2;
-  margin-bottom: -36px;
 }
 .seal-flow {
   position: relative;

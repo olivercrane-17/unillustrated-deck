@@ -17,12 +17,16 @@ export function photoSearchUrl(card) {
 }
 
 export function photosLink(card, { className = '' } = {}) {
+  const text = `See real photos of ${card.the ? subjectName(card) : `“${card.title}”`}`
+  // The arrow rides with the last word, so when the link wraps it sits right
+  // after the text instead of drifting to the far edge.
+  const cut = text.lastIndexOf(' ') + 1
   return h(`a.photos-link${className ? '.' + className : ''}`, {
     href: photoSearchUrl(card),
     target: '_blank',
     rel: 'noopener noreferrer',
     title: 'Opens an image search in a new tab (needs the internet)',
-  }, `See real photos of ${card.the ? subjectName(card) : `“${card.title}”`}`, raw(ARROW))
+  }, h('span.photos-text', text.slice(0, cut), h('span.photos-tail', text.slice(cut), raw(ARROW))))
 }
 
 // The colours a card is really made of, for the strip on its face.

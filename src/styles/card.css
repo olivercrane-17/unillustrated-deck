@@ -164,10 +164,13 @@
   box-shadow: inset 0 0 0 1px rgba(42, 33, 28, 0.18), 0 1px 1px rgba(0, 0, 0, 0.08);
 }
 .card-colour-words {
-  font-size: max(10px, 5.4cqw);
+  /* Never smaller than 12px: on a single card or a pick-one card (about
+     150px wide) that is 8cqw, so the words may take two lines. */
+  font-size: max(12px, 5.4cqw);
   letter-spacing: 0.02em;
   color: var(--ink-soft);
   line-height: 1.2;
+  text-wrap: balance;
 }
 .card-title {
   grid-row: 4;
@@ -189,8 +192,8 @@
 /* A title with a long word ("The Conservatory") borrows a little width
    either side, still inside the thin rule. */
 .card .card-title.is-long {
-  margin-inline: -4cqw;
-  max-width: calc(100% + 8cqw);
+  margin-inline: -3cqw;
+  max-width: calc(100% + 6cqw);
 }
 .card-phrases {
   grid-row: 5;

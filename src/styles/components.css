@@ -459,11 +459,12 @@ body:has(.sheet-backdrop) .toasts {
   background: rgba(42, 33, 28, 0.1);
 }
 
-/* "See real photos" link out to an image search */
+/* "See real photos" link out to an image search. One grid item holds the
+   text, so it wraps like ordinary text and the arrow stays with the last word
+   (an inline-flex link left the arrow at the far edge once the text wrapped). */
 .photos-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
+  display: inline-grid;
+  align-content: center;
   min-height: 44px;
   font-size: 15.5px;
   color: var(--suit-when);
@@ -471,10 +472,15 @@ body:has(.sheet-backdrop) .toasts {
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
 }
+.photos-tail {
+  white-space: nowrap;
+}
 .photos-link .icon {
+  display: inline-block;
   width: 16px;
   height: 16px;
-  flex: none;
+  margin-left: 4px;
+  vertical-align: -2px;
 }
 .slip-photos,
 .draw-photos {

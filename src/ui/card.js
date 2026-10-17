@@ -42,14 +42,14 @@ export function longestRun(title = '') {
   return best
 }
 // The title's box is 74% of the card wide (72 leaves a little to spare). A
-// title with a long word may borrow 4% either side, still inside the thin
+// title with a long word may borrow 3% either side, still clear of the thin
 // rule, and its type is capped so that word fits whole.
 const LONG_RUN = 5.6
 function titleFit(title) {
   const run = longestRun(title)
   if (!run) return { long: false, style: undefined }
   const long = run > LONG_RUN
-  return { long, style: { '--title-max': `${((long ? 80 : 72) / run).toFixed(2)}cqw` } }
+  return { long, style: { '--title-max': `${((long ? 78 : 72) / run).toFixed(2)}cqw` } }
 }
 
 /**
@@ -105,7 +105,9 @@ function colourStrip(card, { imageUrl, size }) {
   const words = colourWords(card)
   return h('span.card-colours', { role: 'img', 'aria-label': `Colours: ${words.join(', ')}` },
     h('span.card-swatches', colours.map((hex) => h('i', { style: { background: hex } }))),
-    size === 'lg' || size === 'md' ? h('span.card-colour-words', words.join(' · ')) : null,
+    // Lines break only after a dot: each colour's name stays whole ("dark
+    // purple"), and no line starts with a dot.
+    size === 'lg' || size === 'md' ? h('span.card-colour-words', words.map((w) => w.replace(/ /g, '\u00a0')).join('\u00a0· ')) : null,
   )
 }
 

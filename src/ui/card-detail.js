@@ -51,8 +51,9 @@ export async function render(root, { id } = {}) {
         h('div.detail-figure', cardEl),
         h('div.detail-words',
           SUIT_LABELS[suit] ? h('p.detail-suit', h('span.suit-mark', raw(EMBLEMS[suit])), SUIT_LABELS[suit]) : null,
-          h('h1.detail-title', card.title),
-          card.phrases?.length ? h('p.detail-phrases', card.phrases.map((p, i) => [i ? h('span.dot', { 'aria-hidden': 'true' }, ' · ') : null, h('span', p)])) : null,
+          h('h1.detail-title', { tabindex: '-1' }, card.title),
+          // The card face shows its phrases until a photo takes their place.
+          faceUrl && card.phrases?.length ? h('p.detail-phrases', card.phrases.map((p, i) => [i ? h('span.dot', { 'aria-hidden': 'true' }, ' · ') : null, h('span', p)])) : null,
           card.rule ? h('p.detail-rule', card.rule) : null,
           card.note ? h('p.detail-rule', card.note) : null,
           actions(face),

@@ -39,6 +39,8 @@ export function render(root) {
   let closeSheet = null
   const rows = new Map() // code -> { li, check, star, swatch, adjusted, owned, starred, hex }
   const groups = [] // { key, label, pencils, section, tickBtn, untickBtn }
+  const groupOf = new Map() // code -> group
+  let synced = null // the tin object the page last showed, so the store's echo is skipped
 
   // ---------------------------------------------------------------------------
   // Rows
@@ -79,7 +81,7 @@ export function render(root) {
       r.star.setAttribute('aria-pressed', String(isStar))
       r.star.innerHTML = isStar ? ICONS.starFilled : ICONS.star
     }
-    const hex = pencilHex(code)
+    const hex = hexOf(code)
     if (r.hex !== hex) {
       r.hex = hex
       r.swatch.innerHTML = pencilSvg(hex)
@@ -87,6 +89,8 @@ export function render(root) {
     }
   }
 
+  // pencilHex() without its catalogue search, since this runs for every row.
+  const hexOf = (code) => state.tin.overrides?.[code] || byCode.get(code)?.hex || pencilHex(code)
   const ownedSet = () => new Set(state.tin.owned)
   const starredSet = () => new Set(state.tin.starred)
   const paintOne = (code) => paintRow(code, ownedSet(), starredSet())
@@ -98,19 +102,22 @@ export function render(root) {
     const id = `tin-g-${g.key}`
     const tickBtn = h('button.btn-text', { type: 'button', dataset: { act: 'tick', group: g.key } }, 'Tick all', h('span.sr-only', ` ${g.label}`))
     const untickBtn = h('button.btn-text', { type: 'button', dataset: { act: 'untick', group: g.key } }, 'Untick all', h('span.sr-only', ` ${g.label}`))
-    const section = h('section.tin-group.paper.on-paper', { 'aria-labelledby': id },
+    const rowsTall = { '--rows': String(g.pencils.length), '--rows-2': String(Math.ceil(g.pencils.length / 2)) }
+    const section = h('section.tin-group.paper.on-paper', { 'aria-labelledby': id, style: rowsTall },
       h('div.tin-group-head', h('h2', { id }, g.label), h('div.tin-group-actions', tickBtn, untickBtn)),
       h('div.tin-ribbon', { 'aria-hidden': 'true', style: { backgroundImage: ribbon(g.pencils) } }),
       h('ul.tin-rows', g.pencils.map(buildRow)),
     )
-    groups.push({ ...g, section, tickBtn, untickBtn })
+    const group = { ...g, section, tickBtn, untickBtn }
+    groups.push(group)
+    for (const p of g.pencils) groupOf.set(p.code, group)
     return section
   }
 
   const visibleCodes = (g) => g.pencils.filter((p) => !rows.get(p.code).li.hidden).map((p) => p.code)
 
-  function paintGroupActions(owned) {
-    for (const g of groups) {
+  function paintGroupActions(owned, only = groups) {
+    for (const g of only) {
       const codes = visibleCodes(g)
       g.tickBtn.setAttribute('aria-disabled', String(codes.every((c) => owned.has(c))))
       g.untickBtn.setAttribute('aria-disabled', String(!codes.some((c) => owned.has(c))))
@@ -228,7 +235,7 @@ export function render(root) {
           const p = byCode.get(code) || { code, name: code }
           return h('button.tin-q-option', { type: 'button', 'aria-pressed': answer ? String(answer === code) : undefined, onclick: () => answerVariant(variant, code) },
             h('span.tin-q-swatch', { 'aria-hidden': 'true' }, raw(pencilSvg(pencilHex(code), { big: true }))),
-            h('span.tin-q-name', h('code', code), h('strong', p.name), p.discontinued ? h('em', '(retired)') : null),
+            h('span.tin-q-name', h('code', code), h('strong', p.name), p.discontinued ? [' ', h('em', '(retired)')] : null),
             answer === code ? h('span.tin-q-tick', { 'aria-hidden': 'true' }, raw(ICONS.tick)) : null,
           )
         }),
@@ -363,6 +370,7 @@ export function render(root) {
   }
 
   function syncAll() {
+    synced = state.tin
     const owned = ownedSet()
     const starred = starredSet()
     for (const code of rows.keys()) paintRow(code, owned, starred)
@@ -403,15 +411,18 @@ export function render(root) {
     if (!box) return
     const code = box.dataset.code
     if (state.tin.owned.includes(code) !== box.checked) toggleOwned(code)
-    paintOne(code)
-    paintGroupActions(ownedSet())
+    // Only this row and its family's buttons change; the rest stay as they are.
+    synced = state.tin
+    const owned = ownedSet()
+    paintRow(code, owned, starredSet())
+    paintGroupActions(owned, [groupOf.get(code)])
     updateSummary()
   })
   list.addEventListener('click', (e) => {
     const btn = e.target.closest('button[data-act]')
     if (!btn) return
     const { act, code, group } = btn.dataset
-    if (act === 'star') { toggleStar(code); paintOne(code) }
+    if (act === 'star') { toggleStar(code); synced = state.tin; paintOne(code) }
     else if (act === 'off') openLooksOff(code)
     else if (act === 'tick' || act === 'untick') tickGroup(group, act === 'tick')
   })
@@ -449,7 +460,7 @@ export function render(root) {
   applyFilter()
 
   const off = subscribe((what) => {
-    if (what === 'tin') syncAll()
+    if (what === 'tin' && state.tin !== synced) syncAll()
     if (what === 'reload') { syncAll(); applyFilter() }
   })
 

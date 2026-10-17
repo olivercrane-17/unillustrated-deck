@@ -297,6 +297,9 @@
 }
 
 /* ---------- Restore sheet ---------- */
+.sheet.restore {
+  --focus: var(--suit-hearth);
+}
 .restore-sheet h2 {
   padding-right: 40px;
 }

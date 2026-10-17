@@ -2,6 +2,8 @@
 /* Propped beside her paper: large, calm, glanceable. */
 
 .drawing {
+  --draw-accent: var(--gilt-light);
+  --draw-ring: var(--gilt-light);
   display: grid;
   gap: 16px;
   max-width: 660px;
@@ -440,7 +442,7 @@
   stroke: var(--felt-line);
 }
 .timer-ring .ring-fill {
-  stroke: var(--gilt-light);
+  stroke: var(--draw-ring, var(--gilt-light));
   transition: stroke-dashoffset 1s linear;
 }
 .is-paused .timer-ring .ring-fill {
@@ -475,7 +477,7 @@
 .draw-timer-done {
   font-size: 24px;
   line-height: 1.15;
-  color: var(--gilt-light);
+  color: var(--draw-accent);
   animation: draw-in 600ms var(--ease-soft) both;
 }
 .draw-timer-btns {
@@ -489,7 +491,7 @@
   font-size: 15.5px;
 }
 .is-done .timer-ring .ring-fill {
-  stroke: var(--gilt-light);
+  stroke: var(--draw-ring, var(--gilt-light));
 }
 
 .draw-wake {
@@ -571,7 +573,7 @@
   margin: 0;
   font-size: 22px;
   line-height: 1.2;
-  color: var(--gilt-light);
+  color: var(--draw-accent);
 }
 
 .draw-missing {
@@ -581,6 +583,11 @@
 .draw-missing-link {
   margin: 0;
   text-align: center;
+}
+
+:root[data-table='linen'] .drawing {
+  --draw-accent: var(--suit-hearth);
+  --draw-ring: var(--gilt-dark);
 }
 
 /* ---------- Wide screens and landscape tablets: two columns ---------- */

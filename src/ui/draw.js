@@ -103,7 +103,7 @@ function slotList(reading, { latest, onSlots }) {
       h('label',
         box,
         h('span.draw-slot-num.hand', { 'aria-hidden': 'true' }, String(i + 1)),
-        h('span.draw-slot-text', slot.text, slot.wobbly ? h('em', WOBBLY_NOTE) : null),
+        h('span.draw-slot-body', h('span.draw-slot-text', slot.text), slot.wobbly ? h('em', WOBBLY_NOTE) : null),
       ),
     )
     box.addEventListener('change', async () => {

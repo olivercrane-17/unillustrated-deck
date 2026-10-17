@@ -173,7 +173,7 @@
     "roles": {
       "main": "for the tawny back",
       "dark": "for the black ear tips",
-      "light": "for the pale chin and belly",
+      "light": "for the white chin and belly",
       "accent": "for the amber eye"
     },
     "firstMark": ["Start with the sooty ear tips in {dark}, then follow the ears down to the head.", "Start with the pupil, a firm circle of {dark} set inside a wide amber eye."]
@@ -198,7 +198,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#8B7760", "#F2EDE4", "#B98A62"],
-    "accent": "#C06A35",
+    "accent": "#C3672F",
     "texture": "fur",
     "roles": {
       "main": "for the grey-brown coat",
@@ -337,11 +337,11 @@
     "the": "the mole",
     "phrases": ["velvet that brushes both ways", "hands like pink spades", "the maker of molehills"],
     "doing": [
-      { "t": "is pausing with its nose up, as if it has forgotten something", "scope": "any" },
+      { "t": "is pausing with its nose up and a puzzled air", "scope": "any" },
       { "t": "is wiggling its long snout to sniff the air", "scope": "any" },
       { "t": "is rowing itself along with its broad front paws", "scope": "any" },
       { "t": "is surfacing nose first from a fresh molehill", "scope": "outdoor" },
-      { "t": "is shovelling soil aside with both spade-like hands", "scope": "outdoor" }
+      { "t": "is flinging soil out behind it", "scope": "outdoor" }
     ],
     "close": ["Just the mole, front on, with those two enormous pink hands.", "Only the mole's head and paws, poking up out of the earth."],
     "scale": "small",
@@ -414,10 +414,10 @@
     "roles": {
       "main": "for the chestnut coat",
       "dark": "for the nose and the huge eyes",
-      "light": "for the pale spots along the back",
+      "light": "for the cream spots along the back",
       "accent": "for the white patch on the chin"
     },
-    "firstMark": ["Start with the eye: a wide, glossy oval of {dark}, set halfway down the long face.", "Start with the spots: mark them lightly, then colour {main} round them so they stay bare paper."]
+    "firstMark": ["Start with the eye: a wide, wet-looking oval of {dark}, set halfway down the long face.", "Start with the spots: mark them lightly, then colour {main} round them so they stay bare paper."]
   },
   {
     "id": "fur-red-deer-stag",
@@ -456,7 +456,7 @@
     "the": "the frog",
     "phrases": ["legs folded like deckchairs", "a throat forever gulping", "a splash, then spreading rings"],
     "doing": [
-      { "t": "is sitting propped up on its front feet, toes turned in", "scope": "any" },
+      { "t": "is sitting propped up on its front feet with its toes turned in", "scope": "any" },
       { "t": "is mid-jump with its back legs at full stretch", "scope": "any" },
       { "t": "is blinking at you with gold-ringed eyes", "scope": "any" },
       { "t": "is peeping out with only its eyes and nose showing", "scope": "outdoor" },
@@ -503,7 +503,7 @@
     "roles": {
       "main": "for the warty brown back",
       "dark": "for the shadows between the warts",
-      "light": "for the pale throat and the shine on each bump",
+      "light": "for the buff throat and the shine on each bump",
       "accent": "for the copper eyes"
     },
     "firstMark": ["Start with the eye: a ring of copper round a horizontal slot of {dark}.", "Start with the warts on the back as small loose circles of {main}."]
@@ -519,7 +519,7 @@
       { "t": "is creeping along on splayed toes", "scope": "any" },
       { "t": "is resting with its chin on its front feet", "scope": "any" },
       { "t": "is turning to show its orange underside", "scope": "any" },
-      { "t": "is tucked half under a flat stone with its tail showing", "scope": "outdoor" },
+      { "t": "is half hidden with only its tail showing", "scope": "outdoor" },
       { "t": "is waving its tail to show off its crest", "scope": "outdoor", "seasons": ["spring"] }
     ],
     "close": ["Just the newt, seen from below, with its orange belly and black spots.", "Only the newt in profile, crest and all, from nose to tail tip."],
@@ -636,7 +636,7 @@
       { "t": "is lying on its back with its flippers crossed", "scope": "any" },
       { "t": "is scratching its chin with a front flipper", "scope": "any" },
       { "t": "is heaving itself forward in clumsy lurches", "scope": "any" },
-      { "t": "is gazing up, all eyes and whiskers", "scope": "any" }
+      { "t": "is gazing up with its whiskers bristling", "scope": "any" }
     ],
     "close": ["Just the seal pup, head on, all round face and dark eyes.", "Only the pup, lying in a crescent, cream fur against bare paper."],
     "scale": "medium",
@@ -644,7 +644,7 @@
     "seasons": ["autumn", "winter"],
     "active": "day",
     "colours": ["#EEE9DE", "#B8B3A9", "#1C1B1D"],
-    "accent": "#6F6965",
+    "accent": "#6F6662",
     "texture": "fur",
     "roles": {
       "main": "for the cream fur",
@@ -652,6 +652,6 @@
       "light": "for the whitest fur along the top of the head",
       "accent": "for the dark grey flippers"
     },
-    "firstMark": ["Start with the eyes: two large, glossy circles of {dark}, set wide apart.", "Start with the nose: a small Y of {dark} just below and between the eyes."]
+    "firstMark": ["Start with the eyes: two large circles of {dark}, set wide apart.", "Start with the nose: a small Y of {dark} just below and between the eyes."]
   }
 ]

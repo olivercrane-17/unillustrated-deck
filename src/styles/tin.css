@@ -254,6 +254,9 @@
 }
 .tin-group {
   padding: 12px 14px 4px;
+  /* Families off screen skip rendering until she scrolls near them. */
+  content-visibility: auto;
+  contain-intrinsic-size: auto calc(var(--rows, 10) * 66px + 72px);
 }
 .tin-group[hidden] {
   display: none;
@@ -465,6 +468,7 @@
   }
   .tin-group {
     padding: 14px 20px 6px;
+    contain-intrinsic-size: auto calc(var(--rows-2, 5) * 64px + 80px);
   }
   .tin-rows {
     display: grid;

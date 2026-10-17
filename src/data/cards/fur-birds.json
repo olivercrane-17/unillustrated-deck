@@ -24,7 +24,7 @@
     "roles": {
       "main": "for the orange-red breast and face",
       "dark": "for the eye, the beak and the shadow under the wing",
-      "light": "for the pale belly and the catchlight in the eye",
+      "light": "for the white belly and the catchlight in the eye",
       "accent": "for the blue-grey edging around the breast"
     },
     "firstMark": ["Start with the eye: one round dot of {dark}, leaving a pinprick of paper for the shine.", "Start with the curve of the breast in one easy sweep of {main}."]
@@ -186,7 +186,7 @@
     "the": "the song thrush",
     "phrases": ["sings every line twice", "a cream front, freckled brown", "head tilted to the lawn"],
     "doing": [
-      { "t": "is singing each phrase twice over, beak to the sky", "scope": "any" },
+      { "t": "is singing each phrase twice over with its beak to the sky", "scope": "any" },
       { "t": "is turning to show off its speckled front", "scope": "any" },
       { "t": "is sitting with one foot tucked up", "scope": "any" },
       { "t": "is swallowing a rowan berry whole", "scope": "any", "seasons": ["autumn", "winter"] }
@@ -215,7 +215,7 @@
     "the": "the kingfisher",
     "phrases": ["a streak of electric blue", "orange as a satsuma underneath", "gone before you blink"],
     "doing": [
-      { "t": "is perched without a flicker, beak pointed down", "scope": "any" },
+      { "t": "is sitting stone-still with its beak pointed down", "scope": "any" },
       { "t": "is bobbing its head up and down", "scope": "any" },
       { "t": "is shaking droplets from its feathers", "scope": "any" },
       { "t": "is whizzing past like a blue spark", "scope": "any" }
@@ -292,7 +292,7 @@
       "main": "for the honey-coloured back and wings",
       "dark": "for the eyes and the fine speckles",
       "light": "for the white face and underparts",
-      "accent": "for the pale grey dappling on the wings"
+      "accent": "for the silver-grey dappling on the wings"
     },
     "firstMark": ["Start with the two eyes: round dots of {dark}, set wide apart, with a thin ring of paper around each.", "Start with the outline of the heart-shaped face in a faint line of {main}."]
   },
@@ -321,10 +321,10 @@
     "roles": {
       "main": "for the warm chestnut feathers",
       "dark": "for the eyes and the dark streaks",
-      "light": "for the pale eyebrows and the spots on the wings",
+      "light": "for the creamy eyebrows and the spots on the wings",
       "accent": "for the yellowish beak"
     },
-    "firstMark": ["Start with the eyes: two solid discs of {dark}, leaving a speck of paper in each.", "Start with the pale disc of the face, edged with a ring of {main}."]
+    "firstMark": ["Start with the eyes: two solid discs of {dark}, leaving a speck of paper in each.", "Start with the buff disc of the face, edged with a ring of {main}."]
   },
   {
     "id": "fur-puffin",
@@ -336,7 +336,7 @@
     "doing": [
       { "t": "is waddling about on bright orange feet", "scope": "any" },
       { "t": "is tapping beaks with its mate", "scope": "any" },
-      { "t": "is staring straight ahead, solemn as a vicar", "scope": "any" },
+      { "t": "is giving you a long, solemn stare", "scope": "any" },
       { "t": "is carrying a beakful of grass for its burrow", "scope": "outdoor", "seasons": ["spring"] },
       { "t": "is whirring past on frantic wings", "scope": "outdoor" }
     ],
@@ -547,7 +547,7 @@
     "doing": [
       { "t": "is opening and closing its wings", "scope": "any" },
       { "t": "is flashing its eyespots to look fierce", "scope": "any" },
-      { "t": "is resting with its wings shut, dark as a scrap of bark", "scope": "any" },
+      { "t": "is resting with its wings shut and only the sooty side showing", "scope": "any" },
       { "t": "is sipping from a buddleia flower", "scope": "outdoor", "seasons": ["summer"] },
       { "t": "is drinking the juice of an overripe plum", "scope": "any", "seasons": ["autumn"] }
     ],
@@ -577,7 +577,7 @@
     "doing": [
       { "t": "is resting with its wings swept back like a jet", "scope": "any" },
       { "t": "is quivering its wings before take-off", "scope": "any" },
-      { "t": "is twitching its pale antennae", "scope": "any" },
+      { "t": "is cleaning an antenna with one front leg", "scope": "any" },
       { "t": "is hovering at a honeysuckle flower like a hummingbird", "scope": "outdoor" },
       { "t": "is circling the nearest lamp", "scope": "indoor" }
     ],
@@ -592,8 +592,8 @@
     "roles": {
       "main": "for the pink wing edges and stripes",
       "dark": "for the olive bands and the shadow under the wings",
-      "light": "for the pale fringes along the wings",
-      "accent": "for the pale cream antennae"
+      "light": "for the whitish fringes along the wings",
+      "accent": "for the cream antennae"
     },
     "firstMark": ["Start with the outline of the swept-back wings, a long, shallow triangle drawn lightly in {main}.", "Start with the olive band through each wing in {dark}, leaving paper either side for the pink."]
   },
@@ -617,13 +617,13 @@
     "seasons": ["spring", "summer", "autumn"],
     "active": "any",
     "colours": ["#9A7444", "#4D3826", "#8F867A"],
-    "accent": "#7A746C",
+    "accent": "#625C55",
     "texture": "shell",
     "roles": {
       "main": "for the brown shell",
       "dark": "for the bands that wind round the shell",
       "light": "for the shine on the shell and the gleam along the body",
-      "accent": "for the grey-brown eye stalks"
+      "accent": "for the dark grey eye stalks"
     },
     "firstMark": ["Start with the spiral: one curling line of {dark}, from the centre of the shell outwards.", "Start with the lip of the shell in a careful curve of {main}."]
   },

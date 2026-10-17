@@ -238,3 +238,14 @@ describe('backup helpers', () => {
       .toEqual({ backName: 'x'.repeat(24), smallCount: 4 })
   })
 })
+
+describe('settings copy', () => {
+  it('says when the last copy was saved in plain words', async () => {
+    const { friendlyDate } = await import('../../src/ui/settings.js')
+    const now = new Date(2026, 9, 17, 20, 0)
+    expect(friendlyDate(new Date(2026, 9, 17, 8, 0).toISOString(), now)).toBe('Today')
+    expect(friendlyDate(new Date(2026, 9, 16, 23, 0).toISOString(), now)).toBe('Yesterday')
+    expect(friendlyDate(new Date(2026, 8, 3, 12, 0).toISOString(), now)).toBe('3 September 2026')
+    expect(friendlyDate('not a date', now)).toBe('')
+  })
+})

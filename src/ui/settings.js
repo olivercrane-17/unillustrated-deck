@@ -401,6 +401,8 @@ function safePanel(disposedRef) {
         try {
           await importBackup(file, { mode, parsed })
           close()
+          // The view was rebuilt from the restored deck, so put focus back somewhere sensible.
+          document.querySelector('.safe-actions .btn-line')?.focus()
           toast(mode === 'merge' ? 'Merged. Everything from the copy is on the table now.' : 'Restored. The deck is just as you left it.')
         } catch (e) {
           if (!(e instanceof BackupError)) console.error(e)

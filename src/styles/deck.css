@@ -370,6 +370,20 @@ button.detail-card-btn:hover .card {
   color: var(--cream);
   text-wrap: balance;
 }
+/* On a phone the big card already carries its title. */
+@media (max-width: 899px) {
+  .detail-title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+}
+.detail-title:focus {
+  outline: none;
+}
 .detail-phrases {
   margin: 0;
   max-width: 32ch;

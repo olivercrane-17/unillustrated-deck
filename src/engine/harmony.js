@@ -57,19 +57,23 @@ function moodPenalty(p, mood) {
   }
 }
 
-// Scorers for each role. Lower is better.
-function scoreMain(p, ctx) {
-  let s = deltaE(p.lab, ctx.subjectAnchor.lab) + moodPenalty(p, ctx.mood) * 0.5
-  if (isBlack(p) && ctx.subjectAnchor.lch.L > 0.3) s += 0.5
+// How well a pencil stands in for a target colour. Greys are special: most tins
+// have no true grey, and the nearest pencil by raw distance can be a strong
+// green or blue, so for a grey target a muted pencil (the umbers, sepia) wins.
+function anchorScore(p, anchor, mood) {
+  let s = deltaE(p.lab, anchor.lab) + moodPenalty(p, mood) * 0.5
+  if (anchor.lch.C < 0.035) s += 3 * Math.max(0, p.lch.C - 0.035)
+  if (isBlack(p) && anchor.lch.L > 0.3) s += 0.5
   return s
 }
 
+// Scorers for each role. Lower is better.
+function scoreMain(p, ctx) {
+  return anchorScore(p, ctx.subjectAnchor, ctx.mood)
+}
+
 function scoreAnchor(anchor) {
-  return (p, ctx) => {
-    let s = deltaE(p.lab, anchor.lab) + moodPenalty(p, ctx.mood) * 0.5
-    if (isBlack(p) && anchor.lch.L > 0.3) s += 0.5
-    return s
-  }
+  return (p, ctx) => anchorScore(p, anchor, ctx.mood)
 }
 
 function darkHueTarget(ctx) {

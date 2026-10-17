@@ -370,9 +370,9 @@
       { "t": "is braying with its lips curled back", "scope": "any" },
       { "t": "is leaning its head over a friend's neck", "scope": "any" },
       { "t": "is rolling on its back with its legs in the air", "scope": "outdoor" },
-      { "t": "is nibbling a thistle, carefully avoiding the prickles", "scope": "outdoor", "seasons": ["summer", "autumn"] }
+      { "t": "is nibbling round the prickles of a thistle", "scope": "outdoor", "seasons": ["summer", "autumn"] }
     ],
-    "close": ["Just the donkey's head, ears and all, gazing out of the page.", "Only the donkey's pale, velvety muzzle and whiskers, close up."],
+    "close": ["Just the donkey's head, ears and all, gazing out of the page.", "Only the donkey's velvety, mealy muzzle and whiskers, close up."],
     "scale": "large",
     "habitats": ["farm", "meadow", "coast"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -408,7 +408,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#C9A27A", "#F2E8D8", "#E7B4AF"],
-    "accent": "#E6A3A3",
+    "accent": "#EBA3AB",
     "texture": "fur",
     "roles": {
       "main": "for the sandy coat",

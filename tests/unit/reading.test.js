@@ -356,6 +356,8 @@ describe('correctness review fixes', () => {
     const ctx = ctxFor({ set: '150' })
     for (let seed = 0; seed < 60; seed++) {
       let r = dealReading(ctx, { spread: 'evening', seed })
+      // Moonlight and Brown and White have no Keep buttons.
+      if (r.palette.fixed) continue
       r = toggleLock(r, 0)
       const kept = r.palette.pencils[0].code
       r = newPicture(r, ctx)
@@ -423,5 +425,67 @@ describe('hours and palette names', () => {
       expect(dealReading(ctx, { spread: 'quick', seed }).palette.name).toBe('Pencil Box')
       expect(dealReading(ctx, { spread: 'small', seed }).palette.name).toBe('Pencil Box')
     }
+  })
+})
+
+describe('final verification fixes', () => {
+  it('a leftover pencil stays when she swaps a different one', () => {
+    const ctx = ctxFor({ set: '150' })
+    let checked = 0
+    for (const spread of ['evening', 'big']) {
+      for (let seed = 0; seed < 120; seed++) {
+        const r = newPicture(dealReading(ctx, { spread, seed }), ctx)
+        const extra = r.palette.pencils.findIndex((p) => p.slot.startsWith('extra'))
+        if (extra < 0) continue
+        const other = r.palette.pencils.findIndex((_, i) => i !== extra)
+        checked++
+        expect(swapPencil(r, ctx, other).palette.pencils.some((p) => p.code === r.palette.pencils[extra].code)).toBe(true)
+      }
+    }
+    expect(checked).toBeGreaterThan(0)
+  })
+
+  it('a kept metallic stays kept through a repaint', () => {
+    const ctx = ctxFor({ set: '150' })
+    let seed = 0
+    while (dealReading(ctx, { spread: 'evening', seed }).palette.rule) seed++
+    const r = dealReading(ctx, { spread: 'evening', seed })
+    r.palette.pencils[0] = { ...r.palette.pencils[0], code: 'PC950', locked: true }
+    const after = repaint(r, ctx)
+    expect(after.palette.pencils.some((p) => p.code === 'PC950' && p.locked)).toBe(true)
+  })
+
+  it('a fixed palette never shows a kept mark', () => {
+    const ctx = ctxFor({ set: '150' })
+    for (let seed = 0; seed < 80; seed++) {
+      let r = dealReading(ctx, { spread: 'big', seed })
+      r = toggleLock(r, 0)
+      r = swapCard(r, ctx, 'twist')
+      if (r.palette.fixed) expect(r.palette.pencils.some((p) => p.locked)).toBe(false)
+    }
+  })
+
+  it('a reading saved before the Also slot is upgraded on its first edit', () => {
+    const ctx = ctxFor({ set: '150' })
+    let upgraded = 0
+    for (let seed = 0; seed < 80; seed++) {
+      const r = dealReading(ctx, { spread: 'big', seed })
+      if (!r.cards.also || !r.palette.pencils.some((p) => p.slot === 'also')) continue
+      const old = JSON.parse(JSON.stringify(r))
+      old.v = 1
+      old.palette.pencils = old.palette.pencils.filter((p) => p.slot !== 'accent').map((p) => (p.slot === 'also' ? { ...p, slot: 'accent' } : p))
+      const alsoCode = old.palette.pencils.find((p) => p.slot === 'accent').code
+      const after = toggleLock(old, 0)
+      expect(after.v).toBe(2)
+      expect(after.palette.pencils.find((p) => p.code === alsoCode).slot).toBe('also')
+      upgraded++
+    }
+    expect(upgraded).toBeGreaterThan(0)
+  })
+
+  it('old friends in a quick doodle are in season', () => {
+    const seals = [{ cardId: 'leaf-conker', createdAt: '2025-10-01T10:00:00Z' }, { cardId: 'fur-robin', createdAt: '2025-10-02T10:00:00Z' }, { cardId: 'fur-wren', createdAt: '2025-10-03T10:00:00Z' }]
+    const ctx = ctxFor({ history: { seals }, date: new Date('2026-04-18T10:00:00') })
+    for (let seed = 0; seed < 300; seed++) expect(dealReading(ctx, { spread: 'quick', seed }).cards.who).not.toBe('leaf-conker')
   })
 })

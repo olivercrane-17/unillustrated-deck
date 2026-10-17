@@ -416,6 +416,11 @@ export function storageAvailable() {
   return state.storageOk
 }
 
+/** Photos held only in memory (storage refused), for "Save a copy". */
+export function memoryImageRecords() {
+  return [...memoryImages.entries()].map(([id, rec]) => ({ id, ...rec }))
+}
+
 export async function imageUrl(imageId, which = 'thumb') {
   if (!imageId) return ''
   const key = `${imageId}:${which}`

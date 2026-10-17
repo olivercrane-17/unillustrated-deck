@@ -7,7 +7,7 @@
 //   images/<id>-thumb.jpg    the little one for the gallery
 import { zipSync, unzipSync, strToU8, strFromU8 } from 'fflate'
 import { db } from './db.js'
-import { state, SCHEMA_VERSION, DEFAULT_SETTINGS, setSetting, setMeta, reloadFromDb } from './state.js'
+import { state, SCHEMA_VERSION, DEFAULT_SETTINGS, setSetting, setMeta, reloadFromDb, memoryImageRecords } from './state.js'
 import { SPREADS } from '../engine/reading.js'
 import pkg from '../../package.json'
 
@@ -188,7 +188,7 @@ async function readEverything() {
   if (!state.storageOk) {
     return {
       tin: state.tin, meta: state.meta, readings: [...state.readings.values()], seals: state.seals,
-      pencilStats: Object.values(state.stats), images: [], currentId: state.currentId,
+      pencilStats: Object.values(state.stats), images: memoryImageRecords(), currentId: state.currentId,
     }
   }
   const [tin, meta, current, readings, seals, pencilStats, images] = await Promise.all([

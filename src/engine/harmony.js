@@ -37,6 +37,10 @@ function hasShades(p, pool) {
   return family.some((q) => q.lch.L > p.lch.L + SHADE_STEP) && family.some((q) => q.lch.L < p.lch.L - SHADE_STEP)
 }
 
+function monoHolds(list, want) {
+  return list.length === want && list.every((p) => p.lch.C >= 0.03 && hueDistance(p.lch.h, list[0].lch.h) < 32)
+}
+
 /** Whether the tin holds a light, a middle and a dark of any one colour. */
 export function canDealMono(pencils) {
   const owned = pencils.filter((p) => isDealable(p, false))
@@ -188,8 +192,11 @@ export function dealPalette({ pencils, slots, mood, rule, keep = {}, avoid = [],
 
   const chosen = [] // { p, slot }
   const used = new Set()
+  // Under Warm Colours Only and the like, a kept pencil must suit the rule;
+  // otherwise anything she kept stays, a metallic included.
+  const keepable = rule ? new Map(pool.map((p) => [p.code, p])) : new Map(pencils.filter((p) => p.special !== 'blender').map((p) => [p.code, p]))
   for (const slot of slots) {
-    const kept = keep[slot.key] && byCode.get(keep[slot.key])
+    const kept = keep[slot.key] && keepable.get(keep[slot.key])
     if (kept) { chosen.push({ p: kept, slot }); used.add(kept.code) }
   }
 
@@ -210,13 +217,27 @@ export function dealPalette({ pencils, slots, mood, rule, keep = {}, avoid = [],
     if (rule === 'mono') {
       // One colour family: a middle that has a lighter and a darker shade in
       // the tin, then those shades. Never White, Black or a grey.
+      // Shades she is moving away from (New colours) are used only if
+      // nothing else will do.
+      const fresh = pool.filter((p) => !used.has(p.code) && !avoidSet.has(p.code))
       if (slot.kind === 'main') {
-        const shaded = candidates.filter((p) => hasShades(p, pool))
+        // A pencil she kept decides the family.
+        const kept = chosen.map((c) => c.p)
+        if (kept.length) {
+          const inKept = (list) => list.filter((p) => kept.every((k) => sameFamily(k)(p)))
+          const next = inKept(candidates).length ? inKept(candidates) : inKept(pool.filter((p) => !used.has(p.code)))
+          if (next.length) candidates = next
+        }
+        const shaded = candidates.filter((p) => hasShades(p, fresh.concat(p)))
+        const anyShaded = candidates.filter((p) => hasShades(p, pool))
         if (shaded.length) candidates = shaded
+        else if (anyShaded.length) candidates = anyShaded
       } else if (ctx.main) {
         const { L } = ctx.main.lch
-        candidates = candidates.filter((p) => sameFamily(ctx.main)(p) &&
+        const shades = (list) => list.filter((p) => sameFamily(ctx.main)(p) &&
           (slot.kind === 'light' ? p.lch.L > L + SHADE_STEP : slot.kind === 'dark' ? p.lch.L < L - SHADE_STEP : true))
+        candidates = shades(candidates)
+        if (!candidates.length) candidates = shades(pool.filter((p) => !used.has(p.code)))
         if (!candidates.length) continue
       }
     } else {
@@ -268,6 +289,12 @@ export function dealPalette({ pencils, slots, mood, rule, keep = {}, avoid = [],
       chosen[blackIdx] = { p: alt, slot: chosen[blackIdx].slot }
       used.add(alt.code)
     }
+  }
+
+  // One Colour Family must stay a light, a middle and a dark of one colour;
+  // if the shades she is moving away from were the only ones, bring them back.
+  if (rule === 'mono' && avoid.length && !monoHolds(chosen.map((c) => c.p), slots.length)) {
+    return dealPalette({ pencils, slots, mood, rule, keep, avoid: [], allowMetallic, rng })
   }
 
   // Order by slot order for display.

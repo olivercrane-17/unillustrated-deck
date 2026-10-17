@@ -3,7 +3,7 @@
 // and the history snapshot, so every reading can be reproduced exactly.
 import { subRng, weightedPick, pick, shuffle, hashString } from './rng.js'
 import { seasonFor, timeOfDayFor, monthName, SEASON_MOOD } from './seasons.js'
-import { usableDoings, subjectFitsPlace, whenFitsPlace, companionFits } from './compat.js'
+import { usableDoings, subjectFitsPlace, whenFitsPlace, companionFits, inSeason } from './compat.js'
 import { MAIN_TEMPLATES, QUICK_TEMPLATES, COMPANION_TEMPLATES, fill, tidy, capitalise } from './templates.js'
 import { dealPalette, refitRoles, anchorFor, canDealMono } from './harmony.js'
 import { hueDistance } from './color.js'
@@ -101,7 +101,7 @@ function pickWho(ctx, rng, { spread, twist, season, exclude = [], forceOldFriend
   const { subjects } = ctx.content
   const needsPlace = spread !== 'quick'
   const affinity = suitAffinity(ctx)
-  const usable = (s) => (needsPlace ? placesFor(ctx, s, twist, season).length > 0 : usableDoings(s, undefined, season).length > 0)
+  const usable = (s) => inSeason(s, season) && (needsPlace ? placesFor(ctx, s, twist, season).length > 0 : usableDoings(s, undefined, season).length > 0)
   const weightOf = (s) => (usable(s) ? seasonWeight(s, season) * affinity(s) : 0)
 
   const sealed = sealedSubjectIds(ctx).filter((id) => !exclude.includes(id))
@@ -162,6 +162,7 @@ function friendFits(ctx, spread, season) {
   return sealedSubjectIds(ctx).some((id) => {
     const s = ctx.content.byId.get(id)
     if (!s) return false
+    if (!inSeason(s, season)) return false
     return spread === 'quick' ? usableDoings(s, undefined, season).length > 0 : placesFor(ctx, s, null, season).length > 0
   })
 }
@@ -274,20 +275,43 @@ function rebuildPalette(reading, ctx, { keepSlots = [], avoid = [] } = {}) {
   const { slots, mood, rule, allowMetallic } = paletteSlots(reading, ctx)
   const keep = {}
   const slotKeys = new Set(slots.map((s) => s.key))
-  const locked = new Set()
-  for (const p of reading.palette?.pencils || []) {
-    if ((p.locked || keepSlots.includes(p.slot)) && slotKeys.has(p.slot)) {
-      keep[p.slot] = p.code
-      if (p.locked) locked.add(p.code)
+  const before = reading.palette?.pencils || []
+  // Kept stays kept, whichever slot the pencil lands in.
+  const locked = new Set(before.filter((p) => p.locked).map((p) => p.code))
+  for (const p of before) {
+    if ((p.locked || keepSlots.includes(p.slot)) && slotKeys.has(p.slot)) keep[p.slot] = p.code
+  }
+  // Under a twist that limits the pencils, a kept pencil with no slot of its
+  // own takes a free one that suits it, so it isn't lost.
+  const moved = new Set()
+  if (rule && rule !== 'moon' && rule !== 'sepia') {
+    for (const p of before) {
+      const pencil = ctx.pencilsByCode.get(p.code)
+      if (!p.locked || !pencil || slotKeys.has(p.slot) || Object.values(keep).includes(p.code)) continue
+      const suits = (s) => (s.kind === 'dark' ? pencil.lch.L < 0.5 : s.kind === 'light' ? pencil.lch.L > 0.84 && pencil.lch.C < 0.07 : true)
+      const free = slots.find((s) => !keep[s.key] && suits(s))
+      if (free) { keep[free.key] = p.code; moved.add(p.code) }
     }
   }
   const dealt = dealPalette({ pencils: ctx.pencils, slots, mood, rule, keep, avoid, allowMetallic, rng: paletteRng(reading) })
-  // A kept pencil whose slot no longer exists (after "New picture") still stays.
-  const dealtCodes = new Set(dealt.pencils.map((p) => p.code))
-  for (const p of reading.palette?.pencils || []) {
-    if (p.locked && !dealtCodes.has(p.code) && ctx.pencilsByCode.has(p.code)) {
-      dealt.pencils.push({ code: p.code, slot: p.slot, role: p.role })
-      locked.add(p.code)
+  if (moved.size) {
+    const who = reading.cards.who && ctx.content.byId.get(reading.cards.who)
+    const slotByKey = new Map(slots.map((s) => [s.key, s]))
+    dealt.pencils = dealt.pencils.map((p) => (moved.has(p.code) ? { ...p, role: plainRoleIfOff(p, slotByKey.get(p.slot), ctx, who) } : p))
+  }
+  // A pencil with no slot of its own still stays: a kept one after "New
+  // picture", or a leftover while she swaps a different pencil. It gets a
+  // plain role, since the card it was dealt for may have gone. A palette twist
+  // decides the pencils itself, so there nothing extra is added.
+  if (!rule) {
+    const dealtCodes = new Set(dealt.pencils.map((p) => p.code))
+    let n = dealt.pencils.filter((p) => p.slot.startsWith('extra')).length
+    for (const p of before) {
+      const stays = p.locked || (keepSlots.includes(p.slot) && p.slot.startsWith('extra'))
+      if (stays && !dealtCodes.has(p.code) && ctx.pencilsByCode.has(p.code)) {
+        dealt.pencils.push({ code: p.code, slot: `extra${n++}`, role: 'for anything else in the picture' })
+        dealtCodes.add(p.code)
+      }
     }
   }
   const twist = reading.cards.twist && ctx.content.byId.get(reading.cards.twist)
@@ -299,7 +323,8 @@ function rebuildPalette(reading, ctx, { keepSlots = [], avoid = [] } = {}) {
     bareLights: dealt.bareLights,
     small: ctx.pencils.length <= 3,
     fixed: rule === 'moon' || rule === 'sepia',
-    pencils: dealt.pencils.map((p) => ({ ...p, locked: locked.has(p.code) })),
+    // A fixed palette (Moonlight, Brown and White) has no Keep buttons.
+    pencils: dealt.pencils.map((p) => ({ ...p, locked: !(rule === 'moon' || rule === 'sepia') && locked.has(p.code) })),
   }
   reading.palette.name = paletteName(reading, ctx, mood)
   return reading
@@ -396,7 +421,11 @@ export function renderText(reading, ctx) {
     // If the accent pencil isn't dealt (a twist with few pencils), prefer a
     // first mark that doesn't need it.
     let mark = firstMarkTemplate(who, reading.picks)
-    if (!accentP && mark.includes('{accent}')) {
+    // After "New picture" the accent slot may hold any of her pencils; only
+    // name it for the detail when it really is near that colour.
+    const accentHex = accentHexOf(who)
+    const accentOk = accentP && (!accentHex || pencilNear(ctx, accentP.code, anchorFor(accentHex)))
+    if (!accentOk && mark.includes('{accent}')) {
       const marks = (doing.firstMark?.length ? doing.firstMark : who.firstMark).filter((m) => !m.includes('{accent}'))
       if (marks.length) mark = marks[reading.picks.firstMark % marks.length]
     }
@@ -409,7 +438,7 @@ export function renderText(reading, ctx) {
     text.firstMark = fill(mark, {
       dark: darkName,
       main: pencilName(mainP?.code),
-      accent: pencilName((accentP || mainP)?.code),
+      accent: pencilName((accentOk ? accentP : mainP)?.code),
     })
   }
   if (twist) brief.push({ key: 'twist', label: 'Twist', text: twist.rule })
@@ -532,7 +561,7 @@ export function dealReading(ctx, { spread = 'evening', seed, fixedWho, fixedTwis
   // The blender is never dealt as a colour, so a blender-only tin is empty too.
   if (!ctx.pencils.some((p) => p.special !== 'blender')) throw new Error('The tin is empty')
   const reading = {
-    v: 1,
+    v: READING_VERSION,
     seed: seed >>> 0,
     spread,
     createdAt: ctx.date.toISOString(),
@@ -573,7 +602,19 @@ export function dealChoices(ctx, { spread, seed, count = 3 }) {
   return out
 }
 
-const clone = (r) => JSON.parse(JSON.stringify(r))
+// Readings saved before the Also card had its own pencil slot kept that
+// pencil in 'accent'. Every edit starts from a clone, so upgrade them here.
+const READING_VERSION = 2
+function upgrade(r) {
+  if ((r.v || 1) >= READING_VERSION) return r
+  const pencils = r.palette?.pencils || []
+  if (r.cards?.also && !pencils.some((p) => p.slot === 'also')) {
+    for (const p of pencils) if (p.slot === 'accent') p.slot = 'also'
+  }
+  r.v = READING_VERSION
+  return r
+}
+const clone = (r) => upgrade(JSON.parse(JSON.stringify(r)))
 
 // Swap exactly one card, keeping the others where they still fit.
 export function swapCard(reading, ctx, position) {
@@ -672,6 +713,8 @@ export function swapCard(reading, ctx, position) {
   if (phrasePicks.length) pickPhrases(ctx, r, phrasePicks)
 
   r.swaps.paint = (r.swaps.paint || 0) + 1
+  // One Colour Family: a new middle colour brings its own light and dark.
+  if (r.palette?.rule === 'mono' && !keepSlots.includes('main')) drop('dark', 'light')
   rebuildPalette(r, ctx, { keepSlots })
   return renderText(r, ctx)
 }
@@ -692,7 +735,9 @@ export function swapPencil(reading, ctx, index) {
   const target = r.palette.pencils[index]
   if (!target) return r
   r.swaps.paint = (r.swaps.paint || 0) + 1
-  const keepSlots = r.palette.pencils.filter((_, i) => i !== index).map((p) => p.slot)
+  // Under One Colour Family a new middle colour brings its own light and dark.
+  const monoMain = r.palette.rule === 'mono' && target.slot === 'main'
+  const keepSlots = monoMain ? [] : r.palette.pencils.filter((_, i) => i !== index).map((p) => p.slot)
   // Avoid every pencil already tried in this slot recently.
   r.swaps.tried = r.swaps.tried || {}
   const tried = new Set([...(r.swaps.tried[target.slot] || []), target.code])
@@ -727,21 +772,33 @@ export function newPicture(reading, ctx) {
     const twist = fresh.cards.twist && byId.get(fresh.cards.twist)
     if (oldTwist?.effects?.palette || !twist?.effects?.palette) break
   }
+  const freshTwist = fresh.cards.twist && byId.get(fresh.cards.twist)
+  if (!oldTwist?.effects?.palette && freshTwist?.effects?.palette) {
+    // Still a palette twist after ten tries: deal with one that leaves the
+    // pencils alone (a cosy evening may simply have none).
+    const plain = ctx.content.twists.filter((t) => !t.effects?.palette && t.effects?.requires !== 'seal')
+    const seed = hashString(`${reading.seed}:picture:${n}:plain`)
+    const fixedTwist = reading.spread === 'big' && plain.length ? plain[seed % plain.length] : null
+    fresh = dealReading(ctx, { spread: reading.spread, seed, lonely: false, fixedTwist })
+  }
   fresh.swaps.picture = n
   const who = fresh.cards.who && byId.get(fresh.cards.who)
-  if (fresh.palette.rule) {
-    // Same rule, same pencils: keep every pencil whose slot still exists.
-    fresh.palette.pencils = reading.palette.pencils.map((p) => ({ ...p }))
-    rebuildPalette(fresh, ctx, { keepSlots: reading.palette.pencils.map((p) => p.slot) })
-    if (!fresh.palette.fixed) {
-      const slotMap = new Map(paletteSlots(fresh, ctx).slots.map((sl) => [sl.key, sl]))
-      fresh.palette.pencils = fresh.palette.pencils.map((p) => ({ ...p, role: plainRoleIfOff(p, slotMap.get(p.slot), ctx, who) }))
-    }
+  // Moonlight and Brown and White deal their own two pencils again.
+  if (fresh.palette.fixed) {
     fresh.palette.name = keepPaletteName(reading.palette.name, fresh, ctx)
     return renderText(fresh, ctx)
   }
-  const codes = reading.palette.pencils.map((p) => p.code)
   const { slots, mood } = paletteSlots(fresh, ctx)
+  // One Colour Family keeps its light, middle and dark where they are.
+  if (fresh.palette.rule === 'mono' && reading.palette.rule === 'mono') {
+    const slotByKey = new Map(slots.map((sl) => [sl.key, sl]))
+    fresh.palette.pencils = reading.palette.pencils.map((p) => ({ ...p, role: plainRoleIfOff(p, slotByKey.get(p.slot), ctx, who) }))
+    fresh.palette.name = keepPaletteName(reading.palette.name, fresh, ctx)
+    return renderText(fresh, ctx)
+  }
+  // Same pencils (and the same twist, if it limits them), fitted to the new
+  // picture's roles.
+  const codes = reading.palette.pencils.map((p) => p.code)
   const locked = new Set(reading.palette.pencils.filter((p) => p.locked).map((p) => p.code))
   const refit = refitRoles({ pencils: ctx.pencils, codes, slots, mood })
   const slotByKey = new Map(slots.map((sl) => [sl.key, sl]))
@@ -749,6 +806,15 @@ export function newPicture(reading, ctx) {
   fresh.palette.bareLights = !fresh.palette.pencils.some((p) => (ctx.pencilsByCode.get(p.code)?.lch.L ?? 0) > 0.84)
   fresh.palette.name = keepPaletteName(reading.palette.name, fresh, ctx)
   return renderText(fresh, ctx)
+}
+
+// Whether a pencil is close enough to a colour to be named for it.
+function pencilNear(ctx, code, anchor) {
+  const pencil = ctx.pencilsByCode?.get(code)
+  if (!pencil) return false
+  const far = Math.hypot(pencil.lab.L - anchor.lab.L, pencil.lab.a - anchor.lab.a, pencil.lab.b - anchor.lab.b) > 0.16
+  const hueOff = pencil.lch.C > 0.04 && anchor.lch.C > 0.04 && hueDistance(pencil.lch.h, anchor.lch.h) > 60
+  return !far && !hueOff
 }
 
 // When a kept pencil is far from the colour a role describes, use a plain
@@ -759,10 +825,7 @@ function plainRoleIfOff(p, slot, ctx, who) {
   const subject = who ? nameOf(who) : 'picture'
   if (slot.kind === 'dark') return pencil.lch.L < 0.5 ? slot.role : 'for the darker parts'
   if (slot.kind === 'light') return pencil.lch.L > 0.84 && pencil.lch.C < 0.07 ? slot.role : 'for the lightest parts'
-  if (!slot.anchor) return slot.role
-  const far = Math.hypot(pencil.lab.L - slot.anchor.lab.L, pencil.lab.a - slot.anchor.lab.a, pencil.lab.b - slot.anchor.lab.b) > 0.16
-  const hueOff = pencil.lch.C > 0.04 && slot.anchor.lch.C > 0.04 && hueDistance(pencil.lch.h, slot.anchor.lch.h) > 60
-  if (!far && !hueOff) return slot.role
+  if (!slot.anchor || pencilNear(ctx, p.code, slot.anchor)) return slot.role
   return { main: `for the ${subject}`, setting: 'for the setting', accent: 'for the small details' }[slot.key] || 'for anything else in the picture'
 }
 

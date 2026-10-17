@@ -6,7 +6,7 @@ import { ICONS } from './ornaments.js'
 import { openSheet, toast } from './feedback.js'
 import { flipSound } from './sound.js'
 import { go } from './app.js'
-import { state, content, recordDrawn, requestPersistence, setMeta } from '../store/state.js'
+import { state, content, recordDrawn, requestPersistence, setMeta, storageAvailable } from '../store/state.js'
 import { hashString } from '../engine/rng.js'
 import {
   FRAME, OUTPUT, CREAM, JPEG_QUALITY, fitView, coverView, isWhole, panBy, zoomAt, pinchView, wheelFactor,
@@ -17,6 +17,7 @@ const DECODE_ERROR = 'That photo wouldn’t open here. A screenshot of it or a J
 const SAVE_ERROR = 'That didn’t save just now. Try once more, or keep it as drawn with no photo.'
 const NOTE_ERROR = 'That didn’t save just now. Try once more in a moment.'
 const LOW_SPACE = 'This device is nearly out of room. It should still fit, but saving a copy of your deck in Settings would be wise.'
+const NO_STORAGE = 'This browser isn’t keeping anything just now (private browsing can do that). Your photo will stay until you close the app; save a copy in Settings to keep it.'
 const BACKUP_NUDGE = 'Your deck lives only on this device. Save a copy somewhere safe?'
 
 // Until lines.json arrives, the deck still has something kind to say.
@@ -372,7 +373,8 @@ export function openSealFlow(reading, { onDone } = {}) {
     }
     requestAnimationFrame(() => paint())
 
-    // Space is checked up front so the warning comes before she commits.
+    // Said up front, so she knows before she commits.
+    if (!storageAvailable()) notes.appendChild(h('p.seal-note', NO_STORAGE))
     navigator.storage?.estimate?.().then((est) => {
       if (spaceIsLow(est) && notes.isConnected) notes.appendChild(h('p.seal-note', LOW_SPACE))
     }).catch(() => {})

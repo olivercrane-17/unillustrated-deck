@@ -391,7 +391,7 @@
     "active": "any",
     "colours": ["#D9D5C6", "#7E9A4A", "#8C7F5E"],
     "accent": "#7E9A4A",
-    "texture": "wing",
+    "texture": "paper",
     "roles": {
       "main": "for the soft shading in the fluffy ball",
       "dark": "for the seeds packed in the middle",
@@ -1352,7 +1352,7 @@
     "active": "any",
     "colours": ["#D8E2E4", "#9AAEB8", "#5E6E5A"],
     "accent": "#7A5A3A",
-    "texture": "wing",
+    "texture": "paper",
     "roles": {
       "main": "for the faint shading beside the threads",
       "dark": "for the background behind the web",

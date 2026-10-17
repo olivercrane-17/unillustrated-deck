@@ -638,7 +638,7 @@
       { "t": "is shuffling forward on its belly", "scope": "any" },
       { "t": "is looking up with its whiskers spread", "scope": "any" }
     ],
-    "close": ["Just the seal pup, filling most of the page.", "Only the seal pup, cream fur on plain paper, with no background."],
+    "close": ["Just the seal pup, filling most of the page.", "Only the seal pup, cream fur against plain white paper."],
     "scale": "medium",
     "habitats": ["coast"],
     "seasons": ["autumn", "winter"],

@@ -653,7 +653,7 @@
       "main": "for the blue body",
       "dark": "for the black markings and the veins",
       "light": "for the clear wings and their shine",
-      "accent": "for the green on the thorax and eyes"
+      "accent": "for the green eyes"
     },
     "firstMark": ["Start with the long body: a straight line of {main}, in short sections.", "Start with the veins along the front edge of each wing, in a sharp line of {dark}."]
   }

@@ -258,7 +258,7 @@
       "light": "for the egg white and the shine on the shell",
       "accent": "for the runny yolk"
     },
-    "firstMark": ["Start with the cut rim of the shell, a fine jagged line of {dark}.", "Start with the curve of the shell in one light, unbroken line of {main}."]
+    "firstMark": ["Start with the rim of the egg cup, a fine curved line of {dark}.", "Start with the curve of the shell in one light, unbroken line of {main}."]
   },
   {
     "id": "hearth-cocoa",
@@ -403,7 +403,7 @@
       "light": "for the shine on the honey and on each ridge",
       "accent": "for the wooden dipper"
     },
-    "firstMark": ["Start with the grooves: stacked curved lines of {dark}, getting shorter towards the top.", "Start with the falling honey, one steady line of {main} from the dipper down."]
+    "firstMark": ["Start with the grooves: stacked curved lines of {dark}, getting shorter towards the top.", "Start with the rounded top of the pot, a small dome drawn lightly in {main}."]
   },
   {
     "id": "hearth-cheese-board",

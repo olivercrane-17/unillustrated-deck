@@ -134,18 +134,23 @@ h3.suit-head .suit-mark {
   height: 76cqw;
 }
 .gallery-card .card-title {
-  font-size: max(11px, 10.5cqw);
+  font-size: min(var(--title-max, 10.5cqw), max(11px, 10.5cqw));
 }
 .detail-figure .card-title {
-  font-size: 10cqw;
+  font-size: min(var(--title-max, 10cqw), 10cqw);
 }
 .gallery-card .card-title,
 .rest-card .card-title,
 .detail-figure .card-title {
   max-width: 100%;
+  overflow-wrap: anywhere;
+}
+/* The thumbnails in the rest of the deck are too small to fit a long word
+   whole at a readable size: there, and only there, the browser may hyphenate. */
+.rest-card .card-title {
+  font-size: max(11px, 11.5cqw);
   -webkit-hyphens: auto;
   hyphens: auto;
-  overflow-wrap: anywhere;
 }
 /* A long word ("Bladderwrack") must not widen the card's one column and push
    the title and photo out past the frame. */

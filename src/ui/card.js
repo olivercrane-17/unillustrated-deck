@@ -13,6 +13,45 @@ export function suitOf(card) {
 
 const corners = () => ['tl', 'tr', 'bl', 'br'].map((c) => h(`span.card-corner.${c}`, raw(CORNER)))
 
+// Titles wrap only between words. The type is sized in container units, so a
+// word's width is a fixed share of the card's at every size: work it out once
+// from the font's advance widths (Cormorant SC Bold with the title's 0.06em
+// letter-spacing, in thousandths of an em, measured in the browser), and cap
+// the size so the longest word always fits.
+const CAPS = [776, 655, 729, 765, 612, 582, 779, 824, 402, 399, 715, 605, 917, 795, 826, 613, 826, 758, 575, 703, 763, 720, 971, 707, 679, 665]
+const SMALL = [616, 585, 579, 627, 524, 481, 611, 692, 363, 333, 614, 528, 745, 624, 627, 531, 627, 607, 482, 562, 628, 591, 824, 602, 558, 511]
+const MARKS = { '-': 342, '’': 298, "'": 262, '&': 612, ',': 334, '.': 319, ':': 319, 'é': 524 }
+function advance(ch) {
+  const c = ch.charCodeAt(0)
+  if (c >= 65 && c <= 90) return CAPS[c - 65]
+  if (c >= 97 && c <= 122) return SMALL[c - 97]
+  return MARKS[ch] ?? 640
+}
+// The widest piece of a title that cannot wrap (a word, or one part of a
+// hyphenated word), in em.
+export function longestRun(title = '') {
+  let best = 0
+  for (const word of title.split(/\s+/)) {
+    const pieces = word.split('-')
+    pieces.forEach((piece, i) => {
+      let w = i < pieces.length - 1 ? advance('-') : 0 // the hyphen stays on the line before the break
+      for (const ch of piece) w += advance(ch)
+      best = Math.max(best, w / 1000)
+    })
+  }
+  return best
+}
+// The title's box is 74% of the card wide (72 leaves a little to spare). A
+// title with a long word may borrow 4% either side, still inside the thin
+// rule, and its type is capped so that word fits whole.
+const LONG_RUN = 5.6
+function titleFit(title) {
+  const run = longestRun(title)
+  if (!run) return { long: false, style: undefined }
+  const long = run > LONG_RUN
+  return { long, style: { '--title-max': `${((long ? 80 : 72) / run).toFixed(2)}cqw` } }
+}
+
 /**
  * @param {object} o
  * @param {object} o.card       content card (or undefined for a pure back)
@@ -30,6 +69,7 @@ const corners = () => ['tl', 'tr', 'bl', 'br'].map((c) => h(`span.card-corner.${
 export function renderCard({ card, label = '', size = 'sm', faceDown = false, imageUrl = '', dateText = '', drawn = false, backName = '', phrases, tilt = 0, className = '' } = {}) {
   const suit = suitOf(card)
   const showPhrases = phrases === true && size !== 'xs'
+  const fit = titleFit(card?.title)
   const front = card
     ? h('div.card-face.card-front',
         h('span.card-frame'),
@@ -40,7 +80,7 @@ export function renderCard({ card, label = '', size = 'sm', faceDown = false, im
           imageUrl ? h('img', { src: imageUrl, alt: `Your drawing for ${card.title}`, draggable: false }) : raw(EMBLEMS[suit] || EMBLEMS.twist),
         ),
         colourStrip(card, { imageUrl, size }),
-        h('span.card-title', card.title),
+        h(`span.card-title${fit.long ? '.is-long' : ''}`, { style: fit.style }, card.title),
         showPhrases && card.phrases?.length ? h('span.card-phrases', card.phrases.map((p) => h('span', p))) : null,
         dateText ? h('span.card-date.hand', drawn && !imageUrl ? `✓ ${dateText}` : dateText) : null,
       )

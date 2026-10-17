@@ -172,15 +172,25 @@
 .card-title {
   grid-row: 4;
   position: relative;
+  /* Words wrap only between words: card.js caps the size (--title-max) so the
+     longest word fits whole. Breaking inside a word is a last resort for the
+     tiniest thumbnails, and is never hyphenated by the browser. */
   overflow-wrap: anywhere;
-  hyphens: auto;
+  -webkit-hyphens: manual;
+  hyphens: manual;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: max(11px, 11.5cqw);
+  font-size: min(var(--title-max, 11.5cqw), max(11px, 11.5cqw));
   letter-spacing: 0.06em;
   line-height: 1.05;
   color: var(--ink);
   text-wrap: balance;
+}
+/* A title with a long word ("The Conservatory") borrows a little width
+   either side, still inside the thin rule. */
+.card .card-title.is-long {
+  margin-inline: -4cqw;
+  max-width: calc(100% + 8cqw);
 }
 .card-phrases {
   grid-row: 5;

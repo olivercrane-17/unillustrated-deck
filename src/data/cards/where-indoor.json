@@ -5,12 +5,13 @@
     "at": "on the warmest windowsill",
     "phrases": ["a patch of sun", "the radiator ticking below"],
     "scope": "threshold",
-    "admits": ["tabletop", "home", "visitor", "garden"],
+    "admits": ["tabletop", "visitor"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["window", "close-crop"],
     "colours": ["#E8DCC4", "#8DA2B0"],
-    "role": "for the painted sill and the glass"
+    "role": "for the painted sill and the glass",
+    "excludes": ["fur-hedgehog", "fur-fox-cub", "fur-pipistrelle-bat", "fur-frog", "fur-toad", "hearth-pancakes", "hearth-tomato-soup", "hearth-porridge"]
   },
   {
     "id": "where-pantry-shelf",
@@ -18,12 +19,13 @@
     "at": "on the pantry shelf",
     "phrases": ["jars of chutney in a row", "a cool breath of flour and apples"],
     "scope": "indoor",
-    "admits": ["tabletop", "home", "visitor"],
+    "admits": ["tabletop"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["close-crop", "tall-strip", "thirds"],
     "colours": ["#D9CBA6", "#8A5A3C"],
-    "role": "for the cream shelf and the jars of chutney"
+    "role": "for the cream shelf and the jars of chutney",
+    "excludes": ["fur-goldfish", "hearth-teapot-cosy", "hearth-toast-and-jam", "hearth-victoria-sponge", "hearth-pancakes", "hearth-boiled-egg", "hearth-cocoa", "hearth-tomato-soup", "hearth-cream-tea", "hearth-cheese-board", "hearth-porridge", "hearth-cup-of-tea", "hearth-library-books", "hearth-knitting", "hearth-watering-can", "hearth-sewing-tin", "hearth-postcard", "hearth-spider-plant", "hearth-tulips", "hearth-snow-globe", "hearth-fairy-lights", "hearth-alarm-clock", "leaf-conker", "leaf-pinecone", "leaf-striped-pebble", "leaf-snowdrops", "leaf-acorn", "leaf-oak-leaf", "leaf-ivy", "leaf-lichen-twig", "leaf-jay-feather", "leaf-whelk-shell", "leaf-cockle-shell", "leaf-sea-glass", "leaf-driftwood", "leaf-rose", "leaf-sweet-peas", "leaf-catkins", "leaf-horse-chestnut-leaf", "leaf-apple-blossom", "leaf-allium", "leaf-daisy-chain", "leaf-honesty", "leaf-hyacinth"]
   },
   {
     "id": "where-bottom-step",
@@ -31,12 +33,13 @@
     "at": "on the bottom step of the stairs",
     "phrases": ["a pile of things to take up", "one stair rod loose at the end"],
     "scope": "indoor",
-    "admits": ["home", "tabletop"],
+    "admits": ["home"],
     "maxScale": "medium",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "low-horizon", "thirds"],
     "colours": ["#8E3A34", "#9B7650"],
-    "role": "for the stair carpet and the banisters"
+    "role": "for the stair carpet and the banisters",
+    "excludes": ["fur-box-of-chicks", "fur-guinea-pig", "hearth-old-armchair"]
   },
   {
     "id": "where-scrubbed-pine-table",
@@ -44,7 +47,7 @@
     "at": "on the scrubbed pine table",
     "phrases": ["crumbs and a buttery knife", "the crossword half done"],
     "scope": "indoor",
-    "admits": ["tabletop", "home"],
+    "admits": ["tabletop"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["from-above", "thirds", "vignette"],
@@ -62,7 +65,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "close-crop", "low-horizon"],
     "colours": ["#3E5C4D", "#D9CBA8"],
-    "role": "for the green enamel of the range"
+    "role": "for the green enamel of the range",
+    "excludes": ["fur-guinea-pig", "fur-goldfish", "hearth-snow-globe", "leaf-striped-pebble", "leaf-acorn", "leaf-oak-leaf", "leaf-lichen-twig", "leaf-jay-feather", "leaf-whelk-shell", "leaf-cockle-shell", "leaf-sea-glass", "leaf-driftwood", "leaf-horse-chestnut-leaf", "leaf-daisy-chain"]
   },
   {
     "id": "where-bread-bin",
@@ -70,12 +74,13 @@
     "at": "on top of the bread bin",
     "phrases": ["a dent in the enamel lid", "yesterday's loaf still in its paper"],
     "scope": "indoor",
-    "admits": ["tabletop", "home", "visitor"],
+    "admits": ["tabletop"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["close-crop", "vignette", "postage-stamp"],
     "colours": ["#ECE3CC", "#2F5377"],
-    "role": "for the cream enamel and its blue rim"
+    "role": "for the cream enamel and its blue rim",
+    "excludes": ["fur-goldfish", "hearth-pancakes", "hearth-tomato-soup", "hearth-cheese-board", "hearth-porridge", "hearth-library-books", "hearth-enamel-kettle", "hearth-knitting", "hearth-watering-can", "hearth-sewing-tin", "hearth-postcard", "hearth-tulips", "hearth-snow-globe", "hearth-fairy-lights", "leaf-conker", "leaf-pinecone", "leaf-striped-pebble", "leaf-snowdrops", "leaf-sunflower", "leaf-pumpkin", "leaf-acorn", "leaf-oak-leaf", "leaf-holly", "leaf-ivy", "leaf-lichen-twig", "leaf-jay-feather", "leaf-whelk-shell", "leaf-cockle-shell", "leaf-sea-glass", "leaf-driftwood", "leaf-lavender", "leaf-rose", "leaf-sweet-peas", "leaf-catkins", "leaf-horse-chestnut-leaf", "leaf-apple-blossom", "leaf-strawberry-plant", "leaf-allium", "leaf-daisy-chain", "leaf-honesty", "leaf-hyacinth"]
   },
   {
     "id": "where-teacup-shelf",
@@ -83,12 +88,13 @@
     "at": "on the teacup shelf",
     "phrases": ["cups hung up by their handles", "one saucer that matches nothing"],
     "scope": "indoor",
-    "admits": ["tabletop", "home", "visitor"],
+    "admits": ["tabletop"],
     "maxScale": "tiny",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "close-crop", "postage-stamp"],
     "colours": ["#F2EDE3", "#8BA7BF"],
-    "role": "for the cups and their blue sprigs"
+    "role": "for the cups and their blue sprigs",
+    "excludes": ["hearth-toffee-apple", "leaf-pea-pod"]
   },
   {
     "id": "where-top-of-bookcase",
@@ -96,12 +102,13 @@
     "at": "at the top of the bookcase",
     "phrases": ["dust and a lost jigsaw piece", "the best lookout in the house"],
     "scope": "indoor",
-    "admits": ["home", "tabletop"],
+    "admits": ["tabletop"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "tall-strip", "close-crop"],
     "colours": ["#5E412C", "#A64E3A"],
-    "role": "for the dark wood and the book spines"
+    "role": "for the dark wood and the book spines",
+    "excludes": ["hearth-teapot-cosy", "hearth-cinnamon-bun", "hearth-toast-and-jam", "hearth-marmalade", "hearth-clementines", "hearth-crusty-loaf", "hearth-victoria-sponge", "hearth-pancakes", "hearth-boiled-egg", "hearth-cocoa", "hearth-milk-jug", "hearth-tomato-soup", "hearth-cream-tea", "hearth-honey-pot", "hearth-cheese-board", "hearth-apple-pie", "hearth-basket-of-eggs", "hearth-cherries", "hearth-iced-biscuits", "hearth-pie-bird", "hearth-pickled-onions", "hearth-hot-cross-bun", "hearth-mince-pies", "hearth-strawberry-tart", "hearth-toffee-apple", "hearth-lemon-drizzle", "hearth-wrapped-sandwich", "hearth-porridge", "hearth-cup-of-tea", "hearth-lemonade", "hearth-enamel-kettle", "hearth-watering-can", "leaf-windfall-apple", "leaf-strawberry-plant", "leaf-pea-pod", "leaf-radishes"]
   },
   {
     "id": "where-fireside-chair",
@@ -109,12 +116,13 @@
     "at": "on the arm of the fireside chair",
     "phrases": ["velvet gone shiny at the edges", "coins lost down the side"],
     "scope": "indoor",
-    "admits": ["home", "tabletop"],
+    "admits": ["home"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "close-crop", "vignette"],
     "colours": ["#6E3A3B", "#A27B55"],
-    "role": "for the velvet and the carved feet"
+    "role": "for the velvet and the carved feet",
+    "excludes": ["fur-box-of-chicks", "fur-lop-rabbit", "fur-guinea-pig", "hearth-darning-basket", "hearth-wireless", "hearth-button-jar", "hearth-fairy-lights", "hearth-tartan-slippers"]
   },
   {
     "id": "where-rag-rug",
@@ -122,12 +130,13 @@
     "at": "on the rag rug in the hall",
     "phrases": ["strips of shirts plaited round and round", "a draught from the letterbox"],
     "scope": "indoor",
-    "admits": ["home", "visitor"],
+    "admits": ["home"],
     "maxScale": "medium",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["from-above", "vignette", "low-horizon"],
     "colours": ["#B4654B", "#56717E"],
-    "role": "for the coloured coils of the rag rug"
+    "role": "for the coloured coils of the rag rug",
+    "excludes": ["fur-box-of-chicks", "fur-guinea-pig", "hearth-cocoa", "hearth-cup-of-tea", "hearth-darning-basket", "hearth-hot-water-bottle", "hearth-old-armchair", "hearth-patchwork-quilt", "hearth-sewing-tin", "hearth-reading-glasses", "hearth-wireless", "hearth-button-jar", "hearth-fairy-lights"]
   },
   {
     "id": "where-bay-window",
@@ -140,7 +149,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["window", "thirds", "low-horizon"],
     "colours": ["#CDBB9D", "#7F9C88"],
-    "role": "for the cushions and the window frame"
+    "role": "for the cushions and the window frame",
+    "excludes": ["hearth-enamel-kettle"]
   },
   {
     "id": "where-under-kitchen-table",
@@ -148,12 +158,13 @@
     "at": "under the kitchen table",
     "phrases": ["a forest of chair legs", "oilcloth hanging down on all sides"],
     "scope": "indoor",
-    "admits": ["home", "visitor"],
+    "admits": ["home"],
     "maxScale": "medium",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["low-horizon", "vignette", "thirds"],
     "colours": ["#A65C3D", "#C9473F"],
-    "role": "for the quarry tiles and the oilcloth"
+    "role": "for the quarry tiles and the oilcloth",
+    "excludes": ["fur-guinea-pig", "hearth-cocoa", "hearth-cup-of-tea", "hearth-library-books", "hearth-hot-water-bottle", "hearth-old-armchair", "hearth-patchwork-quilt", "hearth-sewing-tin", "hearth-reading-glasses", "hearth-postcard", "hearth-wireless", "hearth-button-jar", "hearth-fairy-lights"]
   },
   {
     "id": "where-airing-cupboard",
@@ -161,12 +172,13 @@
     "at": "among the towels in the airing cupboard",
     "phrases": ["the copper tank humming", "towels folded in thirds"],
     "scope": "indoor",
-    "admits": ["home", "tabletop"],
+    "admits": ["home"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "close-crop", "vignette"],
     "colours": ["#C3814F", "#E6D7C6"],
-    "role": "for the copper tank and the stacked towels"
+    "role": "for the copper tank and the stacked towels",
+    "excludes": ["fur-lop-rabbit", "fur-guinea-pig", "hearth-cocoa", "hearth-cup-of-tea", "hearth-library-books", "hearth-sewing-tin", "hearth-reading-glasses", "hearth-postcard", "hearth-wireless", "hearth-button-jar", "hearth-fairy-lights"]
   },
   {
     "id": "where-candlewick-bedspread",
@@ -174,12 +186,13 @@
     "at": "on the candlewick bedspread",
     "phrases": ["tufted rows like a ploughed field", "a bed not quite made"],
     "scope": "indoor",
-    "admits": ["home", "tabletop"],
+    "admits": ["home"],
     "maxScale": "medium",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["from-above", "vignette", "close-crop"],
     "colours": ["#E2B4A8", "#F3E9DC"],
-    "role": "for the tufted rows of the bedspread"
+    "role": "for the tufted rows of the bedspread",
+    "excludes": ["fur-box-of-chicks", "hearth-old-armchair", "hearth-tartan-slippers"]
   },
   {
     "id": "where-willow-pattern-dresser",
@@ -187,12 +200,13 @@
     "at": "between the willow-pattern plates on the dresser",
     "phrases": ["blue bridges and blue birds", "a jug of spare teaspoons"],
     "scope": "indoor",
-    "admits": ["tabletop", "home"],
+    "admits": ["tabletop"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "close-crop", "thirds"],
     "colours": ["#2D4E8C", "#EFE9DC"],
-    "role": "for the blue and white china"
+    "role": "for the blue and white china",
+    "excludes": ["fur-goldfish", "hearth-toast-and-jam", "hearth-pancakes", "hearth-boiled-egg", "hearth-cocoa", "hearth-tomato-soup", "hearth-cream-tea", "hearth-cheese-board", "hearth-wrapped-sandwich", "hearth-porridge", "hearth-enamel-kettle", "hearth-knitting", "hearth-watering-can", "leaf-sunflower", "leaf-strawberry-plant", "leaf-pea-pod", "leaf-radishes", "leaf-daisy-chain"]
   },
   {
     "id": "where-front-porch",
@@ -205,7 +219,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "vignette", "tall-strip"],
     "colours": ["#9A7A55", "#5C7A5A"],
-    "role": "for the weathered oak and the green front door"
+    "role": "for the weathered oak and the green front door",
+    "excludes": ["fur-song-thrush", "fur-tawny-owl", "fur-great-spotted-woodpecker", "fur-dragonfly", "fur-guinea-pig", "fur-mole", "fur-great-crested-newt", "fur-slow-worm", "fur-shrew", "hearth-hot-water-bottle", "hearth-button-jar", "leaf-fly-agaric", "leaf-bramble", "leaf-snowdrops", "leaf-bluebells", "leaf-mossy-stone", "leaf-poppy"]
   },
   {
     "id": "where-back-doorstep",
@@ -218,7 +233,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["low-horizon", "thirds", "vignette"],
     "colours": ["#A69A8A", "#4D6A80"],
-    "role": "for the stone step and the blue door"
+    "role": "for the stone step and the blue door",
+    "excludes": ["fur-grey-heron", "fur-barn-owl", "fur-tawny-owl", "fur-great-spotted-woodpecker", "fur-spotted-pig", "fur-harvest-mouse", "fur-hare", "fur-stoat", "fur-mole", "fur-pipistrelle-bat", "hearth-hot-water-bottle", "hearth-old-armchair", "hearth-patchwork-quilt", "hearth-button-jar", "leaf-fairy-ring", "leaf-fly-agaric", "leaf-foxgloves", "leaf-bramble", "leaf-snowdrops", "leaf-bluebells", "leaf-mossy-stone", "leaf-speckled-egg", "leaf-poppy"]
   },
   {
     "id": "where-greenhouse",
@@ -226,12 +242,13 @@
     "at": "in the lean-to greenhouse",
     "phrases": ["the sharp scent of tomato leaves", "seedlings stretching for the glass"],
     "scope": "threshold",
-    "admits": ["garden", "visitor", "tabletop"],
+    "admits": ["garden", "visitor"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "close-crop", "window"],
     "colours": ["#A4573F", "#A9C1A1"],
-    "role": "for the brick back wall and the green-tinted panes"
+    "role": "for the brick back wall and the green-tinted panes",
+    "excludes": ["fur-long-tailed-tit", "fur-goldfinch", "fur-song-thrush", "fur-tawny-owl", "fur-swallow", "fur-great-spotted-woodpecker", "fur-guinea-pig", "fur-red-squirrel", "fur-fox-cub", "fur-mole", "fur-pipistrelle-bat", "hearth-library-books", "hearth-knitting", "hearth-bird-feeder", "hearth-picnic-hamper", "leaf-fly-agaric", "leaf-sycamore-keys", "leaf-bramble", "leaf-snowdrops", "leaf-bluebells", "leaf-holly", "leaf-mossy-stone", "leaf-birds-nest", "leaf-speckled-egg", "leaf-jay-feather", "leaf-poppy", "leaf-catkins", "leaf-apple-blossom", "leaf-daisy-chain"]
   },
   {
     "id": "where-potting-shed",
@@ -239,12 +256,13 @@
     "at": "among the flowerpots in the potting shed",
     "phrases": ["twine hanging from a nail", "seed packets in a biscuit tin"],
     "scope": "threshold",
-    "admits": ["garden", "visitor", "tabletop"],
+    "admits": ["garden", "visitor"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["close-crop", "thirds", "three-studies"],
     "colours": ["#B5653F", "#5B4836"],
-    "role": "for the terracotta pots and the creosoted boards"
+    "role": "for the terracotta pots and the creosoted boards",
+    "excludes": ["fur-long-tailed-tit", "fur-goldfinch", "fur-song-thrush", "fur-tawny-owl", "fur-great-spotted-woodpecker", "fur-dragonfly", "fur-guinea-pig", "fur-red-squirrel", "fur-fox-cub", "fur-mole", "hearth-library-books", "hearth-knitting", "leaf-fly-agaric", "leaf-sycamore-keys", "leaf-bramble", "leaf-snowdrops", "leaf-bluebells", "leaf-dandelion-clock", "leaf-holly", "leaf-mossy-stone", "leaf-speckled-egg", "leaf-rose", "leaf-poppy", "leaf-catkins", "leaf-apple-blossom", "leaf-daisy-chain"]
   },
   {
     "id": "where-cardboard-box",
@@ -257,7 +275,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["vignette", "close-crop", "from-above"],
     "colours": ["#BC915F", "#8A6640"],
-    "role": "for the cardboard and the shadows under the flaps"
+    "role": "for the cardboard and the shadows under the flaps",
+    "excludes": ["fur-box-of-chicks", "fur-guinea-pig", "fur-goldfish", "hearth-teapot-cosy", "hearth-toast-and-jam", "hearth-victoria-sponge", "hearth-pancakes", "hearth-boiled-egg", "hearth-cocoa", "hearth-tomato-soup", "hearth-cream-tea", "hearth-cheese-board", "hearth-porridge", "hearth-cup-of-tea", "hearth-lemonade", "leaf-daisy-chain", "leaf-hyacinth"]
   },
   {
     "id": "where-tearoom-window",
@@ -270,7 +289,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["window", "thirds", "postage-stamp"],
     "colours": ["#F0E6D6", "#8E3F4E"],
-    "role": "for the lace and the raspberry shopfront"
+    "role": "for the lace and the raspberry shopfront",
+    "excludes": ["fur-blackbird", "fur-tawny-owl", "fur-swallow", "fur-speckled-hen", "fur-pipistrelle-bat", "hearth-wellies", "hearth-knitting", "hearth-watering-can", "hearth-sewing-tin", "hearth-button-jar", "hearth-bird-feeder", "leaf-striped-pebble", "leaf-sycamore-keys", "leaf-dandelion-clock", "leaf-acorn", "leaf-oak-leaf", "leaf-lichen-twig", "leaf-jay-feather", "leaf-whelk-shell", "leaf-cockle-shell", "leaf-sea-glass", "leaf-driftwood", "leaf-horse-chestnut-leaf", "leaf-strawberry-plant", "leaf-pea-pod", "leaf-radishes", "leaf-daisy-chain"]
   },
   {
     "id": "where-attic-trunk",
@@ -278,12 +298,13 @@
     "at": "on the trunk in the attic",
     "phrases": ["a dust sheet slipping off", "labels from long-ago holidays"],
     "scope": "indoor",
-    "admits": ["home", "visitor"],
+    "admits": ["home"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["vignette", "thirds", "low-horizon"],
     "colours": ["#6F4B33", "#B48A4E"],
-    "role": "for the leather and the brass corners"
+    "role": "for the leather and the brass corners",
+    "excludes": ["fur-box-of-chicks", "fur-lop-rabbit", "fur-guinea-pig", "hearth-cocoa", "hearth-cup-of-tea", "hearth-hot-water-bottle"]
   },
   {
     "id": "where-mantelpiece",
@@ -291,12 +312,13 @@
     "at": "on the mantelpiece",
     "phrases": ["a pair of china dogs at either end", "cards propped against the mirror"],
     "scope": "indoor",
-    "admits": ["tabletop", "home"],
+    "admits": ["tabletop"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "close-crop", "postage-stamp"],
     "colours": ["#E4DACA", "#7E4A3A"],
-    "role": "for the mantelpiece and the tiled surround"
+    "role": "for the mantelpiece and the tiled surround",
+    "excludes": ["fur-goldfish", "hearth-teapot-cosy", "hearth-cinnamon-bun", "hearth-toast-and-jam", "hearth-marmalade", "hearth-crusty-loaf", "hearth-victoria-sponge", "hearth-pancakes", "hearth-boiled-egg", "hearth-cocoa", "hearth-milk-jug", "hearth-tomato-soup", "hearth-cream-tea", "hearth-honey-pot", "hearth-cheese-board", "hearth-apple-pie", "hearth-basket-of-eggs", "hearth-cherries", "hearth-pie-bird", "hearth-pickled-onions", "hearth-hot-cross-bun", "hearth-strawberry-tart", "hearth-toffee-apple", "hearth-lemon-drizzle", "hearth-wrapped-sandwich", "hearth-porridge", "hearth-lemonade", "hearth-enamel-kettle", "hearth-watering-can", "leaf-sunflower", "leaf-windfall-apple", "leaf-strawberry-plant", "leaf-pea-pod", "leaf-radishes"]
   },
   {
     "id": "where-bedside-table",
@@ -304,12 +326,13 @@
     "at": "on the bedside table",
     "phrases": ["a paperback face down to keep the page", "a lampshade with a bobbled fringe"],
     "scope": "indoor",
-    "admits": ["tabletop", "home"],
+    "admits": ["tabletop"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["close-crop", "vignette", "postage-stamp"],
     "colours": ["#9E7149", "#E8D9B5"],
-    "role": "for the walnut top and the lampshade"
+    "role": "for the walnut top and the lampshade",
+    "excludes": ["hearth-cinnamon-bun", "hearth-marmalade", "hearth-crusty-loaf", "hearth-victoria-sponge", "hearth-pancakes", "hearth-milk-jug", "hearth-tomato-soup", "hearth-cream-tea", "hearth-honey-pot", "hearth-cheese-board", "hearth-apple-pie", "hearth-basket-of-eggs", "hearth-cherries", "hearth-pie-bird", "hearth-pickled-onions", "hearth-hot-cross-bun", "hearth-mince-pies", "hearth-strawberry-tart", "hearth-toffee-apple", "hearth-lemon-drizzle", "hearth-wrapped-sandwich", "hearth-porridge", "hearth-lemonade", "hearth-enamel-kettle", "hearth-watering-can", "leaf-sunflower", "leaf-pumpkin", "leaf-windfall-apple", "leaf-strawberry-plant", "leaf-pea-pod", "leaf-radishes"]
   },
   {
     "id": "where-conservatory",
@@ -317,11 +340,12 @@
     "at": "among the geraniums in the conservatory",
     "phrases": ["a wicker chair that creaks", "cuttings rooting on every ledge"],
     "scope": "threshold",
-    "admits": ["garden", "visitor", "home", "tabletop"],
+    "admits": ["tabletop", "home", "visitor"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["window", "thirds", "close-crop"],
     "colours": ["#9DB38F", "#C2453A"],
-    "role": "for the geranium leaves and flowers"
+    "role": "for the geranium leaves and flowers",
+    "excludes": ["fur-long-tailed-tit", "fur-goldfinch", "fur-swallow", "fur-hedgehog", "fur-dormouse", "fur-red-squirrel", "fur-fox-cub", "fur-pipistrelle-bat", "fur-frog", "fur-toad", "hearth-enamel-kettle", "hearth-hot-water-bottle"]
   }
 ]

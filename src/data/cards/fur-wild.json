@@ -582,7 +582,7 @@
     ],
     "close": ["Just the water vole, sitting up to eat, a stem held to its mouth.", "Only the vole's blunt face and bright bead of an eye, drawn large."],
     "scale": "small",
-    "habitats": ["water", "hedgerow"],
+    "habitats": ["water"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#6E4F35", "#A7865F"],

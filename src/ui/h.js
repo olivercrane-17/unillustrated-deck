@@ -18,7 +18,13 @@ export function h(tag, attrs, ...children) {
   for (const [k, v] of Object.entries(attrs)) {
     if (v === undefined || v === null || v === false) continue
     if (k === 'class') el.className = [el.className, v].filter(Boolean).join(' ')
-    else if (k === 'style' && typeof v === 'object') Object.assign(el.style, v)
+    else if (k === 'style' && typeof v === 'object') {
+      // setProperty is the only way to set custom properties like --tilt.
+      for (const [prop, val] of Object.entries(v)) {
+        if (prop.startsWith('--')) el.style.setProperty(prop, val)
+        else el.style[prop] = val
+      }
+    }
     else if (k === 'dataset') Object.assign(el.dataset, v)
     else if (k.startsWith('on') && typeof v === 'function') el.addEventListener(k.slice(2).toLowerCase(), v)
     else if (k === 'html') el.innerHTML = v

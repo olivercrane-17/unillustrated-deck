@@ -49,13 +49,15 @@ async function register() {
     })
   }
 
-  if (reg.waiting && sw.controller) offer(reg.waiting)
-  reg.addEventListener('updatefound', () => {
-    const incoming = reg.installing
+  const watch = (incoming) => {
     incoming?.addEventListener('statechange', () => {
       if (incoming.state === 'installed' && sw.controller) offer(reg.waiting || incoming)
     })
-  })
+  }
+  if (reg.waiting && sw.controller) offer(reg.waiting)
+  // An update may already be installing by the time register() answers.
+  watch(reg.installing)
+  reg.addEventListener('updatefound', () => watch(reg.installing))
 
   // The deck is often left open on the table for hours: look for updates
   // when it comes back into view, at most hourly.

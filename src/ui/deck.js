@@ -1,7 +1,7 @@
 // Your deck: the cards she has drawn, by suit, with the rest of the deck as an
 // unopened stack she can rummage through. It celebrates what exists and never
 // counts what is missing.
-import { h, raw, mount } from './h.js'
+import { h, raw, mount, prefersReducedMotion } from './h.js'
 import { renderCard, suitOf } from './card.js'
 import { EMBLEMS, ICONS, SUIT_LABELS } from './ornaments.js'
 import { state, content, imageUrl, subscribe } from '../store/state.js'
@@ -13,7 +13,6 @@ export const DECK_SUITS = ['fur', 'leaf', 'hearth', 'theme']
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 const DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-const LAST_CARD_KEY = 'ud.deck.lastCard'
 
 // ---------------------------------------------------------------------------
 // Pure helpers (unit tested)
@@ -97,10 +96,6 @@ export function tiltOf(id) {
 // ---------------------------------------------------------------------------
 // Small shared bits for the deck's pages
 
-function session(fn) {
-  try { return fn(window.sessionStorage) } catch { return null }
-}
-
 export function backLink(href = '#/deck', label = 'Your deck') {
   return h('a.deck-back', { href }, raw(ICONS.back), label)
 }
@@ -131,7 +126,7 @@ export async function render(root) {
       h('header.page-head',
         h('h1', 'Your deck'),
         groups.length ? h('p', 'Every card here is one you’ve drawn.') : null),
-      groups.length ? groups.map((g) => drawnSuit(g, urls)) : emptyDeck(),
+      groups.length ? h('div.gallery-suits', groups.map((g) => drawnSuit(g, urls))) : emptyDeck(),
       restSection(drawnIds),
       h('nav.gallery-links', { 'aria-label': 'More from your deck' },
         h('a.btn.btn-ghost', { href: '#/readings' }, raw(ICONS.book), 'Recent readings')),
@@ -148,7 +143,7 @@ export async function render(root) {
         const link = h('a.gallery-card', {
           href: `#/card/${encodeURIComponent(e.card.id)}`,
           'aria-label': `${e.card.title}, drawn ${longDate(shown.createdAt)}`,
-          onclick: () => rememberCard(e.card.id),
+          onclick: () => saveRestState({ returnTo: e.card.id }),
         }, renderCard({ card: e.card, size: 'sm', imageUrl: url, dateText: date, drawn: !url, className: url ? 'sealed' : '' }))
         link.style.setProperty('--tilt', `${tiltOf(e.card.id)}deg`)
         return h('li', link)
@@ -158,6 +153,7 @@ export async function render(root) {
 
   function emptyDeck() {
     return h('section.gallery-empty',
+      h('div.gallery-empty-frame', { 'aria-hidden': 'true' }, renderCard({ card: { id: 'twist-waiting', title: '' }, size: 'sm' })),
       h('p.gallery-empty-note.hand', 'Your deck is waiting. When you finish a drawing, seal it into its card and it lives here.'),
       h('button.btn.btn-gilt.gallery-draw', { type: 'button', onclick: () => go('') }, 'Draw a card'),
     )
@@ -192,7 +188,7 @@ export async function render(root) {
       browser.hidden = !restOpen
       if (restOpen && !browser.firstChild) mount(browser, restBrowser(groups))
       saveRestState()
-      if (restOpen) requestAnimationFrame(() => browser.scrollIntoView?.({ behavior: 'smooth', block: 'start' }))
+      if (restOpen) requestAnimationFrame(() => browser.scrollIntoView?.({ behavior: prefersReducedMotion() ? 'auto' : 'smooth', block: 'start' }))
     }
     return section
   }
@@ -205,7 +201,11 @@ export async function render(root) {
         const li = h('li', h('a.rest-card', {
           href: `#/card/${encodeURIComponent(card.id)}`,
           'aria-label': card.title,
-          onclick: () => rememberCard(card.id),
+          onclick: () => {
+            // Come back to this card's suit, even if she found it by searching.
+            restSuit = g.suit
+            saveRestState({ returnTo: card.id })
+          },
         }, renderCard({ card, size: 'xs' })))
         items.push({ li, card, suit: g.suit })
         return li
@@ -213,7 +213,7 @@ export async function render(root) {
       const sec = h('section.rest-suit', { dataset: { suit: g.suit } }, suitHeading(g.suit, g.label, 'h3'), list)
       return { sec, suit: g.suit }
     })
-    const none = h('p.rest-none', { hidden: true }, 'Nothing by that name in the box. Try another word?')
+    const none = h('p.rest-none', { hidden: true, role: 'status' }, 'Nothing by that name in the box. Try another word?')
     const chips = h('div.chips.rest-chips', { role: 'group', 'aria-label': 'Show a suit' },
       groups.map((g) => h('button.chip', {
         type: 'button',
@@ -261,19 +261,17 @@ export async function render(root) {
     ]
   }
 
-  // Keep the stack open (and the suit chosen) when she comes back from a card.
-  function saveRestState() {
+  // Keep the stack open, the suit chosen and the card she tapped in this page's
+  // history entry, so Back brings her to the same spot (and only Back does).
+  function saveRestState(extra = {}) {
     const hash = restOpen ? `#/deck?rest${restSuit ? '=' + restSuit : ''}` : '#/deck'
-    history.replaceState(null, '', hash)
-  }
-
-  function rememberCard(id) {
-    session((s) => s.setItem(LAST_CARD_KEY, id))
+    history.replaceState({ ...(history.state || {}), ...extra }, '', hash)
   }
 
   function returnToLastCard() {
-    const id = session((s) => { const v = s.getItem(LAST_CARD_KEY); s.removeItem(LAST_CARD_KEY); return v })
+    const id = history.state?.returnTo
     if (!id) return
+    history.replaceState({ ...history.state, returnTo: null }, '', location.hash)
     const link = [...root.querySelectorAll('a.gallery-card, a.rest-card')].find((a) => a.getAttribute('href') === `#/card/${encodeURIComponent(id)}`)
     if (!link) return
     requestAnimationFrame(() => {

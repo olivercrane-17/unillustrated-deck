@@ -22,6 +22,7 @@ export async function render(root, { id } = {}) {
   const suit = suitOf(card)
   let disposed = false
   let busy = false
+  let acting = 0 // while an action repaints by itself, ignore store events
 
   async function paint({ focus } = {}) {
     const seals = sealsFor(card.id).slice().reverse()
@@ -81,7 +82,7 @@ export async function render(root, { id } = {}) {
         h('p.hand', SUBJECT_SUITS.includes(suit) ? 'Still in the box. No rush, the deck keeps.' : 'Still in the box. It comes up in “A page of small things”.'))
     }
     return h('section.history', { 'aria-labelledby': 'history-head' },
-      h('h2.history-head', { id: 'history-head', tabindex: '-1' }, seals.length > 1 ? 'Every time you’ve drawn it' : 'When you drew it'),
+      h('h2.history-head', { id: 'history-head', tabindex: '-1' }, h('span', seals.length > 1 ? 'Every time you drew it' : 'When you drew it')),
       h('ol.history-list', seals.map((s, i) => entry(s, thumbs[i]))),
     )
   }
@@ -141,9 +142,14 @@ export async function render(root, { id } = {}) {
   }
 
   async function useAsFace(seal) {
-    await setFace(seal.id)
-    toast(`${card.title} has a new face.`)
-    await paint({ focus: `#seal-${CSS.escape(seal.id)}` })
+    acting += 1
+    try {
+      await setFace(seal.id)
+      toast(`${card.title} has a new face.`)
+      await paint({ focus: `#seal-${CSS.escape(seal.id)}` })
+    } finally {
+      acting -= 1
+    }
   }
 
   async function remove(seal) {
@@ -159,9 +165,14 @@ export async function render(root, { id } = {}) {
       danger: true,
     })
     if (!ok) return
-    await deleteSeal(seal.id)
-    toast(seal.imageId ? 'Removed. The photo has gone from this device.' : 'Removed.')
-    await paint({ focus: others.length ? '#history-head' : '.detail-title' })
+    acting += 1
+    try {
+      await deleteSeal(seal.id)
+      toast(seal.imageId ? 'Removed. The photo has gone from this device.' : 'Removed.')
+      await paint({ focus: others.length ? '#history-head' : '.detail-title' })
+    } finally {
+      acting -= 1
+    }
   }
 
   async function drawThis(btn) {
@@ -192,7 +203,7 @@ export async function render(root, { id } = {}) {
   }
 
   await paint()
-  const off = subscribe((what) => { if ((what === 'seal' || what === 'reload') && !busy) paint() })
+  const off = subscribe((what) => { if ((what === 'seal' || what === 'reload') && !busy && !acting) paint() })
   return () => {
     disposed = true
     off()

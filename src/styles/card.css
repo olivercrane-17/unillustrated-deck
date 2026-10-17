@@ -115,8 +115,9 @@
   height: 100%;
 }
 .card-art.has-image {
-  width: 70cqw;
-  aspect-ratio: 4 / 5;
+  width: 54cqw;
+  aspect-ratio: 5 / 8;
+  min-height: 0;
   opacity: 1;
   border-radius: 3px;
   padding: 1.4cqw;

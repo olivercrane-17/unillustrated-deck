@@ -1,11 +1,5 @@
 /* ---------- Your tin ---------- */
 
-/* The global focus ring is pale gold, made for the felt. On paper it needs ink. */
-.tin .paper :focus-visible,
-.looks-off-sheet :focus-visible {
-  outline-color: var(--suit-hearth);
-}
-
 .tin-page-head {
   margin-bottom: 18px;
 }
@@ -164,6 +158,9 @@
   line-height: 1.2;
   color: var(--gilt-light);
   transform: rotate(-1.2deg);
+}
+:root[data-table='linen'] .tin-preset-note {
+  color: var(--suit-hearth);
 }
 
 .tin-summary {
@@ -612,7 +609,8 @@
     background: #fff !important;
     color: #111;
   }
-  body.has-tin-print > :not(.tin-print) {
+  body.has-tin-print > :not(.tin-print),
+  body.has-tin-print::before {
     display: none !important;
   }
   body.has-tin-print > .tin-print {
@@ -638,26 +636,30 @@
     font-size: 9.5pt;
     color: #333;
   }
-  .tp-grid {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 3mm 4mm;
-  }
-  .tp-family {
-    grid-column: 1 / -1;
-    margin: 2mm 0 0;
-    padding-bottom: 1mm;
-    border-bottom: 0.5pt solid #999;
-    font-size: 10.5pt;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    break-after: avoid;
-  }
+  /* Inline blocks, so a long tin breaks cleanly between rows of boxes. */
   .tp-cell {
+    display: inline-block;
+    vertical-align: top;
+    width: calc((100% - 5 * 3.5mm) / 6);
+    margin: 0 3.5mm 2.5mm 0;
     break-inside: avoid;
   }
+  .tp-cell:nth-child(6n) {
+    margin-right: 0;
+  }
+  .tp-family {
+    height: 4mm;
+    margin: 0;
+    white-space: nowrap;
+    font-family: var(--font-display);
+    font-size: 7.5pt;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #333;
+  }
   .tp-box {
-    height: 15mm;
+    height: 13mm;
     border: 0.6pt solid #555;
     border-radius: 1.5mm;
   }

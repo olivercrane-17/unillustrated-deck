@@ -69,7 +69,7 @@ export async function render(root) {
         r.text?.sentence ? h('p.recent-sentence', r.text.sentence) : null,
         swatches(r),
         h('div.recent-actions',
-          canCarryOn(r) ? h('button.btn.btn-paper.recent-carry', { type: 'button', onclick: () => carryOn(r) }, 'Carry on') : null,
+          canCarryOn(r) ? h('button.btn.btn-gilt.recent-carry', { type: 'button', onclick: () => carryOn(r) }, 'Carry on') : null,
           h('button.btn-text', { type: 'button', onclick: () => go(`draw/${r.id}`) }, raw(ICONS.eye), 'Open drawing view'),
           h('button.btn-text', { type: 'button', onclick: () => remove(r) }, 'Delete'),
         ),

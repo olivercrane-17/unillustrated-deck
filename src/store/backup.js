@@ -58,7 +58,9 @@ export function validateData(data) {
   if (!Array.isArray(data.readings) || !data.readings.every((r) => isObj(r) && isId(r.id) && isObj(r.cards))) fail('the readings')
   if (!Array.isArray(data.seals) || !data.seals.every((s) => isObj(s) && isId(s.id) && isId(s.cardId))) fail('the sealed cards')
   if (data.pencilStats != null && (!Array.isArray(data.pencilStats) || !data.pencilStats.every((p) => isObj(p) && isId(p.code)))) fail('the pencil notes')
-  if (data.tin != null && (!isObj(data.tin) || !Array.isArray(data.tin.owned) || !data.tin.owned.every(isId))) fail('your tin')
+  if (data.tin != null && (!isObj(data.tin) || !Array.isArray(data.tin.owned) || !data.tin.owned.every(isId)
+    || (data.tin.starred !== undefined && !Array.isArray(data.tin.starred))
+    || (data.tin.overrides !== undefined && !isObj(data.tin.overrides)))) fail('your tin')
   if (data.meta != null && !isObj(data.meta)) fail('the deck’s notes')
   if (data.settings != null && !isObj(data.settings)) fail('the settings')
   return data
@@ -83,17 +85,20 @@ export function cleanSettings(settings) {
   return out
 }
 
-const stamp = (r) => String(r?.updatedAt || r?.createdAt || '')
 const later = (a, b) => (!a ? b || null : !b ? a : String(a) > String(b) ? a : b)
 const earlier = (a, b) => (!a ? b || null : !b ? a : String(a) < String(b) ? a : b)
+// The last time a record changed. Finishing a drawing sets finishedAt without
+// touching updatedAt, so look at both.
+const stamp = (r) => String([r?.updatedAt, r?.finishedAt, r?.createdAt].reduce(later, null) || '')
 
-// Merge records by key. Incoming wins unless the one already here is newer.
+// Merge records by key. Incoming wins only when it is newer than the one
+// already here; a tie keeps this device's (a seal's chosen face, say).
 export function mergeById(existing, incoming, key = 'id') {
   const map = new Map(existing.map((r) => [r[key], r]))
   const changed = []
   for (const r of incoming) {
     const have = map.get(r[key])
-    if (!have || stamp(r) >= stamp(have)) {
+    if (!have || stamp(r) > stamp(have)) {
       map.set(r[key], r)
       changed.push(r)
     }
@@ -308,7 +313,8 @@ export async function readBackup(input) {
 function metaFrom(copyMeta, manifest) {
   const meta = { ...(copyMeta || {}), key: 'meta', schemaVersion: SCHEMA_VERSION }
   // Restoring from a copy means a copy exists of exactly this.
-  meta.lastBackupAt = later(meta.lastBackupAt, manifest.exportedAt)
+  const exported = typeof manifest.exportedAt === 'string' && !Number.isNaN(Date.parse(manifest.exportedAt)) ? manifest.exportedAt : null
+  meta.lastBackupAt = later(meta.lastBackupAt, exported)
   return meta
 }
 
@@ -377,6 +383,9 @@ export async function importBackup(file, { mode = 'merge', parsed } = {}) {
   await reloadFromDb()
   if (mode === 'replace' && copy.data.settings) {
     for (const [k, v] of Object.entries(cleanSettings(copy.data.settings))) {
+      // Shake may need this device's permission, which only a tap on the
+      // switch can ask for, so a copy never turns it on.
+      if (k === 'shake' && v) continue
       if (state.settings[k] !== v) setSetting(k, v)
     }
   }

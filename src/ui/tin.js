@@ -56,7 +56,7 @@ export function render(root) {
         h('span.tin-name',
           h('code', p.code),
           h('strong', p.name, p.discontinued ? h('span.tin-retired', ' (retired)') : null),
-          p.special === 'blender' ? h('em.tin-blender', 'Never dealt as a colour. It only turns up in tips.') : null,
+          p.special === 'blender' ? h('em.tin-blender', 'Never dealt as a colour, only in tips.') : null,
           adjusted,
         ),
       ),
@@ -189,6 +189,7 @@ export function render(root) {
 
   async function choosePreset(key) {
     if (key === state.tin.preset) return
+    changing = null
     if (presetNeedsConfirm(state.tin, key)) {
       const ok = await confirmSheet(key === 'none'
         ? { title: 'Empty the tin?', body: 'This unticks every pencil, so you can start from nothing. Your stars and colour fixes stay put.', confirm: 'Empty it', cancel: 'Keep my tin' }
@@ -340,10 +341,11 @@ export function render(root) {
         h('p.tp-how', 'Swatch each pencil in its box on your own paper. Then hold the page up to the screen and fix any colour that looks off. Your pencils are the truth.'),
       ),
       n
-        ? h('div.tp-grid', owned.map((g) => [
-            h('h2.tp-family', g.label),
-            g.pencils.map((p) => h('div.tp-cell', h('div.tp-box'), h('p.tp-label', h('strong', p.code), ' ', p.name))),
-          ]))
+        ? h('div.tp-grid', owned.flatMap((g) => g.pencils.map((p, i) => h('div.tp-cell',
+            h('p.tp-family', i === 0 ? g.label : null),
+            h('div.tp-box'),
+            h('p.tp-label', h('strong', p.code), ' ', p.name),
+          ))))
         : h('p.tp-empty', 'Your tin is empty, so there is nothing to swatch yet.'),
     )
   }

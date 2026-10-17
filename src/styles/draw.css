@@ -51,9 +51,6 @@
     transform: translateY(8px);
   }
 }
-.drawing .paper :focus-visible {
-  outline-color: var(--gilt-dark);
-}
 
 /* Small section headings, as on the table's tin card */
 .draw-head {
@@ -69,7 +66,7 @@
   font-size: 15px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 .draw-palette,
 .draw-frame-name {
@@ -112,7 +109,7 @@
   font-weight: 400;
   font-style: italic;
   letter-spacing: 0;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 .draw-opener {
   margin: 0 0 6px;
@@ -197,12 +194,12 @@
   min-width: 1ch;
   font-size: 22px;
   line-height: 1.1;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 .draw-slots .done .draw-slot-text {
   text-decoration: line-through;
-  text-decoration-color: rgba(42, 33, 28, 0.35);
-  color: var(--ink-faint);
+  text-decoration-color: rgba(42, 33, 28, 0.45);
+  color: var(--ink-soft);
 }
 .draw-slots em {
   display: block;
@@ -242,7 +239,7 @@
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.1em;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 .draw-pencil-text strong {
   display: block;
@@ -267,6 +264,10 @@
 }
 .draw-notes p {
   margin: 0;
+}
+.draw-truth {
+  font-size: 14.5px;
+  font-style: italic;
 }
 .draw-lonely {
   font-size: 21px;
@@ -392,7 +393,7 @@
   font-size: 15px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-soft);
 }
 
 /* ---------- Timer and wake lock: quiet, on the felt ---------- */
@@ -465,7 +466,7 @@
 .draw-ring-text small {
   font-size: 12px;
   letter-spacing: 0.08em;
-  color: var(--cream-faint);
+  color: var(--cream-soft);
 }
 .draw-timer-side p {
   margin: 0;
@@ -567,7 +568,7 @@
 .draw-done-hint {
   margin: 0;
   font-size: 14.5px;
-  color: var(--cream-faint);
+  color: var(--cream-soft);
 }
 .draw-drawn-note {
   margin: 0;

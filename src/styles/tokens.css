@@ -16,7 +16,7 @@
   /* Ink on paper */
   --ink: #2a211c;
   --ink-soft: #54463b;
-  --ink-faint: #7d6d5c;
+  --ink-faint: #6b5b4b;
 
   /* Text on felt */
   --cream: #f1e7d0;
@@ -38,6 +38,10 @@
   --suit-where: #5e5240;
   --suit-twist: #5b3a5e;
   --suit-theme: #7a5a2a;
+
+  /* Outlines for chips and quiet controls on the table */
+  --chip-line: rgba(241, 231, 208, 0.34);
+  --chip-fill: rgba(241, 231, 208, 0.06);
 
   /* Feedback */
   --focus: #f6d68a;
@@ -92,7 +96,9 @@
   --felt-line: rgba(42, 33, 28, 0.16);
   --cream: #2a211c;
   --cream-soft: #54463b;
-  --cream-faint: #6f604f;
+  --cream-faint: #5c4e40;
   --felt-nap: var(--grain);
   --focus: #7b2d26;
+  --chip-line: rgba(42, 33, 28, 0.32);
+  --chip-fill: rgba(255, 252, 244, 0.45);
 }

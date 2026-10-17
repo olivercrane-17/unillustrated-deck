@@ -12,6 +12,8 @@ export const SHARE_W = 1080
 export const SHARE_H = 1350
 const CARD_W = 760
 const CARD_H = CARD_W * 8 / 5
+// Sealed photos are cropped 5:8, like the card itself.
+export const PHOTO_RATIO = 5 / 8
 
 const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
@@ -97,9 +99,9 @@ export function layoutShare({ cw = CARD_W, ch = CARD_H, titleLines = 1, titleSiz
   const gaps = { label: cw * 0.05, photo: cw * 0.07, title: cw * 0.018, date: cw * 0.012 }
   const words = labelSize * 1.1 + gaps.label + gaps.photo + titleLines * titleLead
     + (hasDate ? gaps.title + dateSize : 0) + (hasFrom ? gaps.date + fromSize * 1.3 : 0)
-  const maxPhotoW = cw * 0.7
-  const photoH = Math.max(cw * 0.3, Math.min(maxPhotoW * 5 / 4, bottom - top - words))
-  const photoW = photoH * 4 / 5
+  const maxPhotoW = cw * 0.56
+  const photoH = Math.max(cw * 0.3, Math.min(maxPhotoW / PHOTO_RATIO, bottom - top - words))
+  const photoW = photoH * PHOTO_RATIO
   const total = words + photoH
   let y = top + Math.max(0, (bottom - top - total) / 2)
   const out = { cw, ch, labelSize, titleSize, dateSize, fromSize }

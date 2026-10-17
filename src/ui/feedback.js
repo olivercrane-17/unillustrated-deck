@@ -42,7 +42,17 @@ export function openSheet(build, { label = 'Dialog', className = '', onClose } =
     h('button.icon-btn.sheet-close', { type: 'button', 'aria-label': 'Close', onclick: close }, raw(ICONS.close)),
     build(close),
   )
-  const backdrop = h('div.sheet-backdrop', { onclick: (e) => { if (e.target === backdrop) close() } }, sheet)
+  // Close on a tap on the backdrop, but only when the press also started there
+  // and the sheet has been open a moment (a double click must not undo itself).
+  const openedAt = performance.now()
+  let pressedBackdrop = false
+  const backdrop = h('div.sheet-backdrop', {
+    onpointerdown: (e) => { pressedBackdrop = e.target === backdrop },
+    onclick: (e) => {
+      if (e.target === backdrop && pressedBackdrop && performance.now() - openedAt > 350) close()
+      pressedBackdrop = false
+    },
+  }, sheet)
   const onKey = (e) => {
     if (e.key === 'Escape') close()
     if (e.key === 'Tab') trapFocus(e, sheet)

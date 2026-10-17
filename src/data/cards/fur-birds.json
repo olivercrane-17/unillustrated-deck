@@ -222,7 +222,7 @@
     ],
     "close": ["Just the kingfisher's head and long beak, reaching right across the page.", "Only the kingfisher, side on, with the orange and the blue meeting cleanly."],
     "scale": "small",
-    "habitats": ["water", "woodland"],
+    "habitats": ["water"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#1F8DBA", "#D8672A", "#F2E9DC"],

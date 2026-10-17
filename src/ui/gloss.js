@@ -5,6 +5,7 @@ import { content } from '../store/state.js'
 let openPop = null
 
 function closePop() {
+  openPop?.owner?.setAttribute('aria-expanded', 'false')
   openPop?.remove()
   openPop = null
 }
@@ -14,8 +15,12 @@ function showGloss(btn, term, meaning) {
   closePop()
   if (wasOpen) return
   const pop = h('span.gloss-pop', { role: 'note', dataset: { term } }, h('strong', term), ' ', meaning)
-  btn.after(pop)
+  // Show the meaning under the whole sentence, not in the middle of it.
+  const block = btn.closest('li, p') || btn.parentElement
+  block.appendChild(pop)
+  btn.setAttribute('aria-expanded', 'true')
   openPop = pop
+  openPop.owner = btn
 }
 
 document.addEventListener('click', (e) => {
@@ -37,7 +42,7 @@ export function glossify(text) {
     if (!term || used.has(term)) continue
     used.add(term)
     out.push(text.slice(last, m.index))
-    const btn = h('button.gloss', { type: 'button', 'aria-label': `${m[0]}: what does this mean?` }, m[0])
+    const btn = h('button.gloss', { type: 'button', 'aria-expanded': 'false', title: 'What does this mean?' }, m[0])
     btn.addEventListener('click', (e) => { e.stopPropagation(); showGloss(btn, term, glossary[term]) })
     out.push(btn)
     last = m.index + m[0].length

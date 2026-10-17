@@ -581,3 +581,10 @@ details.layer-tips ol {
 .table-tools .icon-btn {
   color: var(--cream-soft);
 }
+
+/* Gilt handwriting is unreadable on the light linen table. */
+:root[data-table='linen'] .first-note,
+:root[data-table='linen'] .deck-idea,
+:root[data-table='linen'] .wordmark-the {
+  color: var(--suit-hearth);
+}

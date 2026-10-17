@@ -140,6 +140,8 @@ export const ICONS = {
 // SVG that defined them leaves the page.
 let pencilSeq = 0
 export function pencilSvg(hex, { big = false, label = '' } = {}) {
+  // Colours can come from her own overrides or a backup file: never trust them into markup.
+  if (!/^#[0-9a-f]{6}$/i.test(String(hex))) hex = '#999999'
   const cls = `pencil-swatch${big ? ' big' : ''}`
   const g = `pg${++pencilSeq}`
   return `<svg class="${cls}" viewBox="0 0 120 36" role="img" aria-label="${escapeAttr(label)}">

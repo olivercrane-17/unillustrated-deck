@@ -144,6 +144,38 @@ describe('backup round trip', () => {
     expect(await bytesOf((await db.get('images', seal.id)).image)).toEqual(await bytesOf(jpeg(7)))
   })
 
+  it('merging an older copy never undoes what happened here since', async () => {
+    const r = await S.saveReading(fakeReading())
+    const drawing = await S.startDrawing(r)
+    const { seal: a } = await S.recordDrawn(fakeReading({ id: 'other', cards: { who: drawing.cards.who } }), { image: jpeg(3), thumb: jpeg(4) })
+    const { seal: b } = await S.recordDrawn(drawing, { image: jpeg(5), thumb: jpeg(6) })
+    const { bytes } = await B.buildBackup()
+
+    // Since that copy: the reading was sealed (above, b), and the face moved to b.
+    await S.setFace(b.id)
+    const sealedHere = S.state.readings.get(r.id)
+    expect(sealedHere.status).toBe('sealed')
+    const copy = await B.readBackup(bytes)
+    // Make the copy look like it was taken before the seal.
+    copy.data.readings = copy.data.readings.map((x) => (x.id === r.id ? { ...x, status: 'drawing', finishedAt: undefined } : x))
+    copy.data.seals = copy.data.seals.map((s) => ({ ...s, isFace: s.id === a.id }))
+
+    await B.importBackup(null, { mode: 'merge', parsed: copy })
+    expect(S.state.readings.get(r.id).status).toBe('sealed')
+    expect(S.state.seals.find((s) => s.id === b.id).isFace).toBe(true)
+    expect(S.state.seals.find((s) => s.id === a.id).isFace).toBe(false)
+  })
+
+  it('a copy never turns shake on by itself', async () => {
+    S.setSetting('shake', true)
+    S.setSetting('sound', true)
+    const { bytes } = await B.buildBackup()
+    await wipe()
+    await B.importBackup(bytes, { mode: 'replace' })
+    expect(S.state.settings.sound).toBe(true)
+    expect(S.state.settings.shake).toBe(false)
+  })
+
   it('a photo seal whose picture is missing comes back as a tick', async () => {
     const data = {
       tin: { owned: ['PC901'] }, meta: {}, settings: {},
@@ -188,6 +220,9 @@ describe('reading a copy', () => {
     expect(e.message).toMatch(/the readings/)
     const e2 = await errorOf(B.readBackup(await makeZip({ 'manifest.json': manifest(), 'data.json': '{not json' })))
     expect(e2.message).toMatch(/damaged/)
+    const badTin = JSON.stringify({ tin: { owned: [], overrides: null }, readings: [], seals: [] })
+    const e3 = await errorOf(B.readBackup(await makeZip({ 'manifest.json': manifest(), 'data.json': badTin })))
+    expect(e3.message).toMatch(/your tin/)
   })
 
   it('never writes anything when a copy is refused', async () => {

@@ -124,6 +124,8 @@ describe('which purple?', () => {
     expect(variantApplies({ preset: '48', owned: [] }, purple, '48')).toBe(true)
     expect(variantApplies({ preset: 'custom', owned: ['PC956'] }, purple, '48')).toBe(true)
     expect(variantApplies({ preset: '12', owned: [...sets['12'].codes] }, purple, '48')).toBe(false)
+    // a 150 tin holds two of the options, so a Lilac answer from the 48 box doesn't apply
+    expect(variantApplies({ preset: '150', owned: [...sets['150'].codes], variantAnswers: { purple: 'PC956' } }, purple, '48')).toBe(false)
   })
 
   it('swaps in the chosen purple and drops the other options', () => {

@@ -78,7 +78,7 @@ export async function init() {
       db.getAll('seals'),
       db.getAll('pencilStats'),
     ])
-    if (tin) state.tin = { ...defaultTin(), ...tin }
+    if (tin) state.tin = { ...defaultTin(), ...tin, overrides: cleanOverrides(tin.overrides) }
     if (meta) state.meta = { ...state.meta, ...meta }
     if (!state.meta.installedAt) {
       state.meta.installedAt = new Date().toISOString()
@@ -122,11 +122,20 @@ export const pencilCatalogue = allPencils
 
 export function ownedPencils() {
   const owned = new Set(state.tin.owned)
-  return preparePencils(allPencils.filter((p) => owned.has(p.code)), state.tin.overrides)
+  return preparePencils(allPencils.filter((p) => owned.has(p.code)), cleanOverrides(state.tin.overrides))
+}
+
+const HEX = /^#[0-9A-F]{6}$/i
+
+function cleanOverrides(overrides) {
+  const out = {}
+  for (const [code, hex] of Object.entries(overrides || {})) if (HEX.test(String(hex))) out[code] = String(hex).toUpperCase()
+  return out
 }
 
 export function pencilHex(code) {
-  return state.tin.overrides[code] || allPencils.find((p) => p.code === code)?.hex || '#999999'
+  const override = state.tin.overrides[code]
+  return (HEX.test(String(override)) && override) || allPencils.find((p) => p.code === code)?.hex || '#999999'
 }
 
 export async function saveTin(patch) {
@@ -151,7 +160,7 @@ export function toggleStar(code) {
 
 export function setOverride(code, hex) {
   const overrides = { ...state.tin.overrides }
-  if (hex) overrides[code] = hex.toUpperCase()
+  if (hex && HEX.test(hex)) overrides[code] = hex.toUpperCase()
   else delete overrides[code]
   return saveTin({ overrides })
 }

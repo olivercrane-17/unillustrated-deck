@@ -10,7 +10,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["close-crop", "low-horizon"],
     "colours": ["#6E7D3A", "#5C4733"],
-    "role": "for the moss and the crumbling bark"
+    "role": "for the moss and the crumbling bark",
+    "excludes": ["fur-cygnet", "fur-swallow", "fur-mole", "fur-pipistrelle-bat", "leaf-snowdrops", "leaf-bluebells", "leaf-dandelion-clock", "leaf-mossy-stone", "leaf-speckled-egg", "leaf-poppy", "leaf-catkins", "leaf-honesty"]
   },
   {
     "id": "where-bramble-hedge",
@@ -23,7 +24,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["close-crop", "thirds"],
     "colours": ["#4F5E34", "#6B3F52"],
-    "role": "for the arching canes and their prickles"
+    "role": "for the arching canes and their prickles",
+    "excludes": ["fur-tawny-owl", "fur-great-spotted-woodpecker", "fur-red-squirrel", "fur-mole", "fur-pipistrelle-bat", "fur-great-crested-newt", "leaf-pinecone", "leaf-bramble"]
   },
   {
     "id": "where-meadow-edge",
@@ -49,7 +51,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["low-horizon", "close-crop"],
     "colours": ["#7E9A4C", "#6C8E9E"],
-    "role": "for the slender stems and the glint of the stream"
+    "role": "for the slender stems and the glint of the stream",
+    "excludes": ["fur-great-spotted-woodpecker", "leaf-honesty"]
   },
   {
     "id": "where-old-oak",
@@ -62,7 +65,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "thirds"],
     "colours": ["#5A4935", "#6E7A3F"],
-    "role": "for the furrowed trunk and the sprawl of roots"
+    "role": "for the furrowed trunk and the sprawl of roots",
+    "excludes": ["fur-cygnet"]
   },
   {
     "id": "where-dry-stone-wall",
@@ -75,7 +79,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["low-horizon", "postage-stamp"],
     "colours": ["#9B9585", "#BDB98E"],
-    "role": "for the stacked stones and their lichen"
+    "role": "for the stacked stones and their lichen",
+    "excludes": ["fur-cygnet", "fur-mallard-ducklings", "fur-great-spotted-woodpecker", "fur-box-of-chicks", "fur-lop-rabbit", "fur-guinea-pig", "fur-hedgehog", "fur-mole", "hearth-library-books", "hearth-wireless", "leaf-fly-agaric", "leaf-snowdrops", "leaf-bluebells", "leaf-sunflower", "leaf-mossy-stone", "leaf-lavender", "leaf-sweet-peas", "leaf-catkins", "leaf-strawberry-plant", "leaf-pea-pod", "leaf-radishes", "leaf-allium", "leaf-honesty"]
   },
   {
     "id": "where-five-bar-gate",
@@ -88,7 +93,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "window"],
     "colours": ["#9E937C", "#748443"],
-    "role": "for the silvery timber and the field through the bars"
+    "role": "for the silvery timber and the field through the bars",
+    "excludes": ["fur-grey-heron", "fur-cygnet", "fur-mallard-ducklings", "fur-great-spotted-woodpecker", "fur-box-of-chicks", "leaf-fairy-ring", "leaf-fly-agaric", "leaf-snowdrops", "leaf-sunflower", "leaf-apple-blossom", "leaf-strawberry-plant", "leaf-honesty"]
   },
   {
     "id": "where-allotment-fence",
@@ -101,7 +107,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "thirds"],
     "colours": ["#7B6A50", "#6C8A43"],
-    "role": "for the tilting posts and the cabbages"
+    "role": "for the tilting posts and the cabbages",
+    "excludes": ["fur-grey-heron", "fur-lamb", "fur-goat-kid", "fur-guinea-pig", "fur-roe-fawn", "hearth-patchwork-quilt", "hearth-wooden-sledge", "leaf-fly-agaric"]
   },
   {
     "id": "where-water-butt",
@@ -114,7 +121,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "close-crop"],
     "colours": ["#5E4A37", "#7E949A"],
-    "role": "for the banded staves and the sheen on the water"
+    "role": "for the banded staves and the sheen on the water",
+    "excludes": ["fur-tawny-owl", "fur-great-spotted-woodpecker", "hearth-basket-of-eggs", "hearth-library-books", "hearth-knitting", "hearth-reading-glasses", "hearth-wireless", "hearth-picnic-hamper", "hearth-fairy-lights", "leaf-fly-agaric", "leaf-speckled-egg"]
   },
   {
     "id": "where-garden-bench",
@@ -127,7 +135,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "vignette"],
     "colours": ["#8E9C80", "#6D5843"],
-    "role": "for the slatted seat and its peeling paint"
+    "role": "for the slatted seat and its peeling paint",
+    "excludes": ["fur-great-spotted-woodpecker", "fur-guinea-pig", "fur-goldfish", "fur-hedgehog", "fur-mole", "fur-pipistrelle-bat", "fur-frog", "fur-toad", "fur-great-crested-newt", "fur-slow-worm", "fur-shrew", "hearth-pancakes", "hearth-tomato-soup", "hearth-porridge", "hearth-enamel-kettle", "hearth-button-jar", "hearth-snow-globe", "hearth-alarm-clock", "leaf-fly-agaric", "leaf-fern", "leaf-bramble", "leaf-snowdrops", "leaf-bluebells", "leaf-mossy-stone", "leaf-speckled-egg", "leaf-poppy", "leaf-hyacinth"]
   },
   {
     "id": "where-bird-table",
@@ -135,12 +144,13 @@
     "at": "on the bird table",
     "phrases": ["seed scattered like confetti", "a queue on the washing line"],
     "scope": "outdoor",
-    "admits": ["visitor", "woodland"],
+    "admits": ["visitor"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["vignette", "close-crop"],
     "colours": ["#7A5E44", "#C9B58A"],
-    "role": "for the shingled roof and the feeding tray"
+    "role": "for the shingled roof and the feeding tray",
+    "excludes": ["fur-swallow", "fur-hedgehog", "fur-fox-cub", "fur-pipistrelle-bat", "fur-frog", "fur-toad"]
   },
   {
     "id": "where-rockpools",
@@ -153,7 +163,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["from-above", "close-crop"],
     "colours": ["#4C7A80", "#8C7F6E"],
-    "role": "for the clear water and the barnacled rock"
+    "role": "for the clear water and the barnacled rock",
+    "excludes": ["fur-wild-rabbit"]
   },
   {
     "id": "where-harbour-wall",
@@ -166,7 +177,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["low-horizon", "postage-stamp"],
     "colours": ["#8A8475", "#3E6D78"],
-    "role": "for the granite blocks and the sea beyond"
+    "role": "for the granite blocks and the sea beyond",
+    "excludes": ["fur-tawny-owl", "fur-speckled-hen", "fur-wild-rabbit", "fur-pipistrelle-bat", "hearth-watering-can", "hearth-bird-feeder", "hearth-wooden-sledge", "leaf-conker", "leaf-sycamore-keys", "leaf-pumpkin", "leaf-horse-chestnut-leaf", "leaf-apple-blossom", "leaf-radishes"]
   },
   {
     "id": "where-sand-dunes",
@@ -179,7 +191,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["low-horizon", "thirds"],
     "colours": ["#D8C699", "#A3A86C"],
-    "role": "for the pale sand and the spiky marram"
+    "role": "for the pale sand and the spiky marram",
+    "excludes": ["fur-grey-heron", "fur-cygnet", "fur-spotted-pig", "fur-mole", "hearth-wooden-sledge", "leaf-fairy-ring"]
   },
   {
     "id": "where-village-green",
@@ -187,12 +200,13 @@
     "at": "on the village green",
     "phrases": ["a bench with a brass plaque", "a pond with exactly one duck"],
     "scope": "outdoor",
-    "admits": ["village", "garden", "meadow"],
+    "admits": ["village", "meadow"],
     "maxScale": "large",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["vignette", "from-above"],
     "colours": ["#7E9F4F", "#C8B597"],
-    "role": "for the mown turf and the cottages round it"
+    "role": "for the mown turf and the cottages round it",
+    "excludes": ["fur-grey-heron", "fur-cygnet", "fur-spotted-pig", "fur-highland-cow", "fur-harvest-mouse", "fur-hare", "fur-badger", "fur-stoat", "fur-roe-fawn", "fur-red-deer-stag", "fur-slow-worm", "fur-shrew", "hearth-wellies", "hearth-watering-can", "hearth-bird-feeder", "leaf-ivy", "leaf-rose", "leaf-apple-blossom", "leaf-radishes"]
   },
   {
     "id": "where-riverbank",
@@ -205,7 +219,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "tall-strip"],
     "colours": ["#6B5A42", "#5F7B80"],
-    "role": "for the muddy bank and the slow water"
+    "role": "for the muddy bank and the slow water",
+    "excludes": ["hearth-wooden-sledge", "leaf-honesty"]
   },
   {
     "id": "where-mill-pond",
@@ -218,7 +233,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["postage-stamp", "low-horizon"],
     "colours": ["#4E6A5C", "#9C5F48"],
-    "role": "for the dark water and the mill's brickwork"
+    "role": "for the dark water and the mill's brickwork",
+    "excludes": ["fur-speckled-hen", "fur-hare", "hearth-watering-can", "hearth-bird-feeder", "hearth-wooden-sledge", "hearth-fairy-lights", "leaf-fly-agaric", "leaf-pumpkin", "leaf-rose", "leaf-apple-blossom", "leaf-radishes", "leaf-honesty"]
   },
   {
     "id": "where-woodland-clearing",
@@ -231,7 +247,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["vignette", "thirds"],
     "colours": ["#7B8A40", "#8D6B46"],
-    "role": "for the leaf litter and the birch trunks"
+    "role": "for the leaf litter and the birch trunks",
+    "excludes": ["fur-grey-heron", "fur-cygnet", "fur-lamb", "fur-highland-cow", "fur-goat-kid", "fur-donkey", "hearth-wooden-sledge"]
   },
   {
     "id": "where-orchard",
@@ -244,7 +261,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "tall-strip"],
     "colours": ["#6E8A3D", "#7A6047"],
-    "role": "for the gnarled boughs and the grass between the rows"
+    "role": "for the gnarled boughs and the grass between the rows",
+    "excludes": ["fur-grey-heron", "fur-cygnet", "fur-guinea-pig", "fur-great-crested-newt", "hearth-old-armchair", "hearth-bucket-and-spade", "hearth-wooden-sledge", "leaf-fly-agaric", "leaf-fern", "leaf-holly", "leaf-mossy-stone", "leaf-sweet-peas", "leaf-strawberry-plant", "leaf-pea-pod", "leaf-radishes", "leaf-allium", "leaf-honesty"]
   },
   {
     "id": "where-bluebells",
@@ -257,7 +275,8 @@
     "seasons": ["spring"],
     "frames": ["low-horizon", "vignette"],
     "colours": ["#5D63A6", "#7C9849"],
-    "role": "for the drifts of blue and their green stalks"
+    "role": "for the drifts of blue and their green stalks",
+    "excludes": ["fur-goat-kid", "leaf-snowdrops", "leaf-bluebells"]
   },
   {
     "id": "where-hilltop",
@@ -270,7 +289,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["low-horizon", "postage-stamp"],
     "colours": ["#8FA05B", "#A8B8C3"],
-    "role": "for the fields folding away below"
+    "role": "for the fields folding away below",
+    "excludes": ["fur-grey-heron", "fur-cygnet", "fur-great-spotted-woodpecker", "fur-dragonfly", "leaf-fly-agaric", "leaf-snowdrops", "leaf-acorn", "leaf-oak-leaf", "leaf-honesty"]
   },
   {
     "id": "where-farmyard",
@@ -278,12 +298,13 @@
     "at": "in the farmyard",
     "phrases": ["straw blown into every corner", "a tractor with one flat tyre"],
     "scope": "outdoor",
-    "admits": ["farm", "garden", "village"],
+    "admits": ["farm", "village"],
     "maxScale": "large",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "from-above"],
     "colours": ["#B08F52", "#76583C"],
-    "role": "for the straw and the trodden mud"
+    "role": "for the straw and the trodden mud",
+    "excludes": ["fur-hare", "hearth-library-books", "hearth-postcard", "hearth-bird-feeder", "leaf-conker", "leaf-horse-chestnut-leaf", "leaf-strawberry-plant", "leaf-radishes"]
   },
   {
     "id": "where-lane-home",
@@ -296,7 +317,8 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "low-horizon"],
     "colours": ["#7D786C", "#6A7E44"],
-    "role": "for the cracked tarmac and its verges"
+    "role": "for the cracked tarmac and its verges",
+    "excludes": ["fur-cygnet", "fur-box-of-chicks", "hearth-milk-jug", "hearth-cup-of-tea", "hearth-watering-can", "hearth-bird-feeder", "hearth-fairy-lights", "leaf-strawberry-plant", "leaf-pea-pod", "leaf-radishes"]
   },
   {
     "id": "where-frozen-puddle",
@@ -309,7 +331,8 @@
     "seasons": ["winter"],
     "frames": ["from-above", "close-crop"],
     "colours": ["#C8D5DD", "#7B6F5E"],
-    "role": "for the milky ice and the cracks across it"
+    "role": "for the milky ice and the cracks across it",
+    "excludes": ["fur-grey-heron", "fur-barn-owl", "fur-tawny-owl", "fur-great-spotted-woodpecker", "fur-ladybird", "fur-spotted-pig", "fur-hedgehog", "fur-dormouse", "fur-harvest-mouse", "fur-mole", "fur-shrew", "leaf-rosehips", "leaf-fern", "leaf-snowdrops", "leaf-ivy", "leaf-mossy-stone", "leaf-birds-nest", "leaf-catkins", "leaf-honesty"]
   },
   {
     "id": "where-pumpkin-patch",
@@ -322,6 +345,7 @@
     "seasons": ["autumn"],
     "frames": ["thirds", "from-above"],
     "colours": ["#D8772F", "#5F6B35"],
-    "role": "for the ribbed orange skins and the curling tendrils"
+    "role": "for the ribbed orange skins and the curling tendrils",
+    "excludes": ["fur-grey-heron", "fur-great-spotted-woodpecker", "fur-guinea-pig", "hearth-milk-jug", "hearth-library-books", "hearth-knitting", "hearth-old-armchair", "hearth-patchwork-quilt", "hearth-reading-glasses", "hearth-wireless", "hearth-bird-feeder", "hearth-deckchair", "leaf-fairy-ring", "leaf-fly-agaric", "leaf-fern", "leaf-pumpkin", "leaf-holly", "leaf-ivy", "leaf-mossy-stone", "leaf-birds-nest", "leaf-lavender", "leaf-rose", "leaf-allium", "leaf-honesty"]
   }
 ]

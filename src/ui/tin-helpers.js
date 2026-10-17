@@ -94,23 +94,20 @@ export function presetNeedsConfirm(tin, key) {
 }
 
 /**
- * Should we ask which variant pencil is in her tin? Only while unanswered,
- * and only if the tin is the box with the variant, or a hand-ticked tin
- * holding exactly one of the options. (A tin holding two of them, such as
- * the 150, plainly has both, so asking "which one?" would make her lose one.)
+ * Does the variant question belong to this tin? Yes for the box that has the
+ * variant, or for a hand-ticked tin holding exactly one of the options. A tin
+ * holding two of them, such as the 150, plainly has both, so asking "which
+ * one?" would only make her lose one.
  */
-export function variantNeedsAnswer(tin, variant, setKey) {
-  if (tin.variantAnswers?.[variant.id]) return false
+export function variantApplies(tin, variant, setKey) {
   if (tin.preset === setKey) return true
   const owned = new Set(tin.owned)
   return variant.options.filter((c) => owned.has(c)).length === 1
 }
 
-/** Is the variant relevant to this tin at all (for showing the answer line)? */
-export function variantApplies(tin, variant, setKey) {
-  if (tin.preset === setKey) return true
-  const owned = new Set(tin.owned)
-  return variant.options.some((c) => owned.has(c))
+/** Ask while it applies and she hasn't answered yet. */
+export function variantNeedsAnswer(tin, variant, setKey) {
+  return !tin.variantAnswers?.[variant.id] && variantApplies(tin, variant, setKey)
 }
 
 /** Her tin with the chosen option in place of the others. */

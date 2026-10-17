@@ -5,7 +5,7 @@ import {
   frameSize, spaceIsLow, shouldNudgeBackup, LOW_SPACE_BYTES,
 } from '../../src/ui/image.js'
 
-const landscape = { width: 4000, height: 3000 }
+const wide = { width: 4000, height: 3000 }
 const portrait = { width: 3000, height: 4000 }
 const exact = { width: 500, height: 800 }
 
@@ -27,11 +27,11 @@ describe('output sizes', () => {
 
 describe('cover and contain', () => {
   it('cover fills the frame, contain fits inside it', () => {
-    const c = coverRect(landscape)
+    const c = coverRect(wide)
     expect(c.height).toBeCloseTo(1200)
     expect(c.width).toBeGreaterThan(750)
     expect(c.x).toBeCloseTo((750 - c.width) / 2)
-    const f = containRect(landscape)
+    const f = containRect(wide)
     expect(f.width).toBeCloseTo(750)
     expect(f.height).toBeLessThan(1200)
     expect(f.y).toBeCloseTo((1200 - f.height) / 2)
@@ -51,26 +51,26 @@ describe('cover and contain', () => {
 
 describe('zoom limits', () => {
   it('run from the whole drawing to MAX_ZOOM times cover', () => {
-    const l = scaleLimits(landscape)
-    expect(l.min).toBeCloseTo(containScale(landscape))
-    expect(l.max).toBeCloseTo(coverScale(landscape) * MAX_ZOOM)
+    const l = scaleLimits(wide)
+    expect(l.min).toBeCloseTo(containScale(wide))
+    expect(l.max).toBeCloseTo(coverScale(wide) * MAX_ZOOM)
   })
   it('zooming never passes the limits', () => {
-    let v = fitView(landscape)
-    for (let i = 0; i < 40; i++) v = zoomAt(v, 1.5, { x: 375, y: 600 }, landscape)
-    expect(v.scale).toBeCloseTo(scaleLimits(landscape).max)
-    for (let i = 0; i < 80; i++) v = zoomAt(v, 0.5, { x: 10, y: 10 }, landscape)
-    expect(v.scale).toBeCloseTo(scaleLimits(landscape).min)
-    expect(isWhole(v, landscape)).toBe(true)
+    let v = fitView(wide)
+    for (let i = 0; i < 40; i++) v = zoomAt(v, 1.5, { x: 375, y: 600 }, wide)
+    expect(v.scale).toBeCloseTo(scaleLimits(wide).max)
+    for (let i = 0; i < 80; i++) v = zoomAt(v, 0.5, { x: 10, y: 10 }, wide)
+    expect(v.scale).toBeCloseTo(scaleLimits(wide).min)
+    expect(isWhole(v, wide)).toBe(true)
   })
 })
 
 describe('clamping the pan', () => {
   it('a covering photo can never be dragged off an edge', () => {
-    const v0 = coverView(landscape)
+    const v0 = coverView(wide)
     for (const [dx, dy] of [[5000, 0], [-5000, 0], [0, 5000], [0, -5000], [999, -999]]) {
-      const v = panBy(v0, dx, dy, landscape)
-      expect(covers(v, landscape)).toBe(true)
+      const v = panBy(v0, dx, dy, wide)
+      expect(covers(v, wide)).toBe(true)
     }
   })
   it('stays covering after zooming in anywhere, including near corners', () => {
@@ -83,60 +83,60 @@ describe('clamping the pan', () => {
     }
   })
   it('a fitted photo sits in the middle and cannot be dragged', () => {
-    const v = fitView(landscape)
-    expect(panBy(v, 200, 300, landscape)).toEqual(v)
+    const v = fitView(wide)
+    expect(panBy(v, 200, 300, wide)).toEqual(v)
     expect(v.x).toBeCloseTo(0)
     expect(v.y).toBeGreaterThan(0)
   })
   it('between fit and cover, the loose axis is centred and the tight one covers', () => {
-    const { contain, cover } = scaleLimits(landscape)
-    const v = clampView({ scale: (contain + cover) / 2, x: 999, y: -999 }, landscape)
+    const { contain, cover } = scaleLimits(wide)
+    const v = clampView({ scale: (contain + cover) / 2, x: 999, y: -999 }, wide)
     expect(v.x).toBeCloseTo(0)
-    expect(v.y).toBeCloseTo((1200 - landscape.height * v.scale) / 2)
+    expect(v.y).toBeCloseTo((1200 - wide.height * v.scale) / 2)
     expect(v.y).toBeGreaterThan(0)
   })
 })
 
 describe('zooming about a point', () => {
   it('keeps the point under the finger fixed when there is room', () => {
-    const v0 = coverView(landscape)
+    const v0 = coverView(wide)
     const p = { x: 375, y: 600 }
     const before = { x: (p.x - v0.x) / v0.scale, y: (p.y - v0.y) / v0.scale }
-    const v = zoomAt(v0, 2, p, landscape)
+    const v = zoomAt(v0, 2, p, wide)
     const after = { x: (p.x - v.x) / v.scale, y: (p.y - v.y) / v.scale }
     expect(after.x).toBeCloseTo(before.x)
     expect(after.y).toBeCloseTo(before.y)
     expect(v.scale).toBeCloseTo(v0.scale * 2)
   })
   it('the whole-drawing state follows the scale', () => {
-    expect(isWhole(fitView(landscape), landscape)).toBe(true)
-    expect(isWhole(coverView(landscape), landscape)).toBe(false)
+    expect(isWhole(fitView(wide), wide)).toBe(true)
+    expect(isWhole(coverView(wide), wide)).toBe(false)
     expect(isWhole(coverView(exact), exact)).toBe(true)
   })
 })
 
 describe('pinch', () => {
   it('spreading two fingers zooms in about their midpoint', () => {
-    const v0 = coverView(landscape)
+    const v0 = coverView(wide)
     const prev = [{ x: 300, y: 600 }, { x: 450, y: 600 }]
     const next = [{ x: 225, y: 600 }, { x: 525, y: 600 }]
-    const v = pinchView(v0, prev, next, landscape)
+    const v = pinchView(v0, prev, next, wide)
     expect(v.scale).toBeCloseTo(v0.scale * 2)
-    expect(covers(v, landscape)).toBe(true)
+    expect(covers(v, wide)).toBe(true)
   })
   it('moving both fingers together pans', () => {
-    const v0 = zoomAt(coverView(landscape), 2, { x: 375, y: 600 }, landscape)
+    const v0 = zoomAt(coverView(wide), 2, { x: 375, y: 600 }, wide)
     const prev = [{ x: 300, y: 600 }, { x: 400, y: 600 }]
     const next = [{ x: 340, y: 620 }, { x: 440, y: 620 }]
-    const v = pinchView(v0, prev, next, landscape)
+    const v = pinchView(v0, prev, next, wide)
     expect(v.scale).toBeCloseTo(v0.scale)
     expect(v.x - v0.x).toBeCloseTo(40)
     expect(v.y - v0.y).toBeCloseTo(20)
   })
   it('two fingers on the same spot do not explode', () => {
-    const v0 = coverView(landscape)
+    const v0 = coverView(wide)
     const p = { x: 100, y: 100 }
-    expect(pinchView(v0, [p, p], [p, p], landscape)).toEqual(clampView(v0, landscape))
+    expect(pinchView(v0, [p, p], [p, p], wide)).toEqual(clampView(v0, wide))
   })
 })
 
@@ -152,7 +152,7 @@ describe('wheel', () => {
 
 describe('visible rects', () => {
   it('a covering view crops the source and fills the frame', () => {
-    const r = visibleRects(coverView(landscape), landscape)
+    const r = visibleRects(coverView(wide), wide)
     expect(r.dx).toBeCloseTo(0)
     expect(r.dy).toBeCloseTo(0)
     expect(r.dw).toBeCloseTo(750)
@@ -162,7 +162,7 @@ describe('visible rects', () => {
     expect(r.sx).toBeCloseTo((4000 - r.sw) / 2)
   })
   it('a fitted view draws the whole source into a letterboxed band', () => {
-    const r = visibleRects(fitView(landscape), landscape)
+    const r = visibleRects(fitView(wide), wide)
     expect(r).toMatchObject({ sx: 0, sy: 0 })
     expect(r.sw).toBeCloseTo(4000)
     expect(r.sh).toBeCloseTo(3000)
@@ -171,7 +171,7 @@ describe('visible rects', () => {
     expect(r.dy).toBeCloseTo((1200 - 562.5) / 2)
   })
   it('returns null when nothing is in the frame', () => {
-    expect(visibleRects({ scale: 0.1, x: 2000, y: 0 }, landscape)).toBeNull()
+    expect(visibleRects({ scale: 0.1, x: 2000, y: 0 }, wide)).toBeNull()
   })
 })
 

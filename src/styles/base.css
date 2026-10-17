@@ -16,15 +16,27 @@ body {
 }
 
 body {
-  background-color: var(--felt);
-  background-image: var(--felt-nap), radial-gradient(ellipse at 50% 30%, var(--felt-raised) 0%, var(--felt) 55%, var(--felt-deep) 100%);
-  background-attachment: fixed;
+  /* A stacking context, so the felt layer below paints above body's own background. */
+  isolation: isolate;
+  background-color: var(--felt-deep);
   color: var(--cream);
   font-family: var(--font-body);
   font-size: 17px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+/* The felt lives on a fixed layer: iOS ignores background-attachment: fixed,
+   and a scrolling gradient leaves a visible seam on long pages. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--felt);
+  background-image: var(--felt-nap), radial-gradient(ellipse at 50% 30%, var(--felt-raised) 0%, var(--felt) 55%, var(--felt-deep) 100%);
+  pointer-events: none;
 }
 
 img,

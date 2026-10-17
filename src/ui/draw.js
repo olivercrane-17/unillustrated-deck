@@ -21,6 +21,15 @@ let wantAwake = true
 
 const WOBBLY_NOTE = 'Try this one in one unbroken line, no lifting.'
 const DONE_LINE = 'That’s the time. Carry on if you like.'
+const TRUTH = 'Screen colours are approximate. Your pencils are the truth.'
+
+// Swatch colours go into SVG markup, and a "Looks off?" override can arrive
+// from an imported backup, so only a real hex gets through.
+const HEX = /^#[0-9a-f]{3,8}$/i
+function swatchHex(code) {
+  const hex = pencilHex(code)
+  return HEX.test(hex) ? hex : (pencilByCode.get(code)?.hex || '#999999')
+}
 
 export async function render(root, { id } = {}) {
   let reading = state.readings.get(id)
@@ -37,6 +46,9 @@ export async function render(root, { id } = {}) {
 
   const words = wordsPanel(reading, { latest, onSlots: (r) => diagram.repaint(r) })
   const tips = tipsPanel(reading)
+  // The seal sheet is modal over this view. Leaving the view (the back
+  // button, say) closes it rather than leaving it over the next page.
+  cleanups.push(() => document.querySelector('.seal-sheet .sheet-close')?.click())
 
   mount(root, h('div.drawing',
     h('div.draw-top',
@@ -90,7 +102,7 @@ function wordsPanel(reading, { latest, onSlots }) {
     t.opener ? h('p.draw-opener', t.opener) : null,
     h('p.draw-sentence', t.sentence || 'Draw whatever tugs at you.'),
     t.framing ? h('p.draw-framing', t.framing) : null,
-    t.twist ? h('p.draw-twist', h('strong', 'Twist: '), t.twist.replace(/^Twist:\s*/, '')) : null,
+    t.twist ? h('p.draw-twist', h('strong', 'Twist: '), glossify(t.twist.replace(/^Twist:\s*/, ''))) : null,
     reading.spread === 'small' && reading.slots?.length ? slotList(reading, { latest, onSlots }) : null,
   )
 }
@@ -129,7 +141,7 @@ function pencilsPanel(reading) {
   const rows = (p.pencils || []).map((pen) => {
     const info = pencilByCode.get(pen.code) || { name: pen.code, code: pen.code }
     return h('li.draw-pencil',
-      raw(pencilSvg(pencilHex(pen.code), { big: true, label: `${info.name} swatch` })),
+      raw(pencilSvg(swatchHex(pen.code), { big: true, label: `${info.name} swatch` })),
       h('span.draw-pencil-text',
         h('code', info.code),
         h('strong', info.name),
@@ -141,6 +153,7 @@ function pencilsPanel(reading) {
     t.lightLine && h('p', t.lightLine),
     t.smallTin && h('p', t.smallTin),
     t.lonelyLine && h('p.draw-lonely.hand', t.lonelyLine),
+    h('p.draw-truth', TRUTH),
   ].filter(Boolean)
   return h('section.draw-pencils.paper', { 'aria-labelledby': headingId('pencils') },
     h('div.draw-head',
@@ -148,7 +161,7 @@ function pencilsPanel(reading) {
       p.name ? h('span.draw-palette', p.name) : null,
     ),
     h('ul.draw-pencil-list', rows),
-    notes.length ? h('div.draw-notes', notes) : null,
+    h('div.draw-notes', notes),
   )
 }
 
@@ -158,7 +171,7 @@ function firstMarkPanel(reading) {
   return h('section.draw-mark.paper', { 'aria-labelledby': headingId('mark') },
     h('span.draw-mark-icon', raw(ICONS.pencil)),
     h('h2', { id: headingId('mark') }, 'First mark'),
-    h('p', mark),
+    h('p', glossify(mark)),
   )
 }
 
@@ -169,7 +182,7 @@ function diagramPanel(reading) {
   const frame = chooseFrame(reading, content.byId)
   const info = DIAGRAMS[frame]
   const main = mainPencil(reading)
-  const tint = main ? pencilHex(main.code) : undefined
+  const tint = main ? swatchHex(main.code) : undefined
   const art = h('div.draw-diagram-art')
   const repaint = (r) => {
     const slots = r.slots || []
@@ -217,9 +230,13 @@ function donePanel(reading, latest) {
     finished ? h('p.draw-drawn-note.hand', `You drew this on ${when}. Again is always allowed.`) : null,
     h('button.btn.btn-gilt.draw-done-btn', {
       type: 'button',
-      onclick: () => openSealFlow(latest(), {
-        onDone: (result) => { if (result?.seal?.cardId) go('card/' + result.seal.cardId) },
-      }),
+      onclick: () => {
+        // One sheet at a time, however eagerly the button is pressed.
+        if (document.querySelector('.seal-sheet')) return
+        openSealFlow(latest(), {
+          onDone: (result) => { if (result?.seal?.cardId) go('card/' + result.seal.cardId) },
+        })
+      },
     }, raw(ICONS.tick), 'I’ve drawn it'),
     h('p.draw-done-hint', 'Add a photo if you like, or simply mark it drawn.'),
   )
@@ -370,6 +387,7 @@ function timerPanel(readingId) {
     tick = null
     if (!t) {
       wasDone = false
+      live.textContent = ''
       body.replaceChildren(chips())
       pill.hidden = true
     } else {

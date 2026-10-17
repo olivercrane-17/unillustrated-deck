@@ -15,6 +15,7 @@ import {
 
 const DECODE_ERROR = 'That photo wouldn’t open here. A screenshot of it or a JPEG will work.'
 const SAVE_ERROR = 'That didn’t save just now. Try once more, or keep it as drawn with no photo.'
+const NOTE_ERROR = 'That didn’t save just now. Try once more in a moment.'
 const LOW_SPACE = 'This device is nearly out of room. It should still fit, but saving a copy of your deck in Settings would be wise.'
 const BACKUP_NUDGE = 'Your deck lives only on this device. Save a copy somewhere safe?'
 
@@ -32,7 +33,13 @@ const HAND_TICK = `<svg class="hand-tick" viewBox="0 0 120 100" fill="none" stro
   <path pathLength="1" d="M12 56 C 20 60, 29 69, 37 84 C 39 87, 41 87, 43 84 C 60 55, 81 30, 110 11" stroke-width="5"/>
 </svg>`
 
+// One flow at a time: a quick double tap on "I've drawn it" must not stack
+// two sheets (and two seals).
+let flowOpen = false
+
 export function openSealFlow(reading, { onDone } = {}) {
+  if (flowOpen) return
+  flowOpen = true
   const cardId = reading.cards.who || reading.cards.theme
   const card = content.byId.get(cardId) || { id: cardId || 'twist-card', title: 'This card' }
   let photo = null
@@ -45,6 +52,8 @@ export function openSealFlow(reading, { onDone } = {}) {
   const camera = fileInput('seal-camera', true)
   const library = fileInput('seal-library', false)
   const stepHost = h('div.seal-step')
+  // The page underneath changed (the back button, say): the sheet goes with it.
+  const onRoute = () => closeSheet()
 
   openSheet((close) => {
     closeSheet = close
@@ -55,10 +64,31 @@ export function openSealFlow(reading, { onDone } = {}) {
     className: 'seal-sheet',
     onClose: () => {
       closed = true
+      window.removeEventListener('hashchange', onRoute)
       stepCleanup?.()
-      if (!finished) dropPhoto()
+      stepCleanup = null
+      if (!finished) {
+        dropPhoto()
+        flowOpen = false
+      }
     },
   })
+  window.addEventListener('hashchange', onRoute)
+
+  // The seal is saved by now, so whatever happens to the ceremony the caller
+  // still hears about it.
+  function celebrate(result, imageBlob) {
+    const done = (r) => {
+      flowOpen = false
+      onDone?.(r)
+    }
+    try {
+      ceremony({ ...result, card, onDone: done, imageBlob })
+    } catch (e) {
+      console.error(e)
+      done(result)
+    }
+  }
 
   function fileInput(name, capture) {
     const input = h('input.sr-only', { type: 'file', accept: 'image/*', name, tabindex: '-1', 'aria-hidden': 'true' })
@@ -75,6 +105,7 @@ export function openSealFlow(reading, { onDone } = {}) {
     stepCleanup?.()
     stepCleanup = null
     mount(stepHost, ...children)
+    stepHost.closest('.sheet')?.classList.toggle('is-cropping', Boolean(stepHost.querySelector('.crop-step')))
     // The sheet focuses itself on open; after that, each new step's heading
     // takes focus so screen readers hear where she is.
     if (stepHost.isConnected) stepHost.querySelector('h2')?.focus({ preventScroll: true })
@@ -98,6 +129,8 @@ export function openSealFlow(reading, { onDone } = {}) {
         h('h2', { tabindex: '-1' }, 'You drew it.'),
         h('p', 'Seal a photo of it into the card, or simply mark it drawn. Both finish it properly.'),
       ),
+      // Up top, where she will see it without scrolling.
+      error ? h('p.seal-error', { role: 'alert' }, error) : null,
       h('div.seal-endings',
         h('section.seal-ending', { 'aria-labelledby': photoId },
           h('span.ending-icon', raw(ICONS.camera)),
@@ -119,7 +152,6 @@ export function openSealFlow(reading, { onDone } = {}) {
         ),
       ),
       h('p.seal-status', { role: 'status' }),
-      error ? h('p.seal-error', { role: 'alert' }, error) : null,
     )
   }
 
@@ -152,17 +184,19 @@ export function openSealFlow(reading, { onDone } = {}) {
     if (busy) return
     busy = true
     setBusy('Making a note…')
+    let result
     try {
-      const result = await recordDrawn(reading)
-      finished = true
-      dropPhoto()
-      closeSheet()
-      ceremony({ ...result, card, onDone })
+      result = await recordDrawn(reading)
     } catch (e) {
       console.error(e)
       busy = false
-      showChoice({ error: SAVE_ERROR })
+      showChoice({ error: NOTE_ERROR })
+      return
     }
+    finished = true
+    dropPhoto()
+    closeSheet()
+    celebrate(result)
   }
 
   // -------------------------------------------------------------------------
@@ -311,23 +345,30 @@ export function openSealFlow(reading, { onDone } = {}) {
     async function seal() {
       if (busy) return
       busy = true
-      sealBtn.disabled = true
+      // Back and "A different photo" wait too, so the photo can't change mid-seal.
+      setBusy('Sealing…')
       sealBtn.textContent = 'Sealing…'
+      let result
+      let image
       try {
-        const { image, thumb } = await renderSeal(photo, view)
-        const result = await recordDrawn(reading, { image, thumb })
-        finished = true
-        dropPhoto()
-        closeSheet()
-        if (state.seals.filter((s) => s.kind === 'photo').length === 1) requestPersistence()
-        ceremony({ ...result, card, onDone, imageBlob: image })
+        const out = await renderSeal(photo, view)
+        // She closed the sheet while it was drawing: nothing is saved.
+        if (closed) return
+        image = out.image
+        result = await recordDrawn(reading, out)
       } catch (e) {
         console.error(e)
         busy = false
-        sealBtn.disabled = false
+        setBusy('')
         sealBtn.textContent = 'Seal it'
         notes.replaceChildren(h('p.seal-error', { role: 'alert' }, SAVE_ERROR))
+        return
       }
+      finished = true
+      dropPhoto()
+      closeSheet()
+      if (state.seals.filter((s) => s.kind === 'photo').length === 1) requestPersistence()
+      celebrate(result, image)
     }
   }
 }
@@ -468,7 +509,8 @@ function ceremony({ seal, reading, card, onDone, imageBlob }) {
     cardEl.querySelector('.card-front')?.appendChild(tick)
   }
   const lineId = uid('line')
-  const btn = h('button.btn.btn-gilt.ceremony-btn', { type: 'button', onclick: () => dismiss() }, isPhoto ? 'Lovely' : 'Back to the table')
+  // The callers go to different places afterwards, so the button doesn't promise one.
+  const btn = h('button.btn.btn-gilt.ceremony-btn', { type: 'button', onclick: () => dismiss() }, 'Lovely')
   const stage = h('div.ceremony-stage', cardEl)
   const overlay = h(`div.seal-ceremony${reduce ? '.is-calm' : ''}`, {
     role: 'dialog',
@@ -487,6 +529,8 @@ function ceremony({ seal, reading, card, onDone, imageBlob }) {
     if (done) return
     done = true
     if (skipped) cardEl.classList.add('is-instant')
+    // A tap during the calm crossfade shows the face straight away.
+    stage.querySelector('.ceremony-back')?.remove()
     flip(cardEl, true)
     if (isPhoto) cardEl.classList.add('shimmer')
     tick?.classList.add('is-drawn')

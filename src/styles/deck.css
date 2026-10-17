@@ -51,7 +51,8 @@
 .suit-head::before,
 .suit-head::after {
   content: '';
-  flex: 0 1 72px;
+  flex: 1 1 0;
+  max-width: 72px;
   min-width: 14px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(232, 203, 126, 0.55));
@@ -91,6 +92,10 @@ h3.suit-head .suit-mark {
   font-size: 34px;
   font-weight: 700;
 }
+.gallery-suits {
+  display: grid;
+  gap: 30px;
+}
 .gallery-grid,
 .rest-grid {
   list-style: none;
@@ -121,10 +126,12 @@ h3.suit-head .suit-mark {
 .gallery-card:focus-visible {
   transform: translateY(-6px) rotate(0deg);
 }
-/* A little more room for long titles under a photo */
+/* A little more room for long titles under a photo: a fixed height, with
+   the width following the photo's own shape. */
 .gallery-card .card-art.has-image,
 .detail-figure .card-art.has-image {
-  width: 62cqw;
+  width: auto;
+  height: 76cqw;
 }
 .gallery-card .card-title,
 .detail-figure .card-title {
@@ -152,6 +159,22 @@ h3.suit-head .suit-mark {
   justify-items: center;
   gap: 20px;
   text-align: center;
+}
+.gallery-empty-frame .card {
+  transform: rotate(-3deg);
+}
+/* A blank frame: just the faint emblem, in the middle */
+.gallery-empty-frame .card-front,
+.missing-frame .card-front {
+  grid-template-rows: 1fr;
+}
+.gallery-empty-frame .card-title,
+.missing-frame .card-title {
+  display: none;
+}
+.gallery-empty-frame .card-art {
+  color: var(--gilt-dark);
+  opacity: 0.4;
 }
 .gallery-empty-note {
   max-width: 23ch;
@@ -304,6 +327,18 @@ h3.suit-head .suit-mark {
 }
 
 @media (min-width: 720px) {
+  /* Small suits sit side by side; a big suit takes the whole width. */
+  .gallery-suits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 34px 56px;
+  }
+  .gallery-suit {
+    flex: 0 1 auto;
+    min-width: 260px;
+    max-width: 100%;
+  }
   .gallery-grid {
     gap: 28px 22px;
   }
@@ -450,8 +485,8 @@ button.detail-card-btn:hover .card {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  font-size: 22px;
+  gap: 10px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--cream);
   text-align: center;
@@ -459,7 +494,8 @@ button.detail-card-btn:hover .card {
 .history-head::before,
 .history-head::after {
   content: '';
-  flex: 0 1 60px;
+  flex: 1 1 0; /* the hairlines take what the words leave */
+  max-width: 60px;
   min-width: 14px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(232, 203, 126, 0.55));
@@ -482,7 +518,7 @@ button.detail-card-btn:hover .card {
 }
 .history-entry {
   display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
+  grid-template-columns: 84px minmax(0, 1fr);
   gap: 14px;
   align-items: start;
   padding: 14px 14px 8px;
@@ -495,8 +531,8 @@ button.detail-card-btn:hover .card {
 }
 .history-photo {
   display: block;
-  width: 92px;
-  aspect-ratio: 4 / 5;
+  width: 84px;
+  aspect-ratio: 5 / 8;
   padding: 3px;
   border: 0;
   border-radius: 4px;
@@ -515,8 +551,8 @@ button.detail-card-btn:hover .card {
 .history-tick {
   display: grid;
   place-items: center;
-  width: 92px;
-  aspect-ratio: 4 / 5;
+  width: 84px;
+  aspect-ratio: 5 / 8;
   border-radius: 6px;
   border: 1.5px dashed rgba(156, 115, 48, 0.55);
   color: var(--suit-leaf);
@@ -608,6 +644,7 @@ button.detail-card-btn:hover .card {
 }
 .history-none .hand {
   margin: 0;
+  line-height: 1.2;
   font-size: 23px;
   color: var(--gilt-light);
 }
@@ -647,24 +684,25 @@ button.detail-card-btn:hover .card {
   }
   .history-head {
     justify-content: flex-start;
+    font-size: 22px;
   }
   .history-head::before {
     display: none;
   }
   .history-head::after {
-    flex: 1 1 auto;
+    max-width: none;
   }
   .history-none {
     text-align: left;
   }
   .history-entry {
-    grid-template-columns: 120px minmax(0, 1fr);
+    grid-template-columns: 104px minmax(0, 1fr);
     gap: 18px;
     padding: 16px 18px 10px;
   }
   .history-photo,
   .history-tick {
-    width: 120px;
+    width: 104px;
   }
 }
 
@@ -685,8 +723,8 @@ button.detail-card-btn:hover .card {
   opacity: 0.35;
 }
 .detail-missing h1 {
-  max-width: 18ch;
-  font-size: 30px;
+  max-width: 19ch;
+  font-size: 27px;
   font-weight: 700;
 }
 .detail-missing p {
@@ -932,8 +970,9 @@ p.share-wait:not(.hand) {
 .recent-carry {
   min-height: 44px;
   margin: 0 6px 0 10px;
-  padding: 6px 20px;
+  padding: 6px 22px;
   font-size: 18px;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.45) inset, 0 -1px 0 rgba(0, 0, 0, 0.18) inset, 0 3px 8px rgba(0, 0, 0, 0.18);
 }
 .recent-empty {
   display: grid;
@@ -943,7 +982,9 @@ p.share-wait:not(.hand) {
   text-align: center;
 }
 .recent-empty .hand {
+  max-width: 22ch;
   margin: 0;
+  line-height: 1.2;
   font-size: 25px;
   color: var(--gilt-light);
 }

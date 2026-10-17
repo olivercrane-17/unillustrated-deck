@@ -62,7 +62,7 @@ function choiceRow({ title, hint, options, value, onPick }) {
   const sync = () => chips.forEach((c, i) => c.setAttribute('aria-pressed', String(options[i].value === value())))
   const el = h('div.choice-row.setting-row',
     copyBlock(tid, title, hint),
-    h('div.chips.seg', { role: 'group', 'aria-labelledby': tid }, chips),
+    h('div.chips.seg', { role: 'group', 'aria-labelledby': tid, 'aria-describedby': hint ? `${tid}-hint` : null }, chips),
   )
   return { el, sync }
 }
@@ -332,6 +332,7 @@ function safePanel(disposedRef) {
   const saveBtn = h('button.btn.btn-gilt', { type: 'button', onclick: onSave }, raw(ICONS.download), 'Save a copy')
   const fileInput = h('input', { type: 'file', accept: '.zip,application/zip,application/x-zip-compressed', hidden: true, 'aria-hidden': 'true', tabindex: '-1' })
   const restoreBtn = h('button.btn.btn-line', { type: 'button', onclick: () => fileInput.click() }, raw(ICONS.upload), 'Restore from a copy')
+  let reading = false
   fileInput.addEventListener('change', () => {
     const file = fileInput.files?.[0]
     fileInput.value = ''
@@ -351,7 +352,14 @@ function safePanel(disposedRef) {
       const res = await exportBackup()
       if (res.how === 'stale') {
         say('Your copy is ready.')
-        toast('Your copy is ready to save.', { action: 'Save it', duration: 15000, onAction: () => res.retry().then((how) => reportSaved(how, res.filename)) })
+        toast('Your copy is ready to save.', {
+          action: 'Save it',
+          duration: 15000,
+          onAction: () => res.retry().then((how) => reportSaved(how, res.filename), (e) => {
+            console.error(e)
+            say('The copy couldn’t be saved just now. Try again in a moment.', 'bad')
+          }),
+        })
       } else reportSaved(res.how, res.filename)
     } catch (e) {
       console.error(e)
@@ -362,6 +370,8 @@ function safePanel(disposedRef) {
   }
 
   async function onRestoreFile(file) {
+    if (reading) return
+    reading = true
     say('Reading the copy…')
     let parsed
     try {
@@ -370,7 +380,10 @@ function safePanel(disposedRef) {
       if (!(e instanceof BackupError)) console.error(e)
       say(e instanceof BackupError ? e.message : 'That file couldn’t be read. Nothing here has changed.', 'bad')
       return
+    } finally {
+      reading = false
     }
+    if (disposedRef.disposed) return
     say('')
     chooseRestore(file, parsed)
   }
@@ -381,11 +394,13 @@ function safePanel(disposedRef) {
     const parts = []
     if (drawings) parts.push(plural(drawings, 'drawing'))
     if (data.seals.length - drawings) parts.push(plural(data.seals.length - drawings, 'ticked card'))
-    parts.push(plural(data.readings.length, 'reading'))
+    if (data.readings.length) parts.push(plural(data.readings.length, 'reading'))
     if (data.tin?.owned) parts.push(`a tin of ${data.tin.owned.length}`)
+    if (!parts.length) parts.push('just the settings')
     const when = manifest.exportedAt ? friendlyDate(manifest.exportedAt) : ''
     const summary = `${when ? `Saved ${when === 'Today' || when === 'Yesterday' ? when.toLowerCase() : `on ${when}`}, with` : 'It holds'} ${listJoin(parts)}.`
 
+    let open = true
     openSheet((close) => {
       let busy = false
       const note = h('p.restore-note', { role: 'status', 'aria-live': 'polite' })
@@ -393,10 +408,11 @@ function safePanel(disposedRef) {
         h('strong', title), h('span', text))
       const merge = option('merge', 'Merge', 'Add its drawings and readings to the ones here. Your tin and settings stay as they are.')
       const replace = option('replace', 'Replace', 'Make this device match the copy exactly, tin and settings too. Anything here that isn’t in the copy will go.')
+      const notNow = h('button.btn-text', { type: 'button', autofocus: true, onclick: close }, 'Not now')
       async function go(mode) {
         if (busy) return
         busy = true
-        merge.disabled = replace.disabled = true
+        merge.disabled = replace.disabled = notNow.disabled = true
         note.textContent = mode === 'merge' ? 'Merging…' : 'Restoring…'
         try {
           await importBackup(file, { mode, parsed })
@@ -406,9 +422,13 @@ function safePanel(disposedRef) {
           toast(mode === 'merge' ? 'Merged. Everything from the copy is on the table now.' : 'Restored. The deck is just as you left it.')
         } catch (e) {
           if (!(e instanceof BackupError)) console.error(e)
-          note.textContent = e instanceof BackupError ? e.message : 'Something went wrong, so nothing has changed.'
+          const message = e instanceof BackupError ? e.message : 'Something went wrong, so nothing has changed.'
+          note.textContent = message
+          // If the sheet was closed while it worked, say so on the page instead.
+          if (!open && !disposedRef.disposed) say(message, 'bad')
           busy = false
-          merge.disabled = replace.disabled = false
+          merge.disabled = replace.disabled = notNow.disabled = false
+          if (open) (mode === 'merge' ? merge : replace).focus()
         }
       }
       return h('div.restore-sheet',
@@ -416,9 +436,9 @@ function safePanel(disposedRef) {
         h('p', summary),
         h('div.restore-options', merge, replace),
         note,
-        h('div.sheet-actions', h('button.btn-text', { type: 'button', autofocus: true, onclick: close }, 'Not now')),
+        h('div.sheet-actions', notNow),
       )
-    }, { label: 'Restore from a copy', className: 'restore' })
+    }, { label: 'Restore from a copy', className: 'restore', onClose: () => { open = false } })
   }
 
   const warn = state.storageOk ? null : h('p.safe-warn', 'Right now this browser isn’t letting the deck save anything (private browsing can do that), so readings will vanish when the tab closes.')

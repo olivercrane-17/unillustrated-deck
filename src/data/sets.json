@@ -45,6 +45,72 @@
       "PC1034"
     ]
   },
+  "48": {
+    "label": "48 pencils",
+    "codes": [
+      "PC901",
+      "PC902",
+      "PC903",
+      "PC904",
+      "PC905",
+      "PC908",
+      "PC909",
+      "PC910",
+      "PC911",
+      "PC912",
+      "PC913",
+      "PC914",
+      "PC916",
+      "PC918",
+      "PC921",
+      "PC922",
+      "PC924",
+      "PC926",
+      "PC927",
+      "PC928",
+      "PC929",
+      "PC930",
+      "PC932",
+      "PC933",
+      "PC935",
+      "PC937",
+      "PC938",
+      "PC939",
+      "PC941",
+      "PC942",
+      "PC943",
+      "PC945",
+      "PC946",
+      "PC947",
+      "PC949",
+      "PC950",
+      "PC989",
+      "PC992",
+      "PC994",
+      "PC995",
+      "PC1002",
+      "PC1003",
+      "PC1005",
+      "PC1008",
+      "PC1027",
+      "PC1034",
+      "PC1084",
+      "PC1104"
+    ],
+    "variants": [
+      {
+        "id": "purple",
+        "question": "Which purple is in your tin?",
+        "note": "Prismacolor retired Lilac in late 2022. Newer tins have Amethyst or Greyed Lavender in its place. The name is printed along the barrel.",
+        "options": [
+          "PC956",
+          "PC1104",
+          "PC1026"
+        ],
+        "default": "PC1104"
+      }
+    ]
+  },
   "150": {
     "label": "150 pencils",
     "codes": [

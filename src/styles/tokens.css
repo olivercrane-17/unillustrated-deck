@@ -1,0 +1,98 @@
+:root {
+  color-scheme: dark;
+
+  /* The table */
+  --felt: #24382e;
+  --felt-deep: #1a2a22;
+  --felt-raised: #2c4338;
+  --felt-line: rgba(241, 231, 208, 0.14);
+
+  /* Card stock */
+  --paper: #f3ead7;
+  --paper-shade: #e8dcc3;
+  --paper-edge: #d6c5a3;
+  --paper-sunk: #ede2cb;
+
+  /* Ink on paper */
+  --ink: #2a211c;
+  --ink-soft: #54463b;
+  --ink-faint: #7d6d5c;
+
+  /* Text on felt */
+  --cream: #f1e7d0;
+  --cream-soft: #c9cfbf;
+  --cream-faint: #9fae9f;
+
+  /* Gilt */
+  --gilt-dark: #9c7330;
+  --gilt-light: #e8cb7e;
+  --gilt-mid: #c9a253;
+  --gilt-deep: #a57b33;
+  --gilt-gradient: linear-gradient(135deg, var(--gilt-dark) 0%, var(--gilt-light) 38%, var(--gilt-mid) 55%, var(--gilt-light) 72%, var(--gilt-deep) 100%);
+
+  /* Suits: used only as a thin inner rule and on the emblem */
+  --suit-fur: #6b4a2f;
+  --suit-leaf: #4e6b3a;
+  --suit-hearth: #7b2d26;
+  --suit-when: #3b4a6b;
+  --suit-where: #5e5240;
+  --suit-twist: #5b3a5e;
+  --suit-theme: #7a5a2a;
+
+  /* Feedback */
+  --focus: #f6d68a;
+  --danger: #9b3a2f;
+
+  /* Type */
+  --font-display: 'Cormorant SC', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-body: 'Lora', 'Iowan Old Style', Georgia, 'Times New Roman', serif;
+  --font-hand: 'Caveat', 'Segoe Print', 'Bradley Hand', cursive;
+
+  /* Shape and depth */
+  --radius-card: 10px;
+  --radius-panel: 14px;
+  --shadow-card: 0 1px 1px rgba(0, 0, 0, 0.25), 0 6px 14px rgba(0, 0, 0, 0.28), 0 18px 32px rgba(0, 0, 0, 0.18);
+  --shadow-lift: 0 2px 2px rgba(0, 0, 0, 0.25), 0 12px 24px rgba(0, 0, 0, 0.32), 0 30px 50px rgba(0, 0, 0, 0.22);
+
+  /* Motion */
+  --ease-soft: cubic-bezier(0.22, 0.8, 0.26, 1);
+  --flip-ms: 560ms;
+
+  /* Layout */
+  --gutter: 16px;
+  --max-read: 640px;
+
+  /* Textures (tiny inline SVG noise tiles) */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .32 0 0 0 0 .25 0 0 0 0 .17 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  --felt-nap: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .9 0 0 0 0 .95 0 0 0 0 .85 0 0 0 .055 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Dark mode: the felt is already dark, so dim the card stock a touch. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: #ece2cd;
+    --paper-shade: #e0d3b9;
+    --felt: #20332a;
+    --felt-deep: #16241d;
+  }
+}
+:root[data-theme='dark'] {
+  --paper: #ece2cd;
+  --paper-shade: #e0d3b9;
+  --felt: #20332a;
+  --felt-deep: #16241d;
+}
+
+/* Linen table: a lighter table for bright daylight. */
+:root[data-table='linen'] {
+  color-scheme: light;
+  --felt: #d9cfbd;
+  --felt-deep: #cbbfa9;
+  --felt-raised: #e3dac9;
+  --felt-line: rgba(42, 33, 28, 0.16);
+  --cream: #2a211c;
+  --cream-soft: #54463b;
+  --cream-faint: #6f604f;
+  --felt-nap: var(--grain);
+  --focus: #7b2d26;
+}

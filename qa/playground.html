@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Card playground</title>
+</head>
+<body>
+<div id="app" style="padding:16px;display:flex;flex-direction:row;flex-wrap:wrap;gap:18px;align-items:flex-start"></div>
+<script type="module">
+import '../src/styles/fonts.css'
+import '../src/styles/tokens.css'
+import '../src/styles/base.css'
+import '../src/styles/components.css'
+import '../src/styles/card.css'
+import { renderCard } from '../src/ui/card.js'
+import { pencilSvg } from '../src/ui/ornaments.js'
+const app = document.getElementById('app')
+const dormouse = { id: 'fur-dormouse', suit: 'fur', title: 'The Dormouse', phrases: ['round as a hazelnut', 'tail like a bottlebrush', 'asleep more than awake'] }
+const sill = { id: 'where-warmest-windowsill', title: 'The Warmest Windowsill', phrases: ['a patch of sun', 'the radiator ticking below'] }
+const frost = { id: 'when-first-frost', title: 'The First Frost', phrases: ['breath you can see', 'every leaf edged in white'] }
+const teapot = { id: 'hearth-teapot', suit: 'hearth', title: 'The Teapot', phrases: ['a knitted cosy', 'one more cup'] }
+const conker = { id: 'leaf-conker', suit: 'leaf', title: 'The Conker', phrases: ['split and shining'] }
+const twist = { id: 'twist-teacup', title: 'The Teacup', phrases: ['the world in miniature'] }
+const theme = { id: 'theme-rainy', title: 'A Rainy Sunday', phrases: ['nowhere to be'] }
+app.append(renderCard({ card: dormouse, label: 'Who or what', size: 'lg' }))
+app.append(renderCard({ card: sill, label: 'Where', size: 'md' }))
+for (const c of [dormouse, sill, frost, teapot, conker, twist, theme]) app.append(renderCard({ card: c, label: 'Who or what', size: 'sm' }))
+app.append(renderCard({ card: dormouse, size: 'sm', faceDown: true, backName: 'Hazel' }))
+app.append(renderCard({ card: teapot, size: 'md', imageUrl: 'https://picsum.photos/400/500', dateText: '17 Oct' }))
+for (const c of [dormouse, teapot, conker]) app.append(renderCard({ card: c, size: 'xs' }))
+const row = document.createElement('div'); row.style.cssText='display:grid;gap:8px'
+row.innerHTML = ['#E39A43','#2A3F63','#FFFFFF','#7B2D26'].map(hx=>pencilSvg(hx,{big:true})).join('')
+app.append(row)
+</script>
+</body>
+</html>

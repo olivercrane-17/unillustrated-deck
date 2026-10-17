@@ -22,7 +22,9 @@ export function anchorFor(hex) {
   return { hex, lab, lch: oklabToOklch(lab) }
 }
 
-const isDealable = (p) => p.special !== 'blender'
+// Metallics read as flat grey or mustard on paper, so they are only dealt for
+// subjects that really are metal.
+const isDealable = (p, allowMetallic) => p.special !== 'blender' && (allowMetallic || p.special !== 'metallic')
 const isWhiteish = (p) => p.lch.L > 0.93 && p.lch.C < 0.04
 const isBlack = (p) => p.code === BLACK || (p.lch.L < 0.26 && p.lch.C < 0.02)
 
@@ -144,12 +146,14 @@ function nearestTo(pool, hex, exclude = new Set()) {
  * @param {string} [o.rule]   twist palette rule
  * @param {object} [o.keep]   { slotKey: code } pencils that must stay
  * @param {Array}  [o.avoid]  codes to skip if anything else will do
+ * @param {boolean} [o.allowMetallic]
  * @param {function} o.rng
  * @returns {{ pencils: Array<{code, slot, role}>, bareLights: boolean, relaxed: number }}
  */
-export function dealPalette({ pencils, slots, mood, rule, keep = {}, avoid = [], rng }) {
+export function dealPalette({ pencils, slots, mood, rule, keep = {}, avoid = [], allowMetallic = false, rng }) {
   const avoidSet = new Set(avoid)
-  const owned = pencils.filter(isDealable)
+  let owned = pencils.filter((p) => isDealable(p, allowMetallic))
+  if (!owned.length) owned = pencils.filter((p) => p.special !== 'blender')
   const byCode = new Map(owned.map((p) => [p.code, p]))
   let pool = poolForRule(owned, rule)
   if (pool.length < Math.min(slots.length, 2)) pool = owned

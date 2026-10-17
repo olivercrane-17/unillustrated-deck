@@ -171,6 +171,20 @@ function nameOf(card) {
   return card.the.replace(/^the /, '')
 }
 
+// The subject's detail colour: an explicit accent, or failing that the most
+// saturated of its secondary colours that differs from the main one.
+function accentHexOf(card) {
+  if (card.accent) return card.accent
+  const main = anchorFor(card.colours[0])
+  let best = null
+  for (const hex of card.colours.slice(1)) {
+    const a = anchorFor(hex)
+    const far = Math.hypot(a.lab.L - main.lab.L, a.lab.a - main.lab.a, a.lab.b - main.lab.b) > 0.1
+    if (far && (!best || a.lch.C > best.lch.C)) best = a
+  }
+  return best && best.lch.C > 0.05 ? best.hex : null
+}
+
 export function paletteSlots(reading, ctx) {
   const { byId } = ctx.content
   const twist = reading.cards.twist && byId.get(reading.cards.twist)
@@ -195,9 +209,10 @@ export function paletteSlots(reading, ctx) {
   const dark = { key: 'dark', kind: 'dark', role: when ? when.shadow : who.roles.dark }
   const light = { key: 'light', kind: 'light', role: when ? when.highlight : who.roles.light }
   const setting = where && { key: 'setting', kind: 'anchor', anchor: anchorFor(where.colours[0]), role: where.role }
+  const accentHex = accentHexOf(who)
   const accent = also
     ? { key: 'accent', kind: 'anchor', anchor: anchorFor(also.colours[0]), role: `for the ${nameOf(also)}` }
-    : who.colours[1] && { key: 'accent', kind: 'anchor', anchor: anchorFor(who.colours[1]), role: who.roles.accent }
+    : accentHex && { key: 'accent', kind: 'anchor', anchor: anchorFor(accentHex), role: who.roles.accent }
   const complement = { key: 'complement', kind: 'complement', role: 'for a spark of the opposite colour' }
 
   let slots
@@ -211,7 +226,7 @@ export function paletteSlots(reading, ctx) {
   if (rule === 'three') slots = slots.slice(0, 3)
   const max = twist?.effects?.maxPencils
   if (max) slots = slots.slice(0, max)
-  return { slots, mood, rule }
+  return { slots, mood, rule, allowMetallic: who.texture === 'metal' }
 }
 
 function paletteRng(reading, ...labels) {
@@ -221,7 +236,7 @@ function paletteRng(reading, ...labels) {
 // Re-deal the pencils. `keepSlots` lists slot keys whose current pencil should
 // stay (locked pencils always stay).
 function rebuildPalette(reading, ctx, { keepSlots = [], avoid = [] } = {}) {
-  const { slots, mood, rule } = paletteSlots(reading, ctx)
+  const { slots, mood, rule, allowMetallic } = paletteSlots(reading, ctx)
   const keep = {}
   const slotKeys = new Set(slots.map((s) => s.key))
   const locked = new Set()
@@ -231,7 +246,7 @@ function rebuildPalette(reading, ctx, { keepSlots = [], avoid = [] } = {}) {
       if (p.locked) locked.add(p.code)
     }
   }
-  const dealt = dealPalette({ pencils: ctx.pencils, slots, mood, rule, keep, avoid, rng: paletteRng(reading) })
+  const dealt = dealPalette({ pencils: ctx.pencils, slots, mood, rule, keep, avoid, allowMetallic, rng: paletteRng(reading) })
   const twist = reading.cards.twist && ctx.content.byId.get(reading.cards.twist)
   reading.palette = {
     name: '',

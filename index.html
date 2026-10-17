@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>The Unillustrated Deck</title>
+    <meta name="description" content="A deck of drawing cards with no pictures until you draw them. Draw a card. Then draw it." />
+    <meta name="theme-color" content="#24382e" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Unillustrated" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png" />
+    <style>
+      /* Paint the felt before the stylesheet arrives. */
+      html, body { background: #24382e; margin: 0; }
+      .boot { min-height: 100vh; display: grid; place-items: center; color: #e8cb7e; font: 600 15px/1 Georgia, serif; letter-spacing: .3em; }
+    </style>
+  </head>
+  <body>
+    <div id="app"><div class="boot">SHUFFLING…</div></div>
+    <noscript><p style="color:#f1e7d0;text-align:center;padding:2em">The deck needs JavaScript turned on to shuffle.</p></noscript>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

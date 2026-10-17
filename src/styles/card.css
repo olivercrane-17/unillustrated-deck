@@ -1,0 +1,263 @@
+.card {
+  --card-w: 112px;
+  --tilt: 0deg;
+  --suit: var(--suit-fur);
+  position: relative;
+  width: var(--card-w);
+  aspect-ratio: 5 / 8;
+  perspective: 1100px;
+  transform: rotate(var(--tilt));
+  flex: none;
+  container-type: inline-size;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.card-xs { --card-w: 70px; }
+.card-sm { --card-w: 108px; }
+.card-md { --card-w: 168px; }
+.card-lg { --card-w: min(76vw, 300px); }
+
+.suit-fur { --suit: var(--suit-fur); }
+.suit-leaf { --suit: var(--suit-leaf); }
+.suit-hearth { --suit: var(--suit-hearth); }
+.suit-where { --suit: var(--suit-where); }
+.suit-when { --suit: var(--suit-when); }
+.suit-twist { --suit: var(--suit-twist); }
+.suit-theme { --suit: var(--suit-theme); }
+
+.card-inner {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  transition: transform var(--flip-ms) var(--ease-soft);
+}
+.card.is-down .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-card);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+/* ---------- Front ---------- */
+.card-front {
+  display: grid;
+  grid-template-rows: auto 1fr auto auto auto;
+  justify-items: center;
+  align-items: center;
+  padding: 17cqw 13cqw 16cqw;
+  background-color: var(--paper);
+  background-image: var(--grain), radial-gradient(ellipse at 50% 35%, #fbf5e6 0%, var(--paper) 60%, var(--paper-shade) 100%);
+  color: var(--ink);
+  text-align: center;
+}
+
+/* Gilt frame: a gradient border that respects the rounded corners. */
+.card-frame {
+  position: absolute;
+  inset: 4.5cqw;
+  border-radius: calc(var(--radius-card) - 3px);
+  padding: max(1.5px, 1.4cqw);
+  background: var(--gilt-gradient);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  pointer-events: none;
+}
+.card-rule {
+  position: absolute;
+  inset: 8.5cqw;
+  border-radius: calc(var(--radius-card) - 5px);
+  border: 1px solid var(--suit);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.card-corner {
+  position: absolute;
+  width: 15cqw;
+  height: 15cqw;
+  color: var(--gilt-dark);
+  pointer-events: none;
+}
+.card-corner.tl { top: 6.5cqw; left: 6.5cqw; }
+.card-corner.tr { top: 6.5cqw; right: 6.5cqw; transform: scaleX(-1); }
+.card-corner.bl { bottom: 6.5cqw; left: 6.5cqw; transform: scaleY(-1); }
+.card-corner.br { bottom: 6.5cqw; right: 6.5cqw; transform: scale(-1, -1); }
+
+.card-label {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: max(8px, 7.2cqw);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--suit);
+  line-height: 1.1;
+  max-width: 80cqw;
+}
+.card-art {
+  position: relative;
+  width: 58cqw;
+  aspect-ratio: 1;
+  color: var(--suit);
+  display: grid;
+  place-items: center;
+  opacity: 0.88;
+}
+.card-art svg {
+  width: 100%;
+  height: 100%;
+}
+.card-art.has-image {
+  width: 70cqw;
+  aspect-ratio: 4 / 5;
+  opacity: 1;
+  border-radius: 3px;
+  padding: 1.4cqw;
+  background: var(--gilt-gradient);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+.card-art.has-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.card-title {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: max(11px, 11.5cqw);
+  letter-spacing: 0.06em;
+  line-height: 1.05;
+  color: var(--ink);
+  text-wrap: balance;
+}
+.card-phrases {
+  position: relative;
+  margin-top: 4cqw;
+  font-style: italic;
+  font-size: max(10px, 6.6cqw);
+  line-height: 1.35;
+  color: var(--ink-soft);
+  text-wrap: balance;
+}
+.card-phrases span {
+  display: block;
+}
+.card-date {
+  position: relative;
+  margin-top: 2cqw;
+  font-size: max(12px, 9cqw);
+  line-height: 1;
+  color: var(--ink-soft);
+  transform: rotate(-3deg);
+}
+.card-front:has(.card-art.has-image) .card-phrases {
+  display: none;
+}
+.card-xs .card-label,
+.card-xs .card-phrases {
+  display: none;
+}
+.card-xs .card-front {
+  grid-template-rows: 1fr auto auto;
+  padding: 14cqw 11cqw 16cqw;
+}
+
+/* ---------- Back ---------- */
+.card-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(160deg, #2b4a3b 0%, #1d3428 55%, #17291f 100%);
+  color: var(--gilt-mid);
+  display: grid;
+  place-items: center;
+  --back-fill: #1f3328;
+}
+.card-back .card-frame {
+  inset: 4cqw;
+}
+.card-back-art {
+  position: absolute;
+  inset: 9cqw;
+  width: calc(100% - 18cqw);
+  height: calc(100% - 18cqw);
+  color: var(--gilt-mid);
+  opacity: 0.85;
+}
+.card-cartouche {
+  position: absolute;
+  bottom: 13cqw;
+  left: 12cqw;
+  right: 12cqw;
+  display: grid;
+  padding: 2cqw 0;
+  background: #1d3428;
+  border-top: 1px solid rgba(232, 203, 126, 0.5);
+  border-bottom: 1px solid rgba(232, 203, 126, 0.5);
+  text-align: center;
+  font-family: var(--font-display);
+  color: var(--gilt-light);
+  line-height: 1.1;
+}
+.card-cartouche span {
+  font-size: max(7px, 5.6cqw);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.card-cartouche strong {
+  font-size: max(10px, 9cqw);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---------- Interactive cards ---------- */
+button.card-btn {
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: var(--radius-card);
+  display: block;
+}
+button.card-btn:focus-visible {
+  outline-offset: 5px;
+}
+.card.is-lifted {
+  z-index: 3;
+}
+
+/* Foil shimmer: sweeps once when a card is sealed or revealed. */
+.card-front::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255, 246, 214, 0.55) 45%, rgba(232, 203, 126, 0.35) 50%, transparent 65%);
+  background-size: 250% 100%;
+  background-position: var(--shine, 160%) 0;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  opacity: var(--shine-opacity, 0);
+  transition: opacity 300ms;
+}
+.card.shimmer .card-front::after {
+  --shine-opacity: 1;
+  animation: shimmer 1400ms var(--ease-soft) forwards;
+}
+.card.sealed .card-front {
+  background-image: var(--grain), radial-gradient(ellipse at 50% 35%, #fdf8ea 0%, var(--paper) 60%, var(--paper-shade) 100%);
+}
+@keyframes shimmer {
+  from { background-position: 160% 0; }
+  to { background-position: -60% 0; }
+}

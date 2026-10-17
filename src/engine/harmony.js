@@ -152,6 +152,25 @@ function poolForRule(pool, rule) {
   }
 }
 
+/** Whether a pencil may be used under a twist that limits the colours. */
+export function fitsRule(pencil, rule) {
+  return poolForRule([pencil], rule).length > 0
+}
+
+/** The closest pencil to another, for swapping a leftover pencil. */
+export function nearestPencil(pencils, code, { exclude = new Set(), rule } = {}) {
+  const from = pencils.find((p) => p.code === code)
+  if (!from) return null
+  const pool = poolForRule(pencils.filter((p) => isDealable(p, false) && p.code !== code && !exclude.has(p.code)), rule)
+  let best = null
+  let bestD = Infinity
+  for (const p of pool) {
+    const d = deltaE(p.lab, from.lab)
+    if (d < bestD) { best = p; bestD = d }
+  }
+  return best?.code || null
+}
+
 function nearestTo(pool, hex, exclude = new Set()) {
   const a = anchorFor(hex)
   let best

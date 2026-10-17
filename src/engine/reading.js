@@ -5,7 +5,7 @@ import { subRng, weightedPick, pick, shuffle, hashString } from './rng.js'
 import { seasonFor, timeOfDayFor, monthName, SEASON_MOOD } from './seasons.js'
 import { usableDoings, subjectFitsPlace, whenFitsPlace, companionFits, inSeason } from './compat.js'
 import { MAIN_TEMPLATES, QUICK_TEMPLATES, COMPANION_TEMPLATES, fill, tidy, capitalise } from './templates.js'
-import { dealPalette, refitRoles, anchorFor, canDealMono } from './harmony.js'
+import { dealPalette, refitRoles, anchorFor, canDealMono, fitsRule, nearestPencil } from './harmony.js'
 import { hueDistance } from './color.js'
 import { applyLonely } from './lonely.js'
 
@@ -283,17 +283,26 @@ function rebuildPalette(reading, ctx, { keepSlots = [], avoid = [] } = {}) {
   }
   // Under a twist that limits the pencils, a kept pencil with no slot of its
   // own takes a free one that suits it, so it isn't lost.
+  // If no free slot suits it, it takes the place of an unkept one and stays
+  // as an extra, so the twist's count still holds.
   const moved = new Set()
+  const ousted = new Set()
+  const extras = []
   if (rule && rule !== 'moon' && rule !== 'sepia') {
     for (const p of before) {
       const pencil = ctx.pencilsByCode.get(p.code)
       if (!p.locked || !pencil || slotKeys.has(p.slot) || Object.values(keep).includes(p.code)) continue
+      if (!fitsRule(pencil, rule)) continue
       const suits = (s) => (s.kind === 'dark' ? pencil.lch.L < 0.5 : s.kind === 'light' ? pencil.lch.L > 0.84 && pencil.lch.C < 0.07 : true)
-      const free = slots.find((s) => !keep[s.key] && suits(s))
+      const free = slots.find((s) => !keep[s.key] && !ousted.has(s.key) && suits(s))
+      const spare = !free && [...slots].reverse().find((s) => !keep[s.key] && !ousted.has(s.key) && s.kind !== 'main')
       if (free) { keep[free.key] = p.code; moved.add(p.code) }
+      else if (spare) { ousted.add(spare.key); extras.push(p.code) }
     }
   }
-  const dealt = dealPalette({ pencils: ctx.pencils, slots, mood, rule, keep, avoid, allowMetallic, rng: paletteRng(reading) })
+  const dealSlots = slots.filter((s) => !ousted.has(s.key))
+  const dealt = dealPalette({ pencils: ctx.pencils, slots: dealSlots, mood, rule, keep, avoid, allowMetallic, rng: paletteRng(reading) })
+  extras.forEach((code, i) => dealt.pencils.push({ code, slot: `extra${i}`, role: 'for anything else in the picture' }))
   if (moved.size) {
     const who = reading.cards.who && ctx.content.byId.get(reading.cards.who)
     const slotByKey = new Map(slots.map((s) => [s.key, s]))
@@ -301,14 +310,17 @@ function rebuildPalette(reading, ctx, { keepSlots = [], avoid = [] } = {}) {
   }
   // A pencil with no slot of its own still stays: a kept one after "New
   // picture", or a leftover while she swaps a different pencil. It gets a
-  // plain role, since the card it was dealt for may have gone. A palette twist
-  // decides the pencils itself, so there nothing extra is added.
-  if (!rule) {
+  // plain role, since the card it was dealt for may have gone. A twist that
+  // sets the number of pencils decides them itself; one that only limits the
+  // colours (Warm Colours Only) keeps whatever suits it.
+  const countRule = rule && rule !== 'warm' && rule !== 'hearthfire' && rule !== 'cool'
+  if (!countRule) {
     const dealtCodes = new Set(dealt.pencils.map((p) => p.code))
     let n = dealt.pencils.filter((p) => p.slot.startsWith('extra')).length
     for (const p of before) {
       const stays = p.locked || (keepSlots.includes(p.slot) && p.slot.startsWith('extra'))
-      if (stays && !dealtCodes.has(p.code) && ctx.pencilsByCode.has(p.code)) {
+      const pencil = ctx.pencilsByCode.get(p.code)
+      if (stays && !dealtCodes.has(p.code) && pencil && (!rule || fitsRule(pencil, rule))) {
         dealt.pencils.push({ code: p.code, slot: `extra${n++}`, role: 'for anything else in the picture' })
         dealtCodes.add(p.code)
       }
@@ -745,7 +757,24 @@ export function swapPencil(reading, ctx, index) {
   if (tried.size >= owned - keepSlots.length) tried.clear()
   tried.add(target.code)
   r.swaps.tried[target.slot] = [...tried]
+  const before = r.palette.pencils.map((p) => ({ ...p }))
   rebuildPalette(r, ctx, { keepSlots, avoid: [...tried] })
+  // Only the pencil she asked to swap changes; every other one stays exactly
+  // as it was, leftovers and Kept marks included.
+  if (!monoMain && !r.palette.fixed) {
+    const others = new Set(before.filter((_, i) => i !== index).map((p) => p.code))
+    let next = r.palette.pencils.find((p) => p.slot === target.slot && !others.has(p.code))
+    if (!next) {
+      const code = nearestPencil(ctx.pencils, target.code, { exclude: new Set([...others, ...tried]), rule: r.palette.rule })
+        || nearestPencil(ctx.pencils, target.code, { exclude: others, rule: r.palette.rule })
+      next = code && { code, slot: target.slot, role: target.role }
+    }
+    if (next) {
+      before[index] = { ...next, locked: false }
+      r.palette.pencils = before
+      r.palette.bareLights = !before.some((p) => (ctx.pencilsByCode.get(p.code)?.lch.L ?? 0) > 0.84)
+    }
+  }
   if (r.text?.lonelyLine && target.code === r.lonely?.code) r.text.lonelyLine = ''
   return renderText(r, ctx)
 }

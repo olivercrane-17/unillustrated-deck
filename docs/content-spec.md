@@ -64,6 +64,7 @@ Use only these exact strings.
   "seasons": ["spring", "summer", "autumn", "winter"],
   "active": "night",
   "colours": ["#C98A3E", "#E9D6AE"],
+  "accent": "#E8A39B",
   "texture": "fur",
   "roles": {
     "main": "for the fur",
@@ -88,8 +89,9 @@ Rules:
 - `habitats`: 2 to 5 from the vocabulary. Domestic objects use `home` and/or `tabletop`; add `garden`, `village` etc. only when natural (a watering can: garden; a teacup: tabletop, home, garden for a garden table).
 - `active`: `night` for nocturnal or dusk animals (owl, bat, moth, hedgehog, badger, fox can be `any`). Objects and plants: `any`.
 - `colours`: 1 to 3 hex colours of the real subject as it would be coloured, dominant first. These anchor the palette engine to real pencils, so be accurate (a robin: `#B8562D` breast, `#7A6248` back). Avoid pure greys unless the subject is grey.
+- `accent`: one hex colour for the small detail named in `roles.accent` (the dormouse's pink nose and toes: `#E8A39B`). It must be the colour that line describes, and visibly different from `colours[0]`.
 - `texture`: from the vocabulary.
-- `roles`: four short role lines, each starting with "for the". `main` is the subject's main colour area, `dark` is where the deepest value goes, `light` is highlights or the palest parts, `accent` is a small detail colour.
+- `roles`: four short role lines, each starting with "for the". `main` is the subject's main colour area, `dark` is where the deepest value goes, `light` is highlights or the palest parts, `accent` is a small detail in ONE colour (it pairs with the `accent` hex, so never name two colours in it).
 - `firstMark`: 1 to 3 sentences telling her exactly where the pencil goes first. Each must contain `{dark}` or `{main}` (replaced by a pencil name such as "Indigo Blue"). Concrete, small, starts with "Start with". Ends with a full stop.
 
 ## Where cards: `where.json`

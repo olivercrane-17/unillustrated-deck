@@ -32,6 +32,7 @@ const AMERICAN = [/\bcolor/i, /\bcozy\b/i, /\bgray\b/i, /\bfavorite/i, /\bmom\b/
 const HEX = /^#[0-9A-Fa-f]{6}$/
 const SUBJECT_SUITS = ['fur', 'leaf', 'hearth']
 const SCALE_RANK = { tiny: 0, small: 1, medium: 2, large: 3 }
+const REQUIRE_ACCENT = process.env.REQUIRE_ACCENT === '1' 
 
 class Report {
   constructor() { this.errors = []; this.warnings = [] }
@@ -128,6 +129,8 @@ export function validateSubject(r, card, where) {
   checkArrVocab(r, where, card.seasons, VOCAB.seasons, 'seasons')
   inVocab(r, where, card.active, VOCAB.active, 'active')
   checkColours(r, where, card.colours, 1, 3)
+  if (REQUIRE_ACCENT && card.accent === undefined) r.err(where, 'accent hex missing')
+  if (card.accent !== undefined && !HEX.test(card.accent)) r.err(where, `bad accent hex "${card.accent}"`)
   inVocab(r, where, card.texture, VOCAB.texture, 'texture')
   if (!card.roles || typeof card.roles !== 'object') r.err(where, 'roles missing')
   else for (const k of ['main', 'dark', 'light', 'accent']) checkRole(r, `${where}.roles.${k}`, card.roles[k])

@@ -5,6 +5,7 @@ import { ICONS, pencilSvg } from './ornaments.js'
 import {
   state, content, pencilSets, currentReading, deal, choices, logReshuffle, clearReshuffles, saveReading,
   updateReading, engineContext, pencilHex, readingsByDate, faceSealFor, imageUrl, pencilCatalogue, startDrawing,
+  ownedPencils,
 } from '../store/state.js'
 import { SPREADS, POSITION_LABELS, swapCard, repaint, swapPencil, toggleLock, newPicture } from '../engine/reading.js'
 import { hashString } from '../engine/rng.js'
@@ -73,7 +74,16 @@ export async function render(root) {
 
   // ---------------------------------------------------------------------------
 
+  function showEmptyTin() {
+    mount(view, h('section.table-idle',
+      h('div.deck-stack', { 'aria-hidden': 'true' }, [0, 1, 2, 3].map(() => renderCard({ card: { id: 'twist-back', title: '' }, size: 'md', faceDown: true, backName: state.settings.backName }))),
+      h('p.first-note.hand', 'The tin is empty. Tick a few pencils and the deck can deal.'),
+      h('a.btn.btn-gilt.draw-btn', { href: '#/tin' }, 'Open your tin'),
+    ))
+  }
+
   function showIdle() {
+    if (!ownedPencils().some((p) => p.special !== 'blender')) return showEmptyTin()
     const lastSpread = SPREADS[state.settings.lastSpread] ? state.settings.lastSpread : 'evening'
     const carry = readingsByDate().find((r) => r.status === 'drawing')
     const firstRun = !state.settings.deals
@@ -107,13 +117,16 @@ export async function render(root) {
     showReading(r, { animate: false })
   }
 
-  async function dealNew(spread, { askAgain = false } = {}) {
+  // `askAgain` changes the kind line; `count` decides whether this counts as an
+  // aimless reshuffle (switching lengths is a choice, so it doesn't).
+  async function dealNew(spread, { askAgain = false, count = askAgain } = {}) {
     if (busy) return
+    if (!ownedPencils().some((p) => p.special !== 'blender')) return showEmptyTin()
     busy = true
     try {
-      if (askAgain) {
-        const count = await logReshuffle()
-        if (count >= 3) {
+      if (count) {
+        const reshuffles = await logReshuffle()
+        if (reshuffles >= 3) {
           await clearReshuffles()
           showChoices(spread)
           return
@@ -319,7 +332,7 @@ export async function render(root) {
       h('button.btn-text', { type: 'button', onclick: () => dealNew(reading.spread, { askAgain: true }) }, raw(ICONS.shuffle), 'Ask the deck again'),
       h('div.ask-again-for',
         h('p', 'Or ask again for'),
-        h('div.chips', otherSpreads.map((k) => h('button.chip', { type: 'button', onclick: () => dealNew(k, { askAgain: true }) }, SPREADS[k].label, h('small', SPREADS[k].hint)))),
+        h('div.chips', otherSpreads.map((k) => h('button.chip', { type: 'button', onclick: () => dealNew(k, { askAgain: true, count: false }) }, SPREADS[k].label, h('small', SPREADS[k].hint)))),
       ),
     ]
   }

@@ -11,7 +11,7 @@ First mark: Start with the shadow under the seat, one long, slanting band of Ind
 
 ## spring, north, quick
 - **Draw:** A fawn is lying down with its legs folded under it.
-- **Frame:** Just the fawn, drawn large, with every spot along its back.
+- **Frame:** Just the fawn, with every spot along its back.
 Tin, Washing Line: PC945 Sienna Brown (for the chestnut coat); PC946 Dark Brown (for the nose and the big eyes); PC927 Light Peach (for the white patch on the chin)
 First mark: Start with the spots: mark them lightly, then colour Sienna Brown round them so they stay bare paper.
 
@@ -43,7 +43,7 @@ First mark: Start with the beak: a small wedge outlined in Indigo Blue, left bla
 - **Where:** Beside the old green cooker.
 - **When:** On a misty morning.
 - **Light:** Keep every edge soft and every colour pale, with no hard darks anywhere.
-Tin, Moonlit Milk Jug: PC942 Yellow Ochre (for the baked sponge); PC908 Dark Green (for the green enamel of the cooker); PC901 Indigo Blue (for the faint, soft shadows); PC938 White (for the white mist)
+Tin, Moonlit Milk Jug: PC942 Yellow Ochre (for the baked sponge); PC908 Dark Green (for the green enamel of the cooker); PC901 Indigo Blue (for the faint, soft shadows); PC938 White (for the misty light)
 First mark: Start with the shadow along the base of the loaf, one steady line of Indigo Blue.
 
 ## spring, north, big
@@ -73,17 +73,17 @@ First mark: Start with the leather straps, two short bands of Dark Brown across 
 - **Light:** Keep every edge soft and every colour pale, with no hard darks anywhere.
 - **Also:** A hyacinth in a glass vase is in full flower, every bell open.
 - **Twist:** Hide a small animal somewhere in the picture for someone else to find.
-Tin, Blue Hour Heron: PC945 Sienna Brown (for the glazed mug); PC927 Light Peach (for the lace and the raspberry-red paint); PC1008 Parma Violet (for the hyacinth in a glass vase); PC901 Indigo Blue (for the faint, soft shadows); PC916 Canary Yellow (for the white mist)
+Tin, Blue Hour Heron: PC945 Sienna Brown (for the glazed mug); PC927 Light Peach (for the lace and the raspberry-red paint); PC1008 Parma Violet (for the hyacinth in a glass vase); PC901 Indigo Blue (for the faint, soft shadows); PC916 Canary Yellow (for the misty light)
 First mark: Start with the inside of the rim, a thin dark band of Indigo Blue just under the top edge.
 
 ## spring, north, small
 - **Draw:** Six small things from a rainy Sunday.
-  - a snail on the outside of the glass
+  - a snail on the outside of the window
   - a half-done jigsaw with one piece missing
   - a pair of wellies dripping by the door
-  - a crossword with three clues left
+  - a hot-water bottle in a stripy cover
   - an umbrella opened out to dry
-  - a teapot under its knitted cosy
+  - a teapot in a knitted tea cosy
 Tin, Mizzle Lane: PC941 Light Umber (the thread: use it in every little picture); PC1034 Goldenrod (for colour wherever it fits); PC924 Crimson Red (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Light Umber in every picture.
 
@@ -93,17 +93,17 @@ First mark: Start with whichever one you like, and put a little Light Umber in e
   - a bread knife lying on a wooden board
   - a plate of crumpets
   - a trail of crumbs across the counter (one line)
-  - a hunk of sourdough with big air pockets
-  - a cottage loaf with a dimple in the top
+  - a chunk of sourdough with big holes
+  - a cottage loaf, one round on top of another
 Tin, Ginger Biscuit: PC1034 Goldenrod (the thread: use it in every little picture); PC927 Light Peach (for colour wherever it fits); PC945 Sienna Brown (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
 First mark: Start with whichever one you like, and put a little Goldenrod in every picture.
 
 ## spring, north, small
 - **Draw:** Six small things at the bird table.
-  - a scatter of sunflower hearts
-  - a dish of water with a sparrow mid-splash
+  - a scatter of sunflower seeds
+  - a sparrow splashing in a dish of water
   - a goldfinch with a red face and yellow wing bars
-  - a squirrel helping itself to the peanuts
+  - a squirrel eating the peanuts
   - a dunnock picking up crumbs underneath
   - a blue tit hanging upside down from a feeder
 Tin, Buttercup Meadow: PC946 Dark Brown (the thread: use it in every little picture); PC1003 Spanish Orange (for colour wherever it fits); PC1027 Peacock Blue (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
@@ -125,7 +125,7 @@ First mark: Start with the beak: a triangle outlined in Dark Umber, with the str
 
 ## summer, north, quick
 - **Draw:** A fox cub is curled up asleep, nose to tail.
-- **Frame:** Just the fox cub, drawn large, with its big ears and fluffy tail.
+- **Frame:** Just the fox cub, big on the page, with its pointed ears and fluffy tail.
 Tin, Crumble and Custard: PC943 Burnt Ochre (for the ginger coat); PC946 Dark Brown (for the legs, the nose and the backs of the ears); PC1034 Goldenrod (for the honey-brown eyes)
 Leave the paper bare for the lights.
 First mark: Start with the ears: two tall triangles outlined lightly in Burnt Ochre.
@@ -161,7 +161,7 @@ First mark: Start with the creases in the petals, light wavy lines of Poppy Red 
 - **Light:** Make the background a dark purple-grey and keep the light on the main subject bright and yellowish.
 - **Also:** A bat is flying with its wings spread wide.
 - **Twist:** Draw the picture the size of a postage stamp, with a zigzag edge all round.
-Tin, Owl Light: PC908 Dark Green (for the green rubber); PC941 Light Umber (for the cracked tarmac and the grass verges); PC946 Dark Brown (for the bat); PC901 Indigo Blue (for the dark storm clouds); PC938 White (for the yellowish light under the clouds)
+Tin, Owl Light: PC908 Dark Green (for the green rubber); PC941 Light Umber (for the cracked tarmac and the grass verges); PC946 Dark Brown (for the bat); PC901 Indigo Blue (for the dark storm clouds); PC938 White (for the brightest light under the clouds)
 First mark: Start with the opening at the top of each boot, a dark oval of Indigo Blue.
 
 ## summer, north, big
@@ -170,7 +170,7 @@ First mark: Start with the opening at the top of each boot, a dark oval of Indig
 - **When:** On a sunny morning.
 - **Light:** Keep it light and loose, with lots of white paper and only a few firm darks.
 - **Also:** Some sweet peas have one flower fading and one bud opening.
-- **Twist:** Use only one colour family, in a light, a middle and a dark shade.
+- **Twist:** Use only three shades of one colour: a light, a middle and a dark.
 Tin, Washing Line: PC1003 Spanish Orange (for the yellow bands); PC947 Dark Umber (for the few firm shadows); PC938 White (for the bright morning light)
 First mark: Start with the fuzz: short strokes of Dark Umber flicked outwards from the middle of the body.
 
@@ -186,34 +186,34 @@ First mark: Start with the forked tail: two long, thin strokes of Indigo Blue in
 
 ## summer, north, small
 - **Draw:** Six small things from a cat's afternoon.
-  - a cat flap with a nose pushed through (one line)
+  - a cat's nose poking through the cat flap (one line)
   - a ball of wool rolled under the sofa
   - a cat stretched out in a patch of sun
-  - a catnip mouse with one ear chewed off
-  - a food bowl licked completely clean
+  - a toy mouse with one ear chewed off
+  - an empty cat food bowl
   - two eyes watching from the top of the wardrobe
 Tin, Toast and Marmalade: PC1034 Goldenrod (the thread: use it in every little picture); PC927 Light Peach (for colour wherever it fits); PC910 True Green (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
 First mark: Start with whichever one you like, and put a little Goldenrod in every picture.
 
 ## summer, north, small
 - **Draw:** Six small things on the café table.
-  - a bud vase holding one carnation
-  - a sugar bowl with lumps and tongs
-  - a slice of lemon drizzle on a doily
+  - a thin vase holding one pink carnation
+  - a bowl of sugar lumps with tongs
+  - a slice of lemon cake on a paper doily
   - a red geranium in a pot by the door
   - a milk jug with a drip down the side
-  - a pain au chocolat with flaky ends
+  - a chocolate croissant with flaky ends
 Tin, Bramble Dusk: PC941 Light Umber (the thread: use it in every little picture); PC927 Light Peach (for colour wherever it fits); PC908 Dark Green (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
 First mark: Start with whichever one you like, and put a little Light Umber in every picture.
 
 ## summer, north, small
 - **Draw:** Six small things from the potting shed.
-  - a pair of gloves still shaped like hands
-  - a mug of tea gone cold on the bench
-  - a tray of seedlings in their first leaves
+  - a pair of muddy gardening gloves
+  - a mug of tea on the bench
+  - a tray of tiny seedlings
   - a stack of terracotta pots
   - a trowel stuck in a bag of compost
-  - a spider's web across the window corner
+  - a spider's web in the corner of the window
 Tin, Faded Deckchair: PC943 Burnt Ochre (the thread: use it in every little picture); PC941 Light Umber (for colour wherever it fits); PC911 Olive Green (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Burnt Ochre in every picture.
 
@@ -289,7 +289,7 @@ First mark: Start with the handle: a loop of Sienna Brown, with paper left bare 
 - **When:** On a cold, clear morning.
 - **Light:** Use a sharp pencil point and firm edges, and keep the shadows crisp and clean.
 - **Also:** A toad is sitting with both eyes shut tight.
-- **Twist:** Pick one spot for the light and make every shadow fall away from it.
+- **Twist:** Pick one spot for the light and make every shadow point away from it.
 Tin, Pick Your Own: PC945 Sienna Brown (for the red stripes); PC911 Olive Green (for the oak beams and the green front door); PC937 Tuscan Red (for the toad); PC947 Dark Umber (for the crisp shadows); PC938 White (for the bright, cold sunshine)
 First mark: Start with one stripe of Sienna Brown following the curve of the coil.
 
@@ -298,30 +298,30 @@ First mark: Start with one stripe of Sienna Brown following the curve of the coi
   - a blue tit hanging upside down from a feeder (one line)
   - a starling covered in pale speckles
   - a fat ball in a wire feeder
-  - a wood pigeon far too big for the tray
+  - a fat wood pigeon on the tray
   - a goldfinch with a red face and yellow wing bars
   - a dunnock picking up crumbs underneath
 Tin, Lemon Sherbet: PC946 Dark Brown (the thread: use it in every little picture); PC942 Yellow Ochre (for colour wherever it fits); PC1027 Peacock Blue (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Dark Brown in every picture.
 
 ## autumn, north, small
-- **Draw:** Six small things in the rockpool.
-  - a red bucket waiting on the rocks
-  - a cluster of mussels gleaming blue-black
-  - a prawn you can almost see through
-  - a limpet clamped tight to the rock
-  - a hermit crab in a borrowed whelk shell
-  - a pink coralline weed like stiff lace
+- **Draw:** Six small things in a rockpool.
+  - a red bucket on the rocks
+  - a cluster of shiny blue-black mussels
+  - a see-through prawn
+  - a limpet stuck tight to the rock
+  - a hermit crab in a borrowed shell
+  - a frond of pink seaweed
 Tin, Moonlit Milk Jug: PC905 Aquamarine (the thread: use it in every little picture); PC945 Sienna Brown (for colour wherever it fits); PC942 Yellow Ochre (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Aquamarine in every picture.
 
 ## autumn, north, small
-- **Draw:** Six small things from the orchard at harvest.
+- **Draw:** Six small things from the orchard in autumn.
   - a pear with a leaf still on the stalk
-  - a bottle of cloudy cider with a swing top
+  - a bottle of cloudy apple juice
   - an apple peel in one long curl
-  - a wicker trug full of Bramleys
-  - a fieldfare in the orchard grass
+  - a basket full of green cooking apples
+  - a song thrush in the orchard grass
   - a russet apple with rough brown skin
 Tin, Fox in Bracken: PC945 Sienna Brown (the thread: use it in every little picture); PC912 Apple Green (for colour wherever it fits); PC946 Dark Brown (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Sienna Brown in every picture.
@@ -404,10 +404,10 @@ First mark: Start at the top of the shell and draw the ribs fanning out in Peach
 
 ## winter, north, small
 - **Draw:** Six small things on the winter mantelpiece.
-  - a carriage clock with a slow tick
-  - a knitted stocking with a darned heel
-  - a gingerbread heart with white piping
-  - a jug of dried honesty seed heads
+  - a small brass clock with a handle on top
+  - a red knitted stocking
+  - a gingerbread heart with white icing
+  - a jug of dried flowers and seed heads
   - a china dog with a chipped ear
   - a clementine with its peel in one piece (one line)
 Tin, Crumble and Custard: PC945 Sienna Brown (the thread: use it in every little picture); PC908 Dark Green (for colour wherever it fits); PC1034 Goldenrod (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
@@ -417,7 +417,7 @@ First mark: Start with whichever one you like, and put a little Sienna Brown in 
 - **Draw:** Six small things on the winter mantelpiece.
   - a bowl of walnuts and a nutcracker
   - a clementine with its peel in one piece
-  - a knitted stocking with a darned heel (one line)
+  - a red knitted stocking (one line)
   - a row of cards with one tipped over
   - a sprig of holly tucked behind a frame
   - a china dog with a chipped ear
@@ -426,12 +426,12 @@ First mark: Start with whichever one you like, and put a little Tuscan Red in ev
 
 ## winter, north, small
 - **Draw:** Six small things by the village pond.
-  - a coot with a white forehead
-  - a willow trailing its fingers in the pond
+  - a black coot with a white forehead
+  - a willow branch trailing in the water
   - a moorhen with a red and yellow beak
   - a bulrush with a velvety brown head
-  - a mallard drake with a bottle-green head
-  - a duck upending with its tail in the air
+  - a male mallard with a shiny green head
+  - a duck tipped up with its tail in the air
 Tin, Duck Egg Teacup: PC905 Aquamarine (the thread: use it in every little picture); PC908 Dark Green (for colour wherever it fits); PC941 Light Umber (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Aquamarine in every picture.
 
@@ -509,35 +509,35 @@ Tin, Washing Line: PC918 Orange (for the marmalade glowing through the glass); P
 First mark: Start with a few strips of peel floating in the jar, short slivers of Orange pressed hard.
 
 ## spring, south, small
-- **Draw:** Six small things in the sewing tin.
-  - a pair of embroidery scissors shaped like a stork
-  - a cat batting at a loose thread
-  - a skein of embroidery silk in three blues
-  - a tomato pincushion bristling with pins
+- **Draw:** Six small things from the sewing tin.
+  - a pair of small scissors shaped like a stork
+  - a cat patting at a loose thread
+  - a bundle of embroidery thread in three blues
+  - a tomato-shaped pincushion full of pins
   - an old biscuit tin with roses on the lid
-  - a silver thimble pitted all over (one line)
+  - a silver thimble covered in tiny dents (one line)
 Tin, Fox in Bracken: PC924 Crimson Red (the thread: use it in every little picture); PC1084 Ginger Root (for colour wherever it fits); PC1027 Peacock Blue (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Crimson Red in every picture.
 
 ## spring, south, small
 - **Draw:** Six small things from the bread bin.
-  - a plaited loaf shining with egg wash
+  - a plaited loaf with a shiny top
   - a mouse peering out from under the lid
-  - a teacake studded with currants
+  - a toasted teacake full of currants
   - a brown paper bag twisted shut
   - a fruit scone broken open (one line)
-  - a cottage loaf with a dimple in the top
+  - a cottage loaf, one round on top of another
 Tin, Hearth Rug: PC943 Burnt Ochre (the thread: use it in every little picture); PC927 Light Peach (for colour wherever it fits); PC941 Light Umber (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
 First mark: Start with whichever one you like, and put a little Burnt Ochre in every picture.
 
 ## spring, south, small
 - **Draw:** Six small things from the nesting season.
-  - a strand of sheep's wool snagged on a thorn
+  - a tuft of sheep's wool caught on a thorn
   - a blackbird with a beakful of moss
-  - a wren's domed nest tucked into ivy
-  - a song thrush nest with four blue eggs
+  - a wren's round nest tucked into ivy
+  - a thrush's nest with four blue eggs
   - a robin carrying a dry leaf
-  - a mallard's nest lined with downy feathers (one line)
+  - a duck's nest lined with fluffy feathers (one line)
 Tin, Beach Huts: PC941 Light Umber (the thread: use it in every little picture); PC992 Light Aqua (for colour wherever it fits); PC912 Apple Green (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Light Umber in every picture.
 
@@ -592,7 +592,7 @@ First mark: Start with the spokes in faint, straight lines of Light Peach, from 
 - **When:** On a warm summer afternoon.
 - **Light:** Keep the sunlit parts warm and light, and let the shade gather in soft, darker pools.
 - **Also:** A bucket and spade has sand stuck all over it.
-- **Twist:** Pick one spot for the light and make every shadow fall away from it.
+- **Twist:** Pick one spot for the light and make every shadow point away from it.
 Tin, Harvest Loaf: PC1084 Ginger Root (for the chalky cream shell); PC912 Apple Green (for the slatted seat and its peeling paint); PC924 Crimson Red (for the bucket and spade); PC947 Dark Umber (for the pools of shade); PC938 White (for the warm afternoon sunlight)
 First mark: Start with the opening: a dark curl of Dark Umber where the shell turns inwards.
 
@@ -613,40 +613,40 @@ First mark: Start with the stems: a looping line of Olive Green, with a slit dra
 - **When:** Just after the rain.
 - **Light:** Use rich, strong colours and leave a tiny dot of white paper on every drop and wet edge.
 - **Also:** A harvest mouse is building a round nest out of grass.
-- **Twist:** Pick one spot for the light and make every shadow fall away from it.
+- **Twist:** Pick one spot for the light and make every shadow point away from it.
 Tin, Washing Line: PC935 Black (for the black-purple berries); PC911 Olive Green (for the moss and the crumbling bark); PC943 Burnt Ochre (for the harvest mouse); PC947 Dark Umber (for the dark, damp patches); PC938 White (for the sparkle on every drop)
 First mark: Start with one blackberry: a cluster of small circles in Black, each with a dot of bare paper for the shine.
 
 ## summer, south, small
-- **Draw:** Six small things in the rockpool.
-  - a ribbon of bright green sea lettuce
-  - a beadlet anemone like a blob of jam
-  - a limpet clamped tight to the rock
+- **Draw:** Six small things in a rockpool.
+  - a strip of bright green seaweed
+  - a shiny red sea anemone
+  - a limpet stuck tight to the rock
   - a starfish with one arm curled up
-  - a prawn you can almost see through
-  - a pink coralline weed like stiff lace
+  - a see-through prawn
+  - a frond of pink seaweed
 Tin, Moonlit Milk Jug: PC905 Aquamarine (the thread: use it in every little picture); PC945 Sienna Brown (for colour wherever it fits); PC942 Yellow Ochre (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Aquamarine in every picture.
 
 ## summer, south, small
 - **Draw:** Six small things from the potting shed.
   - a robin on the handle of a spade
-  - a tangle of green garden twine
-  - a seed potato sprouting in an egg box
-  - a watering can with a brass rose
+  - a ball of green garden string
+  - a potato sprouting in an egg box
+  - a watering can with a brass spout
   - a seed packet with sweet peas on the front
-  - a pair of gloves still shaped like hands
+  - a pair of muddy gardening gloves
 Tin, Damp Sheep: PC943 Burnt Ochre (the thread: use it in every little picture); PC941 Light Umber (for colour wherever it fits); PC911 Olive Green (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Burnt Ochre in every picture.
 
 ## summer, south, small
 - **Draw:** Six small things by the village pond.
-  - a willow trailing its fingers in the pond (one line)
-  - a mallard drake with a bottle-green head
+  - a willow branch trailing in the water (one line)
+  - a male mallard with a shiny green head
   - a bulrush with a velvety brown head
   - a moorhen with a red and yellow beak
-  - a red post box beside the green
-  - a white feather drifting on the water
+  - a red post box by the pond
+  - a white feather floating on the water
 Tin, Snowdrop Morning: PC905 Aquamarine (the thread: use it in every little picture); PC908 Dark Green (for colour wherever it fits); PC941 Light Umber (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Aquamarine in every picture.
 
@@ -700,7 +700,7 @@ First mark: Start with the inside edge of the bowl, a narrow shadow of Dark Brow
 - **When:** On a hazy autumn afternoon.
 - **Light:** Lay a pale yellow layer over everything first, then build the reds and browns on top.
 - **Also:** A ball of wool with knitting needles is joined to a half-knitted sleeve.
-- **Twist:** Pick one spot for the light and make every shadow fall away from it.
+- **Twist:** Pick one spot for the light and make every shadow point away from it.
 Tin, Harvest Loaf: PC935 Black (for the glossy black coat); PC911 Olive Green (for the twisted branches and the grass between the rows); PC932 Violet (for the ball of wool); PC946 Dark Brown (for the warm brown shadows); PC938 White (for the sun on rounded surfaces)
 First mark: Start with the shine: leave a strip of bare paper along the back, then lay Black all around it.
 
@@ -721,27 +721,27 @@ First mark: Start with one petal at the top in Yellowed Orange, then work round 
 - **Light:** Use soft pinkish greys for everything, with no bright colour anywhere.
 - **Also:** A newt is creeping along with its toes spread.
 - **Twist:** Draw the subject three times across the page: from the front, the side and the back.
-Tin, Faded Deckchair: PC908 Dark Green (for the dark green leaves); PC941 Light Umber (for the fallen leaves and the birch trunks); PC947 Dark Umber (for the newt); PC901 Indigo Blue (for the dull, dark shadows); PC938 White (for the pale pinkish sky)
+Tin, Faded Deckchair: PC908 Dark Green (for the dark green leaves); PC941 Light Umber (for the fallen leaves and the birch trunks); PC947 Dark Umber (for the newt); PC901 Indigo Blue (for the dull, dark shadows); PC938 White (for the pale sky)
 First mark: Start with the outline of the top leaf in Dark Green, zigzagging from point to point.
 
 ## autumn, south, small
-- **Draw:** Six small things from the orchard at harvest.
+- **Draw:** Six small things from the orchard in autumn.
   - an apple wrapped in newspaper for storing
-  - a windfall with a wasp on the bruise
-  - a bottle of cloudy cider with a swing top
+  - a fallen apple with a wasp on it
+  - a bottle of cloudy apple juice
   - a pear with a leaf still on the stalk
-  - a fieldfare in the orchard grass
+  - a song thrush in the orchard grass
   - a wooden ladder propped against a branch
 Tin, Bonfire Toffee: PC924 Crimson Red (the thread: use it in every little picture); PC912 Apple Green (for colour wherever it fits); PC941 Light Umber (for a little contrast); PC946 Dark Brown (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Crimson Red in every picture.
 
 ## autumn, south, small
-- **Draw:** Six small things in the rockpool.
-  - a cluster of mussels gleaming blue-black
-  - a ribbon of bright green sea lettuce
-  - a red bucket waiting on the rocks
-  - a hermit crab in a borrowed whelk shell
-  - a limpet clamped tight to the rock
+- **Draw:** Six small things in a rockpool.
+  - a cluster of shiny blue-black mussels
+  - a strip of bright green seaweed
+  - a red bucket on the rocks
+  - a hermit crab in a borrowed shell
+  - a limpet stuck tight to the rock
   - a starfish with one arm curled up (one line)
 Tin, Duck Egg Teacup: PC1027 Peacock Blue (the thread: use it in every little picture); PC945 Sienna Brown (for colour wherever it fits); PC942 Yellow Ochre (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC938 White (for the highlights)
 First mark: Start with whichever one you like, and put a little Peacock Blue in every picture.
@@ -750,9 +750,9 @@ First mark: Start with whichever one you like, and put a little Peacock Blue in 
 - **Draw:** Six small things from the bread bin.
   - a mouse peering out from under the lid
   - a brown paper bag twisted shut (one line)
-  - a hunk of sourdough with big air pockets
+  - a chunk of sourdough with big holes
   - a fruit scone broken open
-  - a plaited loaf shining with egg wash
+  - a plaited loaf with a shiny top
   - a trail of crumbs across the counter
 Tin, Crumble and Custard: PC943 Burnt Ochre (the thread: use it in every little picture); PC927 Light Peach (for colour wherever it fits); PC946 Dark Brown (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
 First mark: Start with whichever one you like, and put a little Burnt Ochre in every picture.
@@ -772,7 +772,7 @@ First mark: Start with the stem in Indigo Blue, arching over at the top like a h
 
 ## winter, south, quick
 - **Draw:** A harvest mouse is sitting up on its back legs, looking around.
-- **Frame:** Only the harvest mouse, drawn large enough to show each whisker.
+- **Frame:** Only the harvest mouse, close enough to show each whisker.
 Tin, Mackerel Sky: PC943 Burnt Ochre (for the orange-brown back); PC901 Indigo Blue (for the eye and the shadow under the chin); PC939 Peach (for the pink feet)
 Leave the paper bare for the lights.
 First mark: Start with the tail: one long, curling line of Burnt Ochre.
@@ -782,7 +782,7 @@ First mark: Start with the tail: one long, curling line of Burnt Ochre.
 - **Where:** By the rain barrel.
 - **When:** On a bright, snowy morning.
 - **Light:** Leave the snow as bare white paper and shade only the dips, very lightly, in a cool blue or grey.
-Tin, Daffodil Jug: PC943 Burnt Ochre (for the ginger patches); PC946 Dark Brown (for the wooden barrel and the water inside); PC901 Indigo Blue (for the shadows in the snow); PC938 White (for the bright white snow)
+Tin, Daffodil Jug: PC943 Burnt Ochre (for the ginger patches); PC946 Dark Brown (for the wooden barrel and the water inside); PC901 Indigo Blue (for the shadows in the snow); PC938 White (for the snow in the sun)
 First mark: Start with the outline as one lumpy, potato-shaped line of Burnt Ochre.
 
 ## winter, south, evening
@@ -833,31 +833,31 @@ First mark: Start with the outline of the body: one rounded shape in a light lin
 
 ## winter, south, small
 - **Draw:** Six small things from the frosty garden.
-  - a snowdrop just through the ground
-  - a lost glove waving from a fence post (one line)
-  - a terracotta pot glittering with frost
-  - a wren cocking its tail on the woodpile
-  - a cobweb strung with frost between two canes
-  - a redwing with a cream stripe over its eye
+  - a snowdrop just poking through the soil
+  - a lost glove on top of a fence post (one line)
+  - a terracotta pot sparkling with frost
+  - a wren with its tail up on the woodpile
+  - a frosty cobweb between two canes
+  - a blackbird with its feathers fluffed up
 Tin, Bluebell Wood: PC1084 Ginger Root (the thread: use it in every little picture); PC911 Olive Green (for colour wherever it fits); PC938 White (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
 First mark: Start with whichever one you like, and put a little Ginger Root in every picture.
 
 ## winter, south, small
-- **Draw:** Six small things from a snow day.
-  - a robin puffed up on the gatepost
-  - a rose hip wearing a dab of snow
+- **Draw:** Six small things from a snowy day.
+  - a robin all fluffed up on a gatepost
+  - a red rose hip with a dab of snow on top
   - an icicle hanging from the gutter
   - a snowman with a carrot nose
-  - a line of bird footprints across the lawn
+  - a line of bird footprints in the snow
   - a mug of hot chocolate with marshmallows
 Tin, Duck Egg Teacup: PC927 Light Peach (the thread: use it in every little picture); PC943 Burnt Ochre (for colour wherever it fits); PC939 Peach (for a little contrast); PC901 Indigo Blue (for the shadows and the outlines); PC916 Canary Yellow (for the highlights)
 First mark: Start with whichever one you like, and put a little Light Peach in every picture.
 
 ## winter, south, small
 - **Draw:** Six small things from a rainy Sunday.
-  - a snail on the outside of the glass
+  - a snail on the outside of the window
   - a cat asleep on a folded jumper
-  - a teapot under its knitted cosy
+  - a teapot in a knitted tea cosy
   - a slice of toast with honey
   - a half-done jigsaw with one piece missing
   - a stack of library books (one line)

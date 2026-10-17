@@ -42,7 +42,7 @@
       { "t": "is calling out with its wings half open", "scope": "any" },
       { "t": "is carrying a beakful of moss", "scope": "outdoor", "seasons": ["spring"] }
     ],
-    "close": ["Just the wren, drawn large enough to show the fine stripes on its wings.", "Only the wren, very small, in the middle of a big white page."],
+    "close": ["Just the wren, close enough to show the fine stripes on its wings.", "Only the wren, very small, in the middle of a big white page."],
     "scale": "tiny",
     "habitats": ["garden", "hedgerow", "woodland", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -72,7 +72,7 @@
       { "t": "is poking its head out of a nest box", "scope": "outdoor" },
       { "t": "is hanging upside down from a twig", "scope": "outdoor" }
     ],
-    "close": ["Just the blue tit, drawn large, with its blue cap and yellow front.", "Only the blue tit, about life size, with plain paper round it."],
+    "close": ["Just the blue tit, with its blue cap and yellow front.", "Only the blue tit, about life size, with plain paper round it."],
     "scale": "tiny",
     "habitats": ["garden", "woodland", "hedgerow", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -96,7 +96,7 @@
     "the": "the long-tailed tit",
     "phrases": ["a round, fluffy body", "a very long, thin tail", "pink, black and white feathers"],
     "doing": [
-      { "t": "is fluffed up into a ball with its tail sticking out", "scope": "any" },
+      { "t": "is fluffed into a ball with its tail sticking out", "scope": "any" },
       { "t": "is clinging on sideways with its tail curved round", "scope": "any" },
       { "t": "is balancing with its tail held out straight", "scope": "any" },
       { "t": "is carrying a strand of cobweb in its beak", "scope": "outdoor", "seasons": ["spring"] },
@@ -132,7 +132,7 @@
       { "t": "is pulling seeds out of a spiky teasel head", "scope": "outdoor", "seasons": ["autumn", "winter"] },
       { "t": "is pulling fluffy seeds from a thistle", "scope": "outdoor", "seasons": ["summer"] }
     ],
-    "close": ["Just the goldfinch, drawn large, so every colour shows.", "Only the goldfinch, side on, with plain paper all round it."],
+    "close": ["Just the goldfinch, close up, so every colour shows.", "Only the goldfinch, side on, with plain paper all round it."],
     "scale": "tiny",
     "habitats": ["garden", "hedgerow", "meadow", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -146,7 +146,7 @@
       "light": "for the white cheeks and wing spots",
       "accent": "for the red face"
     },
-    "firstMark": ["Start with the wing: a short black block of {dark}, leaving a stripe of paper for the yellow.", "Start with the cap: a neat band of {dark} across the top of the head."]
+    "firstMark": ["Start with the black wing in {dark}, leaving a stripe of bare paper for the yellow.", "Start with the cap: a neat band of {dark} across the top of the head."]
   },
   {
     "id": "fur-blackbird",
@@ -162,7 +162,7 @@
       { "t": "is flicking dry leaves aside with its beak", "scope": "outdoor" },
       { "t": "is pecking a hole in a bruised apple", "scope": "any", "seasons": ["autumn", "winter"] }
     ],
-    "close": ["Just the blackbird, drawn large, with its orange beak and eye ring.", "Only the blackbird, side on, black against plain white paper."],
+    "close": ["Just the blackbird, with its orange beak and eye ring.", "Only the blackbird, side on, black against plain white paper."],
     "scale": "small",
     "habitats": ["garden", "hedgerow", "woodland", "village", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -220,7 +220,7 @@
       { "t": "is shaking water drops off its feathers", "scope": "any" },
       { "t": "is flying low and straight with its wings out", "scope": "any" }
     ],
-    "close": ["Just the kingfisher, drawn large, with its long beak and every colour.", "Only the kingfisher, side on, so the orange and the blue both show."],
+    "close": ["Just the kingfisher, from the tip of its long beak to its short tail.", "Only the kingfisher, side on, so the orange and the blue both show."],
     "scale": "small",
     "habitats": ["water"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -280,7 +280,7 @@
       { "t": "is flying low with its face turned down", "scope": "outdoor" },
       { "t": "is hovering with its pale wings spread wide", "scope": "outdoor" }
     ],
-    "close": ["Just the barn owl, drawn large, with its white heart-shaped face.", "Only the barn owl, pale against plain paper."],
+    "close": ["Just the barn owl, with its white heart-shaped face.", "Only the barn owl, pale against plain paper."],
     "scale": "medium",
     "habitats": ["farm", "meadow", "hedgerow"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -310,7 +310,7 @@
       { "t": "is asleep sitting up, with both eyes shut", "scope": "any" },
       { "t": "is standing tall and thin, with its feathers pulled in", "scope": "any" }
     ],
-    "close": ["Just the tawny owl, drawn large enough to show every streak.", "Only the tawny owl, on plain paper, in the middle of the page."],
+    "close": ["Just the tawny owl, big enough to show every streak.", "Only the tawny owl, on plain paper, in the middle of the page."],
     "scale": "small",
     "habitats": ["woodland", "garden", "hedgerow", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -340,7 +340,7 @@
       { "t": "is carrying a beakful of dry grass", "scope": "outdoor", "seasons": ["spring"] },
       { "t": "is flying with its orange feet tucked back", "scope": "outdoor" }
     ],
-    "close": ["Just the puffin, drawn large, with every stripe on its beak.", "Only the puffin, black and white on plain paper."],
+    "close": ["Just the puffin, close enough to show every stripe on its beak.", "Only the puffin, black and white on plain paper."],
     "scale": "small",
     "habitats": ["coast"],
     "seasons": ["spring", "summer"],
@@ -370,7 +370,7 @@
       { "t": "is nibbling a strand of green weed", "scope": "any" },
       { "t": "is following close behind its mother", "scope": "outdoor" }
     ],
-    "close": ["Just the baby swan, drawn large, with every bit of fluffy grey down.", "Only the baby swan, plump and fluffy, with plenty of white paper round it."],
+    "close": ["Just the baby swan, with its grey fluff and dark beak.", "Only the baby swan, plump and fluffy, with plenty of white paper round it."],
     "scale": "small",
     "habitats": ["water", "meadow"],
     "seasons": ["spring", "summer"],
@@ -400,7 +400,7 @@
       { "t": "are walking in a line, one behind the other", "scope": "outdoor" },
       { "t": "are shaking water off their stubby wings", "scope": "outdoor" }
     ],
-    "close": ["Just the three ducklings, close together, with plain paper round them.", "Only the ducklings, drawn large enough to show every wisp of fluff."],
+    "close": ["Just the three ducklings, close together, with plain paper round them.", "Only the ducklings, close enough to show every wisp of fluff."],
     "scale": "small",
     "habitats": ["water", "farm"],
     "seasons": ["spring", "summer"],
@@ -431,7 +431,7 @@
       { "t": "is carrying a small ball of mud in its beak", "scope": "outdoor", "seasons": ["spring"] },
       { "t": "is feeding a row of chicks with open beaks", "scope": "outdoor", "seasons": ["summer"] }
     ],
-    "close": ["Just the swallow, drawn large, with its long forked tail.", "Only the swallow, side on, with its red chin and dark blue back."],
+    "close": ["Just the swallow, with the whole of its long forked tail.", "Only the swallow, side on, with its red chin and dark blue back."],
     "scale": "small",
     "habitats": ["farm", "meadow", "water", "village", "visitor"],
     "seasons": ["spring", "summer"],
@@ -461,7 +461,7 @@
       { "t": "is hammering at a branch with its beak", "scope": "outdoor", "seasons": ["spring"] },
       { "t": "is hopping up a branch in short jumps", "scope": "outdoor" }
     ],
-    "close": ["Just the woodpecker, side on, so the black, white and red all show.", "Only the woodpecker, drawn large, with plain paper round it."],
+    "close": ["Just the woodpecker, side on, so the black, white and red all show.", "Only the woodpecker, with plain paper round it."],
     "scale": "small",
     "habitats": ["woodland", "garden", "hedgerow"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -641,7 +641,7 @@
       { "t": "is flying fast with its long body held straight", "scope": "outdoor" },
       { "t": "is opening out its new, crumpled wings", "scope": "outdoor", "seasons": ["spring", "summer"] }
     ],
-    "close": ["Just the dragonfly, seen from above, with all four wings showing.", "Only the dragonfly, drawn large enough to show the veins in its wings."],
+    "close": ["Just the dragonfly, seen from above, with all four wings showing.", "Only the dragonfly, big enough to show the veins in its wings."],
     "scale": "tiny",
     "habitats": ["water", "meadow", "garden"],
     "seasons": ["spring", "summer", "autumn"],

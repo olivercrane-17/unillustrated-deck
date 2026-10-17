@@ -3,7 +3,7 @@
     "id": "twist-teacup",
     "title": "Everything Tiny",
     "rule": "Make everything tiny, small enough to fit in a teacup.",
-    "phrases": ["teacup-sized", "crumbs look big"],
+    "phrases": ["everything teacup-sized", "small, simple details"],
     "effects": { "scale": "any" }
   },
   {
@@ -23,7 +23,7 @@
   {
     "id": "twist-lantern",
     "title": "One Light Only",
-    "rule": "Pick one spot for the light and make every shadow fall away from it.",
+    "rule": "Pick one spot for the light and make every shadow point away from it.",
     "phrases": ["one bright side", "every shadow on the far side"],
     "effects": {}
   },
@@ -135,7 +135,7 @@
   {
     "id": "twist-single-skein",
     "title": "One Colour Family",
-    "rule": "Use only one colour family, in a light, a middle and a dark shade.",
+    "rule": "Use only three shades of one colour: a light, a middle and a dark.",
     "phrases": ["light, middle and dark", "all shades of one colour"],
     "effects": { "palette": "mono" }
   }

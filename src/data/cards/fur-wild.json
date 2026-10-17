@@ -13,7 +13,7 @@
       { "t": "is sniffing at a fallen apple", "scope": "outdoor", "seasons": ["autumn"] },
       { "t": "is asleep in a heap of dry leaves", "scope": "outdoor", "seasons": ["autumn", "winter"] }
     ],
-    "close": ["Just the hedgehog, drawn large enough to show single spines.", "Only the hedgehog, side on, with no background."],
+    "close": ["Just the hedgehog, big enough to show single spines.", "Only the hedgehog, side on, with no background."],
     "scale": "small",
     "habitats": ["garden", "hedgerow", "woodland", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -72,7 +72,7 @@
       { "t": "is nibbling a biscuit crumb", "scope": "any" },
       { "t": "is carrying a red rosehip in its mouth", "scope": "outdoor", "seasons": ["autumn", "winter"] }
     ],
-    "close": ["Just the wood mouse, drawn large, with its big ears and long tail.", "Only the wood mouse, side on, with its whole tail on the page."],
+    "close": ["Just the wood mouse, close up, from its big ears to its long tail.", "Only the wood mouse, side on, with its whole tail on the page."],
     "scale": "tiny",
     "habitats": ["woodland", "hedgerow", "garden", "farm", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -102,7 +102,7 @@
       { "t": "is gripping a tall stalk with its feet and tail", "scope": "outdoor" },
       { "t": "is building a round nest out of grass", "scope": "outdoor", "seasons": ["summer", "autumn"] }
     ],
-    "close": ["Just the harvest mouse, life size, about as long as your thumb.", "Only the harvest mouse, drawn large enough to show each whisker."],
+    "close": ["Just the harvest mouse, life size, about as long as your thumb.", "Only the harvest mouse, close enough to show each whisker."],
     "scale": "tiny",
     "habitats": ["meadow", "hedgerow", "farm"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -132,7 +132,7 @@
       { "t": "is carrying a hazelnut in its mouth", "scope": "outdoor", "seasons": ["autumn"] },
       { "t": "is running along with its bushy tail held high", "scope": "outdoor" }
     ],
-    "close": ["Just the squirrel, drawn large, from ear tufts to tail tip.", "Only the squirrel, with plenty of plain paper round it."],
+    "close": ["Just the squirrel, from ear tufts to tail tip, filling the page.", "Only the squirrel, with plenty of plain paper round it."],
     "scale": "small",
     "habitats": ["woodland", "garden", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -156,7 +156,7 @@
     "the": "the hare",
     "phrases": ["long ears with black tips", "big amber eyes", "tawny brown fur"],
     "doing": [
-      { "t": "is sitting up tall with its ears straight up", "scope": "any" },
+      { "t": "is sitting tall with its ears straight up", "scope": "any" },
       { "t": "is crouching low with its ears flat along its back", "scope": "any" },
       { "t": "is pulling one long ear down to wash it", "scope": "any" },
       { "t": "is running with its long back legs stretched out", "scope": "outdoor" },
@@ -188,11 +188,11 @@
     "doing": [
       { "t": "is washing its face with both front paws", "scope": "any" },
       { "t": "is nibbling a dandelion leaf", "scope": "any" },
-      { "t": "is lying flat out with its back legs stretched behind", "scope": "any" },
+      { "t": "is lying stretched out with its back legs behind it", "scope": "any" },
       { "t": "is sitting up tall on its back legs", "scope": "any" },
       { "t": "is hopping away, showing its white tail", "scope": "outdoor" }
     ],
-    "close": ["Just the rabbit, side on, from its nose to its white tail.", "Only the rabbit, drawn large, with no background."],
+    "close": ["Just the rabbit, side on, from its nose to its white tail.", "Only the rabbit, close up, with no background."],
     "scale": "small",
     "habitats": ["meadow", "hedgerow", "coast", "farm"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -223,7 +223,7 @@
       { "t": "is pouncing on a dandelion clock", "scope": "outdoor" },
       { "t": "is play-fighting with another cub", "scope": "outdoor" }
     ],
-    "close": ["Just the fox cub, drawn large, with its big ears and fluffy tail.", "Only the fox cub, in the middle of the page, with no background."],
+    "close": ["Just the fox cub, big on the page, with its pointed ears and fluffy tail.", "Only the fox cub, in the middle of the page, with no background."],
     "scale": "small",
     "habitats": ["hedgerow", "woodland", "meadow", "garden", "visitor"],
     "seasons": ["spring", "summer"],
@@ -249,11 +249,11 @@
     "doing": [
       { "t": "is having a good scratch with a back foot", "scope": "any" },
       { "t": "is trotting along with its striped head held low", "scope": "any" },
-      { "t": "is sitting back on its back legs, sniffing the air", "scope": "any" },
+      { "t": "is sitting up and sniffing the air", "scope": "any" },
       { "t": "is dragging a bundle of dry bracken backwards", "scope": "outdoor" },
       { "t": "is digging with its long front claws", "scope": "outdoor" }
     ],
-    "close": ["Just the badger, side on, from striped nose to stubby tail.", "Only the badger, drawn large, with plain paper round it."],
+    "close": ["Just the badger, side on, from striped nose to stubby tail.", "Only the badger, with plain paper round it."],
     "scale": "medium",
     "habitats": ["woodland", "hedgerow", "meadow", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -283,7 +283,7 @@
       { "t": "is running along with its back humped up", "scope": "outdoor" },
       { "t": "is sitting up with its whiskers dripping", "scope": "any" }
     ],
-    "close": ["Just the otter, drawn large, from nose to tail tip.", "Only the otter, with plenty of bare paper round it."],
+    "close": ["Just the otter, from nose to tail tip, right across the page.", "Only the otter, with plenty of bare paper round it."],
     "scale": "medium",
     "habitats": ["water", "coast"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -313,7 +313,7 @@
       { "t": "is looking back over its shoulder", "scope": "any" },
       { "t": "is bounding along with its back arched", "scope": "outdoor" }
     ],
-    "close": ["Just the stoat, drawn large, with its cream front and black tail tip.", "Only the stoat, the whole long length of it, on plain paper."],
+    "close": ["Just the stoat, with its cream front and black tail tip.", "Only the stoat, filling the middle of the page."],
     "scale": "small",
     "habitats": ["hedgerow", "meadow", "woodland", "farm"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -343,7 +343,7 @@
       { "t": "is poking its head out of a molehill", "scope": "outdoor" },
       { "t": "is digging, with soil flying out behind it", "scope": "outdoor" }
     ],
-    "close": ["Just the mole, front on, with both big pink paws showing.", "Only the mole, drawn large, with no background."],
+    "close": ["Just the mole, front on, with both big pink paws showing.", "Only the mole, big in the middle of the page."],
     "scale": "small",
     "habitats": ["meadow", "garden", "farm", "woodland"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -373,7 +373,7 @@
       { "t": "is flying with its wings spread wide", "scope": "outdoor" },
       { "t": "is hanging upside down by its toes", "scope": "indoor" }
     ],
-    "close": ["Just the bat, drawn large enough to show its ears and face.", "Only the bat, about the size of your thumb, on plain paper."],
+    "close": ["Just the bat, close enough to show its ears and face.", "Only the bat, about the size of your thumb, on plain paper."],
     "scale": "tiny",
     "habitats": ["garden", "village", "woodland", "water", "visitor"],
     "seasons": ["spring", "summer", "autumn"],
@@ -403,7 +403,7 @@
       { "t": "is reaching up to nibble a leaf", "scope": "any" },
       { "t": "is leaping away with its white rump showing", "scope": "outdoor" }
     ],
-    "close": ["Just the fawn, drawn large, with every spot along its back.", "Only the fawn, side on, with plain paper all round it."],
+    "close": ["Just the fawn, with every spot along its back.", "Only the fawn, side on, with plain paper all round it."],
     "scale": "medium",
     "habitats": ["woodland", "meadow", "hedgerow"],
     "seasons": ["spring", "summer"],
@@ -432,7 +432,7 @@
       { "t": "is lying down, chewing, with its head up", "scope": "any" },
       { "t": "is roaring with its head up and mouth open", "scope": "outdoor", "seasons": ["autumn"] }
     ],
-    "close": ["Just the stag, drawn large, antlers and all.", "Only the stag, small and far away, with lots of empty paper round it."],
+    "close": ["Just the stag and its antlers, filling the page.", "Only the stag, small and far away, with lots of empty paper round it."],
     "scale": "large",
     "habitats": ["meadow", "woodland"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -462,7 +462,7 @@
       { "t": "is peeping out with only its eyes and nose showing", "scope": "outdoor" },
       { "t": "is croaking with its throat puffed out", "scope": "outdoor", "seasons": ["spring"] }
     ],
-    "close": ["Just the frog, drawn large, with every blotch on its back.", "Only the frog, about life size, on plain paper."],
+    "close": ["Just the frog, big enough to show every blotch on its back.", "Only the frog, about life size, on plain paper."],
     "scale": "tiny",
     "habitats": ["water", "garden", "woodland", "visitor"],
     "seasons": ["spring", "summer", "autumn"],
@@ -492,7 +492,7 @@
       { "t": "is climbing over a pebble", "scope": "any" },
       { "t": "is tucking itself under a pile of dry leaves", "scope": "outdoor", "seasons": ["autumn"] }
     ],
-    "close": ["Just the toad, drawn large enough to show every wart.", "Only the toad, about life size, with no background."],
+    "close": ["Just the toad, close up, with every wart a raised bump.", "Only the toad, about life size, with no background."],
     "scale": "tiny",
     "habitats": ["garden", "woodland", "water", "visitor"],
     "seasons": ["spring", "summer", "autumn"],
@@ -522,7 +522,7 @@
       { "t": "is lying still with its tail curled to one side", "scope": "outdoor" },
       { "t": "is arching its back to show its tall crest", "scope": "outdoor", "seasons": ["spring"] }
     ],
-    "close": ["Just the newt, side on, from nose to tail tip.", "Only the newt, drawn large enough to show the crest."],
+    "close": ["Just the newt, side on, from nose to tail tip.", "Only the newt, big enough to show the jagged crest."],
     "scale": "tiny",
     "habitats": ["water", "garden", "woodland"],
     "seasons": ["spring", "summer", "autumn"],
@@ -551,7 +551,7 @@
       { "t": "is sliding along in a wavy line", "scope": "any" },
       { "t": "is flicking out its tongue", "scope": "any" }
     ],
-    "close": ["Just the slow worm, the whole length of it, on plain paper.", "Only the slow worm, drawn large enough to show the shine on its scales."],
+    "close": ["Just the slow worm, the whole length of it, on plain paper.", "Only the slow worm, close up, so the shine on its scales shows."],
     "scale": "small",
     "habitats": ["garden", "hedgerow", "meadow", "woodland"],
     "seasons": ["spring", "summer", "autumn"],
@@ -580,7 +580,7 @@
       { "t": "is cleaning its belly fur with both front paws", "scope": "any" },
       { "t": "is dripping wet, with its fur in spikes", "scope": "outdoor" }
     ],
-    "close": ["Just the water vole, drawn large, with its blunt nose and round body.", "Only the water vole, side on, with no background."],
+    "close": ["Just the water vole, with its blunt nose and round body.", "Only the water vole, side on, with no background."],
     "scale": "small",
     "habitats": ["water"],
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -609,7 +609,7 @@
       { "t": "is sitting still with its paws tucked in", "scope": "any" },
       { "t": "is turning over a fallen leaf with its nose", "scope": "outdoor" }
     ],
-    "close": ["Just the shrew, nose to tail, about the length of your thumb.", "Only the shrew, drawn large, with plain paper round it."],
+    "close": ["Just the shrew, nose to tail, about the length of your thumb.", "Only the shrew, big enough that the long nose is easy to see."],
     "scale": "tiny",
     "habitats": ["hedgerow", "woodland", "meadow", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],

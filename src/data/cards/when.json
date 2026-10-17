@@ -10,8 +10,8 @@
     "scope": "any",
     "mood": "cool",
     "light": "Keep the shadows pale blue and leave the paper bare for the frost.",
-    "shadow": "for the pale blue shadows",
-    "highlight": "for the white frost along the edges of things"
+    "shadow": "for the blue shadows, pressed lightly",
+    "highlight": "for the frost along the edges of things"
   },
   {
     "id": "when-golden-hour",
@@ -46,7 +46,7 @@
     "title": "Dusk",
     "when": "at dusk",
     "phrases": ["a deep blue sky", "yellow lit windows", "dark shapes"],
-    "note": "The sun has just set, the sky is still light, and everything turns a deep, cool blue.",
+    "note": "The sun has just set and everything under the sky turns a deep, cool blue.",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dusk"],
     "scope": "any",
@@ -71,7 +71,7 @@
   },
   {
     "id": "when-morning-after-snow",
-    "title": "A Bright Snowy Morning",
+    "title": "A Bright, Snowy Morning",
     "when": "on a bright, snowy morning",
     "phrases": ["fresh, smooth snow", "a clear blue sky", "bird footprints"],
     "note": "Fresh snow lies smooth over everything and the sky is clear blue.",
@@ -81,7 +81,7 @@
     "mood": "bright",
     "light": "Leave the snow as bare white paper and shade only the dips, very lightly, in a cool blue or grey.",
     "shadow": "for the shadows in the snow",
-    "highlight": "for the bright white snow"
+    "highlight": "for the snow in the sun"
   },
   {
     "id": "when-storm-brewing",
@@ -95,7 +95,7 @@
     "mood": "dark",
     "light": "Make the background a dark purple-grey and keep the light on the main subject bright and yellowish.",
     "shadow": "for the dark storm clouds",
-    "highlight": "for the yellowish light under the clouds"
+    "highlight": "for the brightest light under the clouds"
   },
   {
     "id": "when-midsummer-night",
@@ -115,7 +115,7 @@
     "id": "when-misty-dawn",
     "title": "A Misty Morning",
     "when": "on a misty morning",
-    "phrases": ["soft, pale shapes", "faded grey trees", "white air"],
+    "phrases": ["soft, pale shapes", "faded grey trees", "a pale grey distance"],
     "note": "A soft white mist hangs in the air and anything far away fades to pale grey.",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dawn", "morning"],
@@ -123,13 +123,13 @@
     "mood": "cool",
     "light": "Keep every edge soft and every colour pale, with no hard darks anywhere.",
     "shadow": "for the faint, soft shadows",
-    "highlight": "for the white mist"
+    "highlight": "for the misty light"
   },
   {
     "id": "when-blustery-day",
     "title": "A Windy Autumn Day",
     "when": "on a windy autumn day",
-    "phrases": ["leaves blowing sideways", "fast clouds", "bending branches"],
+    "phrases": ["leaves blowing sideways", "clouds racing past", "bending branches"],
     "note": "Strong wind blows leaves through the air and clouds race across the sky.",
     "seasons": ["autumn"],
     "timeOfDay": ["morning", "afternoon"],
@@ -281,7 +281,7 @@
   },
   {
     "id": "when-night-before-snow",
-    "title": "A Cold Cloudy Evening",
+    "title": "A Cold, Cloudy Evening",
     "when": "on a cold, cloudy evening",
     "phrases": ["low pinkish-grey clouds", "bare branches", "no moon or stars"],
     "note": "Low clouds with a pinkish-grey tinge cover the sky and nothing moves.",
@@ -291,7 +291,7 @@
     "mood": "muted",
     "light": "Use soft pinkish greys for everything, with no bright colour anywhere.",
     "shadow": "for the dull, dark shadows",
-    "highlight": "for the pale pinkish sky"
+    "highlight": "for the pale sky"
   },
   {
     "id": "when-holidays",
@@ -361,7 +361,7 @@
     "mood": "muted",
     "light": "Draw the nearest thing clearly, then make everything behind it greyer and fainter until it disappears into the paper.",
     "shadow": "for the few darks close to you",
-    "highlight": "for the white fog in the distance"
+    "highlight": "for the fog in the distance"
   },
   {
     "id": "when-blossom",
@@ -409,7 +409,7 @@
     "id": "when-apple-picking",
     "title": "A Hazy Autumn Afternoon",
     "when": "on a hazy autumn afternoon",
-    "phrases": ["soft yellow sunshine", "red, orange and brown", "a hazy sky"],
+    "phrases": ["soft yellow sunshine", "reds, oranges and browns", "a hazy sky"],
     "note": "The sun is soft and hazy, and the light has a gentle yellow warmth.",
     "seasons": ["autumn"],
     "timeOfDay": ["afternoon"],

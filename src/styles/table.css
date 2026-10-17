@@ -125,6 +125,11 @@
 .fan .card-sm {
   --card-w: min(116px, calc((100vw - 2 * var(--gutter) - 16px) / 3));
 }
+/* At this size the label would be tiny, and the brief below already says
+   Where and When. The zoom sheet still shows it. */
+.fan .card-sm .card-label {
+  display: none;
+}
 .fan .card-slot:hover,
 .fan .card-slot:focus-visible {
   transform: translateY(-8px);

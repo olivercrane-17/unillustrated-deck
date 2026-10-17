@@ -39,9 +39,10 @@ async function register() {
   const offer = (waiting) => {
     if (!waiting || offered === waiting) return
     offered = waiting
+    // It reloads by itself next time the app opens, so "later" is a real choice.
     toast('A fresh deck is ready.', {
       action: 'Reload',
-      duration: 0,
+      duration: 12000,
       onAction: () => {
         accepted = true
         waiting.postMessage({ type: 'SKIP_WAITING' })

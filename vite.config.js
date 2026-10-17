@@ -28,7 +28,10 @@ const INDEX = new URL('./index.html', self.location).href
 // Fill this build's cache. The new worker then waits until the page says
 // the person is happy to reload.
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(PRECACHE.map((url) => new Request(url, { cache: 'reload' })))))
+  // Hashed build files never change under the same name, so the HTTP cache
+  // copy is fine; only unhashed files are fetched fresh.
+  const fresh = (url) => !/\/assets\//.test(url)
+  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(PRECACHE.map((url) => new Request(url, { cache: fresh(url) ? 'reload' : 'default' })))))
 })
 
 self.addEventListener('activate', (event) => {
@@ -91,6 +94,9 @@ function serviceWorker() {
       const files = listFiles(outDir)
         .map((full) => relative(outDir, full).split(sep).join('/'))
         .filter((path) => path !== 'sw.js' && !path.endsWith('.map'))
+        // The big install icons are only fetched by the browser when installing
+        // (online by definition), so they needn't weigh down the offline cache.
+        .filter((path) => !/^icons\/(icon|maskable)-512\.png$/.test(path))
         .sort()
       const hash = createHash('sha256')
       for (const path of files) {

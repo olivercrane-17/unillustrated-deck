@@ -45,7 +45,9 @@
   box-shadow: var(--shadow-card);
 }
 
-/* ---------- Front ---------- */
+/* ---------- Front ----------
+   Each part has its own row, so the emblem always sits in the flexible middle
+   row whether or not a card shows its position label or colour strip. */
 .card-front {
   display: grid;
   grid-template-rows: auto 1fr auto auto auto auto;
@@ -92,6 +94,7 @@
 .card-corner.br { bottom: 6.5cqw; right: 6.5cqw; transform: scale(-1, -1); }
 
 .card-label {
+  grid-row: 1;
   position: relative;
   font-family: var(--font-display);
   font-weight: 600;
@@ -103,6 +106,7 @@
   max-width: 80cqw;
 }
 .card-art {
+  grid-row: 2;
   position: relative;
   width: 58cqw;
   aspect-ratio: 1;
@@ -141,6 +145,7 @@
   height: 6cqw;
 }
 .card-colours {
+  grid-row: 3;
   position: relative;
   display: grid;
   justify-items: center;
@@ -165,6 +170,7 @@
   line-height: 1.2;
 }
 .card-title {
+  grid-row: 4;
   position: relative;
   overflow-wrap: anywhere;
   hyphens: auto;
@@ -177,6 +183,7 @@
   text-wrap: balance;
 }
 .card-phrases {
+  grid-row: 5;
   position: relative;
   margin-top: 4cqw;
   font-style: italic;
@@ -189,6 +196,7 @@
   display: block;
 }
 .card-date {
+  grid-row: 6;
   position: relative;
   margin-top: 2cqw;
   font-size: max(12px, 9cqw);
@@ -204,7 +212,6 @@
   display: none;
 }
 .card-xs .card-front {
-  grid-template-rows: 1fr auto auto;
   padding: 14cqw 11cqw 16cqw;
 }
 

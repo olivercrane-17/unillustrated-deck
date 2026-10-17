@@ -23,11 +23,13 @@ const corners = () => ['tl', 'tr', 'bl', 'br'].map((c) => h(`span.card-corner.${
  * @param {string} [o.dateText] handwritten date under a sealed or drawn card
  * @param {boolean} [o.drawn]   drawn without a photo: a small tick
  * @param {string} [o.backName] name in the cartouche on the back
- * @param {boolean} [o.phrases] show the italic phrases (defaults on for md/lg)
+ * @param {boolean} [o.phrases] show the italic phrases on the face (off unless asked
+ *                              for: they clip on small faces, and the zoom sheet and
+ *                              the card's own page list them beside the card)
  */
 export function renderCard({ card, label = '', size = 'sm', faceDown = false, imageUrl = '', dateText = '', drawn = false, backName = '', phrases, tilt = 0, className = '' } = {}) {
   const suit = suitOf(card)
-  const showPhrases = phrases ?? (size === 'md' || size === 'lg')
+  const showPhrases = phrases === true && size !== 'xs'
   const front = card
     ? h('div.card-face.card-front',
         h('span.card-frame'),

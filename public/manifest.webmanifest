@@ -2,7 +2,7 @@
   "name": "The Unillustrated Deck",
   "short_name": "Unillustrated",
   "description": "A deck of drawing cards with no pictures until you draw them. Draw a card. Then draw it.",
-  "id": "./",
+  "id": "/unillustrated-deck/",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

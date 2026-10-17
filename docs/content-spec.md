@@ -114,7 +114,8 @@ Rules:
 - `accent`: one hex colour for the small detail named in `roles.accent` (the dormouse's pink nose and toes: `#E8A39B`). It must be the colour that line describes, and visibly different from `colours[0]`.
 - `texture`: from the vocabulary.
 - `roles`: four short role lines, each starting with "for the". `main` is the subject's main colour area, `dark` is where the deepest value goes, `light` is highlights or the palest parts, `accent` is a small detail in ONE colour (it pairs with the `accent` hex, so never name two colours in it).
-- `firstMark`: 1 to 3 sentences telling her exactly where the pencil goes first. Each must contain `{dark}` or `{main}` (replaced by a pencil name such as "Indigo Blue"). Concrete, small, starts with "Start with". Ends with a full stop.
+- `firstMark`: 1 to 3 sentences telling her exactly where the pencil goes first. Each must contain `{dark}`, `{main}` or `{accent}` (replaced by a pencil name such as "Indigo Blue"). Concrete, small, starts with "Start with". Ends with a full stop. Use `{dark}` only for colourless shadows and outlines; a coloured feature takes `{main}` or `{accent}` (the pencil dealt for the `accent` detail). Give every card at least one first mark without `{accent}`: twists that cut the palette to two or three pencils leave the accent out, and the engine then picks a first mark that doesn't need it.
+- Per-doing overrides (optional): a doing may carry its own `close`, `firstMark` and `roles` ({main?, dark?, light?, accent?}) when the card-level lines would contradict it ("wings closed" hides the eyespots). Card-level lines must suit every doing that doesn't override them.
 
 ## Where cards: `where.json`
 
@@ -146,6 +147,7 @@ Rules:
 - `frames`: 1 to 3 composition diagrams that suit the place.
 - `colours`: 1 or 2 hex colours of the setting (anchors the setting pencil).
 - `role`: one "for the ..." line for the setting pencil.
+- `window` (optional): `true` for an indoor place with a window onto outside (the windowsill, the bay window). Only these indoor places get hours that happen in the sky or the weather.
 - `excludes` (optional): subject ids that must never be dealt here, for pairings the habitat tags allow but that read wrong ("a kingfisher on the bird table", "some bluebells among the bluebells"). Use it sparingly; prefer fixing tags when the tag itself is wrong.
 - Balance: about half indoor or threshold, half outdoor. Every place must admit at least 6 subjects from the full deck in every season, so prefer common habitats.
 
@@ -174,7 +176,9 @@ Rules:
 - `when`: a lowercase adverbial phrase that works both at the start of a sentence ("On the first frosty morning, a dormouse...") and at the end ("...on the warmest windowsill, on the first frosty morning."). Starts with a preposition (on, at, in, during, after, before, under, by, as) or "just as", "just after", "the morning after". No place in it.
 - `note`: one full sentence about how the light, air or weather looks. Present tense. Ends with a full stop.
 - `seasons`: when it can happen. `timeOfDay`: when in the day it happens (1 to 3 values). "By lamplight" is `dusk`, `night`.
-- `scope`: `outdoor` if it only makes sense outdoors (a thunderstorm brewing could be seen through glass, so `any`; "under a sky full of stars" is `outdoor`). `indoor` for things like "while the kettle boils" or "by the fire". Prefer `any`.
+- `scope`: `outdoor` if it only makes sense outdoors (a thunderstorm brewing could be seen through glass, so `any`; "under a sky full of stars" is `outdoor`). `indoor` for things like "while the kettle boils" or "by the fire". Prefer `any`. An `indoor` hour only fits indoor places.
+- `sky` (optional): `true` when the hour is only visible in the sky or the weather (mist, rain, frost, a sunset, the stars). It then fits outdoor and threshold places, and indoor places with `window: true`.
+- `places` (optional): a list of Where ids, for an hour that belongs to a few rooms only ("while the kettle boils" belongs in the kitchen). Every place still needs at least 5 hours that fit it in each season.
 - `mood`: drives the palette: `warm` (golden, fire, sun), `cool` (frost, blue hour, mist), `muted` (fog, overcast, rain, dust), `dark` (night, storm), `bright` (clear spring morning, midsummer noon).
 - `light`: one plain drawing hint about value and colour temperature. Full sentence.
 - `shadow` and `highlight`: "for the ..." role lines for the dark and light pencils.

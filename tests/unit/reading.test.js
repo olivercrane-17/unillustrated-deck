@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { dealReading, swapCard, repaint, swapPencil, toggleLock, newPicture, dealChoices } from '../../src/engine/reading.js'
+import { dealReading, swapCard, repaint, swapPencil, toggleLock, newPicture, dealChoices, indexContent } from '../../src/engine/reading.js'
 import { subjectFitsPlace, whenFitsPlace } from '../../src/engine/compat.js'
 import { preparePencils, dealPalette, anchorFor } from '../../src/engine/harmony.js'
 import { mulberry32 } from '../../src/engine/rng.js'
@@ -364,6 +364,64 @@ describe('correctness review fixes', () => {
       expect(r.palette.pencils.some((p) => p.code === kept)).toBe(true)
       r = repaint(r, ctx)
       expect(r.palette.pencils.some((p) => p.code === kept)).toBe(true)
+    }
+  })
+})
+
+describe('accent pencil', () => {
+  // Every subject gets a blue accent and a first mark that names it.
+  const accentContent = (marks) => {
+    const { byId, ...raw } = fixtureContent
+    const subjects = raw.subjects.map((c) => ({ ...c, accent: '#2B6CB0', roles: { ...c.roles, accent: 'for the blue cap' }, firstMark: marks }))
+    return indexContent({ ...raw, subjects })
+  }
+
+  it('names the subject\'s own accent pencil, never the Also card\'s', () => {
+    const ctx = ctxFor({ set: '150', content: accentContent(['Start with the blue cap in {accent}.']) })
+    let withAlso = 0
+    for (const spread of ['quick', 'evening', 'big']) {
+      for (let seed = 0; seed < 150; seed++) {
+        const r = dealReading(ctx, { spread, seed })
+        if (r.palette.rule) continue
+        const accent = r.palette.pencils.find((p) => p.slot === 'accent')
+        expect(accent, `${spread} ${seed}`).toBeTruthy()
+        expect(r.text.firstMark).toBe(`Start with the blue cap in ${ctx.pencilsByCode.get(accent.code).name}.`)
+        if (r.cards.also) {
+          withAlso++
+          expect(r.palette.pencils.find((p) => p.slot === 'also')?.role).toMatch(/^for the /)
+        }
+      }
+    }
+    expect(withAlso).toBeGreaterThan(0)
+  })
+
+  it('falls back to a first mark without {accent} when a twist leaves the accent out', () => {
+    const ctx = ctxFor({ set: '150', content: accentContent(['Start with the blue cap in {accent}.', 'Start with the eye in {dark}.']) })
+    let ruled = 0
+    for (let seed = 0; seed < 300; seed++) {
+      const r = dealReading(ctx, { spread: 'big', seed })
+      if (r.palette.pencils.some((p) => p.slot === 'accent')) continue
+      ruled++
+      expect(r.text.firstMark).toMatch(/^Start with the eye in /)
+    }
+    expect(ruled).toBeGreaterThan(0)
+  })
+})
+
+describe('hours and palette names', () => {
+  it('an hour with a places list only fits those places', () => {
+    const kettle = { id: 'when-kettle', seasons: ['autumn'], scope: 'indoor', places: ['where-kitchen'] }
+    expect(whenFitsPlace(kettle, { id: 'where-kitchen', scope: 'indoor', seasons: ['autumn'] }, 'autumn')).toBe(true)
+    expect(whenFitsPlace(kettle, { id: 'where-attic', scope: 'indoor', seasons: ['autumn'] }, 'autumn')).toBe(false)
+  })
+
+  it('a timed palette name never turns up on a page with no hour', () => {
+    const { byId, ...raw } = fixtureContent
+    const content = indexContent({ ...raw, palettes: Object.fromEntries(Object.keys(raw.palettes).map((k) => [k, [{ name: 'Owl Light', times: ['night'] }, 'Pencil Box']])) })
+    const ctx = ctxFor({ content })
+    for (let seed = 0; seed < 80; seed++) {
+      expect(dealReading(ctx, { spread: 'quick', seed }).palette.name).toBe('Pencil Box')
+      expect(dealReading(ctx, { spread: 'small', seed }).palette.name).toBe('Pencil Box')
     }
   })
 })

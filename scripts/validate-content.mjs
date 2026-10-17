@@ -198,6 +198,7 @@ export function validateWhen(r, card, where) {
   checkRole(r, where + '.shadow', card.shadow)
   checkRole(r, where + '.highlight', card.highlight)
   if (card.sky !== undefined && typeof card.sky !== 'boolean') r.err(where, 'sky must be true or false')
+  if (card.places !== undefined && !(Array.isArray(card.places) && card.places.length && card.places.every((x) => /^where-[a-z0-9-]+$/.test(x)))) r.err(where, 'places must be a list of Where ids')
   walkText(r, where, card)
 }
 
@@ -337,6 +338,8 @@ function crossCheck(r, byKind) {
   }
   const subjectIds = new Set(subjects.map((s) => s.id))
   for (const p of wheres) for (const x of p.excludes || []) if (!subjectIds.has(x)) r.err(p.id, `excludes unknown subject ${x}`)
+  const whereIds = new Set(wheres.map((p) => p.id))
+  for (const h of whens) for (const x of h.places || []) if (!whereIds.has(x)) r.err(h.id, `places names unknown Where ${x}`)
   const fits = (s, p, season) => {
     if (!s.seasons.includes(season) || !p.seasons.includes(season)) return false
     if (p.excludes?.includes(s.id)) return false
@@ -365,6 +368,7 @@ function crossCheck(r, byKind) {
   // Every place needs enough hours that fit it (same rule as the engine).
   const hourFits = (h, p, season) => {
     if (!h.seasons.includes(season)) return false
+    if (h.places && !h.places.includes(p.id)) return false
     if (h.scope === 'indoor') return p.scope === 'indoor'
     if (h.sky && p.scope === 'indoor' && !p.window) return false
     return h.scope === 'any' || p.scope === 'threshold' || h.scope === p.scope

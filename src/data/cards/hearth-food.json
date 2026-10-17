@@ -308,7 +308,7 @@
     ],
     "close": ["Just the jug, with its stripes bending round the curve.", "Only the spout and the lip, close enough to see the shine."],
     "scale": "small",
-    "habitats": ["tabletop", "farm"],
+    "habitats": ["tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#3E6E9E", "#F1EDE3"],

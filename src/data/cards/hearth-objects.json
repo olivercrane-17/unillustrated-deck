@@ -466,7 +466,7 @@
       "light": "for the shine on the curve of the case",
       "accent": "for the glowing dial"
     },
-    "firstMark": ["Start with the two knobs, round dots of {dark} pressed firmly.", "Start with the curved top of the case in one smooth arch of {main}."]
+    "firstMark": ["Start with the two knobs, round dots of {main} pressed hard so they come out darker.", "Start with the curved top of the case in one smooth arch of {main}."]
   },
   {
     "id": "hearth-button-jar",
@@ -613,7 +613,7 @@
       "light": "for the glow inside the glass",
       "accent": "for the yellow flame"
     },
-    "firstMark": ["Start with the wire guards across the glass, a few curved lines of {dark}.", "Start with the rounded top in a short, firm curve of {main}."]
+    "firstMark": ["Start with the wire guards across the glass, a few curved lines of {main}.", "Start with the rounded top in a short, firm curve of {main}."]
   },
   {
     "id": "hearth-picnic-hamper",

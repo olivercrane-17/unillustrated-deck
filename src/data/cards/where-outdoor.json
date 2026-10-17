@@ -136,7 +136,7 @@
     "frames": ["thirds", "vignette"],
     "colours": ["#8E9C80", "#6D5843"],
     "role": "for the peeling painted slats",
-    "excludes": ["fur-great-spotted-woodpecker", "fur-guinea-pig", "fur-goldfish", "fur-hedgehog", "fur-mole", "fur-pipistrelle-bat", "fur-frog", "fur-toad", "fur-great-crested-newt", "fur-slow-worm", "fur-shrew", "hearth-pancakes", "hearth-tomato-soup", "hearth-porridge", "hearth-enamel-kettle", "hearth-button-jar", "hearth-tulips", "hearth-snow-globe", "hearth-alarm-clock", "leaf-fly-agaric", "leaf-fern", "leaf-bramble", "leaf-snowdrops", "leaf-bluebells", "leaf-mossy-stone", "leaf-speckled-egg", "leaf-poppy", "leaf-hyacinth"]
+    "excludes": ["fur-great-spotted-woodpecker", "fur-guinea-pig", "fur-goldfish", "fur-hedgehog", "fur-mole", "fur-pipistrelle-bat", "fur-frog", "fur-toad", "fur-great-crested-newt", "fur-slow-worm", "fur-shrew", "hearth-pancakes", "hearth-tomato-soup", "hearth-porridge", "hearth-enamel-kettle", "hearth-button-jar", "hearth-tulips", "hearth-snow-globe", "hearth-alarm-clock", "leaf-fly-agaric", "leaf-fern", "leaf-bramble", "leaf-snowdrops", "leaf-bluebells", "leaf-mossy-stone", "leaf-speckled-egg", "leaf-poppy", "leaf-hyacinth", "hearth-reading-glasses", "hearth-wireless", "hearth-boiled-egg", "hearth-library-books", "hearth-spider-plant", "hearth-candlestick", "hearth-pickled-onions", "hearth-pie-bird"]
   },
   {
     "id": "where-bird-table",

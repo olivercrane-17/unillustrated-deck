@@ -233,9 +233,11 @@ export function paletteSlots(reading, ctx) {
   const light = { key: 'light', kind: 'light', role: when ? when.highlight : roles.light }
   const setting = where && { key: 'setting', kind: 'anchor', anchor: anchorFor(where.colours[0]), role: where.role }
   const accentHex = accentHexOf(who)
-  const accent = also
-    ? { key: 'accent', kind: 'anchor', anchor: anchorFor(also.colours[0]), role: `for the ${nameOf(also)}` }
-    : accentHex && { key: 'accent', kind: 'anchor', anchor: anchorFor(accentHex), role: roles.accent }
+  const accent = accentHex && { key: 'accent', kind: 'anchor', anchor: anchorFor(accentHex), role: roles.accent }
+  const alsoSlot = also && { key: 'also', kind: 'anchor', anchor: anchorFor(also.colours[0]), role: `for the ${nameOf(also)}` }
+  // A first mark that names the accent pencil ("the red breast in {accent}")
+  // needs that pencil dealt.
+  const needsAccent = Boolean(accent) && firstMarkTemplate(who, reading.picks).includes('{accent}')
   const complement = { key: 'complement', kind: 'complement', role: rule === 'complement' ? 'the opposite colour: layer it over the first for the shadows' : 'for a spark of the opposite colour' }
 
   let slots
@@ -243,8 +245,8 @@ export function paletteSlots(reading, ctx) {
   else if (rule === 'complement') slots = [main, complement]
   else if (rule === 'mono') slots = [main, dark, light]
   else if (reading.spread === 'quick') slots = [main, dark, accent || light]
-  else if (reading.spread === 'evening') slots = reading.picks.wide ? [main, setting, dark, light] : [main, dark, light]
-  else slots = [main, setting, accent || complement, dark, light]
+  else if (reading.spread === 'evening') slots = [main, reading.picks.wide && setting, dark, needsAccent && accent, light]
+  else slots = [main, setting, alsoSlot || accent || complement, dark, light, alsoSlot && needsAccent && accent]
   slots = slots.filter(Boolean)
   if (rule === 'three') slots = slots.slice(0, 3)
   const max = twist?.effects?.maxPencils
@@ -293,15 +295,36 @@ function rebuildPalette(reading, ctx, { keepSlots = [], avoid = [] } = {}) {
   return reading
 }
 
+// The first-mark line a reading shows (a doing may carry its own).
+function firstMarkTemplate(who, picks) {
+  const doing = who.doing[picks?.doing] || who.doing[0]
+  const marks = doing.firstMark?.length ? doing.firstMark : who.firstMark
+  return marks[(picks?.firstMark || 0) % marks.length]
+}
+
 // Palette names may be plain strings or { name, seasons?, times? }, so a name
 // like "Conker Season" never turns up in spring.
 function paletteName(reading, ctx, mood) {
   const list = ctx.content.palettes?.[mood] || ctx.content.palettes?.warm || ['Pencil Tin']
   const when = reading.cards.when && ctx.content.byId.get(reading.cards.when)
-  const fits = (n) => typeof n === 'string' || ((!n.seasons || !reading.season || n.seasons.includes(reading.season)) && (!n.times || !when || n.times.some((t) => when.timeOfDay.includes(t))))
-  const names = list.filter(fits)
+  const names = list.filter((n) => paletteNameFits(n, reading, when))
   const chosen = pick(paletteRng(reading, 'name'), names.length ? names : list)
   return typeof chosen === 'string' ? chosen : chosen.name
+}
+
+// A name tagged with times ("Owl Light") needs an hour that matches; pages
+// with no hour (quick doodles, small things) only get untimed names.
+function paletteNameFits(n, reading, when) {
+  if (typeof n === 'string') return true
+  if (n.seasons && reading.season && !n.seasons.includes(reading.season)) return false
+  return !n.times || Boolean(when && n.times.some((t) => when.timeOfDay.includes(t)))
+}
+
+// New picture keeps the palette's name while it still suits the new hour.
+function keepPaletteName(oldName, fresh, ctx) {
+  const when = fresh.cards.when && ctx.content.byId.get(fresh.cards.when)
+  const entry = Object.values(ctx.content.palettes || {}).flat().find((n) => (typeof n === 'string' ? n : n.name) === oldName)
+  return !entry || paletteNameFits(entry, fresh, when) ? oldName : fresh.palette.name
 }
 
 // ---------------------------------------------------------------------------
@@ -314,7 +337,7 @@ export function renderText(reading, ctx) {
   const darkest = pencils.slice().sort((a, b) => (ctx.pencilsByCode?.get(a.code)?.lch.L ?? 1) - (ctx.pencilsByCode?.get(b.code)?.lch.L ?? 1))[0]
   const mainP = pencils.find((p) => p.slot === 'main' || p.slot === 'a0') || pencils[0]
   const darkP = pencils.find((p) => p.slot === 'dark') || darkest || mainP
-  const accentP = pencils.find((p) => p.slot === 'accent' || p.slot === 'a1') || mainP
+  const accentP = pencils.find((p) => p.slot === 'accent')
   const twist = reading.cards.twist && byId.get(reading.cards.twist)
   // A lonely-pencil note only stands while that pencil is still dealt.
   const lonelyStill = reading.lonely && pencils.some((p) => p.code === reading.lonely.code)
@@ -360,11 +383,17 @@ export function renderText(reading, ctx) {
       }
       text.sentence = tidy(s)
     }
-    const marks = doing.firstMark?.length ? doing.firstMark : who.firstMark
-    text.firstMark = fill(marks[reading.picks.firstMark % marks.length], {
+    // If the accent pencil isn't dealt (a twist with few pencils), prefer a
+    // first mark that doesn't need it.
+    let mark = firstMarkTemplate(who, reading.picks)
+    if (!accentP && mark.includes('{accent}')) {
+      const marks = (doing.firstMark?.length ? doing.firstMark : who.firstMark).filter((m) => !m.includes('{accent}'))
+      if (marks.length) mark = marks[reading.picks.firstMark % marks.length]
+    }
+    text.firstMark = fill(mark, {
       dark: pencilName(darkP?.code),
       main: pencilName(mainP?.code),
-      accent: pencilName(accentP?.code),
+      accent: pencilName((accentP || mainP)?.code),
     })
   }
   if (twist) brief.push({ key: 'twist', label: 'Twist', text: twist.rule })
@@ -541,7 +570,7 @@ export function swapCard(reading, ctx, position) {
   let who = r.cards.who && byId.get(r.cards.who)
   let where = r.cards.where && byId.get(r.cards.where)
   let when = r.cards.when && byId.get(r.cards.when)
-  const keepSlots = ['main', 'setting', 'accent', 'complement', 'dark', 'light']
+  const keepSlots = ['main', 'setting', 'accent', 'also', 'complement', 'dark', 'light']
   const drop = (...keys) => keys.forEach((k) => { const i = keepSlots.indexOf(k); if (i >= 0) keepSlots.splice(i, 1) })
 
   if (position === 'theme') {
@@ -579,7 +608,7 @@ export function swapCard(reading, ctx, position) {
   } else if (position === 'also') {
     const next = pickAlso(ctx, rng, { who, where, twist, season, exclude: [r.cards.also] })
     if (next) r.cards.also = next.id
-    drop('accent')
+    drop('also')
   } else if (position === 'twist') {
     const next = pickTwist(ctx, rng, { exclude: [r.cards.twist], spread: r.spread, season })
     if (next) r.cards.twist = next.id
@@ -609,7 +638,7 @@ export function swapCard(reading, ctx, position) {
       const next = pickAlso(ctx, subRng(r.seed, 'repair-also', r.swaps[position]), { who, where, twist: twistNow, season })
       if (next) r.cards.also = next.id
       else delete r.cards.also
-      drop('accent')
+      drop('also')
     }
   }
 
@@ -687,7 +716,7 @@ export function newPicture(reading, ctx) {
       const slotMap = new Map(paletteSlots(fresh, ctx).slots.map((sl) => [sl.key, sl]))
       fresh.palette.pencils = fresh.palette.pencils.map((p) => ({ ...p, role: plainRoleIfOff(p, slotMap.get(p.slot), ctx, who) }))
     }
-    fresh.palette.name = reading.palette.name
+    fresh.palette.name = keepPaletteName(reading.palette.name, fresh, ctx)
     return renderText(fresh, ctx)
   }
   const codes = reading.palette.pencils.map((p) => p.code)
@@ -697,7 +726,7 @@ export function newPicture(reading, ctx) {
   const slotByKey = new Map(slots.map((sl) => [sl.key, sl]))
   fresh.palette.pencils = refit.map((p) => ({ ...p, role: plainRoleIfOff(p, slotByKey.get(p.slot), ctx, who), locked: locked.has(p.code) }))
   fresh.palette.bareLights = !fresh.palette.pencils.some((p) => (ctx.pencilsByCode.get(p.code)?.lch.L ?? 0) > 0.84)
-  fresh.palette.name = reading.palette.name
+  fresh.palette.name = keepPaletteName(reading.palette.name, fresh, ctx)
   return renderText(fresh, ctx)
 }
 
@@ -712,6 +741,7 @@ function plainRoleIfOff(p, slot, ctx, who) {
   if (!slot.anchor) return slot.role
   const off = Math.hypot(pencil.lab.L - slot.anchor.lab.L, pencil.lab.a - slot.anchor.lab.a, pencil.lab.b - slot.anchor.lab.b) > 0.16
   if (!off) return slot.role
+  if (slot.key === 'also') return slot.role
   return { main: `for the ${subject}`, setting: 'for the setting', accent: 'for the small details' }[slot.key] || 'for anything else in the picture'
 }
 

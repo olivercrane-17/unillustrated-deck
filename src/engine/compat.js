@@ -38,6 +38,8 @@ export function subjectFitsPlace(subject, place, season, { ignoreScale = false }
 export function whenFitsPlace(when, place, season) {
   if (!inSeason(when, season)) return false
   if (!place) return true
+  // Some hours belong to a few rooms only ("while the kettle boils").
+  if (when.places && !when.places.includes(place.id)) return false
   if (when.scope === 'indoor') return place.scope === 'indoor'
   if (when.sky && place.scope === 'indoor' && !place.window) return false
   if (when.scope === 'any' || place.scope === 'threshold') return true

@@ -332,6 +332,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "timeOfDay": ["dawn", "morning", "afternoon"],
     "scope": "indoor",
+    "places": ["where-warmest-windowsill", "where-pantry-shelf", "where-scrubbed-pine-table", "where-range-cooker", "where-bread-bin", "where-teacup-shelf", "where-under-kitchen-table", "where-willow-pattern-dresser"],
     "mood": "muted",
     "light": "Soften a few edges with your lightest pencil, as if steam has drifted across.",
     "shadow": "for the indoor shadows",

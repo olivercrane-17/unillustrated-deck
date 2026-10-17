@@ -158,6 +158,7 @@ export function validateWhere(r, card, where) {
   checkArrVocab(r, where, card.frames, VOCAB.frames, 'frames', 1, 3)
   checkColours(r, where, card.colours, 1, 2)
   checkRole(r, where + '.role', card.role)
+  if (card.excludes !== undefined && !(Array.isArray(card.excludes) && card.excludes.every((x) => /^(fur|leaf|hearth)-[a-z0-9-]+$/.test(x)))) r.err(where, 'excludes must be an array of subject ids')
   walkText(r, where, card)
 }
 
@@ -303,8 +304,11 @@ function crossCheck(r, byKind) {
     if (titles.has(t)) r.warn('titles', `duplicate title "${c.title}" (${titles.get(t)} and ${c.id})`)
     titles.set(t, c.id)
   }
+  const subjectIds = new Set(subjects.map((s) => s.id))
+  for (const p of wheres) for (const x of p.excludes || []) if (!subjectIds.has(x)) r.err(p.id, `excludes unknown subject ${x}`)
   const fits = (s, p, season) => {
     if (!s.seasons.includes(season) || !p.seasons.includes(season)) return false
+    if (p.excludes?.includes(s.id)) return false
     if (!s.habitats.some((h) => p.admits.includes(h))) return false
     if (SCALE_RANK[s.scale] > SCALE_RANK[p.maxScale]) return false
     return s.doing.some((d) => (!d.seasons || d.seasons.includes(season)) && (d.scope === 'any' || p.scope === 'threshold' || d.scope === p.scope))

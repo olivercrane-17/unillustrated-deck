@@ -1,0 +1,123 @@
+{
+  "textures": {
+    "fur": [
+      "Before any colour goes down, impress whiskers and a few stray pale hairs into the paper with an empty ballpoint pen, so they stay light when you shade over them.",
+      "Build the main colour in short, tapering flicks that follow the way the fur grows, leaving slivers of bare paper between them.",
+      "Add the darkest colour last, only where the fur parts or tucks into shadow, and keep those strokes as short as the rest."
+    ],
+    "feather": [
+      "Sketch where the larger feathers overlap with the lightest possible pressure, like roof tiles running from head to tail.",
+      "Layer the colour in strokes that follow each feather's shaft, and darken a thin band just under every overlapping edge so the feathers sit on top of one another.",
+      "Burnish only the glossy wing and tail feathers, and leave the fluffy breast grainy and unburnished."
+    ],
+    "skin": [
+      "Put the spots, warts or markings in first with a sharp point, then colour around and over them in thin layers.",
+      "Shade in small overlapping circles rather than straight strokes, blending each colour into the next so the surface looks smooth instead of streaky.",
+      "For wet or glossy skin, keep a few crisp specks of bare paper for the shine and burnish right up to their edges."
+    ],
+    "shell": [
+      "Let every stroke follow the curve of the shell, so the marks themselves describe the dome or the spiral.",
+      "Lay the speckles, bands or ridges over a pale base, pressing harder on the side turned away from the light.",
+      "For a polished shell, keep a bright patch of paper for the highlight and burnish the rest; for an eggshell, stop before the wax turns shiny."
+    ],
+    "wing": [
+      "Draw the veins or the outline of the pattern first with a needle-sharp point and the lightest pressure you can manage.",
+      "Fill each cell between the veins with smooth, even layers, building the colour slowly rather than pressing hard.",
+      "For see-through wings, colour the background through them a shade paler, then add a faint cool layer and keep the edges crisp."
+    ],
+    "petal": [
+      "Shade each petal from its base outwards, pressing more firmly near the centre and easing off towards the edge.",
+      "Let your strokes follow the faint veins and ripples, and keep the layers thin so the paper glows through the colour.",
+      "Where one petal tucks behind another, darken the back one with a cooler shade of the same colour rather than grey, and let the colour temperature do the work."
+    ],
+    "foliage": [
+      "Cover the whole leaf with a pale yellow or light green first, since it brightens every green you layer on top.",
+      "Work the darker greens in from the edges and around the veins, leaving the veins as negative space in the lighter layer underneath.",
+      "For deep shade among the leaves, mix a chromatic dark from your darkest green and a red or purple instead of using Black."
+    ],
+    "bark": [
+      "Lay a mid-brown with the side of the lead, letting the grain of the paper break it up into a rough texture for free.",
+      "Draw the cracks and ridges with a sharp, dark pencil, running them the way the bark grows and using hatching to deepen the grooves.",
+      "Catch the light along the raised edges with bare paper or a pale colour, and dab on lichen with a yellow-green."
+    ],
+    "stone": [
+      "Block in the base colour in loose circles with the side of the lead, so the grain of the paper shows through as grit.",
+      "Speckle and vein the stone with a sharp point, varying the pressure so some marks fade away and others stay crisp.",
+      "Shade the underside with a cool colour and add a dark cast shadow where it meets the ground, so the stone looks properly heavy."
+    ],
+    "ceramic": [
+      "Decide where the shine sits before you start, and keep that shape as bare paper all the way through.",
+      "Build the glaze in thin layers that wrap around the form, then burnish for a hard finish and wipe off any wax bloom with a tissue.",
+      "Let a hint of the table colour creep into the shadow side, since glazed pots reflect whatever is beside them."
+    ],
+    "glass": [
+      "Draw what you can see through the glass rather than the glass itself, a shade paler and slightly bent out of shape.",
+      "Put the darkest accents along the rim, the base and the edges, where the glass is thickest.",
+      "Leave the brightest streaks as untouched paper, and if one gets covered, try lifting it back with a dab of sticky tape."
+    ],
+    "metal": [
+      "Look for the sharp jumps in value: polished metal reflects in hard-edged bands, not gentle gradients.",
+      "Lay those bands in with crisp edges, borrowing blues and browns from the surroundings instead of using grey alone.",
+      "Burnish the whole surface firmly and save the brightest glints as bare paper, so it gleams."
+    ],
+    "fabric": [
+      "Lay the main colour over the whole cloth in a light layer, adding a faint cross-hatching if it's a woven fabric like linen or tweed.",
+      "Shade the folds by pressing harder in the creases and easing off over the ridges, where the cloth catches the light.",
+      "Add stripes, checks or sprigs last, bending them as they cross a fold so the pattern sits in the cloth."
+    ],
+    "wool": [
+      "Map the lumps of fleece or the rows of stitches lightly, as loose curls or small V shapes.",
+      "Shade the underside of each curl or stitch and leave the tops paler, so the texture looks raised.",
+      "Keep the pressure moderate and the paper grain showing, as burnishing would flatten all the fluff."
+    ],
+    "wood": [
+      "Lay a pale, warm base in long strokes along the grain, using the side of the lead.",
+      "Draw the grain lines and knots with a sharper, darker pencil, letting them wobble and wander the way real grain does.",
+      "For polished wood, burnish with your lightest warm colour; for weathered wood, keep the grainy texture and add a cool grey-blue in the cracks."
+    ],
+    "paper": [
+      "Leave most of the paper as paper, since a white or cream object needs only a few pale shadows to read.",
+      "Shade creases and folds with a pale cool colour, crisp along one side of the fold and fading out on the other.",
+      "Keep the pressure light throughout, because heavy wax turns shiny and paper should look matt."
+    ],
+    "crust": [
+      "Start with a pale warm yellow over the whole crust, then build the browns on top, darkest where it baked hardest.",
+      "Work the browns in small scumbling circles so the grain of the paper shows through as crumbly texture.",
+      "Burnish a glazed top firmly with your lightest warm colour, but leave the cut side and the crumb rough and pale."
+    ],
+    "fruit": [
+      "Find the brightest highlight and draw a faint ring round it, so you remember to leave it as bare paper.",
+      "Layer the local colour in strokes that curve around the fruit, dropping a touch of green into the shadow of a red one, or purple into a yellow one.",
+      "Burnish firmly with White or your lightest colour over everything but the highlight, so the skin looks taut and glossy."
+    ],
+    "liquid": [
+      "Colour the surface of a drink or soup in smooth, level strokes, slightly darker towards the far side of the bowl or cup.",
+      "Leave a clean sliver of paper where the light reflects, and a darker line where the liquid meets its container.",
+      "For a water drop, put the darkest part on the side facing the light, a glow on the far side and a speck of bare paper for the highlight."
+    ]
+  },
+  "glossary": {
+    "burnish": "Press firmly with a light colour or a blender pencil to melt the wax layers into a smooth, shiny finish.",
+    "layer": "One light pass of colour. Coloured pencils build up best in several thin layers rather than one heavy one.",
+    "value": "How light or dark a colour is. Get the values right and the colours can be almost anything.",
+    "wax bloom": "A cloudy, whitish haze that can rise on heavy layers of wax-based pencil. Wipe it away gently with a tissue.",
+    "toned paper": "Paper in a colour other than white, such as tan, grey or black. It gives you a ready-made middle tone, so you only add the lights and darks.",
+    "chromatic dark": "A dark made by layering deep colours, such as a dark green with a red or purple, instead of using black. It looks richer and livelier.",
+    "colour temperature": "Whether a colour leans warm (towards red, orange and yellow) or cool (towards blue, green and violet). Warm colours seem to come forward and cool ones to sit back.",
+    "impress": "Press a line into the paper with a blunt point before colouring. The pencil skims over the dent and leaves a fine pale line, perfect for whiskers and veins.",
+    "hatching": "Shading with rows of parallel strokes. The closer the lines, the darker it reads.",
+    "cross-hatching": "Hatching in two or more directions, one set laid across another, for darker values or a woven look.",
+    "scumbling": "Shading in small, overlapping circles or squiggles, for an even, slightly textured surface with no visible strokes.",
+    "lifting": "Taking colour back off the paper by dabbing it with sticky tape or a kneadable eraser. It works best on light layers that haven't been burnished.",
+    "blending": "Smoothing one colour into another, either by layering them lightly or by burnishing them together.",
+    "local colour": "The actual colour of a thing before light and shadow change it. A tomato's local colour is red, even where its shadow side looks nearly purple.",
+    "negative space": "The shapes around and between things. Colouring up to an edge, instead of drawing the thing itself, is a neat way to leave pale shapes behind.",
+    "blender pencil": "A colourless wax pencil for blending and burnishing without adding colour. White or your lightest colour can stand in for one."
+  },
+  "paper": {
+    "dark": "Black or navy paper makes White and Indigo Blue glow. Put White down first under any pale colour so it doesn't sink into the dark.",
+    "tan": "Kraft or tan paper gives you a free mid-tone. Add only the lights and the darks, and let the paper do the rest.",
+    "grey": "Grey paper gives you a calm middle value, so press White firmly for the highlights and let a dark do the shadows.",
+    "white": "White paper is your brightest highlight, so decide where the light sits and leave those spots untouched from the very start."
+  }
+}

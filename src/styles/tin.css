@@ -1,1 +1,671 @@
-/* tin view */
+/* ---------- Your tin ---------- */
+
+/* The global focus ring is pale gold, made for the felt. On paper it needs ink. */
+.tin .paper :focus-visible,
+.looks-off-sheet :focus-visible {
+  outline-color: var(--suit-hearth);
+}
+
+.tin-page-head {
+  margin-bottom: 18px;
+}
+.tin-label-small {
+  font-size: 14px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cream-faint);
+}
+
+/* ---------- The "which purple?" question ---------- */
+.tin-variants {
+  max-width: 560px;
+  margin: 0 auto;
+}
+.tin-question {
+  position: relative;
+  margin-bottom: 22px;
+  padding: 22px 18px 16px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px var(--gilt-mid), var(--shadow-lift);
+  animation: tin-rise 360ms var(--ease-soft);
+}
+.tin-question::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 5px;
+  border-radius: var(--radius-panel) var(--radius-panel) 0 0;
+  background: var(--gilt-gradient);
+}
+.tin-q-kicker {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--suit-hearth);
+}
+.tin-question h2 {
+  font-size: 26px;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.tin-q-note {
+  margin: 8px 0 16px;
+  font-size: 16px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.tin-q-options {
+  display: grid;
+  gap: 8px;
+}
+.tin-q-option {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 68px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 12px;
+  background: #fbf7ee;
+  box-shadow: inset 0 0 0 1px var(--paper-edge), 0 1px 2px rgba(42, 33, 28, 0.08);
+  color: var(--ink);
+  text-align: left;
+  transition: transform 160ms var(--ease-soft), box-shadow 160ms var(--ease-soft);
+}
+.tin-q-option:hover {
+  box-shadow: inset 0 0 0 1.5px var(--gilt-mid), 0 3px 8px rgba(42, 33, 28, 0.12);
+}
+.tin-q-option:active {
+  transform: scale(0.99);
+}
+.tin-q-option[aria-pressed='true'] {
+  box-shadow: inset 0 0 0 2px var(--suit-leaf);
+}
+.tin-q-swatch .pencil-swatch.big {
+  width: 88px;
+  height: 27px;
+}
+.tin-q-name {
+  min-width: 0;
+  line-height: 1.25;
+}
+.tin-q-name code {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+.tin-q-name strong {
+  font-size: 18px;
+  font-weight: 600;
+}
+.tin-q-name em {
+  margin-left: 6px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.tin-q-tick {
+  width: 24px;
+  height: 24px;
+  color: var(--suit-leaf);
+}
+.tin-q-tick svg {
+  width: 100%;
+  height: 100%;
+}
+.tin-q-keep {
+  display: flex;
+  width: fit-content;
+  margin: 8px auto 0;
+}
+
+.tin-answer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0 2px;
+  margin: -6px auto 14px;
+  font-size: 15px;
+  color: var(--cream-soft);
+  text-align: center;
+}
+.tin-answer strong {
+  font-weight: 600;
+  color: var(--cream);
+}
+.tin-answer .btn-text {
+  font-size: 15px;
+}
+
+/* ---------- Presets and the count ---------- */
+.tin-start {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  max-width: 560px;
+  margin: 0 auto 22px;
+  text-align: center;
+}
+.tin-presets .chip {
+  min-width: 72px;
+  font-size: 15.5px;
+}
+.tin-preset-note {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--gilt-light);
+  transform: rotate(-1.2deg);
+}
+
+.tin-summary {
+  max-width: 560px;
+  margin: 0 auto 14px;
+  text-align: center;
+}
+.tin-count {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 27px;
+  letter-spacing: 0.05em;
+  line-height: 1.15;
+  color: var(--cream);
+}
+.tin-truth {
+  margin: 4px 0 0;
+  font-size: 14.5px;
+  font-style: italic;
+  color: var(--cream-faint);
+}
+.tin-empty {
+  max-width: 38ch;
+  margin: 14px auto 0;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgba(232, 203, 126, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(232, 203, 126, 0.42);
+  color: var(--cream);
+  font-size: 15.5px;
+}
+.tin-empty[hidden] {
+  display: none;
+}
+
+/* ---------- Search and filters (stay in reach while scrolling) ---------- */
+.tin-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: grid;
+  gap: 8px;
+  margin: 0 calc(var(--gutter) * -1) 14px;
+  padding: 10px var(--gutter);
+  background: var(--felt-deep);
+  background: color-mix(in srgb, var(--felt-deep) 90%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--felt-line);
+}
+.tin-search {
+  position: relative;
+  display: block;
+}
+.tin-search-icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  color: var(--ink-soft);
+  pointer-events: none;
+}
+.tin-search-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.tin-search-input {
+  display: block;
+  width: 100%;
+  padding-left: 42px;
+  font-size: 16px;
+}
+.tin-search-input::placeholder {
+  color: var(--ink-soft);
+  opacity: 0.8;
+}
+.tin-filters .chip {
+  min-width: 64px;
+}
+
+/* ---------- Families ---------- */
+.tin-groups {
+  display: grid;
+  gap: 14px;
+}
+.tin-group {
+  padding: 12px 14px 4px;
+}
+.tin-group[hidden] {
+  display: none;
+}
+.tin-group-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 8px;
+}
+.tin-group-head h2 {
+  font-size: 23px;
+  color: var(--ink);
+}
+.tin-group-actions {
+  display: flex;
+  margin-right: -8px;
+}
+.tin-group-actions .btn-text {
+  padding: 6px 8px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+.tin-group-actions .btn-text[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: default;
+  text-decoration-color: transparent;
+}
+.tin-ribbon {
+  height: 6px;
+  margin: 2px 0 4px;
+  border-radius: 99px;
+  box-shadow: inset 0 0 0 1px rgba(42, 33, 28, 0.1);
+}
+
+.tin-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.tin-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 2px;
+  border-top: 1px solid rgba(42, 33, 28, 0.09);
+  scroll-margin-top: 140px;
+  scroll-margin-bottom: 24px;
+}
+.tin-row:first-child {
+  border-top: 0;
+}
+.tin-row[hidden] {
+  display: none;
+}
+.tin-label {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 0;
+  min-height: 58px;
+  padding: 6px 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.tin-check {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  border: 1.5px solid var(--ink-faint);
+  border-radius: 7px;
+  background: #fbf7ee;
+  cursor: pointer;
+  transition: background-color 160ms var(--ease-soft), border-color 160ms var(--ease-soft);
+}
+.tin-label:hover .tin-check {
+  border-color: var(--ink-soft);
+}
+.tin-check:checked {
+  background: var(--suit-leaf);
+  border-color: var(--suit-leaf);
+}
+.tin-check:checked::after {
+  content: '';
+  width: 7px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2.2px 2.2px 0;
+  transform: translateY(-1px) rotate(45deg);
+}
+.tin-check:focus-visible {
+  outline-offset: 2px;
+}
+.tin-swatch {
+  display: block;
+  flex: none;
+}
+.tin-swatch .pencil-swatch {
+  width: 52px;
+  height: 16px;
+  transition: opacity 220ms var(--ease-soft);
+}
+.tin-row:not(.is-owned) .tin-swatch .pencil-swatch {
+  opacity: 0.38;
+}
+.tin-name {
+  min-width: 0;
+  line-height: 1.25;
+}
+.tin-name code {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+.tin-name strong {
+  display: block;
+  font-weight: 600;
+  font-size: 16.5px;
+  color: var(--ink);
+  overflow-wrap: break-word;
+}
+.tin-row:not(.is-owned) .tin-name strong {
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.tin-retired {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+.tin-blender {
+  display: block;
+  margin-top: 2px;
+  font-size: 13.5px;
+  line-height: 1.3;
+  color: var(--ink-soft);
+}
+.tin-adjusted {
+  display: inline-block;
+  font-family: var(--font-hand);
+  font-size: 17px;
+  line-height: 1;
+  color: var(--suit-hearth);
+}
+.tin-adjusted[hidden] {
+  display: none;
+}
+.tin-star {
+  color: var(--ink-faint);
+}
+.tin-star[aria-pressed='true'] {
+  color: var(--gilt-dark);
+  background: transparent;
+}
+.tin-off {
+  padding: 6px 4px 6px 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  color: var(--ink-soft);
+}
+
+.tin-nomatch {
+  margin: 8px auto 24px;
+}
+
+/* ---------- The print invitation ---------- */
+.tin-print-cta {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  max-width: 46ch;
+  margin: 30px auto 8px;
+  padding-top: 22px;
+  border-top: 1px solid var(--felt-line);
+  text-align: center;
+  color: var(--cream-soft);
+}
+.tin-print-cta p {
+  margin: 0;
+  font-size: 15px;
+}
+.tin-print-cta .btn {
+  margin-top: 4px;
+}
+
+/* ---------- Tablet and desktop: rows side by side within each family ---------- */
+@media (min-width: 720px) {
+  .tin-toolbar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 16px;
+    padding: 10px 12px;
+    border: 1px solid var(--felt-line);
+    border-radius: var(--radius-panel);
+  }
+  .tin-filters {
+    justify-content: flex-end;
+  }
+  .tin-group {
+    padding: 14px 20px 6px;
+  }
+  .tin-rows {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 28px;
+  }
+  .tin-row:nth-child(-n + 2) {
+    border-top: 0;
+  }
+}
+/* ---------- "Looks off?" sheet ---------- */
+.looks-off h2 {
+  font-size: 27px;
+}
+.lo-which {
+  margin: 2px 0 6px;
+  font-size: 17px;
+}
+.lo-which code {
+  margin-right: 2px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+}
+.lo-how {
+  margin: 0 0 16px;
+  font-size: 15.5px;
+  color: var(--ink-soft);
+}
+.lo-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin: 0 0 16px;
+}
+.lo-side {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 12px 10px;
+  border-radius: 14px;
+  background: #fbf7ee;
+  box-shadow: inset 0 0 0 1px var(--paper-edge);
+}
+.lo-chip {
+  display: block;
+  width: 100%;
+  height: 92px;
+  border-radius: 10px 14px 9px 12px;
+  background-image: var(--grain);
+  box-shadow: inset 0 0 0 1px rgba(42, 33, 28, 0.12);
+}
+.lo-pencil .pencil-swatch.big {
+  width: 104px;
+  height: 32px;
+}
+.lo-side figcaption {
+  display: grid;
+  text-align: center;
+  line-height: 1.25;
+}
+.lo-cap {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.08em;
+}
+.lo-hex {
+  font-size: 13.5px;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+}
+.lo-field {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 18px;
+}
+.lo-label {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 0.08em;
+}
+.lo-input {
+  width: 100%;
+  height: 56px;
+  padding: 5px;
+  border: 1px solid var(--paper-edge);
+  border-radius: 12px;
+  background: #fbf7ee;
+  cursor: pointer;
+}
+.lo-input::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.lo-input::-webkit-color-swatch {
+  border: 0;
+  border-radius: 8px;
+}
+.lo-input::-moz-color-swatch {
+  border: 0;
+  border-radius: 8px;
+}
+.lo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+}
+.lo-actions .btn-gilt {
+  min-width: 150px;
+}
+.lo-truth {
+  margin: 14px 0 0;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+@keyframes tin-rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+/* ---------- The swatch chart (print only) ---------- */
+.tin-print {
+  display: none;
+}
+@media print {
+  @page {
+    margin: 12mm;
+  }
+  body.has-tin-print {
+    background: #fff !important;
+    color: #111;
+  }
+  body.has-tin-print > :not(.tin-print) {
+    display: none !important;
+  }
+  body.has-tin-print > .tin-print {
+    display: block;
+  }
+  .tin-print {
+    font-family: var(--font-body);
+    color: #111;
+  }
+  .tp-head h1 {
+    margin: 0;
+    font-size: 22pt;
+    letter-spacing: 0.06em;
+  }
+  .tp-meta {
+    margin: 2pt 0 0;
+    font-size: 10pt;
+    color: #333;
+  }
+  .tp-how {
+    max-width: 150mm;
+    margin: 4pt 0 6mm;
+    font-size: 9.5pt;
+    color: #333;
+  }
+  .tp-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 3mm 4mm;
+  }
+  .tp-family {
+    grid-column: 1 / -1;
+    margin: 2mm 0 0;
+    padding-bottom: 1mm;
+    border-bottom: 0.5pt solid #999;
+    font-size: 10.5pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    break-after: avoid;
+  }
+  .tp-cell {
+    break-inside: avoid;
+  }
+  .tp-box {
+    height: 15mm;
+    border: 0.6pt solid #555;
+    border-radius: 1.5mm;
+  }
+  .tp-label {
+    margin: 1.2mm 0 0;
+    font-size: 8pt;
+    line-height: 1.2;
+  }
+  .tp-label strong {
+    font-family: var(--font-display);
+    letter-spacing: 0.06em;
+  }
+  .tp-empty {
+    font-size: 12pt;
+  }
+}

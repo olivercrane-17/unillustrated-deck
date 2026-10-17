@@ -124,6 +124,7 @@ Rules:
 - `frames`: 1 to 3 composition diagrams that suit the place.
 - `colours`: 1 or 2 hex colours of the setting (anchors the setting pencil).
 - `role`: one "for the ..." line for the setting pencil.
+- `excludes` (optional): subject ids that must never be dealt here, for pairings the habitat tags allow but that read wrong ("a kingfisher on the bird table", "some bluebells among the bluebells"). Use it sparingly; prefer fixing tags when the tag itself is wrong.
 - Balance: about half indoor or threshold, half outdoor. Every place must admit at least 6 subjects from the full deck in every season, so prefer common habitats.
 
 ## When cards: `when.json`

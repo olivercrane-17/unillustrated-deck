@@ -11,7 +11,7 @@
       { "t": "is rolled up into a tight, prickly ball", "scope": "any" },
       { "t": "is scratching behind one ear with a back foot", "scope": "any" },
       { "t": "is nosing at a windfall apple", "scope": "outdoor", "seasons": ["autumn"] },
-      { "t": "is asleep, wound up tight in a bundle of dry leaves", "scope": "outdoor", "seasons": ["autumn", "winter"] }
+      { "t": "is hibernating inside a bundle of dry leaves", "scope": "outdoor", "seasons": ["autumn", "winter"] }
     ],
     "close": ["Just the hedgehog, a nose and two black-bead eyes peeping out of the prickles.", "Only the hedgehog, mid-trundle, with one front foot lifted."],
     "scale": "small",
@@ -19,12 +19,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "night",
     "colours": ["#7A5A3D", "#D9C6A3", "#3B2C22"],
+    "accent": "#B48474",
     "texture": "fur",
     "roles": {
       "main": "for the spines",
       "dark": "for the nose, the eyes and the shadow under the belly",
       "light": "for the cream tips of the spines",
-      "accent": "for the pinkish-brown feet and face"
+      "accent": "for the pinkish-brown feet"
     },
     "firstMark": ["Start with the nose: a small, polished point of {dark} at the end of the snout.", "Start with the spines in short, fanned flicks of {main}, working back from the face."]
   },
@@ -47,6 +48,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "night",
     "colours": ["#C98A3E", "#E9D6AE"],
+    "accent": "#E8A39B",
     "texture": "fur",
     "roles": {
       "main": "for the fur",
@@ -76,12 +78,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "night",
     "colours": ["#8E6744", "#EEE7D9"],
+    "accent": "#D9A094",
     "texture": "fur",
     "roles": {
       "main": "for the warm brown back",
       "dark": "for the bulging black eyes",
       "light": "for the white belly and feet",
-      "accent": "for the pink ears and tail"
+      "accent": "for the pink light glowing through the ears"
     },
     "firstMark": ["Start with the eye: a round, glossy blob of {dark}, bigger than you think.", "Start with the ear, a light outline of {main} shaped like a scallop shell."]
   },
@@ -91,11 +94,11 @@
     "title": "The Harvest Mouse",
     "a": "a harvest mouse",
     "the": "the harvest mouse",
-    "phrases": ["lighter than a two-pence piece", "a tail that holds on", "a nest woven from leaves"],
+    "phrases": ["lighter than a two-pence piece", "a tail that holds on", "a nest woven from living grass"],
     "doing": [
       { "t": "is nibbling a single grain of wheat", "scope": "any" },
       { "t": "is asleep with its tail wrapped over its nose", "scope": "any" },
-      { "t": "is sitting up very straight to look around", "scope": "any" },
+      { "t": "is sitting up on its haunches to look about", "scope": "any" },
       { "t": "is clinging to a swaying stalk with its tail wound round it", "scope": "outdoor" },
       { "t": "is weaving a ball-shaped nest from shredded leaves", "scope": "outdoor", "seasons": ["summer", "autumn"] }
     ],
@@ -105,12 +108,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#C47A3D", "#F2EBDD"],
+    "accent": "#DDA295",
     "texture": "fur",
     "roles": {
       "main": "for the russet back",
       "dark": "for the eye and the shadow under the chin",
       "light": "for the white underside",
-      "accent": "for the pink feet and the tip of the nose"
+      "accent": "for the pink, grasping feet"
     },
     "firstMark": ["Start with the tail: one curling line of {main} wound round the stem.", "Start with the eye, a single speck of {dark}, then the short snout just in front of it."]
   },
@@ -125,21 +129,22 @@
       { "t": "is stripping a pine cone scale by scale", "scope": "any" },
       { "t": "is sitting up with its tail arched over its back", "scope": "any" },
       { "t": "is frozen mid-chew and staring straight back", "scope": "any" },
-      { "t": "is carefully hiding a nut for later", "scope": "outdoor", "seasons": ["autumn"] },
+      { "t": "is tucking a hazelnut away for later", "scope": "outdoor", "seasons": ["autumn"] },
       { "t": "is hanging head-down by its back feet", "scope": "outdoor" }
     ],
-    "close": ["Just the squirrel and its enormous tail, nothing else.", "Only the squirrel's face and those tufted ears, as big as the paper allows."],
+    "close": ["Just the squirrel and its great plume of a tail, nothing else.", "Only the squirrel's face and those tufted ears, as big as the paper allows."],
     "scale": "small",
     "habitats": ["woodland", "garden", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#B4552C", "#EAD9BE", "#6E3420"],
+    "accent": "#5C2F1E",
     "texture": "fur",
     "roles": {
       "main": "for the russet fur",
       "dark": "for the eye and the deepest parts of the tail",
       "light": "for the cream chest",
-      "accent": "for the darker tips of the ear tufts"
+      "accent": "for the dark tips of the ear tufts"
     },
     "firstMark": ["Start with the ear tufts: two quick flicks of {main} pointing up and out.", "Start with the eye, a dark almond of {dark} with a pinhead of paper left for the shine."]
   },
@@ -163,6 +168,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#A67C50", "#D8C3A0", "#2B2421"],
+    "accent": "#D99A2B",
     "texture": "fur",
     "roles": {
       "main": "for the tawny back",
@@ -170,7 +176,7 @@
       "light": "for the pale chin and belly",
       "accent": "for the amber eye"
     },
-    "firstMark": ["Start with the black tips of the ears in {dark}, then work down the long ears.", "Start with the pupil, one round of {dark} set inside a wide amber eye."]
+    "firstMark": ["Start with the sooty ear tips in {dark}, then follow the ears down to the head.", "Start with the pupil, a firm circle of {dark} set inside a wide amber eye."]
   },
   {
     "id": "fur-wild-rabbit",
@@ -182,7 +188,7 @@
     "doing": [
       { "t": "is washing its face with both front paws", "scope": "any" },
       { "t": "is nibbling a dandelion leaf from the tip down", "scope": "any" },
-      { "t": "is lying stretched out with its back legs kicked out behind", "scope": "any" },
+      { "t": "is lying flat with its back legs kicked out behind", "scope": "any" },
       { "t": "is thumping a back foot in warning", "scope": "any" },
       { "t": "is hopping off with its white tail bobbing", "scope": "outdoor" }
     ],
@@ -192,6 +198,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#8B7760", "#F2EDE4", "#B98A62"],
+    "accent": "#C06A35",
     "texture": "fur",
     "roles": {
       "main": "for the grey-brown coat",
@@ -222,6 +229,7 @@
     "seasons": ["spring", "summer"],
     "active": "any",
     "colours": ["#C2652F", "#F0E6D4", "#3A2B24"],
+    "accent": "#CFA046",
     "texture": "fur",
     "roles": {
       "main": "for the ginger coat",
@@ -229,7 +237,7 @@
       "light": "for the white chin and the tip of the tail",
       "accent": "for the honey-brown eyes"
     },
-    "firstMark": ["Start with the nose: a small triangle of {dark} at the end of the muzzle.", "Start with the ears, two big triangles outlined lightly in {main}."]
+    "firstMark": ["Start with the nose: a small triangle of {dark} at the end of the muzzle.", "Start with the ears, two tall triangles outlined lightly in {main}."]
   },
   {
     "id": "fur-badger",
@@ -251,12 +259,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "night",
     "colours": ["#9B958C", "#1F1C1B", "#F1EFEA"],
+    "accent": "#EEEBE4",
     "texture": "fur",
     "roles": {
       "main": "for the grizzled grey coat",
       "dark": "for the black stripes and legs",
       "light": "for the white stripes on the face",
-      "accent": "for the pale tips of the ears"
+      "accent": "for the white tips of the ears"
     },
     "firstMark": ["Start with the two black face stripes in {dark}, leaving bare paper for the white between them.", "Start with the body as one low wedge of {main}, heavy at the shoulders."]
   },
@@ -271,7 +280,8 @@
       { "t": "is juggling a small stone between its front paws", "scope": "any" },
       { "t": "is rolling over and over for the fun of it", "scope": "any" },
       { "t": "is shaking itself dry with drops flying", "scope": "any" },
-      { "t": "is swimming low with a V of ripples behind it", "scope": "outdoor" }
+      { "t": "is galloping along in a rolling, humpbacked run", "scope": "outdoor" },
+      { "t": "is sitting up with its whiskers dripping", "scope": "any" }
     ],
     "close": ["Just the otter's head, sleek and wet, with its whiskers fanned out.", "Only the otter, the whole length of it, from whiskered nose to thick, tapering tail."],
     "scale": "medium",
@@ -279,6 +289,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#5A4230", "#CDB89B", "#2A211B"],
+    "accent": "#D3BE9D",
     "texture": "fur",
     "roles": {
       "main": "for the dark brown coat",
@@ -308,12 +319,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#A66A3B", "#F1E6CF", "#1E1A18"],
+    "accent": "#C48F86",
     "texture": "fur",
     "roles": {
       "main": "for the ginger back",
       "dark": "for the black tail tip and the eye",
       "light": "for the cream bib and belly",
-      "accent": "for the pinkish nose"
+      "accent": "for the pinkish-brown nose"
     },
     "firstMark": ["Start with the tail tip: a small, solid flame of {dark}.", "Start with the line where ginger meets cream, a wavy edge of {main} along the side."]
   },
@@ -325,11 +337,11 @@
     "the": "the mole",
     "phrases": ["velvet that brushes both ways", "hands like pink spades", "the maker of molehills"],
     "doing": [
-      { "t": "is peering about with a puzzled air", "scope": "any" },
-      { "t": "is twitching its long snout at the air", "scope": "any" },
+      { "t": "is pausing with its nose up, as if it has forgotten something", "scope": "any" },
+      { "t": "is wiggling its long snout to sniff the air", "scope": "any" },
       { "t": "is rowing itself along with its broad front paws", "scope": "any" },
       { "t": "is surfacing nose first from a fresh molehill", "scope": "outdoor" },
-      { "t": "is shovelling away with great energy", "scope": "outdoor" }
+      { "t": "is shovelling soil aside with both spade-like hands", "scope": "outdoor" }
     ],
     "close": ["Just the mole, front on, with those two enormous pink hands.", "Only the mole's head and paws, poking up out of the earth."],
     "scale": "small",
@@ -337,6 +349,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#2F2C2E", "#D8A39C"],
+    "accent": "#D8A39C",
     "texture": "fur",
     "roles": {
       "main": "for the dark grey fur",
@@ -357,7 +370,7 @@
       { "t": "is stretching out one wing like a paper fan", "scope": "any" },
       { "t": "is grooming its fur with quick, busy licks", "scope": "any" },
       { "t": "is clinging on with its wings folded tight", "scope": "any" },
-      { "t": "is flitting about in quick zigzags", "scope": "outdoor" },
+      { "t": "is flitting about in jinking zigzags", "scope": "outdoor" },
       { "t": "is hanging upside down by its toes", "scope": "indoor" }
     ],
     "close": ["Just the bat, wings spread wide, every finger bone showing through.", "Only the pipistrelle, folded up and hanging, about the size of a walnut."],
@@ -366,12 +379,13 @@
     "seasons": ["spring", "summer", "autumn"],
     "active": "night",
     "colours": ["#6D4F3F", "#382D2A"],
+    "accent": "#AE6A45",
     "texture": "fur",
     "roles": {
       "main": "for the warm brown fur",
-      "dark": "for the wings and the face",
-      "light": "for the light showing through the stretched wing",
-      "accent": "for the faint rosy tinge in the ears"
+      "dark": "for the wings, the ears and the face",
+      "light": "for the paler fur underneath",
+      "accent": "for the reddish glow where light shines through the wing"
     },
     "firstMark": ["Start with the body: a furry oval of {main}, about the size of your thumbnail.", "Start with the wing bones, four fine lines of {dark} fanning out from the wrist."]
   },
@@ -383,26 +397,27 @@
     "the": "the roe deer fawn",
     "phrases": ["legs still too long for it", "left hidden, not lost", "dapples down its back"],
     "doing": [
-      { "t": "is lying low and quiet with its ears flat", "scope": "any" },
+      { "t": "is lying curled up with its chin pressed flat", "scope": "any" },
       { "t": "is wobbling to its feet on long thin legs", "scope": "any" },
       { "t": "is standing alert with its ears turned forward", "scope": "any" },
       { "t": "is reaching up to taste a hazel leaf", "scope": "any" },
-      { "t": "is springing away with its white rump flared", "scope": "outdoor" }
+      { "t": "is springing away with its pale rump flashing", "scope": "outdoor" }
     ],
-    "close": ["Just the fawn, tucked up tight, with every spot along its back.", "Only the fawn's face: shiny black nose, big ears, bigger eyes."],
+    "close": ["Just the fawn, legs folded under, with every spot along its back.", "Only the fawn's face: shiny black nose, big ears, bigger eyes."],
     "scale": "medium",
     "habitats": ["woodland", "meadow", "hedgerow"],
     "seasons": ["spring", "summer"],
     "active": "any",
     "colours": ["#A96B3D", "#F1E3C8", "#2A2220"],
+    "accent": "#EFE9DD",
     "texture": "fur",
     "roles": {
       "main": "for the chestnut coat",
       "dark": "for the nose and the huge eyes",
       "light": "for the pale spots along the back",
-      "accent": "for the dark rims of the big ears"
+      "accent": "for the white patch on the chin"
     },
-    "firstMark": ["Start with the eye: a big oval of {dark}, set halfway down the long face.", "Start with the spots: mark them out lightly, then colour {main} round them and leave the paper bare."]
+    "firstMark": ["Start with the eye: a wide, glossy oval of {dark}, set halfway down the long face.", "Start with the spots: mark them lightly, then colour {main} round them so they stay bare paper."]
   },
   {
     "id": "fur-red-deer-stag",
@@ -410,7 +425,7 @@
     "title": "The Red Deer Stag",
     "a": "a red deer stag",
     "the": "the red deer stag",
-    "phrases": ["antlers like bare branches", "a shaggy ruff at the throat", "a roar that carries for miles"],
+    "phrases": ["antlers like bare branches", "a shaggy ruff at the throat", "a roar that carries down the glen"],
     "doing": [
       { "t": "is standing side on with its head held high", "scope": "any" },
       { "t": "is grazing with one ear turned back", "scope": "any" },
@@ -423,6 +438,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#8B5A3A", "#C9B58F", "#4A3527"],
+    "accent": "#E6DCC4",
     "texture": "fur",
     "roles": {
       "main": "for the red-brown coat",
@@ -440,10 +456,10 @@
     "the": "the frog",
     "phrases": ["legs folded like deckchairs", "a throat forever gulping", "a splash, then spreading rings"],
     "doing": [
-      { "t": "is sitting with its throat pulsing", "scope": "any" },
+      { "t": "is sitting propped up on its front feet, toes turned in", "scope": "any" },
       { "t": "is mid-jump with its back legs at full stretch", "scope": "any" },
       { "t": "is blinking at you with gold-ringed eyes", "scope": "any" },
-      { "t": "is floating with just its eyes above the surface", "scope": "outdoor" },
+      { "t": "is peeping out with only its eyes and nose showing", "scope": "outdoor" },
       { "t": "is purring softly with its throat puffed out", "scope": "outdoor", "seasons": ["spring"] }
     ],
     "close": ["Just the frog, facing you, two gold eyes and a wide, solemn mouth.", "Only the frog's back foot, every long webbed toe, and nothing else."],
@@ -452,6 +468,7 @@
     "seasons": ["spring", "summer", "autumn"],
     "active": "any",
     "colours": ["#8E8748", "#4C412C", "#E2D7AE"],
+    "accent": "#CFA43A",
     "texture": "skin",
     "roles": {
       "main": "for the olive-brown skin",
@@ -472,7 +489,7 @@
       { "t": "is plodding along one foot at a time", "scope": "any" },
       { "t": "is sitting squat with its chin tucked low", "scope": "any" },
       { "t": "is swallowing hard with its eyes squeezed shut", "scope": "any" },
-      { "t": "is setting off with great determination", "scope": "any" },
+      { "t": "is heaving itself over a pebble with great determination", "scope": "any" },
       { "t": "is wriggling backwards to bury itself", "scope": "outdoor", "seasons": ["autumn"] }
     ],
     "close": ["Just the toad, chin down and copper eyes up.", "Only the toad, life size, every wart a small raised bump."],
@@ -481,6 +498,7 @@
     "seasons": ["spring", "summer", "autumn"],
     "active": "night",
     "colours": ["#8A6B48", "#C47A2E", "#5B4732"],
+    "accent": "#C47A2E",
     "texture": "skin",
     "roles": {
       "main": "for the warty brown back",
@@ -501,7 +519,7 @@
       { "t": "is creeping along on splayed toes", "scope": "any" },
       { "t": "is resting with its chin on its front feet", "scope": "any" },
       { "t": "is turning to show its orange underside", "scope": "any" },
-      { "t": "is drifting with its legs spread wide", "scope": "outdoor" },
+      { "t": "is tucked half under a flat stone with its tail showing", "scope": "outdoor" },
       { "t": "is waving its tail to show off its crest", "scope": "outdoor", "seasons": ["spring"] }
     ],
     "close": ["Just the newt, seen from below, with its orange belly and black spots.", "Only the newt in profile, crest and all, from nose to tail tip."],
@@ -510,6 +528,7 @@
     "seasons": ["spring", "summer", "autumn"],
     "active": "night",
     "colours": ["#3B3631", "#E0791F", "#1A1817"],
+    "accent": "#E0791F",
     "texture": "skin",
     "roles": {
       "main": "for the dark warty back",
@@ -529,7 +548,7 @@
     "doing": [
       { "t": "is coiled up in a loose figure of eight", "scope": "any" },
       { "t": "is lying quite motionless with its eyes half closed", "scope": "any" },
-      { "t": "is sliding along in slow, smooth curves", "scope": "any" },
+      { "t": "is sliding along in slow, lazy curves", "scope": "any" },
       { "t": "is tasting the air with a flick of its tongue", "scope": "any" }
     ],
     "close": ["Just the slow worm, coiled in a loose spiral like a dropped necklace.", "Only the slow worm's head: a calm eye and the faint smile of its mouth."],
@@ -538,12 +557,13 @@
     "seasons": ["spring", "summer", "autumn"],
     "active": "day",
     "colours": ["#A9844F", "#4B3725", "#D8B984"],
+    "accent": "#A9502E",
     "texture": "skin",
     "roles": {
       "main": "for the bronze scales",
       "dark": "for the dark stripe down each side",
       "light": "for the shine running along the back",
-      "accent": "for the warm brown eye"
+      "accent": "for the copper-red eye"
     },
     "firstMark": ["Start with the shine: draw a thin line along the back, keep it as bare paper and lay {main} on either side.", "Start with the dark stripe along the flank in one unbroken line of {dark}."]
   },
@@ -557,15 +577,16 @@
     "doing": [
       { "t": "is munching a grass stem like a stick of celery", "scope": "any" },
       { "t": "is sitting hunched with its fur fluffed out", "scope": "any" },
-      { "t": "is grooming its round belly", "scope": "any" },
-      { "t": "is paddling along with just its head showing", "scope": "outdoor" }
+      { "t": "is combing its belly fur with both front paws", "scope": "any" },
+      { "t": "is sitting dripping wet with its fur in spikes", "scope": "outdoor" }
     ],
-    "close": ["Just the water vole, sitting up to eat, a stem held to its mouth.", "Only the vole's round face and blunt nose, drawn large."],
+    "close": ["Just the water vole, sitting up to eat, a stem held to its mouth.", "Only the vole's blunt face and bright bead of an eye, drawn large."],
     "scale": "small",
     "habitats": ["water", "hedgerow"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#6E4F35", "#A7865F"],
+    "accent": "#B88A7C",
     "texture": "fur",
     "roles": {
       "main": "for the rich brown fur",
@@ -573,7 +594,7 @@
       "light": "for the paler fur on the belly",
       "accent": "for the pink-brown paws"
     },
-    "firstMark": ["Start with the eye, a glint of {dark} set close to the nose.", "Start with the hunched back as one round hill of {main}."]
+    "firstMark": ["Start with the eye, a glint of {dark} set close to the nose.", "Start with the hunched back as one low hill of {main}."]
   },
   {
     "id": "fur-shrew",
@@ -594,6 +615,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#5A4535", "#B59C7E", "#D6C6AE"],
+    "accent": "#CF9C90",
     "texture": "fur",
     "roles": {
       "main": "for the dark chocolate back",
@@ -601,7 +623,7 @@
       "light": "for the pale belly",
       "accent": "for the pink tip of the nose"
     },
-    "firstMark": ["Start with the nose: one long, tapering stroke of {main} coming to a point.", "Start with the eye, the smallest pinprick of {dark} you can make."]
+    "firstMark": ["Start with the nose: one long, tapering stroke of {main} coming to a point.", "Start with the eye, a speck of {dark} no bigger than a full stop."]
   },
   {
     "id": "fur-seal-pup",
@@ -609,12 +631,12 @@
     "title": "The Grey Seal Pup",
     "a": "a grey seal pup",
     "the": "the grey seal pup",
-    "phrases": ["eyes dark as sloes", "creamy as a new fleece", "honks for its mum"],
+    "phrases": ["eyes dark as sloes", "creamy as a new fleece", "plump on the richest milk"],
     "doing": [
       { "t": "is lying on its back with its flippers crossed", "scope": "any" },
       { "t": "is scratching its chin with a front flipper", "scope": "any" },
       { "t": "is heaving itself forward in clumsy lurches", "scope": "any" },
-      { "t": "is gazing up with enormous dark eyes", "scope": "any" }
+      { "t": "is gazing up, all eyes and whiskers", "scope": "any" }
     ],
     "close": ["Just the seal pup, head on, all round face and dark eyes.", "Only the pup, lying in a crescent, cream fur against bare paper."],
     "scale": "medium",
@@ -622,13 +644,14 @@
     "seasons": ["autumn", "winter"],
     "active": "day",
     "colours": ["#EEE9DE", "#B8B3A9", "#1C1B1D"],
+    "accent": "#6F6965",
     "texture": "fur",
     "roles": {
       "main": "for the cream fur",
       "dark": "for the eyes and the nose",
       "light": "for the whitest fur along the top of the head",
-      "accent": "for the cool grey shadow under the chin"
+      "accent": "for the dark grey flippers"
     },
-    "firstMark": ["Start with the eyes: two big, round shapes of {dark}, set wide apart.", "Start with the nose: a small Y of {dark} just below and between the eyes."]
+    "firstMark": ["Start with the eyes: two large, glossy circles of {dark}, set wide apart.", "Start with the nose: a small Y of {dark} just below and between the eyes."]
   }
 ]

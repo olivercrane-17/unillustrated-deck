@@ -30,8 +30,11 @@
 .settings-panel {
   /* A darker focus ring reads better on cream. */
   --focus: var(--suit-hearth);
-  padding: 20px 18px 10px;
+  padding: 20px 18px 14px;
   min-width: 0;
+}
+.settings-panel .btn-text {
+  text-decoration-color: rgba(42, 33, 28, 0.35);
 }
 .settings-panel h2 {
   font-size: 25px;
@@ -218,7 +221,8 @@
   color: var(--ink);
 }
 .fact dd .btn-text {
-  margin-left: -10px;
+  display: flex;
+  margin: 2px 0 -4px -10px;
   font-weight: 600;
 }
 .saved-date {
@@ -254,8 +258,9 @@
 }
 .safe-actions .btn {
   width: 100%;
+  white-space: nowrap;
 }
-@media (min-width: 560px) and (max-width: 999px), (min-width: 1180px) {
+@media (min-width: 560px) and (max-width: 999px) {
   .safe-actions {
     grid-template-columns: 1fr 1fr;
   }

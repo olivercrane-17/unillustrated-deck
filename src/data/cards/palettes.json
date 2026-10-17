@@ -1,0 +1,72 @@
+{
+  "warm": [
+    "Bramble Dusk",
+    "Toast and Marmalade",
+    "Hearth Rug",
+    "Ginger Biscuit",
+    "Conker Season",
+    "Harvest Loaf",
+    "Fox in Bracken",
+    "Treacle Tart",
+    "Rosehip Syrup",
+    "Crumble and Custard",
+    "Copper Kettle",
+    "Bonfire Toffee"
+  ],
+  "cool": [
+    "Frosted Pane",
+    "Duck Egg Teacup",
+    "Snowdrop Morning",
+    "Rockpool Shallows",
+    "Bluebell Wood",
+    "Moonlit Milk Jug",
+    "Willow Pattern",
+    "Wet Slate Roof",
+    "Frozen Puddle",
+    "Mackerel Sky",
+    "Mint Humbug",
+    "Blue Hour Heron"
+  ],
+  "muted": [
+    "Foggy Allotment",
+    "Muddy Wellies",
+    "Porridge Oats",
+    "Lichen and Slate",
+    "Mizzle Lane",
+    "Potting Shed",
+    "Damp Sheep",
+    "Weak Tea",
+    "Hedge Sparrow",
+    "Faded Deckchair",
+    "Mushroom Soup",
+    "Linen Cupboard"
+  ],
+  "dark": [
+    "Owl Light",
+    "Badger Sett",
+    "Harbour Storm",
+    "Midnight Feast",
+    "Coal Scuttle",
+    "Damson Jam",
+    "Plum Pudding",
+    "Hedgehog Hour",
+    "Thunder Brewing",
+    "Sloe Gin",
+    "Spilt Ink",
+    "Cocoa Before Bed"
+  ],
+  "bright": [
+    "Sunday Pancakes",
+    "Buttercup Meadow",
+    "Seaside Rock",
+    "Pick Your Own",
+    "Washing Line",
+    "Daffodil Jug",
+    "Beach Huts",
+    "Lemon Sherbet",
+    "Summer Fete",
+    "Primrose Bank",
+    "Marigold Border",
+    "Kingfisher Flash"
+  ]
+}

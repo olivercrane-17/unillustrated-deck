@@ -24,6 +24,8 @@ export function usableDoings(subject, placeScope, season) {
 
 export function subjectFitsPlace(subject, place, season, { ignoreScale = false } = {}) {
   if (!inSeason(subject, season) || !inSeason(place, season)) return false
+  // Hand-picked vetoes for pairings the habitat tags can't rule out.
+  if (place.excludes?.includes(subject.id)) return false
   if (!subject.habitats.some((h) => place.admits.includes(h))) return false
   if (!ignoreScale && SCALE_RANK[subject.scale] > SCALE_RANK[place.maxScale]) return false
   return usableDoings(subject, place.scope, season).length > 0

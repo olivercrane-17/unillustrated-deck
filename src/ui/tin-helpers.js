@@ -17,10 +17,14 @@ export const FAMILY_GROUPS = [
 
 const groupOfFamily = new Map(FAMILY_GROUPS.flatMap((g) => g.families.map((f) => [f, g.key])))
 
+// "Warm Grey 20%" belongs to the Warm Grey series, step 20.
+const SERIES = /^(.+?)\s+(\d+)%$/
+
 /**
  * Sort the catalogue into family groups, in tin order. Within a group,
  * pencils run light to dark when a `lightness(pencil)` function is given,
- * like a tin laid out by hand. Pencils with an unknown family go last.
+ * like a tin laid out by hand, and numbered series (Warm Grey 10% to 90%)
+ * stay together in step order after the rest. Unknown families go last.
  */
 export function groupPencils(pencils, { lightness } = {}) {
   const groups = FAMILY_GROUPS.map((g) => ({ key: g.key, label: g.label, pencils: [] }))
@@ -29,8 +33,19 @@ export function groupPencils(pencils, { lightness } = {}) {
   for (const p of pencils) (byKey.get(groupOfFamily.get(p.family)) || other).pencils.push(p)
   if (other.pencils.length) groups.push(other)
   if (lightness) {
-    const L = new Map(pencils.map((p) => [p.code, lightness(p)]))
-    for (const g of groups) g.pencils.sort((a, b) => L.get(b.code) - L.get(a.code))
+    const seriesOrder = []
+    const keys = new Map(pencils.map((p) => {
+      const m = SERIES.exec(p.name)
+      if (!m) return [p.code, [0, -lightness(p), 0]]
+      if (!seriesOrder.includes(m[1])) seriesOrder.push(m[1])
+      return [p.code, [1, seriesOrder.indexOf(m[1]), Number(m[2])]]
+    }))
+    const cmp = (a, b) => {
+      const x = keys.get(a.code)
+      const y = keys.get(b.code)
+      return x[0] - y[0] || x[1] - y[1] || x[2] - y[2]
+    }
+    for (const g of groups) g.pencils.sort(cmp)
   }
   return groups.filter((g) => g.pencils.length)
 }

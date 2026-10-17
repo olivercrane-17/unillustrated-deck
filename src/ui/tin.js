@@ -417,7 +417,7 @@ export function render(root) {
   })
 
   mount(root,
-    h('header.page-head.tin-head',
+    h('header.page-head.tin-page-head',
       h('h1', 'Your tin'),
       h('p', 'Tick what’s really in your tin.'),
     ),

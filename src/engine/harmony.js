@@ -93,10 +93,12 @@ function scoreDark(p, ctx) {
   return s
 }
 
+// Highlights want White or a near-white; a bright yellow is not a highlight.
 function scoreLight(p, ctx) {
   const { L, C } = p.lch
   let s = Math.max(0, 0.9 - L) * 3
-  if (p.code === WHITE) s -= 0.05
+  if (p.code === WHITE) s -= 0.08
+  s += C * (ctx.mood === 'warm' ? 1.2 : 2.4)
   if (ctx.mood === 'warm' && C > 0.02 && !isWarmHue(p.lch.h)) s += 0.2
   return s
 }
@@ -211,9 +213,10 @@ export function dealPalette({ pencils, slots, mood, rule, keep = {}, avoid = [],
     if (slot.kind === 'main') ctx.main = picked
   }
 
-  // Never deal both black and white unless a twist asked for it.
+  // Never deal Black as the shadow pencil alongside White unless a twist asked
+  // for it (a black subject, like a blackbird, may still have Black as its main).
   const hasWhite = chosen.some((c) => c.p.code === WHITE)
-  const blackIdx = chosen.findIndex((c) => isBlack(c.p))
+  const blackIdx = chosen.findIndex((c) => isBlack(c.p) && c.slot.kind === 'dark')
   if (hasWhite && blackIdx >= 0 && !rule) {
     const alt = owned
       .filter((p) => !used.has(p.code) && !isBlack(p) && p.lch.L < 0.45)

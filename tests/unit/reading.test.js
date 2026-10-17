@@ -215,3 +215,35 @@ describe('harmony', () => {
     expect(p.family).toBe('blue')
   })
 })
+
+describe('harmony details', () => {
+  const slots = (mainHex) => [
+    { key: 'main', kind: 'main', anchor: anchorFor(mainHex), role: 'm' },
+    { key: 'dark', kind: 'dark', role: 'd' },
+    { key: 'light', kind: 'light', role: 'l' },
+  ]
+  it('picks White or a near-white for highlights, never a bright colour', () => {
+    const pencils = tinOf('48')
+    for (let seed = 0; seed < 300; seed++) {
+      for (const mood of ['cool', 'muted', 'bright', 'dark', 'warm']) {
+        const out = dealPalette({ pencils, slots: slots('#8C6B47'), mood, rng: mulberry32(seed) })
+        const light = out.pencils.find((p) => p.slot === 'light')
+        if (!light) continue
+        const p = pencils.find((x) => x.code === light.code)
+        expect(p.lch.C).toBeLessThan(mood === 'warm' ? 0.08 : 0.05)
+      }
+    }
+  })
+  it('keeps Black as the main colour of a black subject', () => {
+    const pencils = tinOf('48')
+    const out = dealPalette({ pencils, slots: slots('#24201E'), mood: 'muted', rng: mulberry32(2) })
+    expect(out.pencils.find((p) => p.slot === 'main').code).toBe('PC935')
+  })
+  it('never deals metallics for an ordinary subject', () => {
+    const pencils = tinOf('48')
+    for (let seed = 0; seed < 200; seed++) {
+      const out = dealPalette({ pencils, slots: slots('#A9ABAE'), mood: 'cool', rng: mulberry32(seed) })
+      out.pencils.forEach((p) => expect(['PC949', 'PC950']).not.toContain(p.code))
+    }
+  })
+})

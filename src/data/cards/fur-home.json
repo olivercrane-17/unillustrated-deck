@@ -5,20 +5,21 @@
     "title": "The Tabby Cat",
     "a": "a tabby cat",
     "the": "the tabby cat",
-    "phrases": ["stripes like a ploughed field", "an M on the forehead", "purrs even in its sleep"],
+    "phrases": ["stripes like a ploughed field", "a letter M on the forehead", "purrs even in its sleep"],
     "doing": [
       { "t": "is asleep with one paw over its eyes", "scope": "any" },
       { "t": "is dozing with its tail wrapped round its feet", "scope": "any" },
-      { "t": "is folded into a neat bundle with its paws tucked away", "scope": "any" },
+      { "t": "is folded into a neat loaf with its paws tucked away", "scope": "any" },
       { "t": "is pretending not to watch the birds", "scope": "any" },
       { "t": "is kneading a crocheted blanket with slow, blissful paws", "scope": "indoor" }
     ],
-    "close": ["Just the tabby, asleep in a stripy comma, filling the page.", "Only the cat's sleeping face, with the M on its forehead right in the middle."],
+    "close": ["Just the tabby, curled asleep in a stripy comma.", "Only the cat's sleeping face, with the M on its forehead right in the middle."],
     "scale": "small",
     "habitats": ["home", "tabletop", "garden", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#8C6A47", "#3B2E24", "#D8C2A0"],
+    "accent": "#D99A8E",
     "texture": "fur",
     "roles": {
       "main": "for the warm brown coat",
@@ -42,12 +43,13 @@
       { "t": "is peeping out of a paper bag", "scope": "indoor" },
       { "t": "is stalking a leaf as it skitters past", "scope": "outdoor", "seasons": ["autumn"] }
     ],
-    "close": ["Just the kitten, mid-pounce, with its front paws spread wide.", "Only the kitten's face, ears first, as big as the page allows."],
+    "close": ["Just the kitten, mid-pounce, with its front paws spread wide.", "Only the kitten's face, ears first, with its whiskers running off the edges."],
     "scale": "small",
     "habitats": ["home", "tabletop", "garden"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#D9822B", "#F3D9AE"],
+    "accent": "#E59C95",
     "texture": "fur",
     "roles": {
       "main": "for the orange stripes",
@@ -55,7 +57,7 @@
       "light": "for the cream chin and paws",
       "accent": "for the pink nose and paw pads"
     },
-    "firstMark": ["Start with the eyes: two big circles of {dark}, each with a dot of bare paper left in it.", "Start with the ringed tail in short, curved bands of {main}."]
+    "firstMark": ["Start with the eyes: two wide circles of {dark}, each with a dot of bare paper left in it.", "Start with the ringed tail in short, curved bands of {main}."]
   },
   {
     "id": "fur-black-cat",
@@ -71,12 +73,13 @@
       { "t": "is picking its way along with its tail up like a question mark", "scope": "any" },
       { "t": "is weaving in and out of a pair of muddy wellies", "scope": "indoor" }
     ],
-    "close": ["Just the black cat, sitting tall, with a thin rim of light on its back.", "Only the cat's face: two green eyes floating in soft black."],
+    "close": ["Just the black cat, sitting tall, with a thin rim of light on its back.", "Only the cat's face: two green eyes floating in velvet black."],
     "scale": "small",
     "habitats": ["home", "garden", "village", "tabletop"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#23212B", "#9BB53C"],
+    "accent": "#9BB53C",
     "texture": "fur",
     "roles": {
       "main": "for the glossy black coat",
@@ -106,6 +109,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#6B3523", "#F1ECE3"],
+    "accent": "#D9777C",
     "texture": "fur",
     "roles": {
       "main": "for the liver-brown ears and patches",
@@ -127,7 +131,7 @@
       { "t": "is sitting up to beg with its front paws dangling", "scope": "any" },
       { "t": "is lying stretched out like a sausage roll", "scope": "any" },
       { "t": "is burrowing under a blanket until only its tail shows", "scope": "indoor" },
-      { "t": "is wearing a knitted jumper and looking very pleased with itself", "scope": "any", "seasons": ["autumn", "winter"] }
+      { "t": "is wearing a knitted jumper and looking thoroughly pleased with itself", "scope": "any", "seasons": ["autumn", "winter"] }
     ],
     "close": ["Just the dachshund, side on, stretching all the way across the page.", "Only the dachshund's head, with its ears hanging like two suede flaps."],
     "scale": "medium",
@@ -135,12 +139,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#9B4E24", "#3A2316"],
+    "accent": "#2E5E46",
     "texture": "fur",
     "roles": {
       "main": "for the smooth chestnut coat",
       "dark": "for the eyes, the nose and the shadow under the long belly",
       "light": "for the shine along the back",
-      "accent": "for the red collar and the insides of the ears"
+      "accent": "for the bottle-green collar"
     },
     "firstMark": ["Start with the long line of the back in one light, unbroken stroke of {main}.", "Start with the nose: a glossy bead of {dark} at the very end of that long snout."]
   },
@@ -164,12 +169,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#26221F", "#EFEBE3", "#A39D95"],
+    "accent": "#8E5B2C",
     "texture": "fur",
     "roles": {
       "main": "for the black coat",
       "dark": "for the deepest fur and the nose",
       "light": "for the white ruff, the blaze and the paws",
-      "accent": "for the amber of the eyes"
+      "accent": "for the warm brown eyes"
     },
     "firstMark": ["Start with the eyes: two warm brown circles, each ringed with {dark}.", "Start with the white ruff by drawing round it in {main}, so the paper does the work."]
   },
@@ -187,12 +193,13 @@
       { "t": "is dust-bathing with her wings spread flat", "scope": "outdoor" },
       { "t": "is sitting tight on a clutch of eggs", "scope": "any", "seasons": ["spring", "summer"] }
     ],
-    "close": ["Just the hen, side on, every speckle accounted for.", "Only the hen's head, bright red comb and all, close enough to see her eye."],
+    "close": ["Just the hen, side on, every speckle accounted for.", "Only the hen's head, bright red comb and all, with her beady amber eye."],
     "scale": "small",
     "habitats": ["farm", "garden", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#7C3A20", "#F2EBDC", "#C8322B"],
+    "accent": "#C8322B",
     "texture": "feather",
     "roles": {
       "main": "for the mahogany feathers",
@@ -210,10 +217,10 @@
     "the": "the box of chicks",
     "phrases": ["a cardboard box that cheeps", "warm as toast underneath", "beaks like grains of rice"],
     "doing": [
-      { "t": "is cheeping at full volume", "scope": "any" },
-      { "t": "is a heap of yellow fluff with one chick asleep on top", "scope": "any" },
+      { "t": "is a jostle of beaks all turned upwards", "scope": "any" },
+      { "t": "is a heap of yellow fluff and sleepy eyes", "scope": "any" },
       { "t": "has one brave chick trying to climb out", "scope": "any" },
-      { "t": "has one chick nodding off on its feet", "scope": "any" }
+      { "t": "has one chick nodding off mid-cheep", "scope": "any" }
     ],
     "close": ["Just one chick, round as a bread roll, with its eyes closed.", "Only the box, seen from above, with every chick crowded into one corner."],
     "scale": "small",
@@ -221,6 +228,7 @@
     "seasons": ["spring"],
     "active": "day",
     "colours": ["#F2D25A", "#B58A5C"],
+    "accent": "#E88C4E",
     "texture": "feather",
     "roles": {
       "main": "for the yellow down",
@@ -250,6 +258,7 @@
     "seasons": ["spring"],
     "active": "day",
     "colours": ["#EEE6D3", "#C8B593"],
+    "accent": "#E3AEA5",
     "texture": "wool",
     "roles": {
       "main": "for the creamy fleece",
@@ -279,12 +288,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#EDC5B2", "#2D2727"],
+    "accent": "#D8928A",
     "texture": "skin",
     "roles": {
       "main": "for the pale pink skin",
       "dark": "for the black spots and the shadow under the belly",
       "light": "for the bristly highlights on the back",
-      "accent": "for the wet nose and the curly tail"
+      "accent": "for the deeper pink of the snout"
     },
     "firstMark": ["Start with the snout: a flat oval with two nostrils of {dark}.", "Start with the spots as soft-edged patches of {dark}, then bring the pink up to meet them."]
   },
@@ -298,7 +308,7 @@
     "doing": [
       { "t": "is peering out through its fringe", "scope": "any" },
       { "t": "is chewing slowly with a faraway look", "scope": "any" },
-      { "t": "is lying down like a russet haystack", "scope": "any" },
+      { "t": "is lying down like a ginger haystack", "scope": "any" },
       { "t": "is licking its own nose with a long, curling tongue", "scope": "any" },
       { "t": "is standing guard over a woolly calf", "scope": "any", "seasons": ["spring", "summer"] }
     ],
@@ -308,6 +318,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#A65A2E", "#D99B5C", "#E9DEC3"],
+    "accent": "#2B2523",
     "texture": "fur",
     "roles": {
       "main": "for the russet coat",
@@ -337,6 +348,7 @@
     "seasons": ["spring", "summer"],
     "active": "day",
     "colours": ["#B5804F", "#F1EBDD", "#3A2C22"],
+    "accent": "#E0A99F",
     "texture": "fur",
     "roles": {
       "main": "for the fawn coat",
@@ -366,6 +378,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#8A7F72", "#E6DFD3", "#3B342E"],
+    "accent": "#6A4529",
     "texture": "fur",
     "roles": {
       "main": "for the mousy grey-brown coat",
@@ -395,6 +408,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#C9A27A", "#F2E8D8", "#E7B4AF"],
+    "accent": "#E6A3A3",
     "texture": "fur",
     "roles": {
       "main": "for the sandy coat",
@@ -423,6 +437,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#C67B3B", "#F2EBDE", "#2E2723"],
+    "accent": "#E2A69C",
     "texture": "fur",
     "roles": {
       "main": "for the ginger patches",
@@ -452,6 +467,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "any",
     "colours": ["#E8732A", "#F5B54A", "#CFE2E4"],
+    "accent": "#5E8F3A",
     "texture": "glass",
     "roles": {
       "main": "for the orange fish",
@@ -459,6 +475,6 @@
       "light": "for the shine on the glass and the bubbles",
       "accent": "for the sprig of green water weed"
     },
-    "firstMark": ["Start with the fish itself in {main}, then draw the bowl around it so the fish is never too small.", "Start with the eye: a single dot of {dark} inside a ring of gold."]
+    "firstMark": ["Start with the fish itself in {main}, then draw the bowl around it so the fish is never too small.", "Start with the eye: a single bead of {dark} inside a ring of gold."]
   }
 ]

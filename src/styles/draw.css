@@ -1,1 +1,605 @@
-/* draw view */
+/* ---------- The Drawing View ---------- */
+/* Propped beside her paper: large, calm, glanceable. */
+
+.drawing {
+  display: grid;
+  gap: 16px;
+  max-width: 660px;
+  margin: 0 auto;
+  padding-top: 2px;
+}
+.draw-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 44px;
+  margin-left: -10px;
+}
+.draw-back {
+  color: var(--cream-soft);
+  font-size: 15.5px;
+}
+.draw-back svg {
+  width: 18px;
+  height: 18px;
+}
+
+.draw-cols,
+.draw-col {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+.draw-col > * {
+  min-width: 0;
+}
+
+.drawing .paper {
+  padding: 18px 20px;
+  animation: draw-in 420ms var(--ease-soft) both;
+}
+.draw-col-page > .paper,
+.draw-tools {
+  animation-delay: 80ms;
+}
+@keyframes draw-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+.drawing .paper :focus-visible {
+  outline-color: var(--gilt-dark);
+}
+
+/* Small section headings, as on the table's tin card */
+.draw-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  margin-bottom: 6px;
+}
+.draw-head h2,
+.draw-mark h2 {
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.draw-palette,
+.draw-frame-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 21px;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+}
+
+/* ---------- The words ---------- */
+.draw-words {
+  position: relative;
+  padding: 20px 22px 22px;
+}
+.draw-emblem {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 46px;
+  height: 46px;
+  color: var(--suit);
+  opacity: 0.3;
+  pointer-events: none;
+}
+.draw-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 12px;
+  margin: 0 52px 12px 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--suit);
+}
+.draw-spread {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0;
+  color: var(--ink-faint);
+}
+.draw-opener {
+  margin: 0 0 6px;
+  font-style: italic;
+  color: var(--suit-hearth);
+  font-size: 18px;
+}
+.draw-sentence {
+  margin: 0;
+  font-size: clamp(24px, 6.6vw, 28px);
+  line-height: 1.36;
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.draw-framing {
+  margin: 12px 0 0;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.draw-twist {
+  margin: 16px 0 0;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: rgba(91, 58, 94, 0.08);
+  box-shadow: inset 0 0 0 1px rgba(91, 58, 94, 0.3);
+  color: var(--suit-twist);
+  font-size: 18px;
+  line-height: 1.4;
+}
+.draw-twist strong {
+  font-family: var(--font-display);
+  letter-spacing: 0.1em;
+}
+
+/* A page of small things: the checklist */
+.draw-slots {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+  display: grid;
+  border-top: 1px dashed rgba(42, 33, 28, 0.18);
+}
+.draw-slots label {
+  display: grid;
+  grid-template-columns: auto auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  min-height: 52px;
+  padding: 12px 2px;
+  border-bottom: 1px dashed rgba(42, 33, 28, 0.18);
+  cursor: pointer;
+  font-size: 19px;
+  line-height: 1.35;
+}
+.draw-slots input {
+  appearance: none;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  margin: -1px 0 0;
+  border-radius: 7px;
+  border: 1.5px solid var(--ink-faint);
+  background: #fbf7ee;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.draw-slots input:checked {
+  background: var(--suit-leaf);
+  border-color: var(--suit-leaf);
+}
+.draw-slots input:checked::after {
+  content: '';
+  width: 7px;
+  height: 13px;
+  border: solid #fff;
+  border-width: 0 2.5px 2.5px 0;
+  transform: translateY(-1px) rotate(45deg);
+}
+.draw-slot-num {
+  min-width: 1ch;
+  font-size: 22px;
+  line-height: 1.1;
+  color: var(--ink-faint);
+}
+.draw-slots .done .draw-slot-text {
+  text-decoration: line-through;
+  text-decoration-color: rgba(42, 33, 28, 0.35);
+  color: var(--ink-faint);
+}
+.draw-slots em {
+  display: block;
+  margin-top: 2px;
+  font-size: 15.5px;
+  color: var(--suit-twist);
+}
+
+/* ---------- Her pencils ---------- */
+.draw-pencil-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.draw-pencil {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 4px 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(42, 33, 28, 0.09);
+}
+.draw-pencil:last-child {
+  border-bottom: 0;
+}
+.drawing .pencil-swatch.big {
+  width: 104px;
+  height: 32px;
+}
+.draw-pencil-text {
+  min-width: 0;
+  line-height: 1.25;
+}
+.draw-pencil-text code {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+}
+.draw-pencil-text strong {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.draw-pencil-text em {
+  display: block;
+  margin-top: 1px;
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+.draw-notes {
+  display: grid;
+  gap: 4px;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(42, 33, 28, 0.1);
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+.draw-notes p {
+  margin: 0;
+}
+.draw-lonely {
+  font-size: 21px;
+  line-height: 1.2;
+  color: var(--suit-hearth);
+}
+
+/* ---------- First mark ---------- */
+.draw-mark {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 6px 14px;
+}
+.draw-mark-icon {
+  width: 36px;
+  height: 36px;
+  color: var(--suit-hearth);
+}
+.draw-mark-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.draw-mark p {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.42;
+}
+
+/* ---------- On the page ---------- */
+.draw-diagram-art {
+  display: grid;
+  justify-items: center;
+  margin: 2px -6px 0;
+}
+.draw-diagram-art .diagram {
+  width: 100%;
+  max-width: 310px;
+  height: auto;
+  color: var(--ink-soft);
+}
+.diagram .dg-note,
+.diagram .dg-num {
+  font-family: var(--font-hand);
+  font-weight: 500;
+}
+.diagram .dg-page,
+.diagram .dg-subject-base {
+  fill: #fbf7ee;
+}
+.diagram .dg-tick {
+  color: var(--suit-leaf);
+  stroke: var(--suit-leaf);
+}
+.draw-caption {
+  margin: 8px 0 0;
+  font-size: 17px;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  text-align: center;
+  text-wrap: pretty;
+}
+
+/* ---------- Layering and paper ---------- */
+.drawing .draw-tips {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.draw-layer summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 19px;
+  color: var(--ink-soft);
+  list-style: none;
+  border-radius: 8px;
+}
+.draw-layer summary::-webkit-details-marker {
+  display: none;
+}
+.draw-layer summary::before {
+  content: '+';
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 99px;
+  border: 1px solid currentColor;
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1;
+}
+.draw-layer[open] summary::before {
+  content: '−';
+}
+.draw-layer ol {
+  margin: 0 0 10px;
+  padding-left: 24px;
+  display: grid;
+  gap: 8px;
+  font-size: 18px;
+  line-height: 1.45;
+}
+.draw-paper-tip {
+  display: grid;
+  gap: 2px;
+  margin: 8px 0 6px;
+  padding-top: 10px;
+  font-size: 17px;
+  color: var(--ink-soft);
+}
+.draw-layer + .draw-paper-tip {
+  border-top: 1px solid rgba(42, 33, 28, 0.1);
+}
+.draw-paper-tip strong {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ---------- Timer and wake lock: quiet, on the felt ---------- */
+.draw-tools {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px 10px;
+  border-radius: var(--radius-panel);
+  box-shadow: inset 0 0 0 1px var(--felt-line);
+  color: var(--cream-soft);
+  animation: draw-in 420ms var(--ease-soft) both;
+}
+.draw-timer-idle {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+.draw-timer-label {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+  letter-spacing: 0.1em;
+  color: var(--cream);
+}
+.draw-timer-idle .chip {
+  min-width: 76px;
+  font-size: 16px;
+}
+.draw-timer-run {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+}
+.draw-ring {
+  position: relative;
+  width: 84px;
+  height: 84px;
+  flex: none;
+}
+.draw-ring .timer-ring {
+  width: 100%;
+  height: 100%;
+}
+.timer-ring .ring-track {
+  stroke: var(--felt-line);
+}
+.timer-ring .ring-fill {
+  stroke: var(--gilt-light);
+  transition: stroke-dashoffset 1s linear;
+}
+.is-paused .timer-ring .ring-fill {
+  stroke: var(--cream-faint);
+}
+.draw-ring-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  text-align: center;
+  line-height: 1;
+}
+.draw-ring-text strong {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cream);
+}
+.draw-ring-text small {
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--cream-faint);
+}
+.draw-timer-side p {
+  margin: 0;
+}
+.draw-timer-state {
+  font-size: 15.5px;
+  color: var(--cream-soft);
+}
+.draw-timer-done {
+  font-size: 24px;
+  line-height: 1.15;
+  color: var(--gilt-light);
+  animation: draw-in 600ms var(--ease-soft) both;
+}
+.draw-timer-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 4px;
+  margin: 2px 0 0 -10px;
+}
+.draw-timer-btns .btn-text {
+  color: var(--cream);
+  font-size: 15.5px;
+}
+.is-done .timer-ring .ring-fill {
+  stroke: var(--gilt-light);
+}
+
+.draw-wake {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 52px;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--felt-line);
+  font-size: 15.5px;
+  color: var(--cream-soft);
+  cursor: pointer;
+}
+.draw-wake[hidden] {
+  display: none;
+}
+.draw-wake .switch:focus-visible {
+  outline-offset: 2px;
+}
+
+/* A small reminder at the top while a timer is going */
+.draw-timer-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 4px 14px 4px 8px;
+  border: 0;
+  border-radius: 99px;
+  background: rgba(241, 231, 208, 0.08);
+  box-shadow: inset 0 0 0 1px var(--felt-line);
+  color: var(--cream);
+  font-size: 15px;
+}
+.draw-timer-pill[hidden] {
+  display: none;
+}
+.draw-pill-ring {
+  width: 26px;
+  height: 26px;
+}
+.draw-pill-ring .timer-ring {
+  width: 100%;
+  height: 100%;
+}
+.draw-pill-ring .ring-track {
+  stroke-width: 5;
+}
+.draw-pill-ring .ring-fill {
+  stroke-width: 6;
+  transition: none;
+}
+
+/* ---------- The end ---------- */
+.draw-done {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  text-align: center;
+}
+.draw-done-btn {
+  width: min(100%, 440px);
+  min-height: 64px;
+  font-size: 24px;
+}
+.draw-done-btn svg {
+  width: 24px;
+  height: 24px;
+}
+.draw-done-hint {
+  margin: 0;
+  font-size: 14.5px;
+  color: var(--cream-faint);
+}
+.draw-drawn-note {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--gilt-light);
+}
+
+.draw-missing {
+  justify-items: center;
+  padding-top: 24px;
+}
+.draw-missing-link {
+  margin: 0;
+  text-align: center;
+}
+
+/* ---------- Wide screens and landscape tablets: two columns ---------- */
+@media (min-width: 900px), (orientation: landscape) and (min-width: 700px) {
+  .drawing {
+    max-width: 1060px;
+  }
+  .draw-cols {
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+    gap: 22px;
+  }
+  .draw-sentence {
+    font-size: 28px;
+  }
+  .drawing .pencil-swatch.big {
+    width: 120px;
+    height: 36px;
+  }
+  .draw-words {
+    padding: 24px 26px 26px;
+  }
+}

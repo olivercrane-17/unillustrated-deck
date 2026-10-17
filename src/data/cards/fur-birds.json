@@ -11,7 +11,7 @@
       { "t": "is singing its thin, silvery song", "scope": "any" },
       { "t": "is listening with its head cocked to one side", "scope": "any" },
       { "t": "is eyeing up a crumb of cheese", "scope": "any" },
-      { "t": "is splashing about in a saucer of water", "scope": "outdoor" }
+      { "t": "is having a splashy bath with its feathers on end", "scope": "outdoor" }
     ],
     "close": ["Just the robin, close enough to see where the orange breast meets the grey.", "Only the robin, plump as a bauble, in the middle of the page."],
     "scale": "small",
@@ -19,6 +19,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#B8562D", "#7A6248", "#EDE3D2"],
+    "accent": "#97A1A8",
     "texture": "feather",
     "roles": {
       "main": "for the orange-red breast and face",
@@ -26,7 +27,7 @@
       "light": "for the pale belly and the catchlight in the eye",
       "accent": "for the blue-grey edging around the breast"
     },
-    "firstMark": ["Start with the eye: one round dot of {dark}, leaving a pinprick of paper for the shine.", "Start with the curve of the breast in a light pass of {main}."]
+    "firstMark": ["Start with the eye: one round dot of {dark}, leaving a pinprick of paper for the shine.", "Start with the curve of the breast in one easy sweep of {main}."]
   },
   {
     "id": "fur-wren",
@@ -34,19 +35,20 @@
     "title": "The Wren",
     "a": "a wren",
     "the": "the wren",
-    "phrases": ["a voice far bigger than the bird", "tail flicked up like a thumb", "barely the size of a walnut"],
+    "phrases": ["a voice far bigger than the bird", "tail flicked up like a thumb", "brown as a toasted teacake"],
     "doing": [
       { "t": "is belting out a song with its tail cocked", "scope": "any" },
       { "t": "is creeping along like a mouse", "scope": "any" },
       { "t": "is giving someone a good telling-off", "scope": "any" },
       { "t": "is carrying a beakful of moss", "scope": "outdoor", "seasons": ["spring"] }
     ],
-    "close": ["Just the wren, tail up, close enough to see the barring on its wings.", "Only the wren, a plump brown speck in a sea of white paper."],
+    "close": ["Just the wren, tail up, with every fine bar on its wings.", "Only the wren, a plump brown speck in a sea of white paper."],
     "scale": "tiny",
     "habitats": ["garden", "hedgerow", "woodland", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#8B5E3C", "#5A3E2B", "#D8C2A0"],
+    "accent": "#C69C86",
     "texture": "feather",
     "roles": {
       "main": "for the russet-brown back and wings",
@@ -67,23 +69,24 @@
       { "t": "is cracking a sunflower seed held under one foot", "scope": "any" },
       { "t": "is pulling strips off a paper seed packet", "scope": "any" },
       { "t": "is giving its feathers a brisk shake", "scope": "any" },
-      { "t": "is pecking through the foil top of a milk bottle", "scope": "outdoor" },
-      { "t": "is hanging upside down by its toes", "scope": "outdoor" }
+      { "t": "is poking its head out of a nest hole", "scope": "outdoor" },
+      { "t": "is dangling upside down from the end of a twig", "scope": "outdoor" }
     ],
-    "close": ["Just the blue tit, upside down, filling the page.", "Only the blue tit's face, a white mask ringed with navy."],
+    "close": ["Just the blue tit, upside down, clinging on by its toes.", "Only the blue tit's face, a white mask ringed with navy."],
     "scale": "tiny",
     "habitats": ["garden", "woodland", "hedgerow", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#E2C23A", "#3F78B5", "#8AA04C"],
+    "accent": "#3F78B5",
     "texture": "feather",
     "roles": {
       "main": "for the yellow breast",
       "dark": "for the eye stripe, the bib and the eye",
       "light": "for the white cheeks",
-      "accent": "for the blue cap and wings"
+      "accent": "for the blue cap"
     },
-    "firstMark": ["Start with the dark stripe through the eye in one sharp line of {dark}.", "Start with the round belly in a light, even layer of {main}."]
+    "firstMark": ["Start with the dark stripe through the eye in one sharp line of {dark}.", "Start with the round belly, a pale wash of {main} laid on with the side of the lead."]
   },
   {
     "id": "fur-long-tailed-tit",
@@ -94,9 +97,10 @@
     "phrases": ["a lollipop with wings", "blush pink and cream", "never alone for long"],
     "doing": [
       { "t": "is fluffed into a ball with its tail sticking out", "scope": "any" },
-      { "t": "is calling to the rest of the flock", "scope": "any" },
+      { "t": "is calling a thin, buzzy see-see-see", "scope": "any" },
       { "t": "is balancing with its tail held out straight", "scope": "any" },
-      { "t": "is gathering strands of cobweb for its nest", "scope": "outdoor", "seasons": ["spring"] }
+      { "t": "is gathering strands of cobweb for its nest", "scope": "outdoor", "seasons": ["spring"] },
+      { "t": "is huddled shoulder to shoulder with the rest of the flock", "scope": "any" }
     ],
     "close": ["Just the long-tailed tit, a round body and a tail longer than the rest of it.", "Only the long-tailed tit, with the whole length of its tail on the page."],
     "scale": "tiny",
@@ -104,6 +108,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#D8A0A4", "#F1ECE6", "#2B2727"],
+    "accent": "#D0604C",
     "texture": "feather",
     "roles": {
       "main": "for the rosy pink on the shoulders and flanks",
@@ -123,22 +128,23 @@
     "doing": [
       { "t": "is twittering a tinkling, liquid song", "scope": "any" },
       { "t": "is flicking its wings to flash the gold", "scope": "any" },
-      { "t": "is turning its red face this way and that", "scope": "any" },
+      { "t": "is turning its red face from side to side", "scope": "any" },
       { "t": "is prising seeds out of a teasel head", "scope": "outdoor", "seasons": ["autumn", "winter"] },
       { "t": "is pulling thistledown for its nest", "scope": "outdoor", "seasons": ["summer"] }
     ],
-    "close": ["Just the goldfinch's head, close enough to see where the red meets the white.", "Only the goldfinch, side on, wings shut, each colour showing."],
+    "close": ["Just the goldfinch's head: red mask, white cheek, black cap.", "Only the goldfinch, side on, wings shut, each colour showing."],
     "scale": "tiny",
     "habitats": ["garden", "hedgerow", "meadow", "visitor"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#BC9A72", "#C3302C", "#E8B828"],
+    "accent": "#C3302C",
     "texture": "feather",
     "roles": {
       "main": "for the buff back and breast",
       "dark": "for the black wings and the cap",
       "light": "for the white cheeks and wing spots",
-      "accent": "for the red face and the gold wing bar"
+      "accent": "for the raspberry-red face"
     },
     "firstMark": ["Start with the wing: a short black block of {dark}, leaving a stripe of paper for the gold.", "Start with the cap, a neat band of {dark} across the top of the head."]
   },
@@ -154,7 +160,7 @@
       { "t": "is hopping a few steps, then standing stock still", "scope": "any" },
       { "t": "is chinking its alarm call with its tail raised", "scope": "any" },
       { "t": "is tossing leaves aside with its beak", "scope": "outdoor" },
-      { "t": "is pecking at a fallen apple", "scope": "any", "seasons": ["autumn", "winter"] }
+      { "t": "is pecking a hole in a bruised apple", "scope": "any", "seasons": ["autumn", "winter"] }
     ],
     "close": ["Just the blackbird's head, with its yellow eye ring and orange beak.", "Only the blackbird, mid-song, beak open, on an empty page."],
     "scale": "small",
@@ -162,6 +168,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#24201E", "#E39A22"],
+    "accent": "#E39A22",
     "texture": "feather",
     "roles": {
       "main": "for the black body",
@@ -179,17 +186,18 @@
     "the": "the song thrush",
     "phrases": ["sings every line twice", "a cream front, freckled brown", "head tilted to the lawn"],
     "doing": [
-      { "t": "is repeating its favourite phrase with great pride", "scope": "any" },
+      { "t": "is singing each phrase twice over, beak to the sky", "scope": "any" },
       { "t": "is turning to show off its speckled front", "scope": "any" },
       { "t": "is sitting with one foot tucked up", "scope": "any" },
       { "t": "is swallowing a rowan berry whole", "scope": "any", "seasons": ["autumn", "winter"] }
     ],
-    "close": ["Just the song thrush's breast, every speckle a small dark arrowhead.", "Only the song thrush, standing tall, in a circle of white paper."],
+    "close": ["Just the song thrush's breast, every speckle a small dark arrowhead.", "Only the song thrush, standing tall, with one bright eye on the ground."],
     "scale": "small",
     "habitats": ["garden", "woodland", "hedgerow"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#8C6B47", "#EBDDBF", "#4B3526"],
+    "accent": "#D8B37C",
     "texture": "feather",
     "roles": {
       "main": "for the mid-brown back and wings",
@@ -197,7 +205,7 @@
       "light": "for the cream breast",
       "accent": "for the buff wash on the flanks"
     },
-    "firstMark": ["Start with the speckles: a scatter of small arrowheads in {dark}, largest at the bottom.", "Start with the eye, a round dot of {dark}, then the brown cap above it in {main}."]
+    "firstMark": ["Start with the speckles: a scatter of small arrowheads in {dark}, largest at the bottom.", "Start with the eye, a bead of {dark}, then the brown cap above it in {main}."]
   },
   {
     "id": "fur-kingfisher",
@@ -207,17 +215,18 @@
     "the": "the kingfisher",
     "phrases": ["a streak of electric blue", "orange as a satsuma underneath", "gone before you blink"],
     "doing": [
-      { "t": "is sitting perfectly still with its beak pointed down", "scope": "any" },
+      { "t": "is perched without a flicker, beak pointed down", "scope": "any" },
       { "t": "is bobbing its head up and down", "scope": "any" },
       { "t": "is shaking droplets from its feathers", "scope": "any" },
       { "t": "is whizzing past like a blue spark", "scope": "any" }
     ],
-    "close": ["Just the kingfisher's head and long beak, as large as the page allows.", "Only the kingfisher, side on, with the orange and the blue meeting cleanly."],
+    "close": ["Just the kingfisher's head and long beak, reaching right across the page.", "Only the kingfisher, side on, with the orange and the blue meeting cleanly."],
     "scale": "small",
     "habitats": ["water", "woodland"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#1F8DBA", "#D8672A", "#F2E9DC"],
+    "accent": "#E0533F",
     "texture": "feather",
     "roles": {
       "main": "for the turquoise back and crown",
@@ -237,7 +246,7 @@
     "doing": [
       { "t": "is standing motionless on one leg", "scope": "any" },
       { "t": "is hunched up with its neck sunk into its shoulders", "scope": "any" },
-      { "t": "is stalking forward one careful step at a time", "scope": "any" },
+      { "t": "is pacing forward one careful step at a time", "scope": "any" },
       { "t": "is peering down its beak with a frown", "scope": "any" },
       { "t": "is flapping away with its legs trailing behind", "scope": "outdoor" }
     ],
@@ -247,6 +256,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#8F979C", "#EEEDE7", "#D6A63C"],
+    "accent": "#D6A63C",
     "texture": "feather",
     "roles": {
       "main": "for the grey back and wings",
@@ -276,6 +286,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "night",
     "colours": ["#D4A462", "#F3ECE0", "#8F8780"],
+    "accent": "#9A958F",
     "texture": "feather",
     "roles": {
       "main": "for the honey-coloured back and wings",
@@ -295,16 +306,17 @@
     "doing": [
       { "t": "is turning its head almost all the way round", "scope": "any" },
       { "t": "is hooting a long, wavering hoo-hoo-hoo", "scope": "any" },
-      { "t": "is blinking one eye very slowly", "scope": "any" },
+      { "t": "is closing one eye in a slow, sleepy wink", "scope": "any" },
       { "t": "is sleeping upright with its eyes shut tight", "scope": "any" },
       { "t": "is stretching itself tall and slim to hide", "scope": "any" }
     ],
-    "close": ["Just the tawny owl's face, with its two dark eyes and the pale V between them.", "Only the tawny owl, round and streaky, sitting in the centre of the page."],
+    "close": ["Just the tawny owl's face, with its two dark eyes and the pale V between them.", "Only the tawny owl, round and streaky, like a tea cosy with eyes."],
     "scale": "small",
     "habitats": ["woodland", "garden", "hedgerow", "village"],
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "night",
     "colours": ["#8D5C34", "#CDAD7F", "#4A3021"],
+    "accent": "#D6C17F",
     "texture": "feather",
     "roles": {
       "main": "for the warm chestnut feathers",
@@ -312,7 +324,7 @@
       "light": "for the pale eyebrows and the spots on the wings",
       "accent": "for the yellowish beak"
     },
-    "firstMark": ["Start with the eyes: two big, solid circles of {dark}, leaving a speck of paper in each.", "Start with the pale disc of the face, edged with a ring of {main}."]
+    "firstMark": ["Start with the eyes: two solid discs of {dark}, leaving a speck of paper in each.", "Start with the pale disc of the face, edged with a ring of {main}."]
   },
   {
     "id": "fur-puffin",
@@ -324,7 +336,7 @@
     "doing": [
       { "t": "is waddling about on bright orange feet", "scope": "any" },
       { "t": "is tapping beaks with its mate", "scope": "any" },
-      { "t": "is looking extremely solemn", "scope": "any" },
+      { "t": "is staring straight ahead, solemn as a vicar", "scope": "any" },
       { "t": "is carrying a beakful of grass for its burrow", "scope": "outdoor", "seasons": ["spring"] },
       { "t": "is whirring past on frantic wings", "scope": "outdoor" }
     ],
@@ -334,6 +346,7 @@
     "seasons": ["spring", "summer"],
     "active": "day",
     "colours": ["#1F1F23", "#F3F1EC", "#E2632B"],
+    "accent": "#E2632B",
     "texture": "feather",
     "roles": {
       "main": "for the black back and collar",
@@ -355,20 +368,21 @@
       { "t": "is asleep with its head tucked under a wing", "scope": "any" },
       { "t": "is peeping for its mother", "scope": "any" },
       { "t": "is nibbling at a strand of weed", "scope": "any" },
-      { "t": "is riding on its mother's back", "scope": "outdoor" }
+      { "t": "is hurrying to keep up with its mother", "scope": "outdoor" }
     ],
-    "close": ["Just the cygnet, a grey pear shape with a dark beak.", "Only the cygnet, round and downy, with plenty of white page around it."],
+    "close": ["Just the cygnet, a grey pear shape with a dark beak.", "Only the cygnet, plump and downy, with plenty of white page around it."],
     "scale": "small",
     "habitats": ["water", "meadow"],
     "seasons": ["spring", "summer"],
     "active": "day",
     "colours": ["#A9A39A", "#5E5852", "#E8E3DA"],
+    "accent": "#4C4744",
     "texture": "feather",
     "roles": {
       "main": "for the grey down",
       "dark": "for the beak and the eye",
       "light": "for the pale fluff on the breast",
-      "accent": "for the faint buff tinge on the back"
+      "accent": "for the dark grey webbed feet"
     },
     "firstMark": ["Start with the beak: a short wedge of {dark}, with the eye just above it.", "Start with the round body in a light, scribbly layer of {main}."]
   },
@@ -378,13 +392,13 @@
     "title": "The Mallard Ducklings",
     "a": "three mallard ducklings",
     "the": "the three ducklings",
-    "phrases": ["a wobbly line of three", "all cheeping at once", "fluff the colour of custard"],
+    "phrases": ["a wobbly line of three", "all talking over each other", "fluff the colour of custard"],
     "doing": [
       { "t": "are piled together in a heap", "scope": "any" },
-      { "t": "are tumbling along after one another", "scope": "any" },
+      { "t": "are tumbling over one another to keep up", "scope": "any" },
       { "t": "are all looking the same way at once", "scope": "any" },
-      { "t": "are paddling along in single file", "scope": "outdoor" },
-      { "t": "are dabbling with their tails in the air", "scope": "outdoor" }
+      { "t": "are following each other in single file", "scope": "outdoor" },
+      { "t": "are shaking the wet out of their stubby wings", "scope": "outdoor" }
     ],
     "close": ["Just the three ducklings in a row, each one facing a different way.", "Only one of the ducklings, close up, with every wisp of down."],
     "scale": "small",
@@ -392,14 +406,15 @@
     "seasons": ["spring", "summer"],
     "active": "day",
     "colours": ["#DCC25E", "#6B5236"],
+    "accent": "#5A5550",
     "texture": "feather",
     "roles": {
       "main": "for the yellow down on the faces and bellies",
       "dark": "for the brown backs and the stripe through each eye",
       "light": "for the fluffy edges and the shine in the eyes",
-      "accent": "for the small beaks and webbed feet"
+      "accent": "for the dark grey beaks"
     },
-    "firstMark": ["Start with the eye stripes: one short dash of {dark} through each eye.", "Start with three overlapping ovals of {main}, drawn very lightly."]
+    "firstMark": ["Start with the eye stripes: one short dash of {dark} through each eye.", "Start with three overlapping ovals of {main}, drawn as faintly as you can."]
   },
   {
     "id": "fur-swallow",
@@ -422,6 +437,7 @@
     "seasons": ["spring", "summer"],
     "active": "day",
     "colours": ["#22325A", "#F0E6D4", "#A9352B"],
+    "accent": "#A9352B",
     "texture": "feather",
     "roles": {
       "main": "for the glossy navy back and wings",
@@ -451,6 +467,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#1F1D1F", "#F2EFE9", "#C62B2A"],
+    "accent": "#C62B2A",
     "texture": "feather",
     "roles": {
       "main": "for the black back and wings",
@@ -466,7 +483,7 @@
     "title": "The Bumblebee",
     "a": "a bumblebee",
     "the": "the bumblebee",
-    "phrases": ["a flying humbug", "too round to fly, and yet", "pollen packed on its legs"],
+    "phrases": ["a buzz in a fur coat", "too round to fly, and yet", "pollen packed on its legs"],
     "doing": [
       { "t": "is cleaning its face with its front legs", "scope": "any" },
       { "t": "is buzzing crossly at nothing in particular", "scope": "any" },
@@ -474,12 +491,13 @@
       { "t": "is bumbling from flower to flower", "scope": "outdoor" },
       { "t": "is buried head first in a foxglove", "scope": "outdoor", "seasons": ["summer"] }
     ],
-    "close": ["Just the bumblebee, close enough to see every stripe of fuzz.", "Only the bumblebee, side on, legs dangling, filling the page."],
+    "close": ["Just the bumblebee, close enough to see every stripe of fuzz.", "Only the bumblebee, side on, with its legs dangling like landing gear."],
     "scale": "tiny",
     "habitats": ["garden", "meadow", "hedgerow", "visitor"],
     "seasons": ["spring", "summer", "autumn"],
     "active": "day",
     "colours": ["#E6B32E", "#1F1B18", "#EEE8DA"],
+    "accent": "#E0892B",
     "texture": "fur",
     "roles": {
       "main": "for the yellow bands",
@@ -509,12 +527,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "active": "day",
     "colours": ["#C9241F", "#1B1819"],
+    "accent": "#F1EEE8",
     "texture": "shell",
     "roles": {
       "main": "for the glossy red wing cases",
       "dark": "for the spots, the head and the legs",
-      "light": "for the white marks on the head and the shine on the shell",
-      "accent": "for the warm orange where the red thins at the edges"
+      "light": "for the shine on the shell",
+      "accent": "for the white marks on the head"
     },
     "firstMark": ["Start with the seven spots in solid {dark}, before any red goes down.", "Start with the shine: leave a small oval of bare paper on the shell, then fill around it with {main}."]
   },
@@ -528,9 +547,9 @@
     "doing": [
       { "t": "is opening and closing its wings", "scope": "any" },
       { "t": "is flashing its eyespots to look fierce", "scope": "any" },
-      { "t": "is spreading its wings out wide", "scope": "any" },
+      { "t": "is resting with its wings shut, dark as a scrap of bark", "scope": "any" },
       { "t": "is sipping from a buddleia flower", "scope": "outdoor", "seasons": ["summer"] },
-      { "t": "is drinking the juice of a fallen plum", "scope": "any", "seasons": ["autumn"] }
+      { "t": "is drinking the juice of an overripe plum", "scope": "any", "seasons": ["autumn"] }
     ],
     "close": ["Just the peacock butterfly, wings open flat, all four eyespots showing.", "Only one wing, drawn large, so the eyespot fills the page."],
     "scale": "tiny",
@@ -538,12 +557,13 @@
     "seasons": ["spring", "summer", "autumn"],
     "active": "day",
     "colours": ["#9A2D24", "#3E6FA8", "#E3B547"],
+    "accent": "#3E6FA8",
     "texture": "wing",
     "roles": {
       "main": "for the rusty red of the wings",
       "dark": "for the sooty edges and the body",
       "light": "for the pale rims of the eyespots",
-      "accent": "for the blue and yellow in the eyes"
+      "accent": "for the blue in the eyespots"
     },
     "firstMark": ["Start with the eyespots: four rings of {dark}, one near each wingtip.", "Start with the body, a short furry line of {dark} down the middle of the page."]
   },
@@ -567,12 +587,13 @@
     "seasons": ["spring", "summer"],
     "active": "night",
     "colours": ["#D9667F", "#8B8A45", "#E8C9C9"],
+    "accent": "#EEE4D6",
     "texture": "wing",
     "roles": {
       "main": "for the pink wing edges and stripes",
       "dark": "for the olive bands and the shadow under the wings",
       "light": "for the pale fringes along the wings",
-      "accent": "for the white-tipped antennae"
+      "accent": "for the pale cream antennae"
     },
     "firstMark": ["Start with the outline of the swept-back wings, a long, shallow triangle drawn lightly in {main}.", "Start with the olive band through each wing in {dark}, leaving paper either side for the pink."]
   },
@@ -588,7 +609,7 @@
       { "t": "is gliding along at its usual stately pace", "scope": "any" },
       { "t": "is hiding inside its shell", "scope": "any" },
       { "t": "is nibbling a ragged hole in a lettuce leaf", "scope": "any" },
-      { "t": "is climbing up the side of a flowerpot", "scope": "outdoor" }
+      { "t": "is inching up a stem with its horns out", "scope": "outdoor" }
     ],
     "close": ["Just the snail, side on, with the spiral of its shell as large as you dare.", "Only the snail's shell, close up, following its spiral round and round."],
     "scale": "tiny",
@@ -596,12 +617,13 @@
     "seasons": ["spring", "summer", "autumn"],
     "active": "any",
     "colours": ["#9A7444", "#4D3826", "#8F867A"],
+    "accent": "#7A746C",
     "texture": "shell",
     "roles": {
       "main": "for the brown shell",
       "dark": "for the bands that wind round the shell",
       "light": "for the shine on the shell and the gleam along the body",
-      "accent": "for the grey-brown body and eye stalks"
+      "accent": "for the grey-brown eye stalks"
     },
     "firstMark": ["Start with the spiral: one curling line of {dark}, from the centre of the shell outwards.", "Start with the lip of the shell in a careful curve of {main}."]
   },
@@ -625,6 +647,7 @@
     "seasons": ["spring", "summer", "autumn"],
     "active": "day",
     "colours": ["#3D82C2", "#7FA73C", "#24272B"],
+    "accent": "#7FA73C",
     "texture": "wing",
     "roles": {
       "main": "for the blue body",

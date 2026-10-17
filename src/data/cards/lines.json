@@ -69,13 +69,13 @@
     "Look who it is: your {name} from {month}.",
     "Remember your {name} from {month}?",
     "First drawn in {month}: your {name}.",
-    "A return visit from your {name} of {month}.",
+    "A return visit, courtesy of your {name} from {month}.",
     "Out of the box again: your {name} from {month}.",
     "One you've met: your {name} from {month}.",
     "The deck kept your {name} from {month} for an occasion like this.",
     "Another sitting for your {name} from {month}.",
     "Hello again to your {name} from {month}.",
-    "Sealed in {month}, dealt again today: your {name}."
+    "The deck remembers your {name} from {month}."
   ],
   "lonely": {
     "PC901": [
@@ -83,7 +83,7 @@
       "Indigo Blue is back for the first time since {month}. Lay her under any dark and watch it deepen."
     ],
     "PC903": [
-      "True Blue hasn't had a turn since {month}. Loyal as the name suggests, she never once complained.",
+      "True Blue hasn't had a turn since {month}. Loyal as the name suggests, and as bright as ever.",
       "{month} was the last time True Blue came up. That's a lot of sky going spare."
     ],
     "PC904": [

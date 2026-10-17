@@ -23,7 +23,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["close-crop", "tall-strip", "thirds"],
     "colours": ["#D9CBA6", "#8A5A3C"],
-    "role": "for the painted shelf and the jars of chutney"
+    "role": "for the cream shelf and the jars of chutney"
   },
   {
     "id": "where-bottom-step",
@@ -88,13 +88,13 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "close-crop", "postage-stamp"],
     "colours": ["#F2EDE3", "#8BA7BF"],
-    "role": "for the bone china and its blue sprigs"
+    "role": "for the cups and their blue sprigs"
   },
   {
     "id": "where-top-of-bookcase",
     "title": "The Top of the Bookcase",
     "at": "at the top of the bookcase",
-    "phrases": ["dust and a lost postcard", "the best lookout in the house"],
+    "phrases": ["dust and a lost jigsaw piece", "the best lookout in the house"],
     "scope": "indoor",
     "admits": ["home", "tabletop"],
     "maxScale": "small",
@@ -107,14 +107,14 @@
     "id": "where-fireside-chair",
     "title": "The Fireside Chair",
     "at": "on the arm of the fireside chair",
-    "phrases": ["velvet gone shiny at the edges", "knitting stuffed down the side"],
+    "phrases": ["velvet gone shiny at the edges", "coins lost down the side"],
     "scope": "indoor",
     "admits": ["home", "tabletop"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "close-crop", "vignette"],
     "colours": ["#6E3A3B", "#A27B55"],
-    "role": "for the velvet and the wooden feet"
+    "role": "for the velvet and the carved feet"
   },
   {
     "id": "where-rag-rug",
@@ -133,14 +133,14 @@
     "id": "where-bay-window",
     "title": "The Bay Window",
     "at": "in the bay window",
-    "phrases": ["cushions plumped against the glass", "three panes of garden"],
+    "phrases": ["a row of plumped cushions", "three panes of garden"],
     "scope": "indoor",
     "admits": ["home", "tabletop"],
     "maxScale": "medium",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["window", "thirds", "low-horizon"],
     "colours": ["#CDBB9D", "#7F9C88"],
-    "role": "for the cushions and the garden beyond the panes"
+    "role": "for the cushions and the window frame"
   },
   {
     "id": "where-under-kitchen-table",
@@ -169,17 +169,17 @@
     "role": "for the copper tank and the stacked towels"
   },
   {
-    "id": "where-patchwork-quilt",
-    "title": "The Patchwork Quilt",
-    "at": "on the patchwork quilt",
-    "phrases": ["squares from outgrown frocks", "a bed not quite made"],
+    "id": "where-candlewick-bedspread",
+    "title": "The Candlewick Bedspread",
+    "at": "on the candlewick bedspread",
+    "phrases": ["tufted rows like a ploughed field", "a bed not quite made"],
     "scope": "indoor",
     "admits": ["home", "tabletop"],
     "maxScale": "medium",
     "seasons": ["spring", "summer", "autumn", "winter"],
-    "frames": ["from-above", "sampler", "vignette"],
-    "colours": ["#C47A6C", "#8DA4B4"],
-    "role": "for the faded squares of the quilt"
+    "frames": ["from-above", "vignette", "close-crop"],
+    "colours": ["#E2B4A8", "#F3E9DC"],
+    "role": "for the tufted rows of the bedspread"
   },
   {
     "id": "where-willow-pattern-dresser",
@@ -218,20 +218,20 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["low-horizon", "thirds", "vignette"],
     "colours": ["#A69A8A", "#4D6A80"],
-    "role": "for the stone step and the painted door"
+    "role": "for the stone step and the blue door"
   },
   {
-    "id": "where-greenhouse-bench",
-    "title": "The Greenhouse Bench",
-    "at": "on the greenhouse bench",
+    "id": "where-greenhouse",
+    "title": "The Greenhouse",
+    "at": "in the lean-to greenhouse",
     "phrases": ["the sharp scent of tomato leaves", "seedlings stretching for the glass"],
     "scope": "threshold",
     "admits": ["garden", "visitor", "tabletop"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "close-crop", "window"],
-    "colours": ["#8C6B49", "#A9C1A1"],
-    "role": "for the wooden staging and the green-tinted glass"
+    "colours": ["#A4573F", "#A9C1A1"],
+    "role": "for the brick back wall and the green-tinted panes"
   },
   {
     "id": "where-potting-shed",
@@ -249,7 +249,7 @@
   {
     "id": "where-cardboard-box",
     "title": "The Cardboard Box",
-    "at": "in the box the shopping came in",
+    "at": "in a cardboard box from the grocer's",
     "phrases": ["flaps that won't stay shut", "better than anything that came in it"],
     "scope": "indoor",
     "admits": ["home", "tabletop"],
@@ -263,14 +263,14 @@
     "id": "where-tearoom-window",
     "title": "The Tearoom Window",
     "at": "in the tearoom window",
-    "phrases": ["a cake stand in three tiers", "a lace curtain on a sagging wire"],
+    "phrases": ["a cake stand stacked in tiers", "a lace curtain on a sagging wire"],
     "scope": "threshold",
     "admits": ["tabletop", "village"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["window", "thirds", "postage-stamp"],
     "colours": ["#F0E6D6", "#8E3F4E"],
-    "role": "for the lace and the painted shopfront"
+    "role": "for the lace and the raspberry shopfront"
   },
   {
     "id": "where-attic-trunk",
@@ -296,26 +296,26 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["thirds", "close-crop", "postage-stamp"],
     "colours": ["#E4DACA", "#7E4A3A"],
-    "role": "for the painted mantelpiece"
+    "role": "for the mantelpiece and the tiled surround"
   },
   {
     "id": "where-bedside-table",
     "title": "The Bedside Table",
     "at": "on the bedside table",
-    "phrases": ["reading glasses folded on a paperback", "an alarm clock with a loud tick"],
+    "phrases": ["a paperback face down to keep the page", "a lampshade with a bobbled fringe"],
     "scope": "indoor",
     "admits": ["tabletop", "home"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["close-crop", "vignette", "postage-stamp"],
     "colours": ["#9E7149", "#E8D9B5"],
-    "role": "for the wooden top and the lampshade"
+    "role": "for the walnut top and the lampshade"
   },
   {
     "id": "where-conservatory",
     "title": "The Conservatory",
     "at": "among the geraniums in the conservatory",
-    "phrases": ["a wicker chair that creaks", "cuttings rooting in a glass"],
+    "phrases": ["a wicker chair that creaks", "cuttings rooting on every ledge"],
     "scope": "threshold",
     "admits": ["garden", "visitor", "home", "tabletop"],
     "maxScale": "small",

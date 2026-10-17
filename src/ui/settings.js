@@ -278,7 +278,7 @@ function holdsText() {
   if (drawings) parts.push(plural(drawings, 'drawing'))
   if (ticks) parts.push(plural(ticks, 'ticked card'))
   if (state.readings.size) parts.push(plural(state.readings.size, 'reading'))
-  parts.push(`your tin of ${state.tin.owned.length}`)
+  parts.push(`your tin of ${plural(state.tin.owned.length, 'pencil')}`)
   if (!state.seals.length && !state.readings.size) parts.push('your settings')
   return cap(listJoin(parts)) + '.'
 }

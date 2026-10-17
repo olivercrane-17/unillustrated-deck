@@ -88,8 +88,14 @@ function subject(cx, cy, r, k, { tint, ground = false } = {}) {
 function note(lines, ty, [px, py]) {
   const sx = NOTE_X - 4
   const sy = ty - 4
-  const qx = (sx + px) / 2
-  const qy = Math.min(sy, py) - 12
+  const len = Math.hypot(px - sx, py - sy) || 1
+  const bend = Math.min(14, len * 0.28)
+  // Bow the line gently upwards, away from the straight path.
+  let nx = -(py - sy) / len
+  let ny = (px - sx) / len
+  if (ny > 0) { nx = -nx; ny = -ny }
+  const qx = (sx + px) / 2 + nx * bend
+  const qy = (sy + py) / 2 + ny * bend
   const ang = Math.atan2(py - qy, px - qx)
   const head = (da) => `${r1(px - 6 * Math.cos(ang + da))} ${r1(py - 6 * Math.sin(ang + da))}`
   const text = lines.map((l, i) => `<tspan x="${NOTE_X}" dy="${i ? 13 : 0}">${esc(l)}</tspan>`).join('')
@@ -131,7 +137,7 @@ const FRAMES = {
       <path d="M${PAGE.x} 150 C 40 146, 62 153, 90 148 S 128 151, ${X1} 147" stroke-width="1.4"/>
       <path d="M22 163 h 10 M48 171 h 14 M88 164 h 10 M112 177 h 16 M30 184 h 8" stroke-width=".9" opacity=".5"/>
       ${subject(50, 140, 10, 3, { tint })}`
-    return { body, notes: [note(['plenty of sky'], 92, [104, 84]), note(['subject'], 126, [62, 137]), note(['horizon,', 'kept low'], 164, [130, 149])] }
+    return { body, notes: [note(['plenty of sky'], 92, [104, 84]), note(['subject'], 126, [62, 137]), note(['horizon,', 'kept low'], 172, [122, 152])] }
   },
 
   'close-crop'({ tint, uid }) {
@@ -142,7 +148,7 @@ const FRAMES = {
                M${X1 + 3} ${PAGE.y} H ${X1 + 9} M${X1} ${PAGE.y - 9} V ${PAGE.y - 3}
                M${PAGE.x - 9} ${Y1} H ${PAGE.x - 3} M${PAGE.x} ${Y1 + 3} V ${Y1 + 9}
                M${X1 + 3} ${Y1} H ${X1 + 9} M${X1} ${Y1 + 3} V ${Y1 + 9}" stroke-width="1"/>`
-    return { body, notes: [note(['subject,', 'right up close'], 40, [112, 76]), note(['off the edge'], 150, [X1, 152])] }
+    return { body, notes: [note(['subject,', 'right up close'], 40, [112, 76]), note(['off the edge'], 178, [X1 - 4, 160])] }
   },
 
   'from-above'({ tint }) {
@@ -167,7 +173,7 @@ const FRAMES = {
       <path d="${lines}" stroke-width="1" stroke-dasharray="3 4" opacity=".7"/>
       ${dots}
       ${subject(xs[1], ys[1] - 3, 16, 7, { tint, ground: true })}`
-    return { body, notes: [note(['a third'], 56, [134, r1(ys[0])]), note(['subject on', 'a crossing'], 148, [116, 130])] }
+    return { body, notes: [note(['a third'], 30, [r1(xs[1]) + 2, 34]), note(['subject on', 'a crossing'], 148, [116, 130])] }
   },
 
   'tall-strip'({ tint }) {
@@ -183,7 +189,7 @@ const FRAMES = {
       <rect x="46" y="66" width="62" height="74" stroke-width="3.2" stroke-dasharray="0.1 5.2" stroke-linecap="round"/>
       <rect x="51" y="71" width="52" height="64" stroke-width="1.1"/>
       ${subject(CX, 104, 13, 9, { tint, ground: true })}`
-    return { body, notes: [note(['a tiny box'], 58, [109, 70]), note(['lots of', 'bare paper'], 160, [124, 162])] }
+    return { body, notes: [note(['a tiny box'], 58, [109, 70]), note(['lots of', 'bare paper'], 160, [122, 170])] }
   },
 
   'three-studies'({ tint }) {
@@ -215,7 +221,7 @@ const FRAMES = {
       body += subject(x + w / 2, y + hgt / 2 + 2, r, 13 + i, { tint })
       if (doneSet.has(i)) body += `<path class="dg-tick" d="M${r1(x + w - 15)} ${r1(y + 9)} l 3.5 3.5 l 6.5 -7.5" stroke-width="1.8"/>`
       text += handNum(x + 4, y + 12, i + 1)
-      if (i === Math.min(1, n - 1)) point = [r1(x + w), r1(y + hgt / 2)]
+      if (i === Math.min(1, n - 1)) point = [r1(x + w / 2 + r + 3), r1(y + hgt / 2)]
     }
     return { body, text, notes: [note(['one small', 'thing in each'], point[1] - 2, [point[0] + 1, point[1]])] }
   },
@@ -235,8 +241,8 @@ export function diagramSvg(id, { tint, count, done } = {}) {
   return `<svg class="diagram diagram-${frame}" viewBox="0 0 232 204" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
     <defs>
       <filter id="${uid}-wobble" x="-6%" y="-6%" width="112%" height="112%">
-        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="${seed}" result="noise"/>
-        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.6" xChannelSelector="R" yChannelSelector="G"/>
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="1" seed="${seed}" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
       </filter>
     </defs>
     <rect x="${PAGE.x + 3}" y="${PAGE.y + 4}" width="${PAGE.w}" height="${PAGE.h}" rx="2" fill="#000" fill-opacity=".07" stroke="none" class="dg-shadow"/>

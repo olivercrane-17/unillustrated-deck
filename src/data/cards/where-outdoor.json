@@ -23,7 +23,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["close-crop", "thirds"],
     "colours": ["#4F5E34", "#6B3F52"],
-    "role": "for the arching stems and their prickles"
+    "role": "for the arching canes and their prickles"
   },
   {
     "id": "where-meadow-edge",
@@ -49,7 +49,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["low-horizon", "close-crop"],
     "colours": ["#7E9A4C", "#6C8E9E"],
-    "role": "for the green stems and the glint of the stream"
+    "role": "for the slender stems and the glint of the stream"
   },
   {
     "id": "where-old-oak",
@@ -101,7 +101,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "thirds"],
     "colours": ["#7B6A50", "#6C8A43"],
-    "role": "for the leaning posts and the rows of greens"
+    "role": "for the tilting posts and the cabbages"
   },
   {
     "id": "where-water-butt",
@@ -114,7 +114,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "close-crop"],
     "colours": ["#5E4A37", "#7E949A"],
-    "role": "for the dark staves and the sheen on the water"
+    "role": "for the banded staves and the sheen on the water"
   },
   {
     "id": "where-garden-bench",
@@ -140,7 +140,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["vignette", "close-crop"],
     "colours": ["#7A5E44", "#C9B58A"],
-    "role": "for the shingled roof and the seed tray"
+    "role": "for the shingled roof and the feeding tray"
   },
   {
     "id": "where-rockpools",
@@ -159,7 +159,7 @@
     "id": "where-harbour-wall",
     "title": "The Harbour Wall",
     "at": "on the harbour wall",
-    "phrases": ["lobster pots stacked high", "rope coiled like a sleeping snake"],
+    "phrases": ["lobster pots piled high", "rope coiled like a sleeping snake"],
     "scope": "outdoor",
     "admits": ["coast", "village"],
     "maxScale": "medium",
@@ -198,7 +198,7 @@
     "id": "where-riverbank",
     "title": "The Riverbank",
     "at": "on the riverbank",
-    "phrases": ["willow roots trailing in", "a plop you nearly missed"],
+    "phrases": ["a willow trailing its fingers", "a plop you nearly missed"],
     "scope": "outdoor",
     "admits": ["water", "meadow", "woodland", "hedgerow"],
     "maxScale": "large",
@@ -224,14 +224,14 @@
     "id": "where-woodland-clearing",
     "title": "The Woodland Clearing",
     "at": "in a woodland clearing",
-    "phrases": ["birches standing round in a ring", "last year's leaves underfoot"],
+    "phrases": ["birches standing at a polite distance", "last year's leaves underfoot"],
     "scope": "outdoor",
     "admits": ["woodland", "meadow", "hedgerow"],
     "maxScale": "large",
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["vignette", "thirds"],
     "colours": ["#7B8A40", "#8D6B46"],
-    "role": "for the leaf litter and the ring of trunks"
+    "role": "for the leaf litter and the birch trunks"
   },
   {
     "id": "where-orchard",
@@ -250,14 +250,14 @@
     "id": "where-bluebells",
     "title": "The Bluebell Wood",
     "at": "among the bluebells",
-    "phrases": ["a blue haze between the trees", "a scent like hyacinths"],
+    "phrases": ["a blue haze under the beeches", "a scent like hyacinths"],
     "scope": "outdoor",
     "admits": ["woodland", "hedgerow"],
     "maxScale": "medium",
     "seasons": ["spring"],
     "frames": ["low-horizon", "vignette"],
     "colours": ["#5D63A6", "#7C9849"],
-    "role": "for the drifts of blue and the stems beneath"
+    "role": "for the drifts of blue and their green stalks"
   },
   {
     "id": "where-hilltop",
@@ -296,7 +296,7 @@
     "seasons": ["spring", "summer", "autumn", "winter"],
     "frames": ["tall-strip", "low-horizon"],
     "colours": ["#7D786C", "#6A7E44"],
-    "role": "for the worn tarmac and its verges"
+    "role": "for the cracked tarmac and its verges"
   },
   {
     "id": "where-frozen-puddle",
@@ -309,19 +309,19 @@
     "seasons": ["winter"],
     "frames": ["from-above", "close-crop"],
     "colours": ["#C8D5DD", "#7B6F5E"],
-    "role": "for the milky ice and the mud beneath it"
+    "role": "for the milky ice and the cracks across it"
   },
   {
     "id": "where-pumpkin-patch",
     "title": "The Pumpkin Patch",
     "at": "in the pumpkin patch",
-    "phrases": ["vines gone dry as rope", "one far too heavy to lift"],
+    "phrases": ["vines crisp as old paper", "one too heavy to carry"],
     "scope": "outdoor",
     "admits": ["garden", "farm"],
     "maxScale": "medium",
     "seasons": ["autumn"],
     "frames": ["thirds", "from-above"],
     "colours": ["#D8772F", "#5F6B35"],
-    "role": "for the ribbed orange skins and the tired leaves"
+    "role": "for the ribbed orange skins and the curling tendrils"
   }
 ]

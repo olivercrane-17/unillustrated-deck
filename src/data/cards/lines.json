@@ -1,0 +1,278 @@
+{
+  "askAgain": [
+    "The deck shuffles itself and tries once more.",
+    "Not that one? The deck isn't offended.",
+    "Back in the pack it goes. Here's another.",
+    "The deck takes the hint.",
+    "Fair enough. There are plenty more where that came from.",
+    "A quick riffle, and a different idea.",
+    "The deck cuts itself and turns up something new.",
+    "Second thoughts are allowed. So are third ones.",
+    "The deck shrugs, shuffles and deals again.",
+    "A fresh card, still warm from the shuffle.",
+    "The deck had a feeling you might say that.",
+    "No harm done. Another card, face up.",
+    "The deck rummages further down.",
+    "Let's see if this one sits better.",
+    "Shuffled, squared up and dealt again.",
+    "The deck tries a new tack.",
+    "Being choosy is allowed. The deck rather enjoys it.",
+    "One more go, then. The deck never tires of this.",
+    "The deck turns over a new leaf. Well, a new card.",
+    "Right you are. Something else entirely."
+  ],
+  "spreadOut": [
+    "The deck spreads itself out. Pick the one that tugs at you.",
+    "Three cards on the table, face up. Which one's calling?",
+    "Your choice this time. The deck will go along with it.",
+    "Here are three to choose from. There's no wrong answer.",
+    "The deck fans itself out for you. Take whichever catches your eye.",
+    "Point at one and the deck will do the rest."
+  ],
+  "sealed": [
+    "Sealed. {title} is yours now.",
+    "{title} has your drawing in it now.",
+    "Sealed and dated. {title} will keep your picture safe.",
+    "Into the box it goes: {title}, with your drawing inside.",
+    "Sealed. Next time {title} turns up, it'll be wearing your drawing.",
+    "Done. {title} carries your drawing from today.",
+    "{title} now has your photo in its frame.",
+    "Sealed. The deck has tucked {title} away with your picture on it.",
+    "{title} is one of yours now.",
+    "That's {title} sealed. You'll find it in Your Deck whenever you like.",
+    "{title} goes back in the pack with your drawing on its face.",
+    "Your drawing is in {title} for keeps.",
+    "{title}, sealed. It was waiting for a picture, and now it has one.",
+    "Sealed. {title} isn't unillustrated any more.",
+    "A sweep of foil, and {title} is sealed.",
+    "{title} has its picture at last.",
+    "{title} is sealed, with today's date written underneath.",
+    "Sealed. {title} joins the cards with your hand in them.",
+    "{title} is sealed and back in the box, picture side up.",
+    "{title} has a face of its own now: your drawing."
+  ],
+  "drawnNoPhoto": [
+    "Drawn. The deck has made a note.",
+    "Ticked and dated. That counts just the same.",
+    "Drawn, no photo needed. The deck takes your word for it.",
+    "The deck has pencilled in a tick.",
+    "Drawn. The paper knows, and now the deck does too.",
+    "Ticked off, in the nicest possible way.",
+    "A date on the card. The drawing can stay between you and the paper.",
+    "Marked as drawn. Photos are always optional.",
+    "Done and dusted. One small tick, one date.",
+    "Noted: drawn, with the date beside it."
+  ],
+  "oldFriend": [
+    "An old friend: your {name} from {month}.",
+    "Back again: your {name} from {month}.",
+    "Look who it is: your {name} from {month}.",
+    "Remember your {name} from {month}?",
+    "First drawn in {month}: your {name}.",
+    "A return visit from your {name} of {month}.",
+    "Out of the box again: your {name} from {month}.",
+    "One you've met: your {name} from {month}.",
+    "The deck kept your {name} from {month} for an occasion like this.",
+    "Another sitting for your {name} from {month}.",
+    "Hello again to your {name} from {month}.",
+    "Sealed in {month}, dealt again today: your {name}."
+  ],
+  "lonely": {
+    "PC901": [
+      "Indigo Blue hasn't come up since {month}. She does the best shadows in the tin.",
+      "Indigo Blue is back for the first time since {month}. Lay her under any dark and watch it deepen."
+    ],
+    "PC903": [
+      "True Blue hasn't had a turn since {month}. Loyal as the name suggests, she never once complained.",
+      "{month} was the last time True Blue came up. That's a lot of sky going spare."
+    ],
+    "PC904": [
+      "Light Cerulean Blue last turned up in {month}. Puddles, duck eggs and the shine on a jug are all in her gift.",
+      "The deck hasn't dealt Light Cerulean Blue since {month}. A pale sky waiting to happen."
+    ],
+    "PC908": [
+      "Dark Green hasn't come up since {month}. Very handy in the deep bits of a hedge.",
+      "Dark Green has sat out every reading since {month}, and has thoughts about the shade under leaves."
+    ],
+    "PC909": [
+      "Grass Green hasn't been in a palette since {month}. Does exactly what it says on the barrel.",
+      "First time since {month} for Grass Green. Lawn, meadow or nettle patch, it isn't fussy."
+    ],
+    "PC910": [
+      "True Green was last dealt in {month}. Clean, bright and keen to be leaves.",
+      "No True Green since {month}, until now. Fresh as a pea pod, and just as green."
+    ],
+    "PC912": [
+      "Apple Green hasn't come up since {month}. New leaves are her speciality.",
+      "Apple Green is back for the first time since {month}, crisp as ever."
+    ],
+    "PC916": [
+      "The deck hasn't dealt Canary Yellow since {month}. Handy to have about on a grey day.",
+      "Canary Yellow last turned up in {month}. She brings her own sunshine, whatever the weather."
+    ],
+    "PC918": [
+      "Orange hasn't come up since {month}. Fox fur, clementines, marigolds: she's game for any of them.",
+      "Orange was last dealt in {month}. Nothing else in the tin does a clementine quite like her."
+    ],
+    "PC922": [
+      "Poppy Red hasn't had a turn since {month}. Named for a flower, perfectly happy to be a pillar box.",
+      "First time since {month} for Poppy Red. One dot of her goes a long way, and she knows it."
+    ],
+    "PC924": [
+      "Crimson Red hasn't come up since {month}. Cherries, holly berries, a jam tart: say the word.",
+      "Not since {month} has the deck picked Crimson Red. She'll happily see to the berries."
+    ],
+    "PC929": [
+      "Pink last turned up in {month}. Noses, toes and blossom are all hers.",
+      "Pink hasn't come up since {month}. Used lightly, she warms a mouse's ear or the edge of a petal."
+    ],
+    "PC932": [
+      "Violet hasn't come up since {month}. She's surprisingly good in a shadow.",
+      "Violet was last dealt in {month}. Tuck her into the shadow side of anything yellow and see what happens."
+    ],
+    "PC933": [
+      "{month} was the last time Violet Blue came up. Dusk is very much her hour.",
+      "Violet Blue hasn't been in a palette since {month}. She makes a lovely cool shadow on snow, or on a white cat."
+    ],
+    "PC935": [
+      "Black hasn't come up since {month}. It doesn't mind: a pupil or two is plenty.",
+      "Black is back for the first time since {month}. Most darks are richer mixed, but an eye still wants the real thing."
+    ],
+    "PC937": [
+      "Tuscan Red hasn't come up since {month}. A secret weapon under brown fur and old brick.",
+      "Tuscan Red was last dealt in {month}. She makes a warmer dark than Black ever could."
+    ],
+    "PC938": [
+      "The deck hasn't dealt White since {month}. Modest on white paper, a show-off on tan.",
+      "White last turned up in {month}. Save her for the final layer and she'll burnish everything smooth."
+    ],
+    "PC939": [
+      "Peach hasn't come up since {month}. Pig snouts, rabbit ears and warm evening light are all in her line.",
+      "Peach was last dealt in {month}. She takes the chill off any colour you layer her over."
+    ],
+    "PC945": [
+      "Sienna Brown hasn't had a turn since {month}. Toast crusts and red squirrels are her home ground.",
+      "Sienna Brown is back for the first time since {month}, and in the mood to bake something."
+    ],
+    "PC946": [
+      "Dark Brown hasn't come up since {month}. Steady, dependable, and very good at bark.",
+      "First time since {month} for Dark Brown. Try it where you'd usually reach for Black."
+    ],
+    "PC995": [
+      "Mulberry last turned up in {month}. Blackberry juice and plum skins are her territory.",
+      "Mulberry hasn't come up since {month}. She lends a jammy depth to anything purple or red."
+    ],
+    "PC1003": [
+      "Spanish Orange hasn't come up since {month}. Despite the name, she makes a very good egg yolk.",
+      "Spanish Orange was last dealt in {month}. Buttercups, honey and goldfinch wings, at your service."
+    ],
+    "PC1008": [
+      "Parma Violet hasn't been in a palette since {month}. Sweet as the name, and very good at lavender.",
+      "No Parma Violet since {month}, until now. Faraway hills look further off with a touch of her."
+    ],
+    "PC1034": [
+      "Goldenrod hasn't come up since {month}. Honey, ripe wheat and a well-baked crust are her thing.",
+      "Goldenrod last turned up in {month}. Late afternoon light would suit her down to the ground."
+    ],
+    "PC911": [
+      "The deck hasn't dealt Olive Green since {month}. The green for when nature isn't showing off.",
+      "Olive Green was last dealt in {month}. Moss and lichen would be glad of it."
+    ],
+    "PC914": [
+      "Cream hasn't come up since {month}. The quiet one who keeps the highlights warm.",
+      "Cream is back for the first time since {month}. Burnish with her instead of White and everything turns a bit buttery."
+    ],
+    "PC942": [
+      "Yellow Ochre hasn't had a turn since {month}. Hay, sand and dry grass are hers for the asking.",
+      "Yellow Ochre was last dealt in {month}. Earthy and unhurried, she calms a loud yellow right down."
+    ],
+    "PC943": [
+      "Burnt Ochre hasn't come up since {month}. Flowerpots, robins and fox cubs are all in her range.",
+      "{month} was the last time Burnt Ochre came up. Not burnt at all, really. Just nicely toasted."
+    ],
+    "PC947": [
+      "Dark Umber has sat out every reading since {month}: the deepest brown in the tin, and in no hurry about it.",
+      "Dark Umber last turned up in {month}. When a shadow needs to be properly dark, it's the one to ask."
+    ],
+    "PC1005": [
+      "Lime Peel hasn't come up since {month}. Lichen, catkins and new shoots all have a bit of her in them.",
+      "First time since {month} for Lime Peel. Sharp as the name, and lovely where sun shines through a leaf."
+    ]
+  },
+  "lonelyFamily": {
+    "red": [
+      "{name} hasn't come up since {month}. Reds get bold fast, so start with a light hand.",
+      "First time since {month} for {name}. Berries, rosehips and ladybirds, take your pick."
+    ],
+    "orange": [
+      "{name} hasn't been dealt since {month}. An orange can warm up a shadow better than you'd think.",
+      "{name} is back for the first time since {month}. Clementines, marmalade and autumn leaves await."
+    ],
+    "yellow": [
+      "{name} hasn't come up since {month}. Yellows like to go down first, on clean paper.",
+      "First time since {month} for {name}. A bit of sunshine, freshly sharpened."
+    ],
+    "green": [
+      "{name} hasn't been dealt since {month}. Greens look more natural with a thin layer of red or brown underneath.",
+      "{name} is back for the first time since {month}. There's always another leaf."
+    ],
+    "blue": [
+      "{name} hasn't come up since {month}. Blues make the best cool shadows, even on warm things.",
+      "{name} last turned up in {month}. Skies, puddles and blue tits are all fair game."
+    ],
+    "purple": [
+      "{name} hasn't come up since {month}. A purple in the shadows makes a yellow glow.",
+      "{name} is back for the first time since {month}. Plums, heather and a dusk sky are all within reach."
+    ],
+    "pink": [
+      "{name} hasn't come up since {month}. Pinks warm the inside of a shell or the tip of a nose.",
+      "{name} last turned up in {month}. Thin layers keep a pink fresh rather than sugary."
+    ],
+    "brown": [
+      "{name} hasn't come up since {month}. Browns are the backbone of fur, bark and toast.",
+      "{name} is back for the first time since {month}. Somewhere in this picture there's a twig with its name on it."
+    ],
+    "grey": [
+      "{name} hasn't come up since {month}. Greys are good at keeping brighter colours in line.",
+      "First time since {month} for {name}. Good for stones, rain clouds and the cat's whiskers."
+    ],
+    "black": [
+      "{name} hasn't come up since {month}. A touch is all it needs: an eye, a nose, the tip of a tail.",
+      "{name} is back for the first time since {month}. Use it last, and only where nothing else is dark enough."
+    ],
+    "white": [
+      "{name} hasn't come up since {month}. Best saved for the final layer, pressed firmly.",
+      "First time since {month} for {name}. On tan or grey paper, it does the shining for you."
+    ],
+    "metallic": [
+      "{name} hasn't come up since {month}. Keep it for the glint on a spoon or the rim of a cup.",
+      "{name} is back for the first time since {month}. It shines best on dark paper, if you have some."
+    ]
+  },
+  "deckIdea": [
+    "The deck has an idea.",
+    "Here's a thought.",
+    "The deck has been thinking.",
+    "Something for the page.",
+    "How about this one?",
+    "Straight from the top of the pack.",
+    "The deck turns one over.",
+    "One for the kitchen table.",
+    "Here's one the deck likes the look of.",
+    "Pencils out, if you fancy it."
+  ],
+  "noRush": [
+    "No rush. The deck keeps.",
+    "It'll be here when you're ready.",
+    "Leave it on the table. Nothing spoils.",
+    "Another time, then. The pencils aren't going anywhere.",
+    "The card will wait, face up, for as long as you like.",
+    "Whenever suits. The deck is very good at waiting."
+  ],
+  "smallTins": [
+    "A small tin is a good tin. Layer them and see how far they go.",
+    "Every pencil you own is in this one, which makes choosing easy.",
+    "Two colours layered over each other make a third, so a few pencils cover more than you'd think.",
+    "With a few pencils, pressure does the work: feather-light for the pale parts, firm for the darks."
+  ]
+}

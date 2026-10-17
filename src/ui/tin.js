@@ -1,7 +1,7 @@
 // Your Tin: tick the pencils she really owns, star favourites, and fix any
 // swatch that looks off on her screen. The 153 rows are built once; a tick,
 // a star or a colour fix updates only its own row.
-import { h, raw, mount, clear } from './h.js'
+import { h, raw, mount } from './h.js'
 import { ICONS, pencilSvg } from './ornaments.js'
 import { openSheet, confirmSheet, toast } from './feedback.js'
 import {
@@ -226,7 +226,7 @@ export function render(root) {
       h('div.tin-q-options', { role: 'group', 'aria-labelledby': id },
         variant.options.map((code) => {
           const p = byCode.get(code) || { code, name: code }
-          return h('button.tin-q-option', { type: 'button', 'aria-pressed': String(answer === code), onclick: () => answerVariant(variant, code) },
+          return h('button.tin-q-option', { type: 'button', 'aria-pressed': answer ? String(answer === code) : undefined, onclick: () => answerVariant(variant, code) },
             h('span.tin-q-swatch', { 'aria-hidden': 'true' }, raw(pencilSvg(pencilHex(code), { big: true }))),
             h('span.tin-q-name', h('code', code), h('strong', p.name), p.discontinued ? h('em', '(retired)') : null),
             answer === code ? h('span.tin-q-tick', { 'aria-hidden': 'true' }, raw(ICONS.tick)) : null,
@@ -375,14 +375,15 @@ export function render(root) {
 
   const variantHost = h('div.tin-variants')
   const presetNote = h('p.tin-preset-note.hand')
-  const countEl = h('p.tin-count', { 'aria-live': 'polite' })
-  const emptyNote = h('p.tin-empty', { hidden: true, role: 'note' })
+  const countEl = h('p.tin-count')
+  const emptyNote = h('p.tin-empty', { hidden: true })
   const noMatch = h('p.empty-note.tin-nomatch', { hidden: true })
 
   const search = h('input.input.tin-search-input', {
     type: 'search', placeholder: 'Search by name or code', 'aria-label': 'Search pencils by name or code',
-    autocomplete: 'off', spellcheck: false, enterkeyhint: 'search',
+    autocomplete: 'off', enterkeyhint: 'search',
   })
+  search.spellcheck = false
   search.addEventListener('input', () => { query = search.value; applyFilter() })
 
   const filterChips = h('div.chips.tin-filters', { role: 'group', 'aria-label': 'Show' },
@@ -426,7 +427,7 @@ export function render(root) {
       buildPresets(),
       presetNote,
     ),
-    h('div.tin-summary', countEl, h('p.tin-truth', TRUTH), emptyNote),
+    h('div.tin-summary', { 'aria-live': 'polite' }, countEl, h('p.tin-truth', TRUTH), emptyNote),
     h('div.tin-toolbar',
       h('label.tin-search', h('span.tin-search-icon', raw(ICONS.search)), search),
       filterChips,
@@ -458,6 +459,5 @@ export function render(root) {
     window.removeEventListener('beforeprint', buildPrintSheet)
     printEl.remove()
     document.body.classList.remove('has-tin-print')
-    clear(root)
   }
 }

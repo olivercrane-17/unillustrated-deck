@@ -38,7 +38,7 @@
       "a milk jug with a drip down the side",
       "a teaspoon resting in a puddle of tea",
       "a red geranium in a pot by the door",
-      "a paperback left face down beside a cup",
+      "a paperback face down beside a cup",
       "a dog's water bowl under the next chair",
       "a pain au chocolat with flaky ends",
       "a bud vase holding one carnation"
@@ -54,13 +54,13 @@
     "colours": ["#C9894A", "#F1E2C0", "#8C5A3C"],
     "slots": [
       "a cottage loaf with a dimple in the top",
-      "a stack of crumpets on a plate",
-      "a fruit scone split in half",
+      "a plate of crumpets",
+      "a fruit scone broken open",
       "a teacake studded with currants",
       "a mouse peering out from under the lid",
       "a bread knife lying on a wooden board",
       "a brown paper bag twisted shut",
-      "a slice of sourdough with big air pockets",
+      "a hunk of sourdough with big air pockets",
       "a butter dish with a single knife mark",
       "a jar of jam under a gingham lid",
       "a trail of crumbs across the counter",
@@ -78,7 +78,7 @@
     "slots": [
       "a tomato pincushion bristling with pins",
       "a silver thimble pitted all over",
-      "a wooden cotton reel wound with red thread",
+      "a cotton reel wound with cherry-red thread",
       "a pair of embroidery scissors shaped like a stork",
       "a card of mismatched buttons",
       "a tape measure coiled like a snail shell",
@@ -99,7 +99,7 @@
     "colours": ["#7A5A3C", "#E2B23C", "#4F7FB8"],
     "slots": [
       "a blue tit hanging upside down from a feeder",
-      "a robin waiting its turn on a post",
+      "a nuthatch coming headfirst down the post",
       "a fat ball in a wire feeder",
       "a scatter of sunflower hearts",
       "a starling covered in pale speckles",
@@ -107,7 +107,7 @@
       "a squirrel helping itself to the peanuts",
       "half an apple pushed onto a nail",
       "a wood pigeon far too big for the tray",
-      "a dish of water with a feather afloat",
+      "a dish of water with a sparrow mid-splash",
       "a slate roof with moss along the edge",
       "a dunnock picking up crumbs underneath"
     ]
@@ -130,7 +130,7 @@
       "a tail curled neatly around four paws",
       "a pot plant with one nibbled leaf",
       "a cat flap with a nose pushed through",
-      "a pair of eyes on top of the wardrobe",
+      "two eyes watching from the top of the wardrobe",
       "a feather toy dangling from a string",
       "a tuft of fur on a dark cushion"
     ]
@@ -149,12 +149,12 @@
       "a bantam cockerel mid-crow",
       "an enamel bowl of corn",
       "a feather caught on the wire",
-      "an egg box with one egg missing",
+      "an egg box with one space still empty",
       "a hen dozing on one leg",
-      "a wooden ramp with cross slats",
+      "a slatted ramp up to the pop hole",
       "a hen dust-bathing in a dry hollow",
       "a nesting box with a china egg in it",
-      "a dandelion leaf left as a treat",
+      "a dandelion leaf saved as a treat",
       "a chalkboard sign offering fresh eggs"
     ]
   },
@@ -173,12 +173,12 @@
       "a white feather drifting on the water",
       "a willow trailing its fingers in the pond",
       "a grey heron standing stock still",
-      "a pair of swans gliding side by side",
+      "two swans gliding side by side",
       "a coot with a white forehead",
       "a bulrush with a velvety brown head",
       "a paper boat bobbing at the edge",
       "a red post box beside the green",
-      "a bench with a brass plaque"
+      "a bench with peeling green paint"
     ]
   },
   {
@@ -191,7 +191,7 @@
     "colours": ["#6E9A5B", "#C8714A", "#E9E2CF"],
     "slots": [
       "a pot of basil with the tips pinched out",
-      "a washing-up brush standing in an old mug",
+      "a washing-up brush in an old mug",
       "an avocado stone balanced on cocktail sticks",
       "a spider plant trailing its offshoots",
       "a row of shells along the frame",
@@ -215,14 +215,14 @@
     "slots": [
       "a bedside lamp with a fringed shade",
       "a glass of water and folded reading glasses",
-      "a book with a ribbon marker hanging out",
+      "a book with its ribbon marker trailing",
       "a pair of slippers side by side",
       "a moth resting on the lampshade",
       "a dog asleep across the foot of the bed",
       "a threadbare teddy with a lopsided smile",
       "an alarm clock with two brass bells",
       "a mug of hot milk with nutmeg on top",
-      "a nightlight shaped like a crescent moon",
+      "a crescent moon nightlight",
       "a dressing gown on the back of the door",
       "a tawny owl on the branch outside"
     ]
@@ -231,7 +231,7 @@
     "id": "theme-nesting-season",
     "title": "The Nesting Season",
     "of": "from the nesting season",
-    "phrases": ["a beakful of moss", "busy since first light"],
+    "phrases": ["every hedge a building site", "busy since first light"],
     "seasons": ["spring"],
     "mood": "bright",
     "colours": ["#8A6A45", "#9EC3B8", "#7FA05A"],
@@ -263,8 +263,8 @@
       "a celandine opening its shiny petals",
       "a queen bumblebee searching for a nest",
       "an orange-tip butterfly on cuckooflower",
-      "a violet half hidden under a leaf",
-      "a sprig of hawthorn in fresh green leaf",
+      "a violet sheltering under a leaf",
+      "a hawthorn shoot in fresh green leaf",
       "a snail climbing a dock leaf",
       "a chaffinch singing from the top twig",
       "a five-bar gate with lichen on the top rail",
@@ -283,8 +283,8 @@
     "slots": [
       "a stack of terracotta pots",
       "a seed packet with sweet peas on the front",
-      "a ball of green garden twine",
-      "a robin on the handle of a fork",
+      "a tangle of green garden twine",
+      "a robin on the handle of a spade",
       "a tray of seedlings in their first leaves",
       "a pair of gloves still shaped like hands",
       "a dibber worn smooth with use",
@@ -304,18 +304,18 @@
     "mood": "bright",
     "colours": ["#5E8F3E", "#C2423A", "#E6C34A"],
     "slots": [
-      "a strawberry half hidden under straw",
+      "a strawberry ripening on its bed of straw",
       "a pea pod split open to show the row",
       "a scarlet runner bean flower on a cane",
       "an old CD twisting on string to scare pigeons",
-      "a lettuce with one leaf nibbled",
-      "a blackbird bathing in a puddle",
+      "a lettuce with one ragged leaf",
+      "a pied wagtail beside a puddle",
       "a courgette flower like a yellow trumpet",
       "a bundle of rhubarb in a bucket",
       "a wheelbarrow heaped with weeds",
-      "a pair of secateurs on an upturned crate",
+      "a pair of secateurs on a folding chair",
       "a honeybee on a chive flower",
-      "a rain gauge pushed into the soil"
+      "a rain gauge in the middle of the beds"
     ]
   },
   {
@@ -329,10 +329,10 @@
     "slots": [
       "a gingham rug with one corner folded over",
       "a punnet of strawberries",
-      "a wicker hamper with the lid propped open",
+      "a wicker hamper with the lid flung open",
       "a Scotch egg cut in half",
       "a jug of lemonade with ice and mint",
-      "a wasp eyeing up the jam",
+      "a wasp investigating the jam",
       "a sandwich cut into triangles",
       "a flask of tea and two tin mugs",
       "an ant carrying off a crumb",
@@ -355,11 +355,11 @@
       "a periwinkle on a frond of wrack",
       "a starfish with one arm curled up",
       "a limpet clamped tight to the rock",
-      "a blenny peering out of a crack",
+      "a blenny hiding in a crack",
       "a ribbon of bright green sea lettuce",
       "a hermit crab in a borrowed whelk shell",
       "a prawn you can almost see through",
-      "a red bucket upturned on the rocks",
+      "a red bucket waiting on the rocks",
       "a cluster of mussels gleaming blue-black",
       "a pink coralline weed like stiff lace"
     ]
@@ -368,7 +368,7 @@
     "id": "theme-meadow-in-july",
     "title": "A Meadow in July",
     "of": "from a meadow in July",
-    "phrases": ["grass taller than the gate", "the hum of everything"],
+    "phrases": ["grass taller than the gate", "the whole field humming"],
     "seasons": ["summer"],
     "mood": "bright",
     "colours": ["#9DB55A", "#E2C340", "#8E5FA8"],
@@ -379,7 +379,7 @@
       "a meadow brown butterfly on knapweed",
       "a grasshopper clinging to a stem",
       "a skylark on a tussock",
-      "a sprig of red clover",
+      "a head of red clover",
       "a harvest mouse gripping a grass stem",
       "a six-spot burnet moth on a scabious",
       "a dandelion clock missing half its seeds",
@@ -402,12 +402,12 @@
       "a crab apple lying in the grass",
       "a heap of sycamore keys",
       "a hedgehog house made from an upturned crate",
-      "a curled oak leaf the colour of toast",
+      "a crisp oak leaf the colour of strong tea",
       "a trail of small footprints in the mud",
       "a hedgehog-sized gap at the bottom of a fence",
       "a cluster of haws on a hawthorn twig",
       "a mushroom with a nibble out of the cap",
-      "a cardboard box stuffed with hay"
+      "a log pile with a dark gap underneath"
     ]
   },
   {
@@ -425,10 +425,10 @@
       "a pebble with a white ring all the way round",
       "a mermaid's purse tangled in the seaweed",
       "a turnstone flipping over a strand of weed",
-      "a windbreak rolled up and leaning",
+      "a windbreak furled and tied",
       "a dog shaking off the sea",
       "a coil of knotted rope on the harbour wall",
-      "a stack of deckchairs against the railings",
+      "a deckchair chained to the railings",
       "a takeaway tea steaming on the sea wall",
       "a piece of sea glass worn frosty"
     ]
@@ -448,7 +448,7 @@
       "a wicker trug full of Bramleys",
       "an apple wrapped in newspaper for storing",
       "a pear with a leaf still on the stalk",
-      "a blackbird pecking at a windfall",
+      "a blackbird pecking at a fallen apple",
       "a jar of chutney with a handwritten label",
       "a halved apple showing its star of pips",
       "a fieldfare in the orchard grass",
@@ -468,13 +468,13 @@
       "a fly agaric with white spots",
       "a conker splitting out of its spiny case",
       "an acorn with its cup still on",
-      "a beechnut case split into four",
+      "a beechnut case opened into four",
       "a sweet chestnut case like a hedgehog",
       "a jay's feather with blue stripes",
       "a wood mouse sitting on a toadstool",
       "a cushion of moss on a stone",
       "a squirrel burying a hazelnut",
-      "a curl of papery birch bark",
+      "a scroll of papery birch bark",
       "a bracket fungus like a stack of shelves",
       "a hazel leaf turned butter yellow"
     ]
@@ -497,7 +497,7 @@
       "a fox trotting along the top of a wall",
       "a bird box with a cap of snow",
       "an icicle hanging from the gutter",
-      "a snowball balanced on a fence post",
+      "a snowball left on the doorstep",
       "a bobble hat with a snowflake pattern",
       "a rose hip wearing a dab of snow"
     ]
@@ -506,15 +506,15 @@
     "id": "theme-winter-mantelpiece",
     "title": "The Winter Mantelpiece",
     "of": "on the winter mantelpiece",
-    "phrases": ["a stocking on a hook", "cards from far away"],
+    "phrases": ["cards from far away", "a draught down the chimney"],
     "seasons": ["winter"],
     "mood": "warm",
     "colours": ["#A8382F", "#3F5E45", "#D9A54A"],
     "slots": [
       "a clementine with its peel in one piece",
-      "a candle in a brass holder",
+      "a candle stub on a saucer",
       "a row of cards with one tipped over",
-      "a pine cone painted white at the tips",
+      "a pine cone dipped in silver paint",
       "a paper star hanging from a ribbon",
       "a carriage clock with a slow tick",
       "a china dog with a chipped ear",
@@ -529,23 +529,23 @@
     "id": "theme-frosty-garden",
     "title": "The Frosty Garden",
     "of": "from the frosty garden",
-    "phrases": ["every web drawn in white", "the lawn crunching underfoot"],
+    "phrases": ["the shed roof furred white", "the lawn crunching underfoot"],
     "seasons": ["winter"],
     "mood": "cool",
     "colours": ["#9FB3C2", "#5E7A5A", "#C9D6DE"],
     "slots": [
       "a cobweb strung with frost between two canes",
       "a frozen bird bath with a leaf trapped inside",
-      "a blackbird turning over stiff leaves",
+      "a redwing with a cream stripe over its eye",
       "a teasel head rimed in white",
-      "an upturned flowerpot glittering with frost",
+      "a terracotta pot glittering with frost",
       "a kale leaf edged with ice crystals",
-      "a wren ticking from the woodpile",
+      "a wren cocking its tail on the woodpile",
       "a cotoneaster branch thick with red berries",
-      "a garden fork left standing in the soil",
+      "a garden fork upright in the hard soil",
       "a hellebore nodding its pale head",
       "a snowdrop just through the ground",
-      "a lost glove propped on a fence post"
+      "a lost glove waving from a fence post"
     ]
   }
 ]

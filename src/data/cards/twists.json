@@ -38,7 +38,7 @@
     "id": "twist-hearthfire",
     "title": "The Hearthfire",
     "rule": "Use warm colours only, and burnish them until they glow like embers.",
-    "phrases": ["ember reds and toast browns", "everything warmed through"],
+    "phrases": ["ember reds and toast browns", "warmed right through"],
     "effects": { "palette": "hearthfire" }
   },
   {
@@ -86,7 +86,7 @@
   {
     "id": "twist-keyhole",
     "title": "The Keyhole",
-    "rule": "Frame the scene inside a keyhole shape, as though you were peering through an old door.",
+    "rule": "Frame the scene inside a keyhole shape, as though you were spying from the other side of a door.",
     "phrases": ["an eye to the lock", "only allowed a glimpse"],
     "effects": { "frame": "vignette" }
   },
@@ -122,13 +122,13 @@
     "id": "twist-three-studies",
     "title": "Three Studies",
     "rule": "Draw the subject three times across the page, from the front, the side and the back.",
-    "phrases": ["front, side and back", "a naturalist's notebook page"],
+    "phrases": ["turn it round and look again", "a naturalist's notebook page"],
     "effects": { "frame": "three-studies" }
   },
   {
     "id": "twist-bookmark",
     "title": "The Bookmark",
-    "rule": "Fit everything into a tall, narrow strip the shape of a bookmark.",
+    "rule": "Fit the picture into a tall, narrow strip the shape of a bookmark.",
     "phrases": ["tall and narrow", "a slice through the middle"],
     "effects": { "frame": "tall-strip" }
   },

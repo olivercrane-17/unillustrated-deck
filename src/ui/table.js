@@ -3,7 +3,7 @@ import { h, raw, mount, prefersReducedMotion, wait } from './h.js'
 import { renderCard, flip } from './card.js'
 import { ICONS, pencilSvg } from './ornaments.js'
 import {
-  state, content, pencilSets, currentReading, deal, choices, logReshuffle, clearReshuffles, saveReading,
+  state, subscribe, content, pencilSets, currentReading, deal, choices, logReshuffle, clearReshuffles, saveReading,
   updateReading, engineContext, pencilHex, readingsByDate, faceSealFor, imageUrl, pencilCatalogue, startDrawing,
   ownedPencils,
 } from '../store/state.js'
@@ -378,6 +378,12 @@ export async function render(root) {
   }
 
   // ---------------------------------------------------------------------------
+
+  // If the current reading gets sealed or marked drawn elsewhere (for example
+  // a seal that finished after she came back), step back to the idle table.
+  cleanups.push(subscribe((what) => {
+    if (what === 'seal' && !busy && view.querySelector('.reading') && !inProgress(currentReading())) showIdle()
+  }))
 
   const r = currentReading()
   if (inProgress(r)) showReading(r, { animate: false })

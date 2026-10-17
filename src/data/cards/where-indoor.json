@@ -4,7 +4,7 @@
     "title": "The Warmest Windowsill",
     "at": "on the warmest windowsill",
     "phrases": ["a patch of sun", "the radiator ticking below"],
-    "scope": "threshold",
+    "scope": "indoor",
     "admits": ["tabletop", "visitor"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -283,7 +283,7 @@
     "title": "The Tearoom Window",
     "at": "in the tearoom window",
     "phrases": ["a cake stand stacked in tiers", "a lace curtain on a sagging wire"],
-    "scope": "threshold",
+    "scope": "indoor",
     "admits": ["tabletop", "village"],
     "maxScale": "small",
     "seasons": ["spring", "summer", "autumn", "winter"],
@@ -346,6 +346,6 @@
     "frames": ["window", "thirds", "close-crop"],
     "colours": ["#9DB38F", "#C2453A"],
     "role": "for the geranium leaves and flowers",
-    "excludes": ["fur-long-tailed-tit", "fur-goldfinch", "fur-swallow", "fur-hedgehog", "fur-dormouse", "fur-red-squirrel", "fur-fox-cub", "fur-pipistrelle-bat", "fur-frog", "fur-toad", "hearth-enamel-kettle", "hearth-hot-water-bottle"]
+    "excludes": ["fur-blue-tit", "fur-long-tailed-tit", "fur-goldfinch", "fur-swallow", "fur-hedgehog", "fur-dormouse", "fur-red-squirrel", "fur-fox-cub", "fur-pipistrelle-bat", "fur-frog", "fur-toad", "hearth-enamel-kettle", "hearth-hot-water-bottle"]
   }
 ]

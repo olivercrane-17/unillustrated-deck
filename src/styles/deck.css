@@ -133,12 +133,15 @@ h3.suit-head .suit-mark {
   width: auto;
   height: 76cqw;
 }
-.gallery-card .card-title,
-.detail-figure .card-title {
+.gallery-card .card-title {
   font-size: max(11px, 10.5cqw);
 }
+.detail-figure .card-title {
+  font-size: 10cqw;
+}
 .gallery-card .card-title,
-.rest-card .card-title {
+.rest-card .card-title,
+.detail-figure .card-title {
   max-width: 100%;
   hyphens: auto;
   overflow-wrap: anywhere;
@@ -146,7 +149,8 @@ h3.suit-head .suit-mark {
 /* A long word ("Bladderwrack") must not widen the card's one column and push
    the title and photo out past the frame. */
 .gallery-card .card-front,
-.rest-card .card-front {
+.rest-card .card-front,
+.detail-figure .card-front {
   grid-template-columns: minmax(0, 1fr);
 }
 .gallery-card:hover .card-face,

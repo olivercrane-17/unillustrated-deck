@@ -1,6 +1,6 @@
 # Sample readings
 
-384 readings dealt and checked; 96 shown (48-pencil tin).
+1024 readings dealt and checked; 96 shown (48-pencil tin).
 
 ## spring, north, quick
 - **Draw:** A striped deckchair has a sunhat left on its seat.
@@ -69,12 +69,12 @@ First mark: Start with the leather straps, two short bands of Dark Brown across 
 ## spring, north, big
 - **Draw:** A mug of cocoa is still too hot to drink.
 - **Where:** In the tearoom window.
-- **When:** On the first warm day of spring.
-- **Light:** Keep the colours light and clear, with yellowy greens and plenty of white paper showing.
+- **When:** As the sun comes up through the mist.
+- **Light:** Leave a round of bare paper for the sun and make each thing paler the further back it sits.
 - **Also:** A hyacinth in a glass is in full flower, every bell open.
 - **Twist:** Hide a small animal somewhere in the picture for someone else to find.
-Tin, Kingfisher Flash: PC945 Sienna Brown (for the glazed mug); PC927 Light Peach (for the lace and the raspberry shopfront); PC1008 Parma Violet (for the hyacinth in a glass); PC946 Dark Brown (for the short shadows of a high spring sun); PC916 Canary Yellow (for the new light on every upturned surface)
-First mark: Start with the inside of the rim, a thin dark band of Dark Brown just under the top edge.
+Tin, Blue Hour Heron: PC945 Sienna Brown (for the glazed mug); PC927 Light Peach (for the lace and the raspberry shopfront); PC1008 Parma Violet (for the hyacinth in a glass); PC901 Indigo Blue (for the nearest shapes, the only ones with real darks); PC916 Canary Yellow (for the white sun and the mist around it)
+First mark: Start with the inside of the rim, a thin dark band of Indigo Blue just under the top edge.
 
 ## spring, north, small
 - **Draw:** Six small things from a rainy Sunday.

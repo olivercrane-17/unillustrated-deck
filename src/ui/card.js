@@ -34,7 +34,7 @@ export function renderCard({ card, label = '', size = 'sm', faceDown = false, im
         corners(),
         label ? h('span.card-label', label) : null,
         h(`div.card-art${imageUrl ? '.has-image' : ''}`,
-          imageUrl ? h('img', { src: imageUrl, alt: `Her drawing for ${card.title}`, draggable: false }) : raw(EMBLEMS[suit] || EMBLEMS.twist),
+          imageUrl ? h('img', { src: imageUrl, alt: `Your drawing for ${card.title}`, draggable: false }) : raw(EMBLEMS[suit] || EMBLEMS.twist),
         ),
         h('span.card-title', card.title),
         showPhrases && card.phrases?.length ? h('span.card-phrases', card.phrases.map((p) => h('span', p))) : null,

@@ -715,7 +715,7 @@
     "the": "the cockle shell",
     "phrases": ["ribbed like corduroy", "one half of a pair"],
     "doing": [
-      { "t": "is still joined at the hinge, open like a butterfly", "scope": "any" },
+      { "t": "is open like a butterfly, still joined at the hinge", "scope": "any" },
       { "t": "has a neat round hole worn near its hinge", "scope": "any" },
       { "t": "is holding a thimbleful of water", "scope": "any" },
       { "t": "is one of a row of shells set out by size", "scope": "any" }
@@ -856,10 +856,10 @@
     "the": "the rose",
     "phrases": ["a scent you lean in for", "petals like folded silk", "one thorn under a leaf"],
     "doing": [
-      { "t": "is opening slowly, still tight in the middle", "scope": "any" },
+      { "t": "is half open, its heart still tightly furled", "scope": "any" },
       { "t": "is full blown and dropping its petals one by one", "scope": "any" },
       { "t": "has a single drop of water sitting on one petal", "scope": "any" },
-      { "t": "is standing in a milk bottle, its stem a little too long", "scope": "indoor" }
+      { "t": "is standing in a milk bottle, leaning to one side", "scope": "indoor" }
     ],
     "close": ["Just the rose, looking straight down into the whorl of petals.", "Only the rose and one leaf, from the side."],
     "scale": "small",

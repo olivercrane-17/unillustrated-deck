@@ -108,7 +108,7 @@
     "frames": ["tall-strip", "thirds"],
     "colours": ["#7B6A50", "#6C8A43"],
     "role": "for the tilting posts and the cabbages",
-    "excludes": ["fur-grey-heron", "fur-lamb", "fur-goat-kid", "fur-guinea-pig", "fur-roe-fawn", "hearth-patchwork-quilt", "hearth-wooden-sledge", "leaf-fly-agaric"]
+    "excludes": ["fur-grey-heron", "fur-lamb", "fur-goat-kid", "fur-guinea-pig", "fur-roe-fawn", "hearth-library-books", "hearth-knitting", "hearth-patchwork-quilt", "hearth-wooden-sledge", "leaf-fly-agaric"]
   },
   {
     "id": "where-water-butt",
@@ -136,7 +136,7 @@
     "frames": ["thirds", "vignette"],
     "colours": ["#8E9C80", "#6D5843"],
     "role": "for the slatted seat and its peeling paint",
-    "excludes": ["fur-great-spotted-woodpecker", "fur-guinea-pig", "fur-goldfish", "fur-hedgehog", "fur-mole", "fur-pipistrelle-bat", "fur-frog", "fur-toad", "fur-great-crested-newt", "fur-slow-worm", "fur-shrew", "hearth-pancakes", "hearth-tomato-soup", "hearth-porridge", "hearth-enamel-kettle", "hearth-button-jar", "hearth-snow-globe", "hearth-alarm-clock", "leaf-fly-agaric", "leaf-fern", "leaf-bramble", "leaf-snowdrops", "leaf-bluebells", "leaf-mossy-stone", "leaf-speckled-egg", "leaf-poppy", "leaf-hyacinth"]
+    "excludes": ["fur-great-spotted-woodpecker", "fur-guinea-pig", "fur-goldfish", "fur-hedgehog", "fur-mole", "fur-pipistrelle-bat", "fur-frog", "fur-toad", "fur-great-crested-newt", "fur-slow-worm", "fur-shrew", "hearth-pancakes", "hearth-tomato-soup", "hearth-porridge", "hearth-enamel-kettle", "hearth-button-jar", "hearth-tulips", "hearth-snow-globe", "hearth-alarm-clock", "leaf-fly-agaric", "leaf-fern", "leaf-bramble", "leaf-snowdrops", "leaf-bluebells", "leaf-mossy-stone", "leaf-speckled-egg", "leaf-poppy", "leaf-hyacinth"]
   },
   {
     "id": "where-bird-table",
@@ -332,7 +332,7 @@
     "frames": ["from-above", "close-crop"],
     "colours": ["#C8D5DD", "#7B6F5E"],
     "role": "for the milky ice and the cracks across it",
-    "excludes": ["fur-grey-heron", "fur-barn-owl", "fur-tawny-owl", "fur-great-spotted-woodpecker", "fur-ladybird", "fur-spotted-pig", "fur-hedgehog", "fur-dormouse", "fur-harvest-mouse", "fur-mole", "fur-shrew", "leaf-rosehips", "leaf-fern", "leaf-snowdrops", "leaf-ivy", "leaf-mossy-stone", "leaf-birds-nest", "leaf-catkins", "leaf-honesty"]
+    "excludes": ["fur-grey-heron", "fur-barn-owl", "fur-tawny-owl", "fur-great-spotted-woodpecker", "fur-ladybird", "fur-spotted-pig", "fur-hedgehog", "fur-dormouse", "fur-harvest-mouse", "fur-mole", "fur-shrew", "leaf-rosehips", "leaf-fern", "leaf-snowdrops", "leaf-acorn", "leaf-ivy", "leaf-mossy-stone", "leaf-birds-nest", "leaf-catkins", "leaf-honesty"]
   },
   {
     "id": "where-pumpkin-patch",

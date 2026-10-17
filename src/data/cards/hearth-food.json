@@ -344,7 +344,7 @@
     "phrases": ["jam first, or cream first", "a matter of county pride"],
     "doing": [
       { "t": "is split in half and piled high", "scope": "any" },
-      { "t": "has a dollop of clotted cream sliding off the top", "scope": "any" },
+      { "t": "has clotted cream sliding down one side", "scope": "any" },
       { "t": "has a strawberry perched on the cream", "scope": "any" },
       { "t": "has a robin waiting politely for crumbs", "scope": "outdoor" }
     ],
@@ -457,7 +457,7 @@
     "doing": [
       { "t": "is heaped with brown and speckled eggs", "scope": "any" },
       { "t": "has a feather caught among the eggs", "scope": "any" },
-      { "t": "has one pale blue egg among the brown ones", "scope": "any" },
+      { "t": "has one pale blue egg in with the brown ones", "scope": "any" },
       { "t": "is lined with a checked tea towel", "scope": "any" },
       { "t": "is being guarded by a beady-eyed hen", "scope": "outdoor" }
     ],
@@ -823,7 +823,7 @@
       { "t": "is clinking with ice and lemon slices", "scope": "any" },
       { "t": "has a striped paper straw tipped against the rim", "scope": "any" },
       { "t": "has cold drops running down the glass", "scope": "any" },
-      { "t": "has a sprig of mint floating at the top", "scope": "any" }
+      { "t": "has a sprig of mint bobbing among the ice", "scope": "any" }
     ],
     "close": ["Just the jar, with the lemon slices pressed against the glass.", "Only the top of the jar, ice and mint and the straw."],
     "scale": "small",

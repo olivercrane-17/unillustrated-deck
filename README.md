@@ -34,7 +34,7 @@ When the drawing is finished, you can photograph it and **seal it into its card*
   - Hearth
   - Places and hours
 
-  They're combined by compatibility rules, so you never get a heron on the teacup shelf. They also follow the real season in your hemisphere: conkers in October, never snow in July.
+  They're combined by compatibility rules, so you never get a heron on the teacup shelf. They also follow the real season in your hemisphere: conkers in autumn, blossom in spring, and snow in winter, not summer.
 - **Your tin.**
   - Tick the pencils you really own. Presets for the 12, 24, 48 and 150 boxes are only a starting point.
   - The 48 tin asks which purple you have, since Lilac was retired in 2022.
